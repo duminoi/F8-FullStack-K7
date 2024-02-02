@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h2>HTML Form</h2>
+    <form
+      action="https://api-gateway.fullstack.edu.vn/action_page.php"
+      method="post"
+    >
+      <div>
+        <label for="lbl-name">Ho và tên</label>
+        <input
+          id="lbl-name"
+          type="text"
+          name="name"
+          placeholder="Họ và tên..... "
+          value="Đức minh"
+          required
+        />
+      </div>
+      <div>
+        <label for="lbl-name">Email</label>
+        <input
+          id="lbl-email"
+          type="email"
+          name="email"
+          placeholder="example@gmail.com"
+          required
+        />
+      </div>
+      <div>
+        <label for="lbl-password">Password</label>
+        <input
+          id="lbl-password"
+          type="password"
+          name="password"
+          placeholder="password "
+          required
+        />
+      </div>
+
+      <div>
+        <label for="lbl-age">Tuổi</label>
+        <input
+          id="lbl-age"
+          type="number"
+          name="age"
+          placeholder="Tuổi..."
+          min="18"
+          max="50"
+          step="0.1"
+        />
+      </div>
+      <div>
+        <label for="lbl-avatar">avatar</label>
+        <input id="lbl-avatar" type="file" name="avatar" multiple/>
+      </div>
+      <div>
+        <label for="lbl-search">Search</label>
+        <input
+          id="lbl-search"
+          type="search"
+          name="search"
+          placeholder="Tìm kiếm"
+          required
+        />
+      </div>
+      <div>
+        <label for="lbl-birthday">Ngày sinh</label>
+        <input id="lbl-birthday" type="date" name="birthday" />
+      </div>
+      <div>
+        <label for="lbl-color">color</label>
+        <input id="lbl-color" type="color" name="color" />
+      </div>
+      <div>
+        <label for="">Giới tính</label>
+        <label>
+          <input type="radio" name="gender" value="unknown" /> Không xác định
+        </label>
+        <label> <input type="radio" name="gender" value="nữ" /> Nữ </label>
+        <label>
+          <input type="radio" name="gender" value="nam" checked /> Nam
+        </label>
+      </div>
+      <div>
+        <label for="">Bạn biết F8 qua đâu?</label>
+        <label>
+          <input type="checkbox" name="gender" value="1" /> youtube
+        </label>
+        <label>
+          <input type="checkbox" name="gender" value="2" /> facebook
+        </label>
+        <label>
+          <input type="checkbox" name="gender" value="3" checked /> website
+        </label>
+      </div>
+      <div>
+        <label>Giá</label>
+        <input type="range" id="lbl-price" name="price" value="0" />
+      </div>
+      <!-- thuộc tính for của label ph tương ứng với các id của thẻ nhập liệu -->
+      <div>
+        <label for="lbl-message">Tin nhắn</label>
+        <textarea name="message" id="lbl-message" placeholder="tin nhắn....">
+        Nội dung tin nhắn
+        Nội dung tin nhắn
+        </textarea>
+      </div>
+      <div>
+        <label for="lbl-province">Tỉnh/thành phố</label>
+        <select name="province" id="lbl-province" multiple>
+            <option value="0">Chọn tỉnh /thành</option>
+            <option value="1" selected>Hà Nội</option>
+            <option value="2">Tp.HCM</option>
+        </select>
+      </div>
+      <button type="submit">Submit</button>
+      <button type="button">Button</button>
+      <button type="reset">Reset</button>
+    </form>
+  </body>
+</html>
+<!-- 
+        form:
+        -Biểu mẫu để gửi dữ liệu
+        -Không được lồng nhau
+        -trên 1 trang có thể có nhiều form
+        
+        form có 2 thành phần
+        -field: Trường nhập liệu
+        -Button: Nút gửi dữ liệu
+     -->

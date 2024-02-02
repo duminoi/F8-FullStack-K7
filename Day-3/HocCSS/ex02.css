@@ -1,0 +1,50 @@
+/* selector::
+    -Class thì sử dụng dấu.
+    -Id thì sử dụng #
+*/
+/* .title{
+    color: brown;
+}
+.title-big{
+    color: aqua;
+}
+.title-middle{
+    color: coral;
+}
+.title-footer{
+    color: blueviolet;
+} */
+h3{
+    color: crimson;
+}
+/* #about-box .title{
+    color: rgb(15, 18, 18);
+}
+#contact-box .title{
+    color: coral;
+}
+#product-box .title{
+    color: blueviolet;
+} */
+#box > .title {
+    color: red;
+}
+#box > div > .title-middle {
+    color: chartreuse;
+}
+
+.content h2.title {
+    color:red;
+}
+.content h3.title { 
+    color:green;
+}
+/* selector cùng cấp: viết nối liền
+    khi cách nhau ra ý nghĩa:nằm bên trong
+*/
+/* 
++ 
+~
+,
+attribute selector
+*/
