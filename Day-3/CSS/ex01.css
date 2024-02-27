@@ -1,0 +1,30 @@
+/* p {
+  color: red;
+}
+
+h2 {
+  color: yellow;
+  background-color: rgb(249, 97, 97);
+} */
+
+/* element */
+/* 
+* {
+  color: red;
+} */
+/* .box .title {
+  color: red;
+}
+.wrapper .title {
+  color: green;
+} */
+
+/* .box > .title {
+  color: green;
+} */
+/* .menu > li > a {
+  color: red;
+} */
+.menu ul a {
+  color: green;
+}

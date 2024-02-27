@@ -1,0 +1,26 @@
+.warp-role {
+  display: flex;
+}
+.warp-sign {
+  display: flex;
+}
+.role {
+  display: flex;
+  flex-direction: column;
+}
+.sign {
+  display: flex;
+  flex-direction: column;
+}
+.btn {
+  margin-left: 20%;
+}
+form {
+  margin-left: 25%;
+}
+form > div > label {
+  margin-right: 50px;
+}
+form > div {
+  margin-bottom: 10px;
+}

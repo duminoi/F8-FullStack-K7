@@ -1,0 +1,23 @@
+.wrapper {
+  text-align: center;
+}
+.number {
+  width: 100px;
+  background-color: rgb(154, 127, 179);
+  color: aliceblue;
+  text-align: center;
+  align-self: center;
+  margin-left: 46%;
+}
+body {
+  align-items: center;
+}
+button {
+  background-color: rgb(59, 58, 58);
+  color: white;
+  width: 84px;
+  height: 36px;
+}
+.company p {
+  color: aquamarine;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bài 3</title>
+    <link rel="stylesheet" href="/Day-3/bai3/bai3.css" />
+  </head>
+  <body>
+    <form action="" method="get">
+      <div>
+        <label for="name">Username</label>
+        <input type="text" id="name" />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" />
+      </div>
+      <div>
+        <label for="city">City of employment</label>
+        <input type="text" id="city" />
+      </div>
+      <div>
+        <label for="lbl-web">Web server</label>
+        <select name="web" id="lbl-web">
+          <option value="0">-Choose web server-</option>
+          <option value="1"></option>
+          <option value="2"></option>
+        </select>
+      </div>
+      <div class="warp-role">
+        <label>Please specify your role:</label>
+        <div class="role">
+          <label> <input type="radio" name="role" value="admin" />Admin </label>
+          <label>
+            <input type="radio" name="role" value="Engineer" />Engineer
+          </label>
+          <label>
+            <input type="radio" name="role" value="Manager" />Manager
+          </label>
+          <label> <input type="radio" name="role" value="Guest" />Guest </label>
+        </div>
+      </div>
+      <div class="warp-sign">
+        <label>Single sign-on the following:</label>
+        <div class="sign">
+          <label> <input type="checkbox" name="sign" value="ail" />Mail </label>
+          <label>
+            <input type="checkbox" name="sign" value="payroll" />Payroll
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="sign"
+              value="self-service"
+            />Self-service
+          </label>
+        </div>
+      </div>
+      <div class="btn">
+        <button class="login">login</button>
+        <button class="reset">reset</button>
+      </div>
+    </form>
+  </body>
+</html>
