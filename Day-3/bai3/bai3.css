@@ -1,4 +1,4 @@
-.warp-role {
+.wrap-role {
   display: flex;
 }
 .warp-sign {
@@ -13,14 +13,18 @@
   flex-direction: column;
 }
 .btn {
-  margin-left: 20%;
+  margin-left: 11%;
 }
 form {
-  margin-left: 25%;
 }
 form > div > label {
-  margin-right: 50px;
+  /* margin-right: 50px; */
+  /* display: block; */
+  width: 110px;
+  padding-right: 15px;
+  padding-bottom: 10px;
 }
 form > div {
   margin-bottom: 10px;
+  display: flex;
 }

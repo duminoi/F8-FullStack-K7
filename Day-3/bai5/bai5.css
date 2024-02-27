@@ -2,12 +2,14 @@
   text-align: center;
 }
 .number {
-  width: 100px;
-  background-color: rgb(154, 127, 179);
-  color: aliceblue;
+  margin: 0 auto;
+  width: 190px;
+  height: 61px;
+  background: #7f2ecb;
+  color: white;
   text-align: center;
-  align-self: center;
-  margin-left: 46%;
+  font-size: xx-large;
+  line-height: 60px;
 }
 body {
   align-items: center;
@@ -20,4 +22,10 @@ button {
 }
 .company p {
   color: aquamarine;
+}
+span {
+  color: rgb(86 161 241);
+}
+.plan {
+  margin-right: 13px;
 }
