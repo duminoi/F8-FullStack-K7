@@ -14,6 +14,7 @@
     align-items: center; 
     justify-content: center;
     flex-direction: column;
+    position: relative;
 }
 nav{
     margin-top: 20px;
@@ -51,25 +52,30 @@ img{
     height: 255px;
 }
 .product-1{
-    margin:30px 30px ;
+    margin: 30px 30px;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 .pic-2{
     position: absolute;
    left: 0;
 }
-.product-1:hover .pic-2{
+ .image:hover .pic-2{
     display: none;
 }
+.image:hover ~ .funtion{
+    visibility: visible;
+   }
 
-.function{
+.product .function{
    
     position: absolute;
     bottom: 4px;
     left: 6px;
     display: flex;
     flex-direction: column;
-     visibility: hidden;
+    visibility:hidden;
 
 
 }
@@ -106,9 +112,8 @@ img{
 ul li button{
 
 }
-.product-skincare{
-    display: flex;
-}
+
+
 .des{
     position: absolute;
     left: 49px;
@@ -122,6 +127,48 @@ ul li button{
 .price{
     display: flex;
 }
-.product-1:hover .funtion{
-  visibility: visible;
+
+ i[class="fa-solid fa-star"]{
+    color: rgb(233, 233, 7);
+}
+i[class="fa-solid fa-star"]:last-of-type{
+  color: grey;
+}
+#skincare:checked ~ nav label[for="skincare"],
+#haircare:checked ~ nav label[for="haircare"],
+#cosmetics:checked ~ nav label[for="cosmetics"],
+#fragrance:checked ~ nav label[for="fragrance"],
+#makeup:checked ~ nav label[for="makeup"]{
+    background-color: rgba(11, 11, 163, 0.918);
+color: aliceblue;
+}
+ .product{
+visibility: hidden;
+display: flex;
+}
+.container .product-skincare,
+.container .product-haircare,
+.container .product-cosmetics,
+.container .product-fragrance,
+.container .product-makeup{
+    position: absolute;
+    top: 50px;
+}
+
+#skincare:checked  ~ .product-skincare{
+
+visibility: visible;
+
+}
+#haircare:checked  ~ .product-haircare{
+visibility: visible;
+}
+#cosmetics:checked  ~ .product-cosmetics{
+visibility: visible;
+}
+#fragrance:checked  ~ .product-fragrance{
+    visibility: visible;
+}
+#makeup:checked  ~ .product-makeup{
+    visibility: visible;
 }
