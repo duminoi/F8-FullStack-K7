@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.container{
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-direction: column;
+}
+nav{
+    margin-top: 20px;
+}
+.container nav label{
+
+    /* display: block; */
+    padding:  10px 20px;
+    width: 100%;
+    height: 50px;
+    margin: 10px 2px;
+    background-color: rgba(230, 227, 227, 0.788);
+    
+ 
+}
+.container nav label:hover{
+background-color: rgba(11, 11, 163, 0.918);
+color: aliceblue;
+}
+
+ input[type="radio"]{
+    display: none;
+ }
+/* .container ~ nav label[for="skincare"] ,
+.container ~ nav label[for="haircare"],
+.container ~ nav label[for="cosmetics"],
+.container ~ nav label[for="fragrance"],
+.container ~ nav label[for="makeup"]
+{
+    
+} */
+
+img{
+    width: 235px;
+    height: 255px;
+}
+.product-1{
+    margin:30px 30px ;
+    position: relative;
+}
+.pic-2{
+    position: absolute;
+   left: 0;
+}
+.product-1:hover .pic-2{
+    display: none;
+}
+
+.function{
+   
+    position: absolute;
+    bottom: 4px;
+    left: 6px;
+    display: flex;
+    flex-direction: column;
+     visibility: hidden;
+
+
+}
+.function i {
+    /* padding: 20px; */
+    background-color: darkblue;
+    width: 50PX;
+    height: 50px;
+    color: aliceblue;
+    vertical-align: center;
+}
+.function .add{
+    margin-right: 6px;
+    background-color: darkblue;
+    width: 100%;
+    height: 50px;
+    color: aliceblue;
+    vertical-align: center;
+
+}
+.function .icon{
+    margin-bottom: 10px;
+}
+.container ul {
+    display: flex;
+    list-style: none;
+
+}
+.container li{
+    text-decoration: none;
+     margin: 10px;
+    
+}
+ul li button{
+
+}
+.product-skincare{
+    display: flex;
+}
+.des{
+    position: absolute;
+    left: 49px;
+    top: 308px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+.price{
+    display: flex;
+}
+.product-1:hover .funtion{
+  visibility: visible;
+}
