@@ -1,0 +1,41 @@
+/* 
+Thuộc tính line-height: Thiết lập chiều cao của dòng chữ
+Cú pháp: line-height: value + unit hoặc value
+
+Thuộc tính font-family: Thiết lập font chữ cho văn bản
+Cú pháp: font-family: font1,font2,font3..
+*/
+
+/* .content {
+  font-size: 30px;
+  line-height: 1.5;
+} */
+@font-face {
+  font-family: OpenSans;
+  src: url("../../font/OpenSans-LightItalic.ttf");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: OpenSans;
+  src: url("../../font/OpenSans-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: OpenSans;
+  src: url("../../font/OpenSans-MediumItalic.ttf");
+  font-style: italic;
+  font-weight: 500;
+}
+@font-face {
+  font-family: OpenSans;
+  src: url("../../font/OpenSans-BoldItalic.ttf");
+  font-weight: 700;
+  font-style: italic;
+}
+
+body {
+  font-family: OpenSans, san-serif;
+  font-weight: 500;
+  font-style: italic;
+}
