@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+}
+.wrapper {
+  margin-bottom: 10px;
+}
+/* h2 */
+.wrapper h2 {
+  position: relative;
+  display: block;
+  padding: 6px 0px;
+  background: rgb(216, 90, 6);
+}
+.wrapper label {
+  height: 30px;
+  padding: 60px 0x;
+  color: aliceblue;
+}
+.para {
+  padding-left: 20px;
+  display: none;
+}
+input[type="checkbox"]:checked ~ h2 label::before {
+  content: "-";
+  padding-right: 10px;
+}
+#p1:checked ~ .para1,
+#p2:checked ~ .para2,
+#p3:checked ~ .para3 {
+  display: block;
+}
+.wrapper label::before {
+  content: "+ ";
+}
+/* div[class="para para1"] {
+  color: red;
+} */
