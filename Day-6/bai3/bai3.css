@@ -12,7 +12,7 @@ body {
   width: 100vh;
   height: 100vh;
   margin: 0 auto;
-  background: url(../img/login-bg2.jpg) 0 0 / cover no-repeat;
+  background: url("../img/login-bg2.jpg") 0 0 / cover no-repeat;
   align-items: center;
 }
 .container {
