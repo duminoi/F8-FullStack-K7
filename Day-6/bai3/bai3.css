@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* base */
+body {
+  font-family: Nunito;
+  background-color: #ff574d;
+  display: flex;
+  width: 100vh;
+  height: 100vh;
+  margin: 0 auto;
+  background: url(http://uiwebsoft.com/justlog/login-one/images/login-bg2.jpg) 0
+    0 / cover no-repeat;
+  align-items: center;
+}
+.container {
+  display: flex;
+  margin: 0 auto;
+  width: 722px;
+  height: 423px;
+  border: none;
+  border-radius: 10px;
+}
+/* left side */
+.container-left {
+  padding: 0 15px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 45%;
+  height: 100%;
+  background-color: #e55047;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px 0 0 10px;
+}
+h2::before {
+  content: " JL ";
+  width: 30%;
+  height: 100%;
+  background-color: white;
+  color: #e55047;
+  padding: 0 2px;
+  border-radius: 5px;
+  margin-right: 7px;
+}
+.container-right {
+  width: 55%;
+  height: 100%;
+  background-color: white;
+  border-radius: 0 10px 10px 0;
+}
+
+.container-left button {
+  height: 10%;
+  margin: 20px 0;
+  width: 43%;
+  border: none;
+  border-radius: 3px;
+  background-color: white;
+  color: #ff574d;
+}
+.container-left p {
+  margin: 10px 0;
+}
+
+.container-left ul {
+  display: flex;
+  list-style-type: none;
+}
+.container-left .fa-brands {
+  width: 30px;
+  height: 30px;
+  border: none;
+  color: white;
+  background-color: #2220201a;
+  border-radius: 5px;
+  line-height: 163%;
+  text-align: center;
+  font-size: 17px;
+}
+.container-left ul li {
+  padding: 0 5px;
+}
+.container-left p {
+  font-size: 12px;
+}
+/* right side */
+.container-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: -20px;
+  top: 46%;
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0px 0px 2px 0px #cacaca;
+}
+.icon-wrapper i {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e55047;
+}
+
+.container-right p {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+input[type="Email"],
+input[type="Password"] {
+  width: 80%;
+  height: 48px;
+  margin: 10px 0;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #cacaca;
+  box-shadow: 0px 0px 2px 0px #cacaca;
+}
+
+.other,
+.re {
+  display: flex;
+}
+.re {
+  float: left;
+}
+.other label {
+  line-height: 82px;
+}
+.other p {
+  margin-left: 20px;
+}
+.container-right button {
+  width: 80%;
+  height: 48px;
+  background-color: #ff574d;
+  border: none;
+  border-radius: 3px;
+  color: white;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.container-right > p:not(.register) {
+  font-size: 30px;
+}
+span {
+  color: #ff574d;
+}
+.para-header {
+  position: relative;
+}
+.para-header::after {
+  content: ".";
+  position: absolute;
+  display: block;
+  background-color: #ff574d;
+  width: 60px;
+  height: 1px;
+  top: 40px;
+  left: 120px;
+  color: white;
+}

@@ -1,9 +1,13 @@
+@font-face {
+  font-family: "Open sans";
+  src: url(../font/OpenSans-Medium.ttf);
+}
 body {
+  font-family: "Open sans";
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 .nav {
   margin-top: 30px;
   display: flex;
@@ -18,9 +22,9 @@ ul {
   width: 800px;
   height: 50px;
 }
-li {
-}
+
 a {
+  text-decoration: none;
   padding: 0 10px;
   margin: 0 2px;
   display: flex;
@@ -29,7 +33,9 @@ a {
 
   border: 1px solid #cacaca;
 }
-a:not(.home-item):not(.blog-item):not(.space-item) {
+.about a,
+.news a,
+.Portfolio a {
   width: 100px;
   height: 100%;
   color: #726b6b;
@@ -40,30 +46,48 @@ a.blog-item {
   height: 100%;
   color: #726b6b;
 }
-a:not(.contact-item) {
-}
+a.contact-item,
 a.space-item {
   width: 300px;
   height: 100%;
   color: #726b6b;
+}
+i:first-child,
+i:last-child {
+  margin: 0 10px;
 }
 
 .news {
   position: relative;
 }
 .news .company-box {
-  display: flex;
-
-  left: 0;
-  bottom: -20px;
   position: absolute;
+  display: none;
+  /* box-shadow: 0 0px 5px rgba(0, 0, 0, 0.3); */
+}
+.nav > ul > li:hover,
+.company-box > li:hover {
+  background-color: #2da5da;
+}
+li:hover .company-box {
   display: block;
 }
-li a:hover {
-  background-color: rgb(32, 100, 189);
-  color: aliceblue;
+
+.nav > ul > li:hover > a,
+.company-box > li:hover > a {
+  color: white;
 }
-.company-box {
-  height: 10px;
-  display: flex;
+
+.company-box a {
+  display: inline-block;
+  width: 140px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #cacaca;
+  height: 30px;
+}
+.company-box li {
+  display: block;
+  width: 100px;
+  height: 30px;
 }
