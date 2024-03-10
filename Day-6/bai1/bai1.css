@@ -9,10 +9,11 @@ body {
   box-sizing: border-box;
 }
 .nav {
-  margin-top: 30px;
+  margin: 30px auto 30px 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 1617px;
 }
 ul {
   margin: 0;
@@ -22,16 +23,21 @@ ul {
   width: 800px;
   height: 50px;
 }
+.nav > ul > li {
+  border: 1px solid #cacaca;
+  margin: 0 3px;
+  padding: 5px;
+}
 
 a {
+  width: 100%;
   text-decoration: none;
-  padding: 0 10px;
-  margin: 0 2px;
+  /* padding: 0 10px;
+  margin: 0 10px; */
+  display: inline-block;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  border: 1px solid #cacaca;
 }
 .about a,
 .news a,
@@ -39,6 +45,9 @@ a {
   width: 100px;
   height: 100%;
   color: #726b6b;
+}
+.Portfolio a {
+  width: 130px;
 }
 a.home-item,
 a.blog-item {
@@ -60,12 +69,32 @@ i:last-child {
 .news {
   position: relative;
 }
+/* dropdown-box */
 .news .company-box {
   position: absolute;
   display: none;
+  width: 100%;
+  height: auto;
+  left: 0px;
+  bottom: -97px;
   /* box-shadow: 0 0px 5px rgba(0, 0, 0, 0.3); */
 }
-.nav > ul > li:hover,
+
+.company-box li {
+  display: flex;
+  width: 116%;
+  border: 1px solid #cacaca;
+}
+.company-box a {
+  display: inline-block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  height: 30px;
+}
+
+/* hover ul li */
+.nav > ul > li:hover > a,
 .company-box > li:hover {
   background-color: #2da5da;
 }
@@ -76,18 +105,4 @@ li:hover .company-box {
 .nav > ul > li:hover > a,
 .company-box > li:hover > a {
   color: white;
-}
-
-.company-box a {
-  display: inline-block;
-  width: 140px;
-  padding: 0;
-  margin: 0;
-  border: 1px solid #cacaca;
-  height: 30px;
-}
-.company-box li {
-  display: block;
-  width: 100px;
-  height: 30px;
 }

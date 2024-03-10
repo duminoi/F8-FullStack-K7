@@ -133,12 +133,14 @@ input[type="Password"] {
 .other,
 .re {
   display: flex;
+  min-height: 20%;
+  width: 80%;
 }
 .re {
-  float: left;
+  /* float: left; */
 }
 .other label {
-  line-height: 82px;
+  margin-block: auto;
 }
 .other p {
   margin-left: 20px;
@@ -150,6 +152,10 @@ input[type="Password"] {
   border: none;
   border-radius: 3px;
   color: white;
+}
+.re input,
+.re lable {
+  display: inline-block;
 }
 a {
   text-decoration: none;
