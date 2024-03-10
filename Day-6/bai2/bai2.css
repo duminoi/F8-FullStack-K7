@@ -58,22 +58,22 @@ section {
   margin-bottom: 15px;
 }
 .wrapper-top section:first-of-type:hover {
-  border: 3px solid #e3765b;
+  outline: 3px solid #e3765b;
 }
 .wrapper-top section:nth-child(2):hover {
-  border: 3px solid #71c491;
+  outline: 3px solid #71c491;
 }
 .wrapper-top section:nth-child(3):hover {
-  border: 3px solid #f4c24a;
+  outline: 3px solid #f4c24a;
 }
 .wrapper-bottom section:nth-child(1):hover {
-  border: 3px solid #7192f6;
+  outline: 3px solid #7192f6;
 }
 .wrapper-bottom section:nth-child(2):hover {
-  border: 3px solid #bb5eea;
+  outline: 3px solid #bb5eea;
 }
 .wrapper-bottom section:nth-child(3):hover {
-  border: 3px solid #9bc964;
+  outline: 3px solid #9bc964;
 }
 .wrapper1 {
   box-shadow: 0px 0px 20px 0px #e8c4bb;
