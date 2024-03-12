@@ -4,19 +4,35 @@
   box-sizing: border-box;
 }
 body {
+  font-family: Asap;
   width: 100%;
   height: 100vh;
 }
 header {
   text-transform: uppercase;
+  margin-left: 335px;
 }
 header h1 {
+  float: left;
   font-size: 20px;
+  position: relative;
+}
+header h1::after {
+  content: "";
+  position: absolute;
+  background-color: #cacaca;
+  width: 740px;
+  right: -742px;
+  height: 1px;
+  top: 11px;
 }
 .container {
   width: 86%;
   height: 100vh;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 /* navigation */
 .nav ul {
@@ -26,13 +42,14 @@ header h1 {
 .nav li {
   display: flex;
   align-items: center;
-  margin: 0 20px;
+  margin: 0 8px;
   width: 129px;
   height: 50px;
   background-color: #e9e2e2;
   border-radius: 72px;
   flex-direction: column;
   justify-content: center;
+  margin: 28px 6px;
 }
 .nav li a {
   display: block;
@@ -59,17 +76,65 @@ main {
 .wrapper-top,
 .wrapper-bottom {
   display: flex;
-  width: 100%;
-  height: 40%;
+  height: 29%;
 }
-section {
+.wrapper-bottom {
   margin-top: 32px;
-  height: 167px;
-  width: 263px;
-  background: url();
-  border: 1px solid black;
-  margin-right: 172px;
 }
+/* section */
+section {
+  position: relative;
+  height: 210px;
+  width: 380px;
+  border: 1px solid black;
+  margin-right: 32px;
+  background-color: #00000036;
+  border-radius: 3px;
+  border: none;
+}
+section .district {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: aliceblue;
+  text-transform: uppercase;
+}
+section .info {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: aliceblue;
+  text-transform: uppercase;
+}
+
 .wrapper-bottom section {
   margin-top: -32px;
+}
+.img-1 {
+  background: url("https://f8git.github.io/fullstack_k7/homework/Day7/Bai_3/img/phoi-canh-precia-3.jpg")
+    0 0 / cover no-repeat;
+}
+.img-2 {
+  background: url("https://f8git.github.io/fullstack_k7/homework/Day7/Bai_3/img/quan7.webp")
+    0 0 / cover no-repeat;
+}
+.img-3 {
+  background: url("https://f8git.github.io/fullstack_k7/homework/Day7/Bai_3/img/quan9.jpg")
+    0 0 / cover no-repeat;
+}
+.img-4 {
+  background: url("https://f8git.github.io/fullstack_k7/homework/Day7/Bai_3/img/quantanbinh.jpg")
+    0 0 / cover no-repeat;
+}
+.img-5 {
+  background: url("https://f8git.github.io/fullstack_k7/homework/Day7/Bai_3/img/Ch%E1%BB%A3_Th%E1%BB%A7_%C4%90%E1%BB%A9c.jpg")
+    0 0 / cover no-repeat;
+}
+.img-6 {
+  background: url("https://f8git.github.io/fullstack_k7/homework/Day7/Bai_3/img/huyen-binh-chanh.jpg")
+    0 0 / cover no-repeat;
 }
