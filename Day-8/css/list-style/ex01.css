@@ -1,0 +1,58 @@
+/* 
+list-style-position: inside | outside
+list-style-type: Kiểu danh sách: 
+- none --> Không ở định dạng danh sách
+- disc --> Mặc định cảu ul
+- circe --> Giống mặc định nma dạng rỗng
+- square --> Hình vuông
+- decimal --> Sắp xếp dạng số
+- decimal-leading-zero
+- lower-alpha --> abcde
+- upper-alpha -->ngược lại cái trên
+- lower-roman --> la mã từ bé đến lớn
+- upper-roman --> la mã từ lớn đến bé
+
+- list-style-image --> Thay biểu tượng bằng ảnh(không khuyến khích sử dụng vì không chỉnh được kích thước ảnh)
+--> Nên thay thế bằng background kết hợp với ::before
+
+list-style: viết gộp
+
+*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Asap sans-serif;
+}
+ul {
+  margin-left: 20px;
+  width: 500px;
+  position: relative;
+  background-color: #514e72;
+  font-size: 0;
+  border-radius: 5px;
+}
+li {
+  display: inline-block;
+}
+a {
+  display: block;
+  padding: 10px 17px;
+  font-size: initial;
+  text-decoration: none;
+  color: #fff;
+}
+li:hover a {
+  background-color: rgb(99, 177, 182);
+  border-radius: 5px;
+}
+li:hover::after {
+  content: "";
+  background-color: rgb(201, 155, 18);
+  position: absolute;
+  width: 75px;
+  bottom: -20%;
+  height: 4px;
+}

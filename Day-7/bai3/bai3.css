@@ -10,7 +10,7 @@ body {
 }
 header {
   text-transform: uppercase;
-  margin-left: 335px;
+  margin-left: 147px;
 }
 header h1 {
   float: left;
@@ -76,15 +76,15 @@ main {
 .wrapper-top,
 .wrapper-bottom {
   display: flex;
-  height: 29%;
+  height: 40%;
 }
 .wrapper-bottom {
-  margin-top: 32px;
+  margin-top: 59px;
 }
 /* section */
 section {
   position: relative;
-  height: 210px;
+  height: 100%;
   width: 380px;
   border: 1px solid black;
   margin-right: 32px;
