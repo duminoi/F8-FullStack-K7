@@ -24,6 +24,8 @@ header {
 }
 header p {
   color: #aaa7a7;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 img {
   width: 183px;
@@ -32,6 +34,11 @@ img {
 main {
   display: flex;
   flex-direction: column;
+}
+.wrapper-top {
+  display: flex;
+
+  margin-bottom: 20px;
 }
 .wrapper-top,
 .wrapper-bottom {
@@ -54,7 +61,7 @@ section p {
   color: #aaa7a7;
 }
 button {
-  color: aliceblue;
+  color: #e2e5ed;
   height: 34px;
   width: 116px;
   background-color: #29378e;
