@@ -26,7 +26,7 @@ list-style: viết gộp
 body {
   font-family: Asap sans-serif;
 }
-ul {
+.menu > ul {
   margin-left: 20px;
   width: 500px;
   position: relative;
@@ -34,7 +34,7 @@ ul {
   font-size: 0;
   border-radius: 5px;
 }
-li {
+.menu > ul > li {
   display: inline-block;
 }
 a {
@@ -44,15 +44,25 @@ a {
   text-decoration: none;
   color: #fff;
 }
-li:hover a {
+.menu ul > li:hover > a {
   background-color: rgb(99, 177, 182);
   border-radius: 5px;
 }
-li:hover::after {
+.menu > ul > li:hover ul {
+  display: block !important;
+}
+/* li:hover::after {
   content: "";
   background-color: rgb(201, 155, 18);
   position: absolute;
   width: 75px;
   bottom: -20%;
   height: 4px;
+} */
+
+.menu > ul ul {
+  display: none;
+  background: yellowgreen;
+  position: absolute;
+  min-width: 100px;
 }

@@ -3,6 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  height: 2000px;
+}
 
 .box {
   width: 300px;
@@ -15,20 +18,29 @@
 .box .item {
   background: green;
   color: #fff;
-  margin: 10px;
+  width: 100px;
+  /* margin: 10px; */
   padding: 10px;
   /* width: 100px; */
 }
 .item:nth-child(2) {
   background-color: rgb(123, 42, 153);
-  position: absolute;
-  inset: 0;
+  position: fixed;
+  top: 10px;
+  left: 20px;
+  z-index: 1;
 }
-.overlay {
-  position: absolute;
-  inset: 0;
+.item:nth-child(3) {
+  background-color: rebeccapurple;
+  position: relative;
+}
+.item:nth-child(1) {
+  background-color: red;
+}
+/* .overlay {
+  position: absolute;  inset: 0;
   background: rgba(120, 112, 112, 0.905);
-}
+} */
 /* 
 Thuộc tính position: Căn chỉnh vị trí các element trong trang web
 - static: Mặc định

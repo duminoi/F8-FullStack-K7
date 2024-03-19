@@ -1,0 +1,46 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 100%;
+  margin: 30px 100px;
+}
+.container div {
+  margin-left: 40px;
+  margin-bottom: 30px;
+  position: relative;
+}
+label {
+  position: relative;
+}
+label::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 17px;
+  height: 16px;
+  left: -29px;
+
+  border: 2px solid rgb(81, 81, 239);
+}
+label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 15px;
+  top: 0;
+  left: -25px;
+  height: 9px;
+  border-width: 0 0 2px 2px;
+  border-left: 2px solid rgb(81, 81, 239);
+  border-bottom: 2px solid rgb(81, 81, 239);
+  transform: rotate(-45deg);
+  display: none;
+}
+input[id="html"]:checked ~ label::after,
+input[id="css"]:checked ~ label::after,
+input[id="java"]:checked ~ label::after {
+  display: block;
+}
