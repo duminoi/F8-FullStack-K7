@@ -1,0 +1,92 @@
+section {
+  width: 1000px;
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.content {
+  width: 32%;
+  border: 1px solid #ccc;
+  position: relative;
+  margin-bottom: 20px;
+}
+.content-wrapper {
+  margin: 15px;
+  height: 250px;
+  position: relative;
+  z-index: 1;
+  transition: 0.5s ease;
+}
+.content-wrapper .icon {
+  width: 78px;
+  height: 68px;
+  transition: width 0.5s ease-in;
+  transition: height 0.5s ease-in;
+}
+.content-wrapper > * {
+  padding: 20px 15px 0px;
+  transition: 0.5s ease-in-out;
+}
+.content-wrapper > a {
+  color: white;
+  position: relative;
+  bottom: -20px;
+  opacity: 0;
+  transition: transform 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+.content-wrapper > a > i {
+  width: 23px;
+  height: 23px;
+  line-height: 23px;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 50%;
+  font-size: 13px;
+  margin-left: 5px;
+  transition: background-color 1s ease-in-out;
+  transition: color 1s ease-in-out;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../../Day-9/img/49821ce7-b62a-4bcb-9013-0a21bed58ed5.jpg);
+  background-size: cover;
+  opacity: 0;
+}
+.overlay .color {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  transition: background-color 0.5s ease;
+}
+.content:hover .color {
+  background-color: rgba(165, 42, 42, 0.7);
+}
+.content:hover > .overlay {
+  opacity: 1;
+}
+.content:hover .icon {
+  /* width: 0;
+  height: 0; */
+}
+.content:hover a {
+  opacity: 1;
+  /* transform: translateY(-100px); */
+}
+.content:hover > .content-wrapper {
+  border: 1px solid #ccc;
+}
+.content:hover > .content-wrapper > * {
+  /* color: white;
+  transform: translateY(-15px); */
+}
+i:hover {
+  color: black;
+  background-color: white;
+}
