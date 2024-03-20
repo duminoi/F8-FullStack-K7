@@ -1,0 +1,43 @@
+/* 
+Transition: Nhóm các thuộc tính để thiết lập thời gian chuyển động của các thuộc tính cSS
+
+transition-property: none | all | ten-thuoc-tinh
+transition-duration: value + unit (s, ms)
+transition-timing-function: quy định tốc độ qua mỗi giai đoạn chuyển động
++ ease --> Chậm - Nhanh - Chậm
++ linear --> Tốc độ đều
++ ease-in --> Chậm - Nhanh
++ ease-out --> Nhanh - Chậm
++ ease-in-out --> Chậm - Nhanh - Chậm
++ cubic-bezier(p1, p2, p3, p4)
+
+Lưu ý: Thuộc tính transition chỉ tác dụng với các thuộc tính có giá trị là số
+*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.box {
+  padding: 20px;
+  margin-top: 30px;
+  border: 1px solid red;
+}
+.box h2 {
+  /* transition: opacity 0.5s ease-in-out; */
+  transition-property: padding-left;
+  transition-duration: 1s;
+  /* transition-delay: 1s; */
+  transition-timing-function: cubic-bezier(0, 0.97, 1, 0.02);
+}
+/* 
+.box:hover {
+  padding-left: 100px;
+  padding-top: 100px;
+} */
+.box:hover h2 {
+  /* visibility: none; */
+  /* opacity: 0; */
+  padding-left: 100px;
+}

@@ -71,6 +71,7 @@ h2 {
   height: 30px;
   border-radius: 50%;
   background-color: #bc9789;
+  transition: background-color 0.5s ease-in-out;
   /* color: red; */
 }
 
@@ -115,18 +116,26 @@ section:hover .list-item .more {
 section:hover .list-item h2 {
   transform: translateY(-50px);
 }
-
-section:hover .fa-solid {
+section:hover .list-item > i {
   opacity: 0;
+}
+section:hover .fa-solid {
+  /* opacity: 0; */
 }
 .more a {
   text-decoration: none;
   color: #fff;
 }
-
 section:hover .more {
   opacity: 1;
 }
+section .more:hover .arrow-wrapper {
+  background-color: #fff;
+}
+section .more:hover .arrow-wrapper > a {
+  color: black;
+}
+
 .arrow-wrapper:hover a {
   color: black;
 }

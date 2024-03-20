@@ -63,7 +63,7 @@ span {
   right: 0px;
   position: absolute;
   color: black;
-  bottom: -35px;
+  bottom: -55px;
   width: 37%;
   height: 34px;
   background-color: #8383862d;
@@ -142,7 +142,7 @@ section:hover .timeline-about p {
 }
 section:hover .timeline-about .family {
   position: absolute;
-  bottom: -35px;
+  bottom: -55px;
   background-color: #a26f5a;
   color: #fff;
 }

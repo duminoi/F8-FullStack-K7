@@ -27,29 +27,73 @@ Flex = flexible Box Module
 + flex-end
 + baseline
 
+- flex-wrap: Wrap các item nếu tổng kích thước > kích thước chưa nó
++ nowrap
++ wrap
++ wrap-reverse
+
+- align-content: Căn chỉnh hàng
+(
 Về nhà:
 - align-content
 - flex-wrap
 - gap
 - row-gap
 - column-gap
+
+gap: chỉnh khoảng cách giữa các item
+- row-gap
+- column-gap
+
+
+2. Các thuộc tính trong nhóm flex item
+
+flex-grow: lấp đầy khoảng trống của  còn thừ của flex container(Mặc định= 0)
+
+flex-shrink
+
+flex-basic: Bị chặn bởi min-width, max-width
+(flex
 */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 .box {
   width: 400px;
   height: 300px;
   border: 1px solid red;
   margin: 30px auto;
   display: flex;
-  flex-direction: column;
-  justify-content: row;
-  align-items: baseline;
+  flex-direction: row;
+  justify-content: flex-start;
+  /* flex-wrap: wrap; */
+  /* gap: 10px 20px; */
+  /* align-items: center; */
 }
 .item {
   background-color: green;
+
   color: #fff;
-  padding: 20px;
+  padding: 10px;
+  /* padding: 20px; */
   border: 1px solid #fff;
+  /* flex-grow: 1; */
+  /* flex-shrink: 2; */
+  flex-basis: 65px;
+  width: 70px;
+  flex: 0 1 75px;
 }
 .item:nth-child(2) {
-  padding: 50px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* align-self: stretch; */
+}
+/* .item:nth-child(3) {
+  flex-grow: 3;
+} */
+.item:nth-child(4) {
+  align-self: center;
 }
