@@ -15,7 +15,7 @@ body {
   height: 100%;
   margin: 10px auto;
   background-color: #059ce4;
-  box-shadow: 0 0 10px 2px;
+  box-shadow: 0 0 9px -3px;
   overflow: hidden;
 }
 /* Main content */
