@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  background-color: #384049;
+}
+
+.wrapper {
+  height: 160px;
+  width: 300px;
+  background-color: #cf4a43;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+/* letter */
+.letter {
+  position: absolute;
+  top: 0;
+  width: 80%;
+  height: 80%;
+  background-color: #fff;
+  z-index: 2;
+}
+.items {
+  display: flex;
+  justify-content: space-around;
+}
+.items span {
+  display: block;
+  width: 12px;
+  height: 15px;
+  background-color: #cf4a43;
+  transform: skewX(-15deg);
+}
+.content {
+  position: absolute;
+  left: 5px;
+  top: 50px;
+}
+.content .content-1 {
+  width: 80px;
+  height: 10px;
+  background-color: #cf4a43;
+}
+.content .content-2 {
+  margin-top: 10px;
+  width: 60px;
+  height: 10px;
+  background-color: #cf4a43;
+}
+.circle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #cf4a43;
+  bottom: 20px;
+  right: 10px;
+}
+.envelope {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-top: 80px solid transparent;
+  border-right: 150px solid #cf4a43;
+  border-bottom: 80px solid #cf4a43;
+  border-left: 150px solid #e75048;
+  z-index: 3;
+}
+/* lid when envelope open */
+.lid.one {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top: 80px solid #9f3933;
+  border-right: 150px solid #9f3933;
+  border-left: 150px solid #9f3933;
+}
