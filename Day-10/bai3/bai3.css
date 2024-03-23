@@ -23,6 +23,7 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 0;
+  transition: transform 0.2s linear;
 }
 /* letter */
 .letter {
@@ -31,6 +32,7 @@ body {
   width: 80%;
   height: 80%;
   background-color: #fff;
+  transition: transform 0.5s ease-in-out;
   z-index: 2;
 }
 .items {
@@ -81,14 +83,43 @@ body {
   border-left: 150px solid #e75048;
   z-index: 3;
 }
-/* lid when envelope open */
-.lid.one {
+
+.lid {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  border-right: 150px solid transparent;
+  border-left: 150px solid transparent;
+  border-bottom: 80px solid transparent;
+}
+.lid.one {
   border-top: 80px solid #9f3933;
-  border-right: 150px solid #9f3933;
-  border-left: 150px solid #9f3933;
+  transform-origin: top;
+  transition: transform 0.2s ease-in-out;
+  z-index: 3;
+  transition-delay: 0.5s;
+}
+.lid.two {
+  border-top: 80px solid #9f3933;
+  transform-origin: top;
+  transition: transform 0.4s ease-in-out;
+  z-index: 1;
+  transition-delay: 0.5s;
+}
+.wrapper:hover .lid.one {
+  transform: rotateX(90deg);
+  transition-delay: 0s;
+}
+.wrapper:hover .lid.two {
+  transition-delay: 0s;
+  transform: rotateX(180deg);
+}
+.wrapper:hover .letter {
+  transform: translateY(-65px);
+  transition-delay: 0.2s;
+}
+.wrapper:hover {
+  transform: translateY(70px);
 }
