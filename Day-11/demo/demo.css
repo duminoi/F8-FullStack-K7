@@ -1159,6 +1159,17 @@ footer .list ul > li a {
 }
 
 @media screen and (max-width: 575px) {
+  header,
+  .feature,
+  .feature-2,
+  .cta,
+  footer {
+    min-width: 69vh;
+  }
+  .service-wrapper {
+    width: 69vh;
+    padding: 50px 0;
+  }
   .row {
     display: flex;
     flex-wrap: wrap;
