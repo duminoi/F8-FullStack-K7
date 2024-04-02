@@ -420,6 +420,83 @@ Khi gọi class ở màn hình nào chỉ hoạt động ở màn hình đó tr�
     --column-offset-number: 12;
   }
 }
+@media screen and (min-width: 1366px) {
+  .container {
+    padding: 0;
+  }
+  .col-la-1 {
+    --column-number: 1;
+  }
+  .col-la-2 {
+    --column-number: 2;
+  }
+  .col-la-3 {
+    --column-number: 3;
+  }
+  .col-la-4 {
+    --column-number: 4;
+  }
+  .col-la-5 {
+    --column-number: 5;
+  }
+  .col-la-6 {
+    --column-number: 6;
+  }
+  .col-la-7 {
+    --column-number: 7;
+  }
+  .col-la-8 {
+    --column-number: 8;
+  }
+  .col-la-9 {
+    --column-number: 9;
+  }
+  .col-la-10 {
+    --column-number: 10;
+  }
+  .col-la-11 {
+    --column-number: 11;
+  }
+  .col-la-12 {
+    --column-number: 12;
+  }
+  .offset-la-1 {
+    --column-offset-number: 1;
+  }
+  .offset-la-2 {
+    --column-offset-number: 2;
+  }
+  .offset-la-3 {
+    --column-offset-number: 3;
+  }
+  .offset-la-4 {
+    --column-offset-number: 4;
+  }
+  .offset-la-5 {
+    --column-offset-number: 5;
+  }
+  .offset-la-6 {
+    --column-offset-number: 6;
+  }
+  .offset-la-7 {
+    --column-offset-number: 7;
+  }
+  .offset-la-8 {
+    --column-offset-number: 8;
+  }
+  .offset-la-9 {
+    --column-offset-number: 9;
+  }
+  .offset-la-10 {
+    --column-offset-number: 10;
+  }
+  .offset-la-11 {
+    --column-offset-number: 11;
+  }
+  .offset-la-12 {
+    --column-offset-number: 12;
+  }
+}
 @media screen and (min-width: 1400px) {
   .col-xxl-1 {
     --column-number: 1;
