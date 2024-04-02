@@ -428,23 +428,27 @@ p a {
   text-decoration: none;
 }
 /* checked */
-input[id="form-login"]:checked ~ .landing-info .tab-switch .form-login {
+input[id="form-login"]:checked ~ .col-6 .landing-info .tab-switch .form-login {
   background-color: #fff;
   color: #3e3f5e;
 }
-input[id="form-register"]:checked ~ .landing-info .tab-switch .form-register {
+input[id="form-register"]:checked
+  ~ .col-6
+  .landing-info
+  .tab-switch
+  .form-register {
   background-color: #fff;
   color: #3e3f5e;
 }
-input[id="form-login"]:checked ~ .landing-form .form-box.login,
-input[id="form-register"]:checked ~ .landing-form .form-box.register {
+input[id="form-login"]:checked ~ .col-6 .landing-form .form-box.login,
+input[id="form-register"]:checked ~ .col-6 .landing-form .form-box.register {
   opacity: 1;
   visibility: visible;
 }
-input[id="form-login"]:checked ~ .landing-form .form-box.login {
+input[id="form-login"]:checked ~ .col-6 .landing-form .form-box.login {
   transform: translateX(0);
 }
-input[id="form-register"]:checked ~ .landing-form .form-box.register {
+input[id="form-register"]:checked ~ .col-6 .landing-form .form-box.register {
   transform: translateX(0);
 }
 .checkbox-wrap input[type="checkbox"]:checked + .checkbox-box,
