@@ -135,8 +135,8 @@ body[data-aos-delay="400"] [data-aos].aos-animate {
   right: 20%;
   cursor: pointer;
   padding: 0.5rem 0.5rem;
-  width: 3em;
-  height: 3em;
+  width: 3.5em;
+  height: 3.5em;
   transition-delay: 1s;
   transition-duration: 0.3s;
   display: flex;
@@ -172,4 +172,202 @@ body[data-aos-delay="450"] [data-aos].aos-animate {
   font-size: 2rem;
   transition: 0.3s;
 }
+
 /* header */
+/* section home */
+
+.light section {
+  padding: 3rem 9%;
+}
+.home {
+  margin: 0 auto;
+  margin-top: 9.7rem;
+  width: 90%;
+  border-radius: 1rem;
+  background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(17, 17, 17, 0.7)),
+      to(rgba(17, 17, 17, 0.7))
+    ),
+    url(./img/home-bg.jpg) no-repeat;
+  background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.7)),
+    url(./img/home-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 80vh;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-bottom: 5rem;
+}
+.light .home .content {
+  text-align: center;
+}
+.light .home .content span,
+.night .home .content span {
+  font-weight: bolder;
+  color: transparent;
+  -webkit-text-stroke: 0.1rem var(--orange);
+  font-size: 4vw;
+  display: block;
+}
+.light .home .content h3 {
+  font-size: 5vw;
+  color: #fff;
+}
+.light .home .content p {
+  max-width: 60rem;
+  margin: 1rem auto;
+  font-size: 1.5em;
+  color: #eee;
+  line-height: 2;
+}
+.light .home .btn {
+  color: #333;
+}
+
+/* section home */
+/* section book-from */
+.light .homepage .book-form {
+  width: 80%;
+  margin: 1rem auto;
+  margin-top: -5rem;
+  background: #efefef;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.3);
+  box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.3);
+  padding: 3rem 2rem;
+}
+.light .book-form form span h1 {
+  display: block;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--orange);
+  text-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+.light .book-form form .inputBox span {
+  width: 100%;
+  display: block;
+  font-size: 2em;
+  font-weight: 600;
+  color: #333;
+  text-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+.light .btn-book {
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.light .inputBox {
+  display: flex;
+
+  align-items: flex-end;
+}
+/* section book-from */
+/* section about */
+.light .about,
+.night .about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 5rem;
+}
+/* video */
+.light .about .video-container {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 42rem;
+  flex: 1 1 42rem;
+}
+.light .about .video-container video {
+  border-radius: 1rem;
+  width: 100%;
+  display: none;
+}
+/* control */
+.light .about .video-container .controls {
+  text-align: center;
+  padding: 2rem 0;
+}
+.light .about .video-container .controls label {
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background: initial;
+  border: 0.2em solid var(--orange);
+  cursor: pointer;
+  margin: 0.7rem;
+  position: relative;
+}
+.light .about .video-container .controls label::before {
+  content: "";
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background: initial;
+  border: 0.2em solid var(--orange);
+  cursor: pointer;
+  margin: 0.7rem;
+  background-color: #ffa500;
+  position: absolute;
+  top: -10px;
+  left: -11px;
+  display: none;
+}
+/* checked */
+input[id="video-1"]:checked ~ video.video-1,
+input[id="video-2"]:checked ~ video.video-2,
+input[id="video-3"]:checked ~ video.video-3 {
+  display: block;
+}
+input[id="video-1"]:checked ~ .controls label[for="video-1"]::before,
+input[id="video-2"]:checked ~ .controls label[for="video-2"]::before,
+input[id="video-3"]:checked ~ .controls label[for="video-3"]::before {
+  display: block;
+}
+/* content */
+.light .about .content {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 42rem;
+  flex: 1 1 42rem;
+  margin-bottom: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+}
+.light .about .content span {
+  color: var(--orange);
+  font-size: 2rem;
+}
+.light .about .content h3 {
+  color: rgb(51, 51, 51);
+  font-size: 4em;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+.light .about .content p {
+  padding: 1rem 0;
+  font-size: 1.7em;
+  color: #555;
+  line-height: 2;
+}
+/* section about */

@@ -13,6 +13,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="light">
     <div class="homepage" id="homepage">
@@ -82,6 +88,7 @@
           >Đặt Ngay</a
         >
       </header>
+      <!-- end header -->
       <section class="home" id="home">
         <div class="content">
           <span
@@ -117,7 +124,8 @@
           >
         </div>
       </section>
-      <section class="book-from" id="book-from">
+      <!-- end section home -->
+      <section class="book-form" id="book-from">
         <form action="">
           <div class="row">
             <div
@@ -143,7 +151,80 @@
           </div>
         </form>
       </section>
-      <section class="about" id="about"></section>
+      <!-- end section book-from -->
+      <section class="about" id="about">
+        <div class="row">
+          <div
+            class="video-container col-12 col-la-6 aos-init aos-animate"
+            data-aos="fade-right"
+            data-aos-delay="150"
+          >
+            <input
+              type="radio"
+              class="control-btn"
+              name="video"
+              id="video-1"
+              hidden
+              checked
+            />
+
+            <input
+              type="radio"
+              class="control-btn"
+              name="video"
+              id="video-2"
+              hidden
+            />
+            <input
+              type="radio"
+              class="control-btn"
+              name="video"
+              id="video-3"
+              hidden
+            />
+            <video
+              src="./img/vid-1.mp4"
+              muted=""
+              autoplay=""
+              loop=""
+              class="video video-1"
+            ></video>
+            <video
+              src="./img/vid-2.mp4"
+              muted=""
+              autoplay=""
+              loop=""
+              class="video video-2"
+            ></video>
+            <video
+              src="./img/vid-3.mp4"
+              muted=""
+              autoplay=""
+              loop=""
+              class="video video-3"
+            ></video>
+
+            <div class="controls">
+              <label for="video-1"></label>
+              <label for="video-2"></label>
+              <label for="video-3"></label>
+            </div>
+          </div>
+          <div
+            class="content col-12 col-la-6 aos-init aos-animate"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
+            <span>Tại sao nên chọn Stravel</span>
+            <h3>Trải nghiệm bậc nhất</h3>
+            <p>
+              chúng tôi hợp tác với những địa điểm nghỉ dưỡng có trải nghiệm bậc
+              nhất để đem lại một kỳ nghỉ tuyệt vời cho bạn cùng người thân
+            </p>
+            <a href="#" class="btn">Tìm hiểu thêm về Stravel</a>
+          </div>
+        </div>
+      </section>
       <section class="destination" id="destination"></section>
       <section class="services" id="services"></section>
       <section class="gallery" id="gallery"></section>
