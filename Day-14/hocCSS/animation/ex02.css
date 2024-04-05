@@ -1,0 +1,80 @@
+.box {
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.item-1 {
+  margin: 0 5px;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(213 67 67);
+  animation-delay: 0.2s;
+
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-name: run-1;
+}
+
+.item-2 {
+  margin: 0 5px;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  animation-delay: 0.3s;
+  animation-duration: 1.5s;
+  background-color: rgb(213 67 67);
+
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-name: run-2;
+}
+.item-3 {
+  margin: 0 5px;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  animation-delay: 0.4s;
+  animation-duration: 1.5s;
+  background-color: rgb(213 67 67);
+
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-name: run-3;
+}
+.item-4 {
+  margin: 0 5px;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  animation-delay: 0.5s;
+  background-color: rgb(213 67 67);
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-name: run-4;
+}
+@keyframes run-1 {
+  50% {
+    height: 400px;
+  }
+}
+@keyframes run-2 {
+  50% {
+    height: 400px;
+  }
+}
+@keyframes run-3 {
+  50% {
+    height: 400px;
+  }
+}
+@keyframes run-4 {
+  50% {
+    height: 400px;
+  }
+}
