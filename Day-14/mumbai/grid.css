@@ -121,6 +121,84 @@ Khi gọi class ở màn hình nào chỉ hoạt động ở màn hình đó tr�
   --column-offset-number: 12;
 }
 
+@media screen and (min-width: 444px) {
+  .container {
+    padding: 0;
+  }
+  .col-ssm-1 {
+    --column-number: 1;
+  }
+  .col-ssm-2 {
+    --column-number: 2;
+  }
+  .col-ssm-3 {
+    --column-number: 3;
+  }
+  .col-ssm-4 {
+    --column-number: 4;
+  }
+  .col-ssm-5 {
+    --column-number: 5;
+  }
+  .col-ssm-6 {
+    --column-number: 6;
+  }
+  .col-ssm-7 {
+    --column-number: 7;
+  }
+  .col-ssm-8 {
+    --column-number: 8;
+  }
+  .col-ssm-9 {
+    --column-number: 9;
+  }
+  .col-ssm-10 {
+    --column-number: 10;
+  }
+  .col-ssm-11 {
+    --column-number: 11;
+  }
+  .col-ssm-12 {
+    --column-number: 12;
+  }
+  .offset-ssm-1 {
+    --column-offset-number: 1;
+  }
+  .offset-ssm-2 {
+    --column-offset-number: 2;
+  }
+  .offset-ssm-3 {
+    --column-offset-number: 3;
+  }
+  .offset-ssm-4 {
+    --column-offset-number: 4;
+  }
+  .offset-ssm-5 {
+    --column-offset-number: 5;
+  }
+  .offset-ssm-6 {
+    --column-offset-number: 6;
+  }
+  .offset-ssm-7 {
+    --column-offset-number: 7;
+  }
+  .offset-ssm-8 {
+    --column-offset-number: 8;
+  }
+  .offset-ssm-9 {
+    --column-offset-number: 9;
+  }
+  .offset-ssm-10 {
+    --column-offset-number: 10;
+  }
+  .offset-ssm-11 {
+    --column-offset-number: 11;
+  }
+  .offset-ssm-12 {
+    --column-offset-number: 12;
+  }
+}
+
 @media screen and (min-width: 576px) {
   .col-sm-1 {
     --column-number: 1;
@@ -192,80 +270,6 @@ Khi gọi class ở màn hình nào chỉ hoạt động ở màn hình đó tr�
     --column-offset-number: 11;
   }
   .offset-sm-12 {
-    --column-offset-number: 12;
-  }
-}
-@media screen and (min-width: 611px) {
-  .col-sa-1 {
-    --column-number: 1;
-  }
-  .col-sa-2 {
-    --column-number: 2;
-  }
-  .col-sa-3 {
-    --column-number: 3;
-  }
-  .col-sa-4 {
-    --column-number: 4;
-  }
-  .col-sa-5 {
-    --column-number: 5;
-  }
-  .col-sa-6 {
-    --column-number: 6;
-  }
-  .col-sa-7 {
-    --column-number: 7;
-  }
-  .col-sa-8 {
-    --column-number: 8;
-  }
-  .col-sa-9 {
-    --column-number: 9;
-  }
-  .col-sa-10 {
-    --column-number: 10;
-  }
-  .col-sa-11 {
-    --column-number: 11;
-  }
-  .col-sa-12 {
-    --column-number: 12;
-  }
-  .offset-sa-1 {
-    --column-offset-number: 1;
-  }
-  .offset-sa-2 {
-    --column-offset-number: 2;
-  }
-  .offset-sa-3 {
-    --column-offset-number: 3;
-  }
-  .offset-sa-4 {
-    --column-offset-number: 4;
-  }
-  .offset-sa-5 {
-    --column-offset-number: 5;
-  }
-  .offset-sa-6 {
-    --column-offset-number: 6;
-  }
-  .offset-sa-7 {
-    --column-offset-number: 7;
-  }
-  .offset-sa-8 {
-    --column-offset-number: 8;
-  }
-  .offset-sa-9 {
-    --column-offset-number: 9;
-  }
-  .offset-sa-10 {
-    --column-offset-number: 10;
-  }
-  .offset-sa-11 {
-    --column-offset-number: 11;
-  }
-  .offset-sa-12 {
     --column-offset-number: 12;
   }
 }
@@ -343,6 +347,84 @@ Khi gọi class ở màn hình nào chỉ hoạt động ở màn hình đó tr�
     --column-offset-number: 12;
   }
 }
+@media screen and (min-width: 792px) {
+  .container {
+    padding: 0;
+  }
+  .col-med-1 {
+    --column-number: 1;
+  }
+  .col-med-2 {
+    --column-number: 2;
+  }
+  .col-med-3 {
+    --column-number: 3;
+  }
+  .col-med-4 {
+    --column-number: 4;
+  }
+  .col-med-5 {
+    --column-number: 5;
+  }
+  .col-med-6 {
+    --column-number: 6;
+  }
+  .col-med-7 {
+    --column-number: 7;
+  }
+  .col-med-8 {
+    --column-number: 8;
+  }
+  .col-med-9 {
+    --column-number: 9;
+  }
+  .col-med-10 {
+    --column-number: 10;
+  }
+  .col-med-11 {
+    --column-number: 11;
+  }
+  .col-med-12 {
+    --column-number: 12;
+  }
+  .offset-med-1 {
+    --column-offset-number: 1;
+  }
+  .offset-med-2 {
+    --column-offset-number: 2;
+  }
+  .offset-med-3 {
+    --column-offset-number: 3;
+  }
+  .offset-med-4 {
+    --column-offset-number: 4;
+  }
+  .offset-med-5 {
+    --column-offset-number: 5;
+  }
+  .offset-med-6 {
+    --column-offset-number: 6;
+  }
+  .offset-med-7 {
+    --column-offset-number: 7;
+  }
+  .offset-med-8 {
+    --column-offset-number: 8;
+  }
+  .offset-med-9 {
+    --column-offset-number: 9;
+  }
+  .offset-med-10 {
+    --column-offset-number: 10;
+  }
+  .offset-med-11 {
+    --column-offset-number: 11;
+  }
+  .offset-med-12 {
+    --column-offset-number: 12;
+  }
+}
+
 @media screen and (min-width: 992px) {
   .col-lg-1 {
     --column-number: 1;
@@ -417,80 +499,84 @@ Khi gọi class ở màn hình nào chỉ hoạt động ở màn hình đó tr�
     --column-offset-number: 12;
   }
 }
-@media screen and (min-width: 1049px) {
-  .col-la-1 {
+@media screen and (min-width: 1037px) {
+  .container {
+    padding: 0;
+  }
+  .col-lag-1 {
     --column-number: 1;
   }
-  .col-la-2 {
+  .col-lag-2 {
     --column-number: 2;
   }
-  .col-la-3 {
+  .col-lag-3 {
     --column-number: 3;
   }
-  .col-la-4 {
+  .col-lag-4 {
     --column-number: 4;
   }
-  .col-la-5 {
+  .col-lag-5 {
     --column-number: 5;
   }
-  .col-la-6 {
+  .col-lag-6 {
     --column-number: 6;
   }
-  .col-la-7 {
+  .col-lag-7 {
     --column-number: 7;
   }
-  .col-la-8 {
+  .col-lag-8 {
     --column-number: 8;
   }
-  .col-la-9 {
+  .col-lag-9 {
     --column-number: 9;
   }
-  .col-la-10 {
+  .col-lag-10 {
     --column-number: 10;
   }
-  .col-la-11 {
+  .col-lag-11 {
     --column-number: 11;
   }
-  .col-la-12 {
+  .col-lag-12 {
     --column-number: 12;
   }
-  .offset-la-1 {
+  .offset-lag-1 {
     --column-offset-number: 1;
   }
-  .offset-la-2 {
+  .offset-lag-2 {
     --column-offset-number: 2;
   }
-  .offset-la-3 {
+  .offset-lag-3 {
     --column-offset-number: 3;
   }
-  .offset-la-4 {
+  .offset-lag-4 {
     --column-offset-number: 4;
   }
-  .offset-la-5 {
+  .offset-lag-5 {
     --column-offset-number: 5;
   }
-  .offset-la-6 {
+  .offset-lag-6 {
     --column-offset-number: 6;
   }
-  .offset-la-7 {
+  .offset-lag-7 {
     --column-offset-number: 7;
   }
-  .offset-la-8 {
+  .offset-lag-8 {
     --column-offset-number: 8;
   }
-  .offset-la-9 {
+  .offset-lag-9 {
     --column-offset-number: 9;
   }
-  .offset-la-10 {
+  .offset-lag-10 {
     --column-offset-number: 10;
   }
-  .offset-la-11 {
+  .offset-lag-11 {
     --column-offset-number: 11;
   }
-  .offset-la-12 {
+  .offset-lag-12 {
     --column-offset-number: 12;
   }
 }
+
 @media screen and (min-width: 1200px) {
   .container {
     padding: 0;
@@ -568,6 +654,84 @@ Khi gọi class ở màn hình nào chỉ hoạt động ở màn hình đó tr�
     --column-offset-number: 12;
   }
 }
+@media screen and (min-width: 1275px) {
+  .container {
+    padding: 0;
+  }
+  .col-xlar-1 {
+    --column-number: 1;
+  }
+  .col-xlar-2 {
+    --column-number: 2;
+  }
+  .col-xlar-3 {
+    --column-number: 3;
+  }
+  .col-xlar-4 {
+    --column-number: 4;
+  }
+  .col-xlar-5 {
+    --column-number: 5;
+  }
+  .col-xlar-6 {
+    --column-number: 6;
+  }
+  .col-xlar-7 {
+    --column-number: 7;
+  }
+  .col-xlar-8 {
+    --column-number: 8;
+  }
+  .col-xlar-9 {
+    --column-number: 9;
+  }
+  .col-xlar-10 {
+    --column-number: 10;
+  }
+  .col-xlar-11 {
+    --column-number: 11;
+  }
+  .col-xlar-12 {
+    --column-number: 12;
+  }
+  .offset-xlar-1 {
+    --column-offset-number: 1;
+  }
+  .offset-xlar-2 {
+    --column-offset-number: 2;
+  }
+  .offset-xlar-3 {
+    --column-offset-number: 3;
+  }
+  .offset-xlar-4 {
+    --column-offset-number: 4;
+  }
+  .offset-xlar-5 {
+    --column-offset-number: 5;
+  }
+  .offset-xlar-6 {
+    --column-offset-number: 6;
+  }
+  .offset-xlar-7 {
+    --column-offset-number: 7;
+  }
+  .offset-xlar-8 {
+    --column-offset-number: 8;
+  }
+  .offset-xlar-9 {
+    --column-offset-number: 9;
+  }
+  .offset-xlar-10 {
+    --column-offset-number: 10;
+  }
+  .offset-xlar-11 {
+    --column-offset-number: 11;
+  }
+  .offset-xlar-12 {
+    --column-offset-number: 12;
+  }
+}
+
 @media screen and (min-width: 1400px) {
   .col-xxl-1 {
     --column-number: 1;
@@ -639,6 +803,83 @@ Khi gọi class ở màn hình nào chỉ hoạt động ở màn hình đó tr�
     --column-offset-number: 11;
   }
   .offset-xxl-12 {
+    --column-offset-number: 12;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .container {
+    padding: 0;
+  }
+  .col-spl-1 {
+    --column-number: 1;
+  }
+  .col-spl-2 {
+    --column-number: 2;
+  }
+  .col-spl-3 {
+    --column-number: 3;
+  }
+  .col-spl-4 {
+    --column-number: 4;
+  }
+  .col-spl-5 {
+    --column-number: 5;
+  }
+  .col-spl-6 {
+    --column-number: 6;
+  }
+  .col-spl-7 {
+    --column-number: 7;
+  }
+  .col-spl-8 {
+    --column-number: 8;
+  }
+  .col-spl-9 {
+    --column-number: 9;
+  }
+  .col-spl-10 {
+    --column-number: 10;
+  }
+  .col-spl-11 {
+    --column-number: 11;
+  }
+  .col-spl-12 {
+    --column-number: 12;
+  }
+  .offset-spl-1 {
+    --column-offset-number: 1;
+  }
+  .offset-spl-2 {
+    --column-offset-number: 2;
+  }
+  .offset-spl-3 {
+    --column-offset-number: 3;
+  }
+  .offset-spl-4 {
+    --column-offset-number: 4;
+  }
+  .offset-spl-5 {
+    --column-offset-number: 5;
+  }
+  .offset-spl-6 {
+    --column-offset-number: 6;
+  }
+  .offset-spl-7 {
+    --column-offset-number: 7;
+  }
+  .offset-spl-8 {
+    --column-offset-number: 8;
+  }
+  .offset-spl-9 {
+    --column-offset-number: 9;
+  }
+  .offset-spl-10 {
+    --column-offset-number: 10;
+  }
+  .offset-spl-11 {
+    --column-offset-number: 11;
+  }
+  .offset-spl-12 {
     --column-offset-number: 12;
   }
 }
