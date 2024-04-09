@@ -27,6 +27,13 @@
       href="./favicon/favicon-16x16.png"
     />
     <link rel="manifest" href="./favicon/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <div class="wrapper">
@@ -37,9 +44,14 @@
           </a>
           <!-- end logo-link -->
 
-          <h2 class="heading">Explore</h2>
-          <!-- end heading -->
-
+          <div class="heading-wrapper">
+            <h2 class="heading">Explore</h2>
+            <!-- end heading -->
+            <input type="checkbox" id="toggle-sidebar" hidden />
+            <label for="toggle-sidebar">
+              <!-- <i class="fa-solid fa-bars"></i> -->
+            </label>
+          </div>
           <nav class="nav">
             <a href="" class="nav-item">
               <img src="./icons/sidebar-icon-1.svg" alt="" class="icon" />
@@ -87,12 +99,19 @@
           </form>
           <!-- end sear-form -->
 
-          <nav class="nav">
-            <a href="" class="nav-link active">products</a>
-            <a href="" class="nav-link">story</a>
-            <a href="" class="nav-link">manufacturing</a>
-            <a href="" class="nav-link">packaging</a>
-          </nav>
+          <div class="nav-wrapper">
+            <input type="checkbox" id="toggle-header" hidden />
+            <label for="toggle-header">
+              <i class="fa-solid fa-bars"></i>
+            </label>
+
+            <nav class="nav">
+              <a href="" class="nav-link active">products</a>
+              <a href="" class="nav-link">story</a>
+              <a href="" class="nav-link">manufacturing</a>
+              <a href="" class="nav-link">packaging</a>
+            </nav>
+          </div>
           <!-- end nav -->
 
           <div class="actions">

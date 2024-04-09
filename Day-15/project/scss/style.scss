@@ -74,7 +74,7 @@ a {
         height: 22px;
       }
       &:hover {
-        background-color: #f4de4d;
+        background-color: $background-color;
       }
     }
   } // end nav
@@ -107,6 +107,9 @@ a {
   display: flex;
   align-items: center;
   height: $header-height;
+  #toggle-header + label {
+    display: none;
+  }
   .search-form {
     display: flex;
     align-items: center;
@@ -179,5 +182,151 @@ a {
     height: 100%;
     object-fit: cover;
     border-radius: 16px;
+  }
+}
+
+@include screentabletXL() {
+  .wrapper-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr 1fr 1fr;
+    gap: 0px 38px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "sidebar header header header header"
+      "sidebar main main main main"
+      "sidebar main main main main"
+      "sidebar main main main main"
+      "sidebar main main main main";
+    padding-right: 75px;
+    .header {
+      .nav-wrapper {
+        position: relative;
+      }
+      #toggle-header + label {
+        display: block;
+        i {
+          font-size: 2.5rem;
+        }
+      }
+      nav.nav {
+        position: absolute;
+        display: none;
+        background-color: none;
+        transition: background-color 0.3s ease-in-out;
+      }
+      input[type="checkbox"]:checked ~ nav {
+        display: flex;
+        flex-direction: column;
+        top: 3rem;
+        right: 0;
+        background-color: #f4de4d;
+        border-radius: 9px;
+      }
+    }
+  }
+}
+
+@include screentablet() {
+  .wrapper-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr 1fr 1fr;
+    gap: 0px 38px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "sidebar header header header header"
+      "sidebar main main main main"
+      "sidebar main main main main"
+      "sidebar main main main main"
+      "sidebar main main main main";
+    padding-right: 5rem;
+    .main {
+      grid-area: main;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      grid-auto-rows: 188px;
+      grid-auto-flow: dense;
+    }
+  }
+}
+@include smtablet() {
+  .wrapper-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr 1fr 1fr;
+    gap: 0px 38px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "sidebar header header header header"
+      "sidebar main main main main"
+      "sidebar main main main main"
+      "sidebar main main main main"
+      "sidebar main main main main";
+    padding-right: 2rem;
+    .sidebar {
+      padding: 54px 0 0 2rem;
+    }
+  }
+}
+@include mobile() {
+  .wrapper-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr 1fr 1fr;
+    gap: 0px 38px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "header header header header header"
+      "sidebar sidebar sidebar sidebar sidebar"
+      "main main main main main"
+      "main main main main main"
+      "main main main main main";
+    padding: 0 2rem;
+    .sidebar {
+      position: relative;
+      align-items: center;
+      margin-bottom: 3rem;
+      &:has(input:checked) nav {
+      }
+      .heading-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        #toggle-sidebar + label {
+          i {
+            font-size: 2.5rem;
+          }
+        }
+      }
+      .heading {
+        justify-content: center;
+        align-items: center;
+        margin-top: 0;
+        font-size: 3.2rem;
+        font-weight: 800;
+        margin-right: 2rem;
+      }
+      .nav {
+        // height: 0;
+        // opacity: 0;
+        // visibility: hidden;
+      }
+      .chat-btn {
+        position: absolute;
+        left: 1rem;
+        display: flex;
+        bottom: calc(100% - 2rem);
+      }
+    }
   }
 }
