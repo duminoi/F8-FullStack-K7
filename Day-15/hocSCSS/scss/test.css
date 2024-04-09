@@ -1,0 +1,18 @@
+body {
+  display: flex;
+}
+body > container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 33, 3333%;
+}
+body > container .wrapper,
+body > container .wrapper.product,
+body > container .wrapper-1 {
+  width: 20px;
+  height: 30px;
+  color: red;
+}
+
+/*# sourceMappingURL=test.css.map */
