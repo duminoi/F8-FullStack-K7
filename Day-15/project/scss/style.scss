@@ -221,9 +221,10 @@ a {
         display: flex;
         flex-direction: column;
         top: 3rem;
-        right: 0;
-        background-color: #f4de4d;
+        right: revert-layer;
+        background-color: $menu-color;
         border-radius: 9px;
+        width: 17rem;
       }
     }
   }
@@ -282,7 +283,7 @@ a {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto 1fr 1fr;
     gap: 0px 38px;
     grid-auto-flow: row;
     grid-template-areas:
@@ -292,6 +293,18 @@ a {
       "main main main main main"
       "main main main main main";
     padding: 0 2rem;
+    .header {
+      .nav-wrapper {
+        input[type="checkbox"]:checked ~ nav {
+          display: flex;
+          flex-direction: column;
+          top: 3rem;
+          right: revert-layer;
+          background-color: $menu-color;
+          border-radius: 9px;
+        }
+      }
+    }
     .sidebar {
       position: relative;
       align-items: center;
@@ -317,15 +330,18 @@ a {
         margin-right: 2rem;
       }
       .nav {
-        // height: 0;
-        // opacity: 0;
-        // visibility: hidden;
-      }
-      .chat-btn {
-        position: absolute;
-        left: 1rem;
-        display: flex;
-        bottom: calc(100% - 2rem);
+        margin: 20px;
+        flex-direction: row;
+        justify-content: stretch;
+        overflow-x: scroll;
+        max-width: 41rem;
+        column-gap: 7rem;
+        .chat-btn {
+          position: absolute;
+          left: 1rem;
+          display: flex;
+          bottom: calc(100% - 2rem);
+        }
       }
     }
   }

@@ -340,9 +340,10 @@ a {
     display: flex;
     flex-direction: column;
     top: 3rem;
-    right: 0;
-    background-color: #f4de4d;
+    right: revert-layer;
+    background-color: rgba(244, 222, 77, 0.631372549);
     border-radius: 9px;
+    width: 17rem;
   }
 }
 @media screen and (max-width: 991px) {
@@ -388,11 +389,19 @@ a {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto 1fr 1fr;
     gap: 0px 38px;
     grid-auto-flow: row;
     grid-template-areas: "header header header header header" "sidebar sidebar sidebar sidebar sidebar" "main main main main main" "main main main main main" "main main main main main";
     padding: 0 2rem;
+  }
+  .wrapper-inner .header .nav-wrapper input[type=checkbox]:checked ~ nav {
+    display: flex;
+    flex-direction: column;
+    top: 3rem;
+    right: revert-layer;
+    background-color: rgba(244, 222, 77, 0.631372549);
+    border-radius: 9px;
   }
   .wrapper-inner .sidebar {
     position: relative;
@@ -415,7 +424,15 @@ a {
     font-weight: 800;
     margin-right: 2rem;
   }
-  .wrapper-inner .sidebar .chat-btn {
+  .wrapper-inner .sidebar .nav {
+    margin: 20px;
+    flex-direction: row;
+    justify-content: stretch;
+    overflow-x: scroll;
+    max-width: 41rem;
+    column-gap: 7rem;
+  }
+  .wrapper-inner .sidebar .nav .chat-btn {
     position: absolute;
     left: 1rem;
     display: flex;
