@@ -1,0 +1,90 @@
+//vòng lặp: Cú pháp trong lâp trình cho phép 1 đoạn chương trình chạy lặp đi lặp lại
+
+//1. @for
+//2. @while --> ít dùng
+//3. @each
+// $number: 12;
+// $start: 1;
+// @for $i from $start through $number {
+//   .item-#{$i} {
+//     @if $i % 2 == 0 {
+//       font-size: 30px * $i;
+//     } @else {
+//       width: 10% * $i;
+//     }
+//   }
+// }
+
+// $sizes: 40px, 60px, 80px, 100px; //Biến có nhiều giá trị --> Mảng. Mỗi giá trị sẽ cách nhau bởi dấu , hoặc khoảng trắng
+
+// Để lập qua các giá trị dùng vòng lặp @each
+
+//Ví dụ: Giá trị cuối cùng, thiết lập font-size = 0
+// $length: length($sizes); // Trả về tổng số phần tử
+// $count: 0;
+
+// @each $size in $sizes {
+//   $count: $count + 1;
+//   .item-#{$size} {
+//     @if ($count == $length) {
+//       font-size: 0;
+//     } @else {
+//       font-size: $size;
+//     }
+//   }
+// }
+
+// $sizes: (small, 40px, normal), (medium, 60px, 600), (large, 80px, 800);
+// @each $type, $size, $weight in $sizes {
+//   .column-#{$type} {
+//     font-size: $size;
+//     font-weight: $weight;
+//   }
+// }
+//Destructuring
+
+//map
+$weight: (
+  normal: 400,
+  medium: 500,
+  bold: 700,
+);
+@each $name, $value in $weight {
+  .text-#{$name} {
+    font-weight: $value;
+  }
+}
+
+$breakpoint: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+@each $name, $value in $breakpoint {
+  @media screen and (min-width: #{$value}) {
+    @for $i from 1 through 12 {
+      .col-#{$name}-#{$i} {
+        flex-basis: 50 * $i + 0%;
+      }
+    }
+  }
+}
+
+//Vấn đề: Viết Responsive cho selector
+@mixin screenTablet {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+.header {
+  display: flex;
+  padding: 30px 0;
+}
+@include screenTablet() {
+  .header {
+    display: block;
+  }
+}
+// @include có thể gọi mixin + THÊM NỘI DUNG khi ở @mixin có @content

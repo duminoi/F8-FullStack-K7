@@ -785,3 +785,17 @@ input[id="video-3"]:checked ~ .controls label[for="video-3"]::before {
   color: var(--orange);
 }
 /* credit */
+/* scrollbar */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: orange;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: blue;
+  border-radius: 20px;
+  border: 3px solid orange;
+}

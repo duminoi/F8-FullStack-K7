@@ -1,0 +1,50 @@
+/*comment css */
+:root {
+  --primary-color: red;
+}
+
+// cú pháp lồng: selector, thuộc tính (bỏ)
+// a:hover nếu viết liền thì thêm dấu & --> &:hover
+.header {
+  padding: 30px 0;
+  .top-bar {
+    display: flex;
+    a {
+      text-decoration: none;
+      &:hover {
+        color: red;
+      }
+    }
+    .top-left {
+      list-style: none;
+    }
+    .top-right {
+      background-color: yellow;
+    }
+  }
+  .header-inner {
+    box-shadow: 3px 3px 5px 5px #ccc;
+    .logo {
+      > img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    nav {
+      &.primary-menu {
+        background: green;
+        > ul {
+          list-style: none;
+          > li {
+            > a {
+              color: #fff;
+              &:hover {
+                color: yellow;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
