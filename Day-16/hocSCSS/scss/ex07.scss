@@ -1,0 +1,19 @@
+@use "./partials/header"; //namespace:header
+//namespace: footer
+
+// @use "./partials/variables" as bien;
+//truy cập : tennamespace.tenbien, tennamespace.tenham, tennamespace.mixin,
+//tennamespace.placeholder
+body {
+  background: header.$headerBg;
+  color: header.$footer-primaryColor; //doc qua thang header
+}
+
+// main {
+//   color: footer.$headerBg;
+//   //   font-size: header.$-fontSize; (không đọc được vì là private)
+// }
+// .products {
+//   //   color: bien.$primaryColor;
+//   @include mixin.center(1000px);
+// }
