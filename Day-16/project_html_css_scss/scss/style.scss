@@ -1,0 +1,55 @@
+//Partials
+@use "./partials/variables";
+@use "./partials/mixin";
+@use "./partials/reset";
+@use "./partials/base";
+
+//Components
+@use "./components/footer";
+@use "./components/header";
+
+//Pages
+//1.home
+@use "./pages/home/index.scss" as home;
+
+//2.Products
+@use "./pages/products/index.scss" as products;
+.wrapper {
+  margin: 0 auto;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .icon-wrapper {
+    img {
+      width: 105px;
+      height: 73px;
+    }
+  } //end icon-wrapper
+  .nav-wrapper {
+    display: flex;
+    column-gap: 50px;
+    font-family: Inter;
+    font-size: 16.667px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21.667px;
+    .nav {
+      display: flex;
+      column-gap: 50px;
+
+      a {
+        text-decoration: none;
+        color: #000;
+        &:hover {
+          color: #46b20f;
+        }
+      }
+    }
+    .action {
+      display: flex;
+      column-gap: 50px;
+    }
+  }
+}
