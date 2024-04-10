@@ -332,13 +332,16 @@ a {
   }
   .wrapper-inner .header nav.nav {
     position: absolute;
-    display: none;
-    background-color: none;
-    transition: background-color 0.3s ease-in-out;
-  }
-  .wrapper-inner .header input[type=checkbox]:checked ~ nav {
+    opacity: 0;
     display: flex;
     flex-direction: column;
+    visibility: hidden;
+    background-color: none;
+    transition: opacity 0.3s ease-in-out;
+  }
+  .wrapper-inner .header input[type=checkbox]:checked ~ nav {
+    opacity: 1;
+    visibility: visible;
     top: 3rem;
     right: revert-layer;
     background-color: rgba(244, 222, 77, 0.631372549);
