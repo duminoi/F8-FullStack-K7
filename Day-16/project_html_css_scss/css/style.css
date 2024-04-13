@@ -371,16 +371,15 @@ header .wrapper .action .cart-wrapper::before {
   margin-top: 11rem;
 }
 .hero-section .container {
-  margin: 0;
   min-width: 100%;
 }
 .hero-section .container .row {
+  width: 100%;
   align-items: center;
 }
 .hero-section .container .row .content-left {
   margin-left: calc((100vw - 1400px) / 2);
   width: 100%;
-  flex-shrink: 0;
   flex-grow: 1;
 }
 .hero-section .container .row .content-left .content-title {
@@ -414,20 +413,26 @@ header .wrapper .action .cart-wrapper::before {
   font-weight: 400;
   line-height: 20.417px;
 }
-.hero-section .container .row .content-right {
-  max-width: 775.833px;
-  height: 708.333px;
+.hero-section .container .row .col-12 {
+  display: flex;
+  justify-content: flex-end;
+}
+.hero-section .container .row .col-12 .content-right {
+  max-width: 759px;
+  height: 710px;
   border-radius: 16.667px 0px 0px 16.667px;
   background: #dcffca;
   position: relative;
   flex-shrink: 0;
   flex-grow: 1;
 }
-.hero-section .container .row .content-right .rotate {
+.hero-section .container .row .col-12 .content-right .rotate {
   transform: rotate(90deg);
   position: absolute;
+  top: 16rem;
+  left: 24rem;
 }
-.hero-section .container .row .content-right .rotate p {
+.hero-section .container .row .col-12 .content-right .rotate p {
   color: #216000;
   opacity: 0.15;
   font-family: Inter;
@@ -436,7 +441,49 @@ header .wrapper .action .cart-wrapper::before {
   font-weight: 800;
   line-height: 100%;
 }
+.hero-section .container .row .col-12 .content-right img {
+  width: 645px;
+  height: 645px;
+  flex-shrink: 0;
+  position: absolute;
+  right: 32%;
+  top: 0;
+}
 
+@media only screen and (max-width: 1499px) {
+  .hero-section .container .row .col-12 .content-right {
+    max-width: 600px;
+    height: 590px;
+    border-radius: 16.667px 0px 0px 16.667px;
+    background: #dcffca;
+    position: relative;
+    flex-shrink: 0;
+    flex-grow: 1;
+  }
+  .hero-section .container .row .col-12 .content-right .rotate {
+    transform: rotate(90deg);
+    position: absolute;
+    top: 16rem;
+    left: 28rem;
+  }
+  .hero-section .container .row .col-12 .content-right .rotate p {
+    color: #216000;
+    opacity: 0.15;
+    font-family: Inter;
+    font-size: 12rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 100%;
+  }
+  .hero-section .container .row .col-12 .content-right img {
+    width: 500px;
+    height: 500px;
+    flex-shrink: 0;
+    position: absolute;
+    right: 33%;
+    top: 60px;
+  }
+}
 body {
   font-family: Inter;
 }
