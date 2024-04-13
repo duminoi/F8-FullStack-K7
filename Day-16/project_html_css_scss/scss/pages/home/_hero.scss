@@ -1,15 +1,15 @@
 @use "../../partials/mixin";
 
 .hero-section {
+  $columnspace: 100px;
+
   margin-top: 11rem;
+  position: relative;
   .container {
-    // margin: 0;
-    min-width: 100%;
+    max-width: 1400px;
     .row {
-      width: 100%;
       align-items: center;
       .content-left {
-        margin-left: calc((100vw - 1400px) / 2);
         width: 100%;
         flex-grow: 1;
         .content-title {
@@ -48,13 +48,16 @@
         display: flex;
         justify-content: flex-end;
         .content-right {
-          max-width: 759px;
-          height: 710px;
+          width: 750px;
+          height: 810px;
           border-radius: 16.667px 0px 0px 16.667px;
           background: #dcffca;
           position: relative;
           flex-shrink: 0;
           flex-grow: 1;
+          transform: translateX(calc((50vw - 600px - $columnspace)));
+
+          // transform: translateX(calc(53vw - 759px));
           .rotate {
             transform: rotate(90deg);
             position: absolute;
@@ -84,8 +87,9 @@
   }
 }
 //responsive
-
 @include mixin.extra5Large() {
+  $columnspace: 100px;
+
   .hero-section {
     .container {
       .row {
@@ -93,13 +97,14 @@
         }
         .col-12 {
           .content-right {
-            max-width: 600px;
+            width: 600px;
             height: 590px;
             border-radius: 16.667px 0px 0px 16.667px;
             background: #dcffca;
             position: relative;
             flex-shrink: 0;
             flex-grow: 1;
+            transform: translateX(calc((50vw - 600px - $columnspace)));
             .rotate {
               transform: rotate(90deg);
               position: absolute;
@@ -116,16 +121,206 @@
               }
             }
             img {
-              width: 500px;
-              height: 500px;
+              width: 600px;
+              height: 600px;
               flex-shrink: 0;
               position: absolute;
               right: 33%;
-              top: 60px;
+              top: 0px;
             }
           }
         }
       }
     }
+  }
+}
+
+@include mixin.extra5Large() {
+  .hero-section .container {
+    max-width: 1400px;
+  }
+}
+@include mixin.extra4Large() {
+  .hero-section .container {
+    max-width: 1320px;
+    .row .col-12 .content-right {
+      width: 550px;
+      height: 500px;
+      border-radius: 16.667px 0px 0px 16.667px;
+      background: #dcffca;
+      position: relative;
+      flex-shrink: 0;
+      flex-grow: 1;
+      transform: translateX(calc(50vw - 550px - 61px));
+    }
+  }
+}
+@include mixin.extra3Large() {
+  .hero-section .container {
+    max-width: 1200px;
+    .row .col-12 .content-right {
+      width: 450px;
+      height: 400px;
+      border-radius: 16.667px 0px 0px 16.667px;
+      background: #dcffca;
+      position: relative;
+      flex-shrink: 0;
+      flex-grow: 1;
+      transform: translateX(calc(50vw - 450px - 0px));
+      .rotate {
+        transform: rotate(90deg);
+        position: absolute;
+        top: 9rem;
+        left: 28rem;
+      }
+      .rotate p {
+        color: #216000;
+        opacity: 0.15;
+        font-family: Inter;
+        font-size: 11rem;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 100%;
+      }
+      img {
+        width: 450px;
+        height: 450px;
+        flex-shrink: 0;
+        position: absolute;
+        right: 33%;
+        top: 0px;
+      }
+    }
+  }
+}
+@include mixin.extra2Large() {
+  .hero-section .container {
+    max-width: 1100px;
+    .row .col-12 .content-right {
+      width: 450px;
+      height: 600px;
+      border-radius: 16.667px 0px 0px 16.667px;
+      background: #dcffca;
+      position: relative;
+      flex-shrink: 0;
+      flex-grow: 1;
+      transform: translateX(calc(50vw - 382px - 0px));
+      .rotate {
+        transform: rotate(90deg);
+        position: absolute;
+        top: 19rem;
+        left: 21rem;
+        p {
+          font-size: 10rem;
+        }
+      }
+      img {
+        width: 450px;
+        height: 450px;
+        flex-shrink: 0;
+        position: absolute;
+        right: 33%;
+        top: 12%;
+      }
+    }
+  }
+}
+@include mixin.large() {
+  .hero-section .container {
+    max-width: 900px;
+    .row .col-12 .content-right {
+      width: 300px;
+      height: 400px;
+      border-radius: 16.667px 0px 0px 16.667px;
+      background: #dcffca;
+      position: relative;
+      flex-shrink: 0;
+      flex-grow: 1;
+      transform: translateX(calc(50vw - 357px - 0px));
+      .rotate {
+        transform: rotate(90deg);
+        position: absolute;
+        top: 11rem;
+        left: 14rem;
+      }
+      img {
+        width: 300px;
+        height: 300px;
+        flex-shrink: 0;
+        position: absolute;
+        right: 40%;
+        top: 12%;
+      }
+    }
+  }
+}
+@include mixin.medium() {
+  .hero-section .container {
+    max-width: 700px;
+    margin: 0;
+    .row {
+      width: 100vw;
+
+      .content-left {
+        width: 100%;
+        flex-grow: 1;
+        text-align: center;
+        .main-content {
+          width: 100%;
+          height: 85px;
+        }
+      }
+      .content-left .content-title {
+        font-size: 3rem;
+      }
+
+      .content-left .content-sub-title {
+        color: #2c2c2c;
+        font-family: Inter;
+        font-size: 3.4rem;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        width: 100%;
+      }
+
+      .right-wrapper {
+        order: 1;
+        .content-right {
+          width: 300px;
+          height: 400px;
+          border-radius: 16.667px 0px 0px 16.667px;
+          background: #dcffca;
+          position: relative;
+          flex-shrink: 0;
+          flex-grow: 1;
+          transform: translateX(0);
+          img {
+            width: 300px;
+            height: 300px;
+            flex-shrink: 0;
+            position: absolute;
+            right: 0%;
+            top: 12%;
+          }
+        }
+        .content-right .rotate {
+          transform: rotate(0deg);
+          position: absolute;
+          top: 9rem;
+          left: 2rem;
+        }
+      }
+      .left-wrapper {
+        order: 2;
+      }
+    }
+  }
+}
+@include mixin.small() {
+  .hero-section .container {
+    max-width: 530px;
   }
 }

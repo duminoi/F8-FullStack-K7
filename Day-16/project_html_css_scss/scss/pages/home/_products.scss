@@ -1,0 +1,89 @@
+@use "../../partials/mixin";
+@use "../../partials/variables";
+.product-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 214px;
+  .container {
+    .title {
+      color: variables.$color-black;
+      font-family: Inter;
+      font-size: 31.667px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 131.523%;
+      margin-bottom: 5rem;
+    } //end title
+    .row {
+      row-gap: 96px;
+      .col-12 {
+        .product-item {
+          .icon-wrapper {
+          } // end icon-wrapper
+          .combo {
+            color: var(--Content, #2c2c2c);
+            text-align: center;
+            font-family: Inter;
+            font-size: 2.5rem;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          } //end combo
+          .line {
+            width: 40.833px;
+            height: 2px;
+            stroke-width: 1.667px;
+            background-color: #a3a3a3;
+            margin: 0 auto;
+            margin-top: 13px;
+            margin-bottom: 16px;
+          }
+          .quantity {
+            color: #656565;
+            font-family: Inter;
+            font-size: 16.667px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 21.667px;
+          } //end quantity
+          .price {
+            color: #2c2c2c;
+            font-family: Inter;
+            font-size: 16.667px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 21.667px;
+            margin-bottom: 3.1rem;
+            span {
+              color: #2c2c2c;
+              font-family: Inter;
+              font-size: 23.333px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 26.667px;
+            }
+          } //end price
+          .button {
+            display: inline-flex;
+            padding: 13.333px 11.667px;
+            justify-content: center;
+            align-items: center;
+            gap: 8.333px;
+            color: #fff;
+            text-align: center;
+            font-family: Inter;
+            font-size: 16.667px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            border-radius: 6.667px;
+            background: #46b20f;
+          }
+        } //end product-item
+      }
+    }
+  }
+}
