@@ -87,3 +87,25 @@
     }
   }
 }
+//responsive
+@include mixin.large() {
+  .product-section {
+    .container {
+      max-width: 900px;
+    }
+  }
+}
+@include mixin.medium() {
+  .product-section {
+    .container {
+      max-width: 700px;
+    }
+  }
+}
+@include mixin.small() {
+  .product-section {
+    .container {
+      max-width: 530px;
+    }
+  }
+}

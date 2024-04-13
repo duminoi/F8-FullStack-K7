@@ -114,10 +114,17 @@
   }
 }
 //responsive
-
+@include mixin.large() {
+  .quantity-section {
+    .container {
+      max-width: 900px;
+    }
+  }
+}
 @include mixin.medium() {
   .quantity-section {
     .container {
+      max-width: 700px;
       .title .sub-title {
         text-align: center;
         font-family: Inter;
@@ -193,6 +200,7 @@
 @include mixin.small() {
   .quantity-section {
     .container {
+      max-width: 500px;
       .quantity-item {
         &::before {
           position: absolute;
