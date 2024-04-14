@@ -45,24 +45,22 @@
         }
       } //end content-left
       .col-12 {
-        display: flex;
-        justify-content: flex-end;
         .content-right {
-          width: 750px;
-          height: 810px;
+          min-width: calc(50vw - 10px);
+          height: 700px;
           border-radius: 16.667px 0px 0px 16.667px;
           background: #dcffca;
           position: relative;
           flex-shrink: 0;
           flex-grow: 1;
-          transform: translateX(calc((50vw - 600px - $columnspace)));
+          // transform: translateX(calc((50vw - 600px - $columnspace)));
 
           // transform: translateX(calc(53vw - 759px));
           .rotate {
             transform: rotate(90deg);
             position: absolute;
-            top: 16rem;
-            left: 24rem;
+            top: 17rem;
+            left: 29rem;
             p {
               color: #216000;
               opacity: 0.15;
@@ -97,19 +95,16 @@
         }
         .col-12 {
           .content-right {
-            width: 600px;
-            height: 590px;
+            height: 500px;
             border-radius: 16.667px 0px 0px 16.667px;
             background: #dcffca;
             position: relative;
-            flex-shrink: 0;
-            flex-grow: 1;
-            transform: translateX(calc((50vw - 600px - $columnspace)));
+
             .rotate {
               transform: rotate(90deg);
               position: absolute;
-              top: 16rem;
-              left: 28rem;
+              top: 11rem;
+              right: 0;
               p {
                 color: #216000;
                 opacity: 0.15;
@@ -121,8 +116,8 @@
               }
             }
             img {
-              width: 600px;
-              height: 600px;
+              width: 500px;
+              height: 500px;
               flex-shrink: 0;
               position: absolute;
               right: 33%;
@@ -144,14 +139,13 @@
   .hero-section .container {
     max-width: 1320px;
     .row .col-12 .content-right {
-      width: 550px;
       height: 500px;
       border-radius: 16.667px 0px 0px 16.667px;
       background: #dcffca;
       position: relative;
       flex-shrink: 0;
       flex-grow: 1;
-      transform: translateX(calc(50vw - 550px - 61px));
+      // transform: translateX(calc(50vw - 550px - 61px));
     }
   }
 }
@@ -159,19 +153,19 @@
   .hero-section .container {
     max-width: 1200px;
     .row .col-12 .content-right {
-      width: 450px;
       height: 400px;
       border-radius: 16.667px 0px 0px 16.667px;
       background: #dcffca;
       position: relative;
       flex-shrink: 0;
       flex-grow: 1;
-      transform: translateX(calc(50vw - 450px - 0px));
+      // transform: translateX(calc(50vw - 450px - 0px));
       .rotate {
         transform: rotate(90deg);
         position: absolute;
         top: 9rem;
-        left: 28rem;
+        // left: 28rem;
+        right: 0;
       }
       .rotate p {
         color: #216000;
@@ -197,19 +191,19 @@
   .hero-section .container {
     max-width: 1100px;
     .row .col-12 .content-right {
-      width: 450px;
       height: 600px;
       border-radius: 16.667px 0px 0px 16.667px;
       background: #dcffca;
       position: relative;
       flex-shrink: 0;
       flex-grow: 1;
-      transform: translateX(calc(50vw - 382px - 0px));
+      // transform: translateX(calc(50vw - 382px - 0px));
       .rotate {
         transform: rotate(90deg);
         position: absolute;
         top: 19rem;
-        left: 21rem;
+        // left: 21rem;
+        right: 0;
         p {
           font-size: 10rem;
         }
@@ -229,27 +223,29 @@
   .hero-section .container {
     max-width: 900px;
     .row .col-12 .content-right {
-      width: 300px;
       height: 400px;
       border-radius: 16.667px 0px 0px 16.667px;
       background: #dcffca;
       position: relative;
       flex-shrink: 0;
       flex-grow: 1;
-      transform: translateX(calc(50vw - 357px - 0px));
+      // transform: translateX(calc(50vw - 357px - 0px));
       .rotate {
         transform: rotate(90deg);
         position: absolute;
-        top: 11rem;
-        left: 14rem;
+        top: 4rem;
+        right: 4.6rem;
+        p {
+          font-size: 8rem;
+        }
       }
       img {
-        width: 300px;
-        height: 300px;
+        width: 350px;
+        height: 350px;
         flex-shrink: 0;
         position: absolute;
-        right: 40%;
-        top: 12%;
+
+        top: 5%;
       }
     }
   }
@@ -289,14 +285,13 @@
       .right-wrapper {
         order: 1;
         .content-right {
-          width: 300px;
           height: 400px;
           border-radius: 16.667px 0px 0px 16.667px;
           background: #dcffca;
           position: relative;
           flex-shrink: 0;
           flex-grow: 1;
-          transform: translateX(0);
+          // transform: translateX(0);
           img {
             width: 300px;
             height: 300px;
@@ -322,5 +317,11 @@
 @include mixin.small() {
   .hero-section .container {
     max-width: 530px;
+    .row {
+      .col-12 {
+        .content-right {
+        }
+      }
+    }
   }
 }
