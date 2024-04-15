@@ -29,10 +29,10 @@
           line-height: normal;
           margin-top: 1rem;
           margin-bottom: 2rem;
-          width: 430px;
+          max-width: 430px;
         } //end content-sub-title
         .main-content {
-          width: 449.167px;
+          max-width: 449.167px;
           height: 85px;
           p {
             color: #2c2c2c;
@@ -153,7 +153,7 @@
   .hero-section .container {
     max-width: 1200px;
     .row .col-12 .content-right {
-      height: 400px;
+      height: 500px;
       border-radius: 16.667px 0px 0px 16.667px;
       background: #dcffca;
       position: relative;
@@ -201,9 +201,8 @@
       .rotate {
         transform: rotate(90deg);
         position: absolute;
-        top: 19rem;
-        // left: 21rem;
-        right: 0;
+        top: 8rem;
+        right: 4.5rem;
         p {
           font-size: 10rem;
         }
@@ -233,8 +232,8 @@
       .rotate {
         transform: rotate(90deg);
         position: absolute;
-        top: 4rem;
-        right: 4.6rem;
+        top: 0rem;
+        right: 9.6rem;
         p {
           font-size: 8rem;
         }
@@ -277,16 +276,19 @@
         font-style: normal;
         font-weight: 800;
         line-height: normal;
+        margin: 0 auto;
         margin-top: 1rem;
         margin-bottom: 2rem;
         width: 100%;
       }
-
+      .content-left .main-content {
+        margin: 0 auto;
+      }
       .right-wrapper {
         order: 1;
         .content-right {
           height: 400px;
-          border-radius: 16.667px 0px 0px 16.667px;
+          border-radius: 16.667px;
           background: #dcffca;
           position: relative;
           flex-shrink: 0;

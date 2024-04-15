@@ -118,6 +118,19 @@
   .quantity-section {
     .container {
       max-width: 900px;
+      .quantity-item {
+        .row {
+          .col-12 {
+            .item {
+              max-width: 200px;
+            }
+          }
+          .col-12.center .item {
+            max-width: 240px;
+            height: 392.5px;
+          }
+        }
+      }
     }
   }
 }
@@ -142,8 +155,8 @@
         &::before {
           position: absolute;
           content: "";
-          width: 250px;
-          height: 250px;
+          width: 150px;
+          height: 150px;
           background-color: #dcffca;
           border-radius: 50%;
           bottom: 83%;
@@ -153,8 +166,8 @@
         &::after {
           position: absolute;
           content: "";
-          width: 250px;
-          height: 250px;
+          width: 150px;
+          height: 150px;
           flex-shrink: 0;
           background-color: #ffd5bd;
           border-radius: 50%;
@@ -166,7 +179,7 @@
           .col-12 {
           }
           .col-12 .item {
-            width: 100%;
+            min-width: 100%;
             height: 200px;
             border-radius: 3.333px;
             background: #fff;

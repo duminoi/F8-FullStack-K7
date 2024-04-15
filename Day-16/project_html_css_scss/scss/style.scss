@@ -184,11 +184,13 @@ body {
           border-radius: 8.333px;
           background: #fff;
           overflow: hidden;
+          margin: 0 auto;
           .img-wrapper {
             width: 100%;
           }
           .main {
             margin-left: 27.5px;
+            margin-right: 10px;
             .desc {
               color: #e05000;
               text-shadow: 0px 3.333px 3.333px rgba(0, 0, 0, 0.25);
@@ -241,7 +243,7 @@ body {
 }
 @include mixin.medium() {
   .how-section .container .row .col-12 .how-item {
-    width: auto;
+    min-width: 100%;
     height: auto;
     border-radius: 8.333px;
     background: #fff;
@@ -249,6 +251,19 @@ body {
   }
   .how-section .container .row .col-12 .how-item .img-wrapper {
     width: auto;
+    img {
+    }
+  }
+}
+@include mixin.small() {
+  .how-section .container .row .col-12 .how-item {
+    display: block;
+    .img-wrapper {
+      width: auto;
+      img {
+        min-width: 100%;
+      }
+    }
   }
 }
 //end how-section
@@ -305,6 +320,7 @@ body {
     .row {
       .col-12 .img-wrapper {
         img {
+          width: 100%;
         }
       }
       .col-12 .form {
@@ -343,7 +359,7 @@ body {
           justify-content: space-between;
           .email {
             display: flex;
-            min-width: 100px;
+            width: 40%;
             padding: 13.333px 20px 13.333px 13.333px;
             align-items: center;
             gap: 8.333px;
@@ -352,7 +368,7 @@ body {
           }
           .tel {
             display: flex;
-            min-width: 100px;
+            width: 40%;
             padding: 13.333px 20px 13.333px 13.333px;
             align-items: center;
             gap: 8.333px;
