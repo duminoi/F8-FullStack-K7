@@ -320,9 +320,19 @@
   .hero-section .container {
     max-width: 530px;
     .row {
-      .col-12 {
-        .content-right {
-        }
+      .right-wrapper .content-right .rotate {
+        transform: rotate(0deg);
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+      }
+      .right-wrapper .content-right img {
+        width: 300px;
+        height: 300px;
+        flex-shrink: 0;
+        position: absolute;
+        right: 0%;
+        top: 29%;
       }
     }
   }

@@ -12,6 +12,17 @@ footer {
     .desc {
       .row {
         .col-12 {
+          .desc-item.help {
+            .item-2,
+            .item-3 {
+              color: #2c2c2c;
+              font-family: Inter;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 20px;
+            }
+          }
           .desc-item {
             .icon-wrapper {
             }
@@ -50,7 +61,7 @@ footer {
       }
     }
     .line {
-      max-width: 975px;
+      max-width: 100%;
       margin: 0 auto;
       height: 2px;
       flex-shrink: 0;

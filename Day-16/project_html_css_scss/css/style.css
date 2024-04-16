@@ -153,6 +153,15 @@ footer {
 footer .container {
   background: #f2ffec;
 }
+footer .container .desc .row .col-12 .desc-item.help .item-2,
+footer .container .desc .row .col-12 .desc-item.help .item-3 {
+  color: #2c2c2c;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
 footer .container .desc .row .col-12 .desc-item .title {
   color: #46b20f;
   font-family: Inter;
@@ -181,7 +190,7 @@ footer .container .desc .row .col-12 .desc-item .icon-wrapper + p {
   margin-bottom: 7.2rem;
 }
 footer .container .line {
-  max-width: 975px;
+  max-width: 100%;
   margin: 0 auto;
   height: 2px;
   flex-shrink: 0;
@@ -727,6 +736,20 @@ header .container .action .cart-wrapper::before {
 @media screen and (max-width: 575px) {
   .hero-section .container {
     max-width: 530px;
+  }
+  .hero-section .container .row .right-wrapper .content-right .rotate {
+    transform: rotate(0deg);
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
+  .hero-section .container .row .right-wrapper .content-right img {
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+    position: absolute;
+    right: 0%;
+    top: 29%;
   }
 }
 .product-section {
@@ -1309,7 +1332,7 @@ body {
 .contact-section .container .row .col-12 .img-wrapper img {
   width: 100%;
 }
-.contact-section .container .row .col-12 .form display .name::placeholder,
+.contact-section .container .row .col-12 .form .name::placeholder,
 .contact-section .container .row .col-12 .form .email::placeholder,
 .contact-section .container .row .col-12 .form .tel::placeholder,
 .contact-section .container .row .col-12 .form textarea::placeholder {
