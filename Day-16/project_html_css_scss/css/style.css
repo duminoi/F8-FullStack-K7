@@ -145,7 +145,7 @@ body {
 footer {
   margin-top: 106px;
   width: 100vw;
-  height: 407.5px;
+  min-height: 200px;
   flex-shrink: 0;
   background: #f2ffec;
   padding-top: 64px;
@@ -368,6 +368,7 @@ header .container .action .cart-wrapper::before {
   }
   header .wrapper .nav-wrapper .overlay {
     opacity: 0;
+    visibility: hidden;
     position: fixed;
     inset: 0;
     background-color: rgba(202, 202, 202, 0.4039215686);
@@ -448,7 +449,6 @@ header .container .action .cart-wrapper::before {
   }
 }
 .hero-section {
-  margin-top: 11rem;
   position: relative;
 }
 .hero-section .container {
@@ -681,6 +681,7 @@ header .container .action .cart-wrapper::before {
     width: 100%;
     flex-grow: 1;
     text-align: center;
+    margin-top: 4rem;
   }
   .hero-section .container .row .content-left .main-content {
     width: 100%;
@@ -1217,7 +1218,7 @@ body {
 }
 .how-section .container .row .col-12 .how-item {
   max-width: 300px;
-  height: 359.167px;
+  min-height: 400px;
   border-radius: 8.333px;
   background: #fff;
   overflow: hidden;
@@ -1271,7 +1272,7 @@ body {
 @media screen and (max-width: 767px) {
   .how-section .container .row .col-12 .how-item {
     min-width: 100%;
-    height: auto;
+    min-height: 200px;
     border-radius: 8.333px;
     background: #fff;
     display: flex;

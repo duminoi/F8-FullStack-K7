@@ -177,6 +177,7 @@ header {
         }
         .overlay {
           opacity: 0;
+          visibility: hidden;
           position: fixed;
           inset: 0;
           background-color: #cacaca67;

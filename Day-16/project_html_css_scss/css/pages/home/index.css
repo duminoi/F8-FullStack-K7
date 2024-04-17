@@ -1,5 +1,4 @@
 .hero-section {
-  margin-top: 11rem;
   position: relative;
 }
 .hero-section .container {
@@ -232,6 +231,7 @@
     width: 100%;
     flex-grow: 1;
     text-align: center;
+    margin-top: 4rem;
   }
   .hero-section .container .row .content-left .main-content {
     width: 100%;
