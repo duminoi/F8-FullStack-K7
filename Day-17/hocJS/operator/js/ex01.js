@@ -22,9 +22,9 @@ console.log(b);
 var count = 1;
 var total = count++ + ++count + count++;
 console.log(total);
-// 1.count =2, total=1
-// 2.count = 3, total = 1+3= 4
-// 3.count = 4,total = 4+ 3 = 7
+// 1.count =2, total = 1
+// 2.count = 3, total = 1 + 3= 4
+// 3.count = 4, total = 4 + 3 = 7
 
 //2. Toán tử gán ( = )
 var a = 10;

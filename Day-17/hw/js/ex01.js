@@ -1,0 +1,12 @@
+var a = document.getElementById("inputA").innerText;
+var b = document.getElementById("inputB").innerText;
+// a = a + b;
+// b = a - b;
+// a = a - b;
+[a, b] = [b, a];
+// number1 = document.getElementById("resultA").innerText;
+// number2 = document.getElementById("resultB").innerText;
+// number1 = a;
+// number2 = b;
+console.log("a: " + a);
+console.log("b: " + b);
