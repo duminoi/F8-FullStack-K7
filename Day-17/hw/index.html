@@ -4,18 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>bài 1</title>
+    <link rel="stylesheet" href="./css/ex01.css" />
   </head>
   <body>
-    <h1>Bài 1</h1>
-    <label for="inputA">Nhập vào a: </label>
-    <input type="text" id="inputA" />
-    <label for="inputB">Nhập vào b: </label>
-    <input type="text" id="inputB" />
-    <div class="result">
-      <button class="result1">Kết quả</button>
-      <div class="">Số a: <span class="resultA"></span></div>
-      <div class="">Số b: <span class="resultB"></span></div>
-    </div>
+    <form class="form">
+      <h1>Bài 1:</h1>
+      <label for="inputA">Nhập vào a: </label>
+      <input type="text" id="inputA" />
+      <label for="inputB">Nhập vào b: </label>
+      <input type="text" id="inputB" />
+      <div class="result">
+        <button id="btn1">Kết quả</button>
+        <div class="">Số a: <span id="resultA"></span></div>
+        <div class="">Số b: <span id="resultB"></span></div>
+      </div>
+    </form>
+    <!-- end bài 1 -->
+    <form action="" class="form">
+      <h1>Bài 2:Thực hiện phép toán</h1>
+      <p>S = 10 + 20 + 5^10 / 2</p>
+      <button id="btn2">Kết quả</button>
+      <p>S = <span id="result2"></span></p>
+    </form>
+    <!-- end bài 2 -->
+
+    <form action="" class="form">
+      <h1>Bài 3:</h1>
+      <label for="inputA2">Nhập a:</label>
+      <input type="text" id="inputA2" />
+
+      <label for="inputB2">Nhập b:</label>
+      <input type="text" id="inputB2" />
+
+      <label for="inputC2">Nhập c:</label>
+      <input type="text" id="inputC2" />
+      <button id="btn3">Kết quả</button>
+      <p>Số max = <span id="result3"></span></p>
+    </form>
+    <!-- end bài 3 -->
     <script src="./js/ex01.js"></script>
   </body>
 </html>
