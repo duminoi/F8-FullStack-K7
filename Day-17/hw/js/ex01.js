@@ -17,6 +17,9 @@ var btn4 = document.getElementById("btn4");
 
 //----------------variable baì5 -------------------
 var btn5 = document.getElementById("btn5");
+var a4 = parseInt(document.getElementById("inputA4").value);
+var b4 = parseInt(document.getElementById("inputB4").value);
+var c4 = parseInt(document.getElementById("inputC4").value);
 //----------------variable baì5 -------------------
 
 //-----------------function b1------------------------
@@ -126,9 +129,7 @@ function sort(array) {
 }
 btn5.addEventListener("click", (event) => {
   event.preventDefault();
-  var a4 = parseInt(document.getElementById("inputA4").value);
-  var b4 = parseInt(document.getElementById("inputB4").value);
-  var c4 = parseInt(document.getElementById("inputC4").value);
+
   var arr = [a4, b4, c4];
   if (isNaN(a4) || isNaN(b4) || isNaN(c4)) {
     alert("Vui lòng nhập a,b,c");
