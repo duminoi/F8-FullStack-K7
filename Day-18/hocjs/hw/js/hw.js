@@ -5,6 +5,14 @@ var btnTaxi = document.getElementById("btnTaxi");
 var kwhbtn = document.getElementById("kwhBtn");
 //-----------------------variable b2------------------------
 
+//-----------------------variable b3------------------------
+var btn3 = document.getElementById("calc3btn");
+//-----------------------variable b3------------------------
+
+//-----------------------variable b4------------------------
+var btn4 = document.getElementById("btn4");
+//-----------------------variable b4------------------------
+
 // --------------------- function b1-------------------------
 function taxiPrice(sokm) {
   var lastPrice = 0;
@@ -71,3 +79,59 @@ kwhbtn.addEventListener("click", (event) => {
 });
 
 // --------------------- function b2-------------------------
+
+// --------------------- function b3-------------------------
+function calc3(n) {
+  var temp = 1;
+  var s = 0;
+  for (let i = 1; i <= n; i++) {
+    temp = i * (i + 1);
+    s += temp;
+  }
+  return s;
+}
+btn3.addEventListener("click", (event) => {
+  event.preventDefault();
+  var input = parseInt(document.getElementById("b3input").value);
+  if (input == 0 || input == "" || isNaN(input)) {
+    alert("Vui lòng nhập lại");
+  } else {
+    var result = calc3(input);
+    document.getElementById("calcResult").innerHTML = result;
+  }
+});
+// --------------------- function b3-------------------------
+
+// --------------------- function b4-------------------------
+function prime(n) {
+  if (n < 2) {
+    return false;
+  } else {
+    for (i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i == 0) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+btn4.addEventListener("click", (event) => {
+  event.preventDefault();
+  var input = parseInt(document.getElementById("input4").value);
+  if (input == 0 || input == "" || isNaN(input)) {
+    alert("Vui lòng nhập lại");
+  } else {
+    result = prime(input);
+    if (result) {
+      document.getElementById(
+        "ntResult"
+      ).innerHTML = `${input} là số nguyên tố`;
+    } else {
+      document.getElementById(
+        "ntResult"
+      ).innerHTML = `${input} không là số nguyên tố`;
+    }
+  }
+});
+
+// --------------------- function b4-------------------------

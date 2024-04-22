@@ -9,11 +9,20 @@
   <body>
     <form action="" class="form">
       <h2>Bài 1</h2>
+      <ul>
+        <li>Tính tiền cước taxi dựa vào các điều kiện sau</li>
+        <li>Số km ≤ 1 giá 15000đ</li>
+        <li>1 < số km ≤ 5 giá 13500đ</li>
+        <li>Số km > 5 giá 11000đ</li>
+        <li>Nếu số km > 120 km sẽ được giảm 10% trên tổng số tiền</li>
+      </ul>
       <label for="inputTaxi">Nhập số km </label>
       <input type="text" id="inputTaxi" />
       <br />
-      <button id="btnTaxi">Giá tiền</button>
-      <span id="taxiPrice"></span>
+      <div class="wrapper">
+        <button id="btnTaxi">Giá tiền</button>
+        <span id="taxiPrice"></span>
+      </div>
     </form>
     <!-- end form 1 -->
     <form action="" class="form">
@@ -21,11 +30,34 @@
       <label for="kwhInput">Nhập vào số điện tiêu thụ hàng tháng</label>
       <input type="text" id="kwhInput" />
       <br />
-      <button id="kwhBtn">Giá tiền</button>
-      <p>Điện hàng tháng : <span id="electricPrice"></span></p>
+      <div class="wrapper">
+        <button id="kwhBtn">Giá tiền</button>
+        <p>Điện hàng tháng : <span id="electricPrice"></span></p>
+      </div>
     </form>
     <!-- end form 2 -->
-    <form action="" class="form"></form>
+    <form action="" class="form">
+      <h2>Bài 3</h2>
+      <p>Tính giá trị của biểu thức: S= 1*2 + 2*3 + 3*4 + ... + n*(n+1)</p>
+      <label for="b3input">Nhập n: </label>
+      <input type="text" id="b3input" />
+      <br />
+      <div class="wrapper">
+        <button id="calc3btn">Kết quả là:</button>
+        <p><span id="calcResult"></span></p>
+      </div>
+    </form>
+    <!-- end form 3 -->
+    <form action="" class="form">
+      <h2>Bài 4</h2>
+      <label for="input4">Nhập vào số n: </label>
+      <input type="text" id="input4" />
+      <div class="wrapper">
+        <button id="btn4">Kết quả</button>
+        <p><span id="ntResult"></span></p>
+      </div>
+    </form>
+    <!-- end form 4 -->
     <script src="./js/hw.js"></script>
   </body>
 </html>

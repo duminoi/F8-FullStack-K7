@@ -1,3 +1,9 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
 button {
   width: 72px;
   height: 30px;
@@ -5,4 +11,8 @@ button {
   color: #fff;
   border: none;
   border-radius: 23px;
+  margin-right: 20px;
+}
+button + p {
+  display: inline-block;
 }
