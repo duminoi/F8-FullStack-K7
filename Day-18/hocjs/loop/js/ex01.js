@@ -38,7 +38,6 @@ var s = 0;
 for (var i = 1; i <= n; i++) {
   s += i;
   console.log(`i = ${i} ==> s = ${s}`);
-  x;
 }
 
 // S = 1 + 1*2 + 1*2*3 + ... + 1*2*4..*n
@@ -46,7 +45,12 @@ var n = 5;
 var tmp = 1;
 var s = 0;
 for (var i = 1; i <= n; i++) {
+  console.log(`lan thu ${i}
+tmp = ${tmp}* (${i})
+`);
   tmp = tmp * i;
+
+  console.log(`  s = ${s} + ${tmp}`);
   s += tmp;
 }
 console.log(s);
