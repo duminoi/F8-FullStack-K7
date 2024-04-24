@@ -13,6 +13,20 @@ var btn3 = document.getElementById("calc3btn");
 var btn4 = document.getElementById("btn4");
 //-----------------------variable b4------------------------
 
+//-----------------------variable b5------------------------
+var btn5 = document.getElementById("btn5");
+//-----------------------variable b5------------------------
+
+//-----------------------variable b6------------------------
+var btn6 = document.getElementById("btn6");
+let board = document.getElementById("board");
+//-----------------------variable b6------------------------
+
+//-----------------------variable b7------------------------
+var btnMulti = document.getElementById("btnMulti");
+
+//-----------------------variable b7------------------------
+
 // --------------------- function b1-------------------------
 function taxiPrice(sokm) {
   var lastPrice = 0;
@@ -135,3 +149,90 @@ btn4.addEventListener("click", (event) => {
 });
 
 // --------------------- function b4-------------------------
+
+// --------------------- function b5-------------------------
+function triangle(n) {
+  var result = "";
+  var count = 0;
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= i; j++) {
+      count++;
+      result += count + " ";
+    }
+    result += "<br>";
+  }
+  return result;
+}
+btn5.addEventListener("click", (event) => {
+  event.preventDefault();
+  var input = parseInt(document.getElementById("input5").value);
+  if (input === " " || input === 0 || isNaN(input)) {
+    alert("Vui lòng nhập lại");
+  } else {
+    var result = triangle(input);
+    document.getElementById("resultTriangle").innerHTML = result;
+  }
+});
+
+// --------------------- function b5-------------------------
+
+// --------------------- function b6-------------------------
+
+function chess() {
+  for (let i = 1; i <= 8; i++) {
+    const cellContainer = document.createElement("div");
+    cellContainer.className = "cellContainer";
+    for (let j = 1; j <= 8; j++) {
+      const cell = document.createElement("div");
+      cell.className = "cell";
+
+      if (i % 2 === 0) {
+        if (j % 2 === 0) {
+          cell.style.backgroundColor = "black";
+        } else {
+          cell.style.backgroundColor = "white";
+        }
+      } else {
+        if (j % 2 === 0) {
+          cell.style.backgroundColor = "white";
+        } else {
+          cell.style.backgroundColor = "black";
+        }
+      }
+
+      cellContainer.append(cell);
+    }
+    board.append(cellContainer);
+  }
+}
+btn6.addEventListener("click", (event) => {
+  event.preventDefault();
+  chess();
+});
+
+// --------------------- function b6-------------------------
+
+// --------------------- function b7-------------------------
+function calcmulti() {
+  var row = document.getElementById("row");
+  row.innerHTML = "";
+
+  for (let i = 1; i <= 10; i++) {
+    const containerMulti = document.createElement("div");
+    containerMulti.className = "containerMulti col-3";
+    for (let j = 1; j <= 10; j++) {
+      const spanMulti = document.createElement("span");
+      spanMulti.className = "spanMulti";
+      var result = i * j;
+      spanMulti.innerHTML = ` ${i} x ${j} = ${result}  <br>`;
+      containerMulti.append(spanMulti);
+    }
+    row.append(containerMulti);
+  }
+}
+btnMulti.addEventListener("click", (event) => {
+  event.preventDefault();
+  calcmulti();
+});
+
+// --------------------- function b7-------------------------

@@ -16,3 +16,31 @@ button {
 button + p {
   display: inline-block;
 }
+
+/* chess */
+#board {
+  display: flex;
+  flex-direction: column;
+}
+
+.cellContainer {
+  display: flex;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+}
+
+/* bt7 */
+.containerMulti {
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  width: fit-content;
+  padding: 10px;
+}
+.form {
+  margin-bottom: 20px;
+}
