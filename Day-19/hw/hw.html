@@ -4,12 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bài tập về hàm</title>
+    <link rel="stylesheet" href="./css/grid.css" />
+    <link rel="stylesheet" href="./css/hw.css" />
   </head>
   <body>
-    <h2>Bài 1:N số Fibonaci</h2>
-    <label for="input1"></label>
-    <input type="text" id="input1" />
-    <button id="btn1">Kết quả</button>
+    <div class="container">
+      <form action="" class="form">
+        <h2>Bài 1:N số Fibonaci</h2>
+        <label for="input1">Nhập vào số N: </label>
+        <input type="text" id="input1" />
+        <div class="wrapper">
+          <button id="btn1">Kết quả</button>
+          <span id="result1"></span>
+        </div>
+      </form>
+    </div>
     <script src="./js/hw.js"></script>
   </body>
 </html>

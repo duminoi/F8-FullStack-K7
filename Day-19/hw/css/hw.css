@@ -1,0 +1,12 @@
+button {
+  width: 72px;
+  height: 30px;
+  background: #00b7d491;
+  color: #fff;
+  border: none;
+  border-radius: 23px;
+  margin-right: 20px;
+}
+form {
+  margin-bottom: 20px;
+}
