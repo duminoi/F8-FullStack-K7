@@ -130,15 +130,15 @@ function handleLog() {
  setTimeout(callback, time, args)
  */
 
-// setTimeout(
-//   function (a, b, c) {
-//     console.log("hello anh em", a, b, c);
-//   },
-//   1000,
-//   "a",
-//   "b",
-//   "c"
-// );
+setTimeout(
+  function (a, b, c) {
+    console.log("hello anh em", a, b, c);
+  },
+  1000,
+  "a",
+  "b",
+  "c"
+);
 
 // function max(a, b) {
 //   console.log(arguments); //Array like object
