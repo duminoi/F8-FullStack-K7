@@ -10,3 +10,9 @@ button {
 form {
   margin-bottom: 20px;
 }
+h2 {
+  margin: 20px 0;
+}
+.wrapper {
+  margin-top: 20px;
+}
