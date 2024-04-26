@@ -67,7 +67,7 @@ function numTostr(n) {
           }
         } else if (split.length == 2) {
           if (i == 0) {
-            temp += " mươi";
+            temp = " mười";
           }
         }
 
