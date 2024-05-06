@@ -16,6 +16,7 @@ var email = `duminoi2003@gmail.com`;
 //   arr = str.split(" ");
 //   for (let i = 0; i < arr.length; i++) {
 //     for (let j = 0; j < arr[i].length; j++) {
+//       console.log(`arr[${i}][${j}]: ${arr[i][j]}`);
 //       if (arr[i][j].charCodeAt(0) < 65 || arr[i][j].charCodeAt(0) > 90) {
 //         return false;
 //       }
@@ -30,3 +31,5 @@ var email = `duminoi2003@gmail.com`;
 //   return str === str.toUpperCase();
 // }
 // console.log(isUpper("NGUYEN DUC MINh"));
+
+//Test
