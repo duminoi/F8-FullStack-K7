@@ -14,19 +14,16 @@ var email = `duminoi2003@gmail.com`;
 //Cách 1
 // function isUpper(str) {
 //   arr = str.split(" ");
-//   for (let i = 0; i <= arr.length; i++) {
-//     arr2 = arr[i].split("");
-//     for (let j = 0; j <= arr2.length; j++) {
-//       if (arr2[j].charCodeAt(0) < 65 && arr2[j].charCodeAt(0) > 90) {
-//         console.log(arr2[j]);
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr[i].length; j++) {
+//       if (arr[i][j].charCodeAt(0) < 65 || arr[i][j].charCodeAt(0) > 90) {
 //         return false;
 //       }
 //     }
 //   }
 //   return true;
 // }
-// console.log(isUpper("NGUYEN DUC MINh"));
-// console.log(email.charCodeAt(0));
+// console.log(isUpper("NGUYEN DUC MINH"));
 
 //Cách 2
 // function isUpper(str) {
