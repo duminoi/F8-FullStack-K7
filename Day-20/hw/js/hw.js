@@ -3,10 +3,8 @@ var text = ` Lorem ipsum dolor sit, amet consectetur adipisicing elit. A molesti
 reiciendis laudantium error veritatis cupiditate sint blanditiis fugit
 quidem ratione! `;
 var interval;
-var currentIndex = 0;
-
+var startIndex = 0;
 function changeColor() {
-  var startIndex = text.indexOf(" ", currentIndex);
   var endIndex = text.indexOf(" ", startIndex + 1);
   if (endIndex === -1) {
     endIndex = text.length;
@@ -20,9 +18,9 @@ function changeColor() {
 
   document.body.innerHTML = output;
 
-  currentIndex = endIndex;
-  if (currentIndex === text.length) {
-    currentIndex = 0;
+  startIndex = endIndex;
+  if (startIndex === text.length) {
+    startIndex = 0;
   }
 }
 interval = setInterval(changeColor, 500);
