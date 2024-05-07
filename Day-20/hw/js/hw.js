@@ -1,6 +1,6 @@
 //Cách 2
-var text = ` Lorem ipsum dolor sit, amet consectetur adipisicing elit. A molestiae
-reiciendis laudantium error veritatis cupiditate sint blanditiis fugit
+var text = ` Lorem ipsum dolor sit, amet consectetur adipisicing elit. A hello 
+reiciendis laudantium error veritatis cupiditate sint blanditiis fugit 
 quidem ratione! `;
 var interval;
 var startIndex = 0;
@@ -10,11 +10,17 @@ function changeColor() {
     endIndex = text.length;
   }
 
-  var currentWord = text.substring(startIndex + 1, endIndex);
+  var currentWord = text.slice(startIndex + 1, endIndex);
+
+  if (startIndex === 0) {
+    var output =
+      `<span style="color:red">${text.slice(0, endIndex)}</span>` +
+      text.slice(endIndex);
+  }
   var output =
-    text.substring(0, startIndex + 1) +
+    text.slice(0, startIndex + 1) +
     `<span style="color:red">${currentWord}</span>` +
-    text.substring(endIndex);
+    text.slice(endIndex);
 
   document.body.innerHTML = output;
 
