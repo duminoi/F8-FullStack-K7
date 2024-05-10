@@ -26,3 +26,25 @@
 
 // // Bắt đầu thay đổi màu từng từ sau mỗi 0.5s
 // interval = setInterval(changeColor, 500);
+
+// var text = `Lorem ipsum dolor sit, amet consectetur adipisicing elit. A hello
+// reiciendis laudantium error veritatis cupiditate sint blanditiis fugit
+// quidem ratione! `;
+// var interval;
+// var index = text.indexOf(" ", 0);
+// var output = "";
+// function changeColor() {
+//   if (index !== -1) {
+//     output += `<span > ${text.slice(0, index)}</span>`;
+//     console.log(output);
+//     text = text.slice(index + 1);
+//     console.log(text);
+//     index = text.indexOf(" ");
+//     if (index === -1) {
+//       index = 0;
+//     }
+//   }
+
+//   document.body.innerHTML = output;
+// }
+// interval = setInterval(changeColor, 500);
