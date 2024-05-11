@@ -87,7 +87,7 @@ myArray[3] = "Hello F88";
 // user = newArr;
 // console.log(user);
 
-// var numbers = [5, 2, 10, 9, 1, 4, 6];
+var numbers = [5, 2, 9, 1, 10, 4, 6];
 // //Yêu cầu: Tìm phần tử lớn nhất trong mảng và đổi chỗ phần tử đó với phần tử đầu tiên
 // // var max;
 // // for (let i = 0; i < numbers.length; i++) {
@@ -104,23 +104,22 @@ myArray[3] = "Hello F88";
 // // }
 // // console.log(numbers);
 
-// var maxIndex;
-// var max = numbers[0];
-// for (var index in numbers) {
-//   if (max < numbers[index]) {
-//     max = numbers[index];
-//     maxIndex = +index;
-//   }
-// }
+var maxIndex;
+var max = numbers[0];
+for (var index in numbers) {
+  if (max < numbers[index]) {
+    max = numbers[index];
+    maxIndex = +index;
+  }
+}
 // console.log(max);
 // console.log(maxIndex);
-// var tmp = numbers[0];
-// numbers[0] = max;
-// numbers[maxIndex] = tmp;
-// console.log(numbers);
+numbers[maxIndex] = numbers[0];
+numbers[0] = max;
+console.log(numbers);
 
 // var fullname = "nguyễn đức minh";
-//yêu cầu: chuyển thành họ tên hợp lệ: Nguyến Đức Minh
+// // yêu cầu: chuyển thành họ tên hợp lệ: Nguyến Đức Minh
 // var arr = fullname.split(" ");
 // var newArr = [];
 // var str;
