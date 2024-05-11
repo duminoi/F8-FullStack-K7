@@ -77,23 +77,74 @@ btn2.addEventListener("click", (event) => {
 var btn3 = document.getElementById("btn3");
 
 function doubleFilter() {
-  var arr = [1, 2, 3, 3, 4, 5, 6, 7, 8, 9, 9, 10];
+  var arr = [1, 2, 3, 3, 4, 5, 6, 7, 9, 8, 9, 9, 10];
   var newArr = [];
-  var check = false;
+
   for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j] === arr[i]) {
-        check = true;
+    let found = false;
+    for (let j = 0; j < newArr.length; j++) {
+      if (arr[i] === newArr[j]) {
+        found = true;
         break;
       }
     }
-    if (check) {
-      continue;
+    if (!found) {
+      newArr[newArr.length] = arr[i];
     }
-    newArr[newArr.length] = arr[i];
   }
   return newArr;
 }
 
-console.log(doubleFilter());
+// console.log(doubleFilter());
+btn3.addEventListener("click", (event) => {
+  event.preventDefault();
+  document.getElementById("resultArr3").innerHTML = `[${doubleFilter()}]`;
+});
 //-------------- b3------------------
+
+//-------------- b4------------------
+var btn4 = document.getElementById("btn4");
+
+function sort() {
+  var numbers = [5, 1, 9, 8, 10];
+
+  for (let i = 0; i < numbers.length; i++) {
+    for (let j = i + 1; j < numbers.length; j++) {
+      if (numbers[j] < numbers[i]) {
+        var tmp = numbers[j];
+        numbers[j] = numbers[i];
+        numbers[i] = tmp;
+      }
+    }
+  }
+  return numbers;
+}
+
+function addArr(n) {
+  var arr = sort();
+  var newArr = [n];
+  for (let i = 0; i < arr.length; i++) {
+    newArr[newArr.length] = arr[i];
+  }
+  // console.log(newArr);
+
+  for (let i = 0; i < newArr.length; i++) {
+    for (let j = i + 1; j < newArr.length; j++) {
+      if (newArr[j] < newArr[i]) {
+        var tmp = newArr[j];
+        newArr[j] = newArr[i];
+        newArr[i] = tmp;
+      }
+    }
+  }
+  return newArr;
+}
+// console.log(addArr());
+btn4.addEventListener("click", (event) => {
+  event.preventDefault();
+  document.getElementById("sortArr").innerHTML = `[${sort()}]`;
+  var input4 = document.getElementById("add").value;
+
+  document.getElementById("addArr").innerHTML = `[${addArr(input4)}]`;
+});
+//-------------- b4------------------
