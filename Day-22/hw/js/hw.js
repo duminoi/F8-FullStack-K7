@@ -96,24 +96,38 @@ function display() {
     ],
   ];
 
-  for (const article of arr) {
+  for (const index in arr) {
+    const list = document.createElement("div");
+    list.className = "list";
+
     const contentWrapper = document.createElement("div");
-    contentWrapper.className = "contentWrapper";
+    contentWrapper.className = "contentWrapper ";
+    const hr = document.createElement("hr");
 
     const articleElement = document.createElement("p");
     articleElement.className = "para";
-    articleElement.textContent = article[1]; // Nội dung
+    articleElement.textContent = arr[index][1]; // Nội dung
+    // console.log(article[index][1]);
 
     const titleElement = document.createElement("h2");
-    titleElement.textContent = article[0]; // Tiêu đề
-
+    titleElement.textContent = arr[index][0]; // Tiêu đề
     const img = document.createElement("img");
-    img.src = `${article[2]}`; // Đường dẫn ảnh
+
+    if (index == 1) {
+      img.className = "img2";
+    }
+    img.src = `${arr[index][2]}`; // Đường dẫn ảnh
+    // if (article[0] == "Tiêu đề bài viết 1") {
+    //   console.log("stop");
+    //   continue;
+    // }
 
     contentWrapper.appendChild(titleElement);
     contentWrapper.appendChild(articleElement);
-    board.appendChild(img);
-    board.appendChild(contentWrapper);
+    list.appendChild(img);
+    list.appendChild(contentWrapper);
+    board.append(hr);
+    board.append(list);
   }
 }
 
