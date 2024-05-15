@@ -11,7 +11,7 @@ var newArr = [];
 //       flat(n[i]);
 //     }
 //   }
-//   //   console.log(n[i]);
+//   //   console.log([i]);
 //   newArr.push(n);
 // }
 // for (var i = 0; i < arr.length; i++) {
