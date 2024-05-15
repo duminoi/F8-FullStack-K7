@@ -74,6 +74,7 @@ var users = [
 //   console.log(value, index);
 // });
 // console.log(result);
+
 //-------------------------------------------
 //map(callback)
 /*
@@ -83,9 +84,11 @@ var users = [
  */
 
 // var newArr = users.map(function (value, index) {
-//   return `${index + 1} - ${value}`;
+//   // return `${index + 1} - ${value}`;
+//   return value;
 // });
 // console.log(newArr);
+
 // ------------------------------------------
 //filter(callback)
 /**
@@ -93,10 +96,11 @@ var users = [
  - Trả về 1 mảng mới, giả trị phần tử của mảng mới sẽ là các phần tử của mảng ban đầu nếu callback return là truthy
  */
 // var newArr = users.filter(function (value, index) {
-//   console.log(value, index);
-//   if (index > 1) {
-//     return true;
-//   }
+//   // if (index > 1) {
+//   //   console.log(value, index);
+//   //   return true;
+//   // }
+//   return index > 1;
 // });
 // console.log(newArr);
 
@@ -113,15 +117,11 @@ var customers = [
 
 // var getEmail = "customer2@gmail.com";
 
-// var newArr = customers.filter(function (value) {
+// var customers = customers.filter(function (value) {
 //   var check = value.includes(getEmail);
-//   console.log(check);
-//   if (!check) {
-//     return true;
-//   }
-//   return false;
+//   return check == false;
 // });
-// console.log(newArr);
+// console.log(customers);
 
 //Tăng tuổi của khách hàng có email customer2@gmail.com thêm 2 tuổi
 //Gợi ý dùng vòng lặp map
@@ -136,6 +136,7 @@ var customers = [
 
 // console.log(newArr);
 
+<<<<<<< HEAD
 var data = [];
 function addData(value, status) {
   var addItem = function (item) {
@@ -165,6 +166,33 @@ addData("An", true);
 addData("Quan", true);
 addData("Quan", false);
 console.log(data);
+=======
+// var data = [];
+// function addData(value, status) {
+//   var addItem = function (item) {
+//     if (!data.includes(item)) {
+//       data.push(item);
+//     }
+//   };
+//   var removeItem = function (item) {
+//     // item = "Quan"
+//     data = data.filter(function (_item) {
+//       return item !== _item;
+//     });
+//     // Filter: Lặp từng phần tử trong mảng data, nó kiểm tra phần tử trong mảng data khác với giá trị truyền vào(item = "Quan"), nếu khác return true, ngươc lại return false
+//   };
+//   if (status) {
+//     return addItem(value);
+//   }
+//   removeItem(value);
+// }
+// ["An", "An", "Quan"];
+// addData("An", true);
+// addData("An", true);
+// addData("Quan", true);
+// addData("Quan", false);
+// console.log(data);
+>>>>>>> db4d4aea06c65ad2c559abe0fc217e3cb3a1e15a
 /*
 [`An`] [1,2,3,4]
 4

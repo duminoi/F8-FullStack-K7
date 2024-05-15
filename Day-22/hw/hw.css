@@ -1,0 +1,25 @@
+button {
+  width: 70px;
+  height: 30px;
+  background-color: #6bade7;
+  color: white;
+  border: none;
+}
+#board .list:nth-child(2n + 1) .contentWrapper {
+  margin-left: 20px;
+}
+
+.list {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#board hr:first-child {
+  display: none;
+}
+h2 {
+  margin-bottom: 20px;
+}
+.img2 {
+  order: 1;
+}
