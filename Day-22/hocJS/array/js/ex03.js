@@ -11,20 +11,20 @@ var users = ["An", "Dũng", "Tâm", "hạnh"];
  */
 // users.sort();
 // console.log(users);
+//Hướng giải quyết
+var numbers = [5, 1, 2, 100, 10];
+numbers.sort(function (a, b) {
+  //sắp xếp tăng dần:
+  //Phần tử trước < phần tử sau
+  //Cần xử lý: Nếu phần tử trước > phần tử sau ===> Đổi chỗ
+  console.log(numbers);
+  console.log(`Trước = ${b}, Sau = ${a}`);
+  if (b > a) {
+    return -100000;
+  }
+});
 
-// var numbers = [5, 1, 2, 100, 10];
-// numbers.sort(function (a, b) {
-//   //sắp xếp tăng dần:
-//   //Phần tử trước < phần tử sau
-//   //Cần xử lý: Nếu phần tử trước > phần tử sau ===> Đổi chỗ
-//   console.log(numbers);
-//   console.log(`Trước = ${b}, Sau = ${a}`);
-//   if (b > a) {
-//     return -100000;
-//   }
-// });
-
-// console.log(numbers);
+console.log(numbers);
 
 var users = [
   "Nguyễn Đức Minh",
@@ -43,9 +43,10 @@ var users = [
 //   strArr[strArr.length] = arr;
 // }
 // strArr.sort();
-//  for(let i = 0; i< strArr.length; i++){
-//     strArr[i] +=
-//  }
+// for (let i = 0; i < strArr.length; i++) {
+//   // strArr[i] +=
+// }
+
 // console.log(strArr);
 
 //Cách của thầy
@@ -151,7 +152,7 @@ function addData(value, status) {
         return false;
       }
     });
-    // Filter: Lặp từng phần tử trong mảng data, nó kiểm tra phần tử trong mảng data khác với giá trị truyền vào(item = "Quan"), nếu khác return true, ngươc lại return false
+    // Filter: Lặp từng phần tử trong mảng data, nó kiểm tra phần tử trong mảng data khác với giá trị truyền vào(item = "Quan"), nếu khác return true, ngược lại return false
   };
   if (status) {
     return addItem(value);
