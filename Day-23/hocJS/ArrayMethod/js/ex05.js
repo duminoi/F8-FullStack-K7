@@ -175,7 +175,7 @@ var size = 2;
 // }, []);
 
 // console.log(chunkArr2);
-
+//Tìm hiểu
 //Array.from()
 //Array.keys()
 //Tham chiếu Array

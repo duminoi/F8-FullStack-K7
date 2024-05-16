@@ -136,37 +136,6 @@ var customers = [
 
 // console.log(newArr);
 
-<<<<<<< HEAD
-var data = [];
-function addData(value, status) {
-  var addItem = function (item) {
-    if (!data.includes(item)) {
-      data.push(item);
-    }
-  };
-  var removeItem = function (item) {
-    // item = "Quan"
-    data = data.filter(function (_item) {
-      if (item !== _item) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-    // Filter: Lặp từng phần tử trong mảng data, nó kiểm tra phần tử trong mảng data khác với giá trị truyền vào(item = "Quan"), nếu khác return true, ngược lại return false
-  };
-  if (status) {
-    return addItem(value);
-  }
-  removeItem(value);
-}
-["An", "An", "Quan"];
-addData("An", true);
-addData("An", true);
-addData("Quan", true);
-addData("Quan", false);
-console.log(data);
-=======
 // var data = [];
 // function addData(value, status) {
 //   var addItem = function (item) {
@@ -192,10 +161,10 @@ console.log(data);
 // addData("Quan", true);
 // addData("Quan", false);
 // console.log(data);
->>>>>>> db4d4aea06c65ad2c559abe0fc217e3cb3a1e15a
+
 /*
 [`An`] [1,2,3,4]
-4
+
 
 Giải thích:
 Nếu status = true ==> Thêm value vào mảng data
