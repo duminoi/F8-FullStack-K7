@@ -42,19 +42,45 @@ btn1.addEventListener("click", () => {
 // //-------------------b1-------------------
 
 // //-------------------b2-------------------
-const nums1 = [1, 3, 4];
-const nums2 = [2];
+var btn2 = document.getElementById("btn2");
+// var nums1 = [1, 2, 3];
+// var nums2 = [4, 5, 6];
 function arr(arr1, arr2) {
   const arr = arr1.concat(arr2);
-  arr.sort();
+  arr.sort(function (a, b) {
+    if (b > a) {
+      return -1;
+    }
+  });
   const numberIndex = (arr.length - 1) / 2;
-  const numberRound = Math.round(numberIndex);
   const numberFloor = Math.floor(numberIndex);
-
-  console.log(numberIndex);
-  console.log(arr[numberIndex]);
-  return arr;
+  const numberCeil = Math.ceil(numberIndex);
+  var number;
+  if (numberIndex === numberFloor) {
+    number = arr[numberIndex];
+  } else number = (arr[numberFloor] + arr[numberCeil]) / 2;
+  return number;
 }
-console.log(arr(nums1, nums2));
+// console.log(arr(nums1, nums2));
+
+btn2.addEventListener("click", () => {
+  var nums1 = document.getElementById("nums1").value.split(",");
+  var nums2 = document.getElementById("nums2").value.split(",");
+  nums1 = nums1.map(Number);
+  nums2 = nums2.map(Number);
+
+  document.getElementById("result2").innerHTML = arr(nums1, nums2);
+});
 
 // //-------------------b2-------------------
+
+// //-------------------b3-------------------
+var minOutOf = function (arrNum) {
+  var number = 1;
+  var check = false;
+  var newArr = [];
+
+  newArr = arrNum.foreach(function (value) {});
+};
+
+// //-------------------b3-------------------
