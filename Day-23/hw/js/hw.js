@@ -75,12 +75,46 @@ btn2.addEventListener("click", () => {
 // //-------------------b2-------------------
 
 // //-------------------b3-------------------
+var btn3 = document.getElementById("btn3");
 var minOutOf = function (arrNum) {
-  var number = 1;
-  var check = false;
-  var newArr = [];
+  //tìm max của mảng được nhập vào
+  var max = arrNum.reduce(function (prev, current) {
+    if (prev < current) {
+      return current;
+    }
+    return prev;
+  }, arrNum[0]);
 
-  newArr = arrNum.foreach(function (value) {});
+  var number = 1;
+  // var check = false;
+  var newArr = [];
+  while (number <= max) {
+    // if (arrNum.includes(number)) {
+    //   check = true;
+    //   console.log(check);
+    // }
+    // if (!check) {
+    //   newArr.push(number);
+    // }
+    if (!arrNum.includes(number)) {
+      newArr.push(number);
+    }
+    number++;
+  }
+  console.log(newArr);
+  //tìm min của mảng chứa số ko thuộc mảng ban đầu
+  var min = newArr.reduce(function (prev, current) {
+    if (prev > current) {
+      return current;
+    }
+    return prev;
+  }, newArr[0]);
+  return newArr.length > 0 ? min : number;
 };
 
+btn3.addEventListener("click", () => {
+  var input3 = document.getElementById("input3").value.split(",");
+  input3 = input3.map(Number);
+  document.getElementById("result3").innerHTML = minOutOf(input3);
+});
 // //-------------------b3-------------------

@@ -9,3 +9,8 @@ button {
 h2 {
   margin-bottom: 20px;
 }
+
+span {
+  color: red;
+  font-size: 25px;
+}
