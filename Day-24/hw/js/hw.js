@@ -96,11 +96,11 @@ var register = function (name, password, email) {
 };
 const dataRegister1 = register("nguyen van a", "1234", "a@gmail.com");
 const dataRegister2 = register("nguyen van b", "1234", "b@gmail.com");
-// console.log(data);
 
 var login = function (email, password) {
   var user = data.find(function (value) {
     if (value["email"] === email && value["password"] === password) {
+      console.log(email);
       return true;
     }
   });
@@ -112,6 +112,7 @@ var login = function (email, password) {
 };
 var dataLogin = login("b@gmail.com", "1234");
 console.log("Bài 3");
-console.log(dataLogin);
+console.log(data);
+console.log(`login("b@gmail.com", "1234")`, dataLogin);
 
 //---------------------b3-----------------------
