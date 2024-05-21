@@ -7,9 +7,10 @@ var obj = {
 // Object.keys(obj).forEach(function (key) {
 //   console.log(obj[key]);
 // });
+// console.log(Object.keys(obj));
 
-var user = {};
-//Kiểm tra object user có phần tử hay ko
+// var user = {};
+// // Kiểm tra object user có phần tử hay ko
 // if (Object.keys(user).length) {
 //   console.log("có phần tử");
 // } else {
@@ -36,7 +37,7 @@ var user = {};
 // console.log(obj);
 
 // ---------------------------------------------------------
-//Object.assign(target, source) ==> Copy object source và nối vào object target, đông thời cũng trả về object mới chính là object sau khi nối
+// Object.assign(target, source) ==> Copy object source và nối vào object target, đông thời cũng trả về object mới chính là object sau khi nối
 
 var obj1 = {
   name: "Đức Minh",
@@ -73,14 +74,15 @@ var querystring = Object.entries(query)
   })
   .join("&")
   .replaceAll(" ", "+");
-// var string = newArr.forEach(function (value) {
-//   for (let i = 0; i < value.length; i++) {
-//     value.toString();
-//     // var str = value[1].split
-//     string += value[0] + "=" + value[1] + "&";
-//   }
-// });
 console.log(querystring);
 
+//xem lại
+// var str = ``;
+// var string = Object.entries(query).forEach(function (value) {
+//   str += value[0] + "=" + value[1] + "&";
+// });
+// str = str.slice(0, -1).replaceAll(" ", "+");
+// console.log(str);
+
 var arr = [1, 2, 3, 4];
-console.log(arr.join(""));
+// console.log(arr.join(""));
