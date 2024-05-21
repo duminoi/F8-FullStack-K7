@@ -100,7 +100,6 @@ const dataRegister2 = register("nguyen van b", "1234", "b@gmail.com");
 var login = function (email, password) {
   var user = data.find(function (value) {
     if (value["email"] === email && value["password"] === password) {
-      console.log(email);
       return true;
     }
   });
