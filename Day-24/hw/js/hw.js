@@ -15,6 +15,7 @@ var errors = {
     same: "Mật khẩu phải khớp với mật khẩu nhập lại",
   },
 };
+// name.min => keyArr = ["name", "min"] => errors["name"]
 
 var getError = function (field) {
   var string = ``;

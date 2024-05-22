@@ -57,8 +57,8 @@ var numbers = [2, 9, 5, 10, 1, 3, -5];
 // });
 // console.log(max);
 
-// var users = ["An", "Tùng", "Đạt", "Quân", "Đạt", "An"];
-//Xóa các phần tử trong mảng users
+var users = ["An", "Tùng", "Đạt", "Quân", "Đạt", "An"];
+//Xóa các phần tử trùng nhau trong mảng users
 
 // var newArr = users.reduce(function (prev, current) {
 //   var check = false;
@@ -78,12 +78,17 @@ var arr2 = [2, 1, 6];
 //tìm phần tử khác nhau giữa 2 mảng (Có trong mảng 1 nhưng không có trong mảng 2)
 //output [5,9]
 // var newArr = arr1.reduce(function (prev, current) {
+//   var check = false;
 //   for (var i = 0; i < arr2.length; i++) {
-//     if (!prev.includes(arr2[i])) {
-//       prev.push([arr1]);
+//     if (arr2[i] == current) {
+//       check = true;
 //     }
-//     return current;
 //   }
+//   if (!check) {
+//     prev.push(current);
+//   }
+
+//   return prev;
 // }, []);
 
 // var newArr = arr1.reduce(function (prev, current) {
@@ -101,20 +106,19 @@ var numbers = [1, [2, 3], 4, [[5, 6]], 7, [[[8, 9]]]];
  - Ko dùng hàm flat()
  */
 //Cách mình
-// function flat(n) {
-//   var newArr = n.reduce(function (prev, current) {
-//     if (!Array.isArray(current)) {
-//       prev.push(current);
-//     } else {
-//       var x = flat(current);
-//       prev = prev.concat(x);
-//     }
-//     return prev;
-//   }, []);
-
-//   return newArr;
-// }
-// console.log(flat(numbers));
+function flat(n) {
+  var newArr = n.reduce(function (prev, current) {
+    if (!Array.isArray(current)) {
+      prev.push(current);
+      console.log(current);
+    } else {
+      prev = prev.concat(flat(current));
+    }
+    return prev;
+  }, []);
+  return newArr;
+}
+console.log(flat(numbers));
 
 //Cách thầy
 
@@ -180,8 +184,8 @@ var size = 2;
 //Array.keys()
 //Tham chiếu Array
 // Copy Array
-var arr1 = ["Đức Minh", "dminso1koaiso2@gmail.com"];
+// var arr1 = ["Đức Minh", "dminso1koaiso2@gmail.com"];
 
-var arr2 = arr1;
-arr2[0] = "Đức Minh F8";
-console.log(arr1);
+// var arr2 = arr1;
+// arr2[0] = "Đức Minh F8";
+// console.log(arr1);
