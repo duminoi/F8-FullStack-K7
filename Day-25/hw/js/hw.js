@@ -33,7 +33,7 @@ console.log(`mang ban dau:`, arr);
 console.log(`Mảng sau khi biến đổi: `, buildTree(arr, 0));
 
 console.log("Bài 2");
-var arr2 = [1, 2, 3, 9, 4, 5, 6];
+var arr2 = [8, 3, 2, 1, 9, 4, 5, 6];
 
 Array.prototype.reduce2 = function (callback, init) {
   if (typeof callback === "function") {
@@ -54,13 +54,14 @@ var newArr2 = arr2.reduce2(function (prev, current, index) {
   if (prev < current) {
     return prev;
   }
-  return prev;
+  return current;
 }, arr2[0]);
 var newArr1 = arr2.reduce(function (prev, current, index) {
   if (prev < current) {
+    console.log(`prev(${prev}) < current(${current})`);
     return prev;
   }
-  return prev;
+  return current;
 }, arr2[0]);
 console.log(`cho hàm arr2:`, arr2);
 console.log(`tìm min của arr2 bằng reduce():`, newArr1);
