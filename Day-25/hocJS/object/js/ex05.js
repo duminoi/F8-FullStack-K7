@@ -54,7 +54,7 @@ function User() {
 }
 
 var user = new User();
-user.getInfo();
+// user.getInfo();
 // console.log(user.name);
 // var user = new Person();
 // console.log(user.getName());
