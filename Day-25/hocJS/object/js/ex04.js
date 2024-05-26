@@ -19,7 +19,7 @@ var person1 = {
 //- Có những phương thức nào?
 //Giải pháp: Tạo 1 function constructor -->
 //Định nghĩa cấu trúc của Object
-//Nguyên tắt của function constructor
+//Nguyên tắc của function constructor
 /**
  - Tên hàm phải là danh tử
  - Đặt tên theo quy tắc PascalCase (Ký tự đầu của mỗi từ sẽ viết hoa)
@@ -42,14 +42,14 @@ function Person(name, email, age) {
     };
   };
 }
-// // Person.prototype.message = "Learn JS"; //định nghĩa prototype cho Person
+Person.prototype.message = "Learn JS"; //định nghĩa prototype cho Person
 // //Tạo Object từ constructor
 // var person1 = new Person("Đức Minh", "dmin@gmail.com", 21);
 // var person2 = new Person("Đức Minh 2", "dmin@gmail.com", 21);
 
 // console.log(person1);
 // console.log(person2);
-// // console.log(person2.message);
+// console.log(person2.message);
 
 // //Kiểm tra 1 object được tạo từ hàm tạo nào?
 // console.log(person1.constructor.name);
@@ -77,9 +77,9 @@ Person.something = function () {
   console.log(new this().a);
 };
 Person.something();
-//Nếu mà phương thức hãy thuộc tính tĩnh phải truy cập vào .constructor trước rồi mới truy cập đến phương th
+//Nếu mà phương thức hay thuộc tính là tĩnh phải truy cập vào .constructor trước rồi mới truy cập đến phương thức,thuộc tính
 var person1 = new Person("Đức Minh", "dmin@gmail.com", 21);
-// console.log(person1.constructor.message);
+console.log(person1.constructor.message);
 //Lưu ý:
 //this trong phương thức tĩnh là constructor
 //this trong phương thức thông thường (không tĩnh) là object
