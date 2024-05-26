@@ -1,19 +1,19 @@
-// var user = {
-//   name: "Đức Minh",
-//   email: "dminso1koaiso2@gmail.com",
-//   getInfo: function () {
-//     var _this = this;
-//     return {
-//       age: 21,
-//       getName: function () {
-//         return this.name;
-//       },
-//     };
-//   },
-// };
+var user = {
+  name: "Đức Minh",
+  email: "dminso1koaiso2@gmail.com",
+  getInfo: function () {
+    // var _this = this;
+    return {
+      age: 21,
+      getName: function () {
+        return this.name;
+      },
+    };
+  },
+};
 // //hàm bind() để thay thay đổi this theo đối số truyền vào
 // //ví dụ: getName.bind(user) thì lúc này trong hàm getName() --> this = user
-// var name = user.getInfo().getName.bind(user)();
+var name = user.getInfo().getName.bind(user)();
 // console.log(name);
 //-------------------------------------------------------
 
@@ -48,8 +48,8 @@ function Person() {
 function User() {
   Person.call(this); //Truyền this của User vào Person -->có thể truy cập vào thuộc tính, phương thức của Person
   this.getInfo = function () {
-    console.log(this.getName());
-    console.log(this.getEmail());
+    // console.log(this.getName());
+    // console.log(this.getEmail());
   };
 }
 
