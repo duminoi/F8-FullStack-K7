@@ -4,13 +4,13 @@ var user = {
   name: "Đức Minh",
   email: "dmin@gmail.com",
 };
-console.log(user);
+// console.log(user);
 
 //Tạo ra đối tượng ko có Prototype
 var user2 = Object.create(null);
 user2.name = "Đức minh";
 user2.email = "dmin@gmail.com";
-console.log(user2);
+// console.log(user2);
 
 //Object.create còn có tác dụng kế thừa
 
@@ -51,10 +51,13 @@ var users = [
 ];
 var email = "user2@gmail.com";
 //Yêu cầu : tìm user có email trên và sửa tên
+//ứng dụng của tham chiếu
+
 var user = users.find(function (user) {
   return user.email === email;
 });
 user.name = "User 2 Update";
+
 document.write(` <table width="100%" border="1">
 <thead>
   <tr>
@@ -64,15 +67,16 @@ document.write(` <table width="100%" border="1">
   </tr>
 </thead>
 <tbody>
-        ${users
-          .map(function (value, index) {
-            return `<tr>
-                <td>${index}</td>
-                <td>${value.name}</td>
-                <td>${value.email}</td>
-            </tr>`;
-          })
-          .join("")}
+   ${users
+     .map(function (value, index) {
+       return `<tr>
+        <td>${index + 1}</td>
+        <td>${value.name}</td>
+        <td>${value.email}</td>
+
+    </tr>`;
+     })
+     .join(" ")}
 </tbody>
 </table>`);
 

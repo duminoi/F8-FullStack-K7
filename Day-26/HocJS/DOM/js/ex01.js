@@ -23,4 +23,17 @@ Array.from(titleList).map(function (value) {
   console.log(value);
 });
 
+console.dir(Array);
+
+function Person(name, email) {
+  this.name = name;
+  this.email = email;
+}
+var object = {
+  name: "Minh",
+  mail: "dmin@gmail.com",
+};
+
+console.dir(object);
+
 //DOM HTML

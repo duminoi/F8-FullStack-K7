@@ -10,10 +10,10 @@ if (typeof a === "number") {
 //Ép kiểu dữ liệu về number
 var b = "10.5";
 // b = Number(b);
-// b = +b;
+// b = +b; //Cách viết tắt của hàm chuyển về số
 // b = parseInt(b); //Ép về số nguyên
 // b = parseFloat(b); //Ép về số thực
-// console.log(typeof b, b);
+console.log(typeof b, b);
 
 //Kiểm tra 1 số là số nguyên
 // var a = `aa`;
