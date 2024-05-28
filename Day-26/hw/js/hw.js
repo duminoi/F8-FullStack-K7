@@ -148,5 +148,6 @@ function nestTree(categories, children = 0) {
 
 console.log();
 document.write(`<select>
+<option>chọn chuyên mục</option>
       ${nestTree(categories, 0)}
 </select>`);
