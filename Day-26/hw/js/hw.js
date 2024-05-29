@@ -1,17 +1,17 @@
 var sumRest = function (...args) {
   var sum = 0;
   for (var key of args) {
-    if (typeof key !== "number" || key == NaN || key == undefined) {
+    if (key == NaN || key == undefined) {
       console.log("vui lòng nhập lại");
     } else {
-      sum += key;
+      sum += Number(key);
     }
   }
   return sum;
 };
 console.log("Bài 1");
 console.dir(sumRest);
-console.log(`output: `, sumRest(1, 2, 3, 4));
+console.log(`output: `, sumRest(1, 2, 3, "4"));
 // -----------------------------------------------------------
 console.log("Bài 2");
 var price = "12000000";
@@ -45,15 +45,7 @@ console.log("Bài 4");
 Array.prototype.filter2 = function (callback) {
   var newArr = [];
   for (let i = 0; i < this.length; i++) {
-    if (
-      callback(this[i], i) !== false &&
-      callback(this[i], i) !== 0 &&
-      callback(this[i], i) !== -0 &&
-      callback(this[i], i) !== "" &&
-      callback(this[i], i) !== null &&
-      callback(this[i], i) !== undefined &&
-      callback(this[i], i) !== NaN
-    ) {
+    if (callback(this[i], i) === true) {
       newArr[newArr.length] = this[i];
     }
   }
