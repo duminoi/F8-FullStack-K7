@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dân trí</title>
+    <link rel="stylesheet" href="./hw.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="overlay"></div>
+      <div class="login-wraper">
+        <div class="icon-wrapper">
+          <i class="fa-regular fa-user"></i>
+        </div>
+        <!-- end icon-wrapper -->
+        <div class="loginlink">
+          <button class="login-btn">Đăng nhập</button>
+        </div>
+        <!-- end loginlink -->
+      </div>
+
+      <form action="" class="login">
+        <div class="close">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="img-wrapper">
+          <img src="./assest/img/dantri_logo.png" alt="" />
+        </div>
+        <!-- end img -->
+        <div class="btn-wrapper">
+          <button class="log-btn">Đăng nhập</button>
+          <button class="regis-btn">Đăng ký</button>
+        </div>
+        <!-- end btn-wrapper -->
+        <span class="subtitle">với các tài khoản mạng xã hội</span>
+
+        <!-- end subtitle -->
+        <div class="social">
+          <div class="google">
+            <img src="./assest/img/google.svg" alt="" />
+          </div>
+          <div class="facebook">
+            <img src="./assest/img/facebook.svg" alt="" />
+          </div>
+        </div>
+        <!-- end social -->
+        <div class="another">
+          <div class="line"></div>
+          <p>hoặc</p>
+          <div class="line"></div>
+        </div>
+        <!-- end another -->
+        <div class="email-wrapper">
+          <label for="email">Email</label>
+          <br />
+          <input placeholder="Email" id="email" type="email" />
+        </div>
+        <div class="password-wrapper">
+          <label for="password">Mật khẩu</label>
+          <br />
+          <input placeholder="Mật khẩu" id="password" type="password" />
+          <div class="eye-wrapper">
+            <i class="fa-regular fa-eye open-eye"></i>
+            <i class="fa-regular fa-eye-slash close-eye"></i>
+          </div>
+        </div>
+        <p class="forget-password">Quên mật khẩu</p>
+        <button class="login-submit">Đăng nhập</button>
+      </form>
+    </div>
+    <script src="./js/hw.js"></script>
+  </body>
+</html>

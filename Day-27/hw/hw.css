@@ -1,0 +1,137 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+body {
+  position: relative;
+}
+.overlay {
+  z-index: 1;
+  position: absolute;
+  inset: 0;
+  background-color: rgb(158 158 158 / 66%);
+  /* display: none; */
+}
+/* hiện overlay, form */
+.show {
+  display: block;
+}
+.login-wraper {
+  z-index: 0;
+  display: flex;
+}
+.loginlink {
+  margin-left: 10px;
+}
+.icon-wrapper i {
+  font-size: 20px;
+}
+
+.loginlink button {
+  text-decoration: none;
+  font-size: 20px;
+  color: gray;
+  border: none;
+  background-color: #fff;
+}
+/* login form*/
+form {
+  width: 250px;
+
+  background-color: #fff;
+  display: flex;
+  z-index: 2;
+  margin-top: 1.6rem;
+  position: relative;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+form .close {
+  position: absolute;
+  right: 20px;
+}
+form .img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form .img-wrapper img {
+  width: auto;
+  height: 1.2rem;
+}
+.btn-wrapper {
+  margin: 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130%;
+}
+
+.btn-wrapper button {
+  width: 50%;
+}
+.btn-wrapper .log-btn {
+  border: none;
+  font-weight: 600;
+  font-size: 0.7rem;
+  line-height: 1.5rem;
+  background-color: rgba(26, 121, 0, 1);
+  color: #fff;
+}
+.btn-wrapper .regis-btn {
+  border: none;
+  font-weight: 600;
+  font-size: 0.7rem;
+  line-height: 1.5rem;
+  color: rgba(128, 128, 128, 1);
+  background-color: rgba(238, 238, 238, 1);
+}
+
+.subtitle {
+  font-size: 14px;
+}
+.social {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  margin-top: 20px;
+}
+.social .google,
+.social .facebook {
+  width: 200px;
+  height: 35px;
+  background-color: rgba(226, 232, 240, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+label {
+  font-size: 0.75rem;
+}
+/* xử lý input */
+.email-wrapper,
+.password-wrapper {
+  margin-top: 20px;
+  width: 100%;
+}
+input {
+  width: 100%;
+  box-sizing: border-box;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  font-size: 14px;
+}
+.email-wrapper input,
+.password-wrapper input {
+  height: 1.95rem;
+  outline: 2px solid transparent;
+  padding-left: 10px;
+  padding-right: 10px;
+}
