@@ -27,7 +27,7 @@
         <!-- end loginlink -->
       </div>
 
-      <form action="" class="login show">
+      <form action="" class="login">
         <div class="close">
           <i class="fa-solid fa-xmark"></i>
         </div>
@@ -40,7 +40,7 @@
           <button class="regis-btn">Đăng ký</button>
         </div>
         <!-- end btn-wrapper -->
-        <span class="subtitle">với các tài khoản mạng xã hội</span>
+        <div class="subtitle">với các tài khoản mạng xã hội</div>
 
         <!-- end subtitle -->
         <div class="social">
@@ -62,18 +62,73 @@
           <label for="email">Email</label>
           <br />
           <input placeholder="Email" id="email" type="email" />
+          <div class="noti-input">Vui lòng nhập thông tin</div>
         </div>
+        <!-- end email -->
         <div class="password-wrapper">
           <label for="password">Mật khẩu</label>
           <br />
           <input placeholder="Mật khẩu" id="password" type="password" />
+          <div class="noti-input">Vui lòng nhập thông tin</div>
           <div class="eye-wrapper">
             <i class="fa-regular fa-eye open-eye"></i>
             <i class="fa-regular fa-eye-slash close-eye"></i>
           </div>
         </div>
+        <!-- end password -->
         <p class="forget-password">Quên mật khẩu</p>
-        <button class="login-submit">Đăng nhập</button>
+        <button class="login submit">Đăng nhập</button>
+      </form>
+      <!-- end login form -->
+
+      <form action="" class="regis">
+        <div class="close">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="img-wrapper">
+          <img src="./assest/img/dantri_logo.png" alt="" />
+        </div>
+        <!-- end img -->
+        <div class="btn-wrapper">
+          <button class="log-btn">Đăng nhập</button>
+          <button class="regis-btn">Đăng ký</button>
+        </div>
+        <!-- end btn-wrapper -->
+        <div class="subtitle">
+          Hoàn thành đăng ký, và bắt đầu trải nghiệm ngay!
+        </div>
+
+        <!-- end subtitle -->
+        <div class="name-wrapper">
+          <label for="name">Họ và tên</label>
+          <br />
+          <input placeholder="Họ và tên" id="name" type="text" />
+          <div class="noti-input">Vui lòng nhập thông tin</div>
+        </div>
+        <!-- end name -->
+        <div class="email-wrapper">
+          <label for="email">Email</label>
+          <br />
+          <input placeholder="Email" id="email" type="email" />
+          <div class="noti-input">Vui lòng nhập thông tin</div>
+        </div>
+        <!-- end email -->
+        <div class="password-wrapper">
+          <label for="password">Mật khẩu</label>
+          <br />
+          <input placeholder="Mật khẩu" id="password" type="password" />
+          <div class="noti-input">Vui lòng nhập thông tin</div>
+          <div class="eye-wrapper">
+            <i class="fa-regular fa-eye open-eye"></i>
+            <i class="fa-regular fa-eye-slash close-eye"></i>
+          </div>
+        </div>
+        <!-- end password -->
+        <p class="rule">
+          Bằng cách đăng ký tài khoản, bạn cũng đồng thời chấp nhận mọi
+          <span>điều kiện về qui định và chính sách của Dân trí</span>
+        </p>
+        <button class="regis submit">Đăng ký</button>
       </form>
     </div>
     <script src="./js/hw.js"></script>

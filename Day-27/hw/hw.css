@@ -14,7 +14,7 @@ body {
   position: absolute;
   inset: 0;
   background-color: rgb(158 158 158 / 66%);
-  /* display: none; */
+  display: none;
 }
 /* hiện overlay, form */
 .show {
@@ -41,7 +41,6 @@ body {
 /* login form*/
 form {
   width: 250px;
-
   background-color: #fff;
   display: flex;
   z-index: 2;
@@ -51,6 +50,9 @@ form {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+}
+form.login {
+  display: none;
 }
 form .close {
   position: absolute;
@@ -73,7 +75,6 @@ form .img-wrapper img {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100;
 }
 
 .btn-wrapper button {
@@ -98,6 +99,7 @@ form .img-wrapper img {
 
 .subtitle {
   font-size: 14px;
+  text-align: center;
 }
 .social {
   display: flex;
@@ -114,6 +116,10 @@ form .img-wrapper img {
   justify-content: center;
   align-items: center;
 }
+/* another */
+form .another {
+  text-align: center;
+}
 label {
   font-size: 0.75rem;
 }
@@ -127,19 +133,103 @@ input {
   width: 100%;
   box-sizing: border-box;
 }
-:-ms-input-placeholder {
-  /* IE 10+ */
-  font-size: 14px;
-}
+
 .email-wrapper input,
-.password-wrapper input {
+.password-wrapper input,
+.name-wrapper input {
   height: 1.95rem;
   outline: 2px solid transparent;
   padding-left: 10px;
   padding-right: 10px;
 }
+.password-wrapper {
+  position: relative;
+}
+/* eye-wrapper */
+form .eye-wrapper .close-eye,
+form .eye-wrapper .open-eye {
+  position: absolute;
+  top: 1.6rem;
+  right: 0.5rem;
+}
+form .eye-wrapper .close-eye {
+  display: none;
+}
+form .forget-password {
+  text-align: right;
+}
+/* login-submit */
+form .login-submit,
+form .regis-submit {
+  border: none;
+  font-weight: 600;
+  font-size: 0.6rem;
+  line-height: 1.5rem;
+  background-color: rgba(26, 121, 0, 1);
+  color: #fff;
+  width: 100%;
+}
+/* form regis */
+form.regis {
+  display: none;
+}
+
+form.regis .subtitle {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.noti-input {
+  display: none;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+form.regis .btn-wrapper .regis-btn {
+  border: none;
+  font-weight: 600;
+  font-size: 0.7rem;
+  line-height: 1.5rem;
+  background-color: rgba(26, 121, 0, 1);
+  color: #fff;
+}
+form.regis .btn-wrapper .log-btn {
+  border: none;
+  font-weight: 600;
+  font-size: 0.7rem;
+  line-height: 1.5rem;
+  color: rgba(128, 128, 128, 1);
+  background-color: rgba(238, 238, 238, 1);
+}
+form.regis .rule {
+  font-size: 11px;
+}
+form.regis .rule span {
+  color: #2361ff;
+  font-weight: 600;
+}
+.submit {
+  background-color: rgba(26, 121, 0, 1);
+  border-radius: 0.25rem;
+  height: 1.75rem;
+  font-size: 11px;
+  font-weight: 600;
+  width: 100%;
+  color: #fff;
+  border: none;
+}
 
 /* show */
-form.show {
+form.show,
+.overlay.show {
   display: block;
+}
+.noti-input.show {
+  display: block;
+  color: red;
+  font-style: italic;
+}
+
+input.focus {
+  outline: 1px solid red;
+  border: none;
 }
