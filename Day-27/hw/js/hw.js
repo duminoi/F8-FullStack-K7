@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
             input1.classList.remove("focus");
             notiInputs[index].classList.remove("show");
             input1.removeEventListener("blur", handleBlur);
+            colorCheck = false;
           } else {
             if (colorCheck) {
               inputs.forEach(function (input, index) {
