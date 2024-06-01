@@ -66,11 +66,14 @@ form .img-wrapper img {
   height: 1.2rem;
 }
 .btn-wrapper {
-  margin: 10px 10px;
+  margin-left: -1.5rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: -1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 130%;
+  width: 100;
 }
 
 .btn-wrapper button {
@@ -134,4 +137,9 @@ input {
   outline: 2px solid transparent;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+/* show */
+form.show {
+  display: block;
 }
