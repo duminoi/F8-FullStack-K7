@@ -81,49 +81,48 @@ document.addEventListener("DOMContentLoaded", function () {
     var inputs = form.querySelectorAll("input");
     var notiInputs = form.querySelectorAll(".noti-input");
 
-    inputs.forEach(function (input, index) {
-      input.addEventListener("input", function () {
-        if (this.type === "email" && validateInput(input.value)) {
-          input.classList.remove("focus");
+    inputs.forEach(function (input1, index, inputs) {
+      var colorCheck = false;
+      var handleBlur = function () {
+        inputs.forEach(function (input) {
+          input.classList.add("focus");
+        });
+        notiInputs.forEach(function (notiInput) {
+          notiInput.classList.add("show");
+        });
+        colorCheck = true;
+      };
+      input1.addEventListener("blur", handleBlur);
+      input1.addEventListener("input", function () {
+        if (input1.type !== "email") {
+          input1.classList.remove("focus");
           notiInputs[index].classList.remove("show");
-        } else {
-          inputs.forEach(function (input) {
-            input.classList.add("focus");
-          });
-          notiInputs[index].innerHTML = "Vui lòng nhập đúng định dạng";
-          notiInputs.forEach(function (notiInput) {
-            notiInput.classList.add("show");
-          });
-        }
-        if (this.type !== "email") {
-          input.classList.remove("focus");
-          notiInputs[index].classList.remove("show");
-        }
-      });
+          input1.removeEventListener("blur", handleBlur);
 
-      input.addEventListener("blur", function () {
-        if (this.type === "email") {
-          inputs.forEach(function (input) {
-            input.classList.add("focus");
-          });
-          notiInputs.forEach(function (notiInput) {
-            notiInput.classList.add("show");
+          inputs.forEach(function (input, index) {
+            if (input.value === "") {
+              input.classList.add("focus");
+              notiInputs[index].classList.add("show");
+              colorCheck = true;
+            }
           });
         } else {
-          var stop = false;
-          if (this.value !== "") {
-            input.classList.remove("focus");
+          if (validateInput(input1.value)) {
+            input1.classList.remove("focus");
             notiInputs[index].classList.remove("show");
-            stop = true;
+            input1.removeEventListener("blur", handleBlur);
           } else {
-            inputs.forEach(function (input) {
-              input.classList.add("focus");
-            });
-            notiInputs.forEach(function (notiInput) {
-              notiInput.classList.add("show");
-            });
+            if (colorCheck) {
+              inputs.forEach(function (input, index) {
+                if (input.value === "") {
+                  input.classList.add("focus");
+                  notiInputs[index].classList.add("show");
+                }
+              });
+            } else {
+              handleBlur();
+            }
           }
-          if (stop) return;
         }
       });
     });
