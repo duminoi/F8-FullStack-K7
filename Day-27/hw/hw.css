@@ -178,6 +178,9 @@ form.regis .subtitle {
   font-size: 12px;
   margin-bottom: 10px;
 }
+
+.spanEmail,
+.spanPassword,
 .noti-input {
   display: none;
   margin-top: 5px;
@@ -223,6 +226,9 @@ form.show,
 .overlay.show {
   display: block;
 }
+
+.spanEmail.show,
+.spanPassword.show,
 .noti-input.show {
   display: block;
   color: red;
