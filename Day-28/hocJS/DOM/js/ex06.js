@@ -16,7 +16,7 @@ styleBtn2.addEventListener("click", function () {
     backgroundColor: "gray",
   };
   Object.assign(boxEl.style, css);
-}); //thuộc tính sẽ viết bằng cách xóa dấu gạch ngang đi
+}); //Tên thuộc tính sẽ viết bằng cách xóa dấu gạch ngang đi
 
 //Bài tập: click vào button Style 3 ==> Thêm ảnh nền (background-image) với hình ảnh trong folder images
 
