@@ -6,6 +6,7 @@ function createTask(e) {
   e.preventDefault();
   if (todoInput.value === "") {
     alert("vui long nhap task");
+    return;
   } else {
     var tasks = document.createElement("div");
     tasks.classList.add("tasks");
