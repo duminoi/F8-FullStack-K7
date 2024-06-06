@@ -39,7 +39,7 @@ function createTask(e) {
     btnList.type = "submit";
     btnList.classList.add("todo-btn", "btn-list");
     btnList.innerText = "Add Task";
-
+    todoInput.value = "";
     formList.appendChild(inputList);
     formList.appendChild(btnList);
     action.appendChild(updateIcon);
@@ -49,7 +49,20 @@ function createTask(e) {
     tasks.appendChild(task);
     tasks.appendChild(formList);
     todoList.appendChild(tasks);
+    todoContent.addEventListener("click", function () {
+      if (
+        todoContent.style.color !== "#fafafa7d" &&
+        todoContent.style.textDecoration !== "line-through"
+      ) {
+        todoContent.style.textDecoration = "line-through";
+        todoContent.style.color = "#fafafa7d";
+      } else {
+        todoContent.style.textDecoration = "none";
+        todoContent.style.color = "#fff";
+      }
+    });
     //update
+
     updateIcon.addEventListener("click", function () {
       formList.style.display = "block";
       task.style.display = "none";
