@@ -37,15 +37,15 @@ menuLinkList.forEach(function (menulink) {
   if (submenu) {
     menulink.parentElement.classList.add("has-children");
   }
-  menulink.addEventListener("click", function (e) {
-    e.preventDefault();
+  menulink.addEventListener("click", function () {
+    // e.preventDefault();
     //Lấy menu active của lần mở trước
-    var menuItemActive = document.querySelectorAll(".menu li.active");
+    var menuItemActive = document.querySelector(".menu li.active");
     //Thêm menu active của lần mở hiện tại
-    menulink.parentElement.classList.toggle("active");
     //Xóa menu active của lần mở trước
     if (menuItemActive) {
       menuItemActive.classList.remove("active");
     }
+    menulink.parentElement.classList.toggle("active");
   });
 });

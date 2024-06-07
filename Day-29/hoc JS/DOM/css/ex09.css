@@ -1,8 +1,3 @@
-* {
-  /* padding: 0;
-  margin: 0; */
-  /* box-sizing: border-box; */
-}
 /*
 .menubar {
   background-color: #181717;
@@ -49,39 +44,36 @@ ul:first-child > li > a {
   display: block;
 }
 */
-
 * {
   padding: 0;
   margin: 0;
 }
-a {
-  text-decoration: none;
-  color: white;
-  padding: 1rem;
-  font-size: 1.2rem;
-}
-.menu {
-  background-color: black;
-}
-.menu li {
+ul {
   list-style: none;
 }
-.menu > li ul {
-  display: none;
+.menu {
+  width: 200px;
+  background: #000;
+  margin: 30px auto;
 }
-.menu > li > a {
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.2rem;
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 5px 15px;
+}
+.menu ul {
+  background: green;
+  display: none;
 }
 .menu li.has-children > a::after {
   content: "▼";
   float: right;
-  font-size: 0.8rem;
+  font-size: 0.5rem;
+  padding-top: 5px;
 }
 .menu li.active > ul {
   display: block;
-  background-color: green;
 }
 .menu li.has-children.active > a::after {
   rotate: 180deg;
