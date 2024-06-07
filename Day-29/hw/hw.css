@@ -10,7 +10,6 @@
 }
 
 .slide-inner {
-  width: 6000px;
   display: flex;
 }
 .slide-inner .item img {
@@ -55,4 +54,7 @@
   background: #fff;
   border-radius: 50%;
   cursor: pointer;
+}
+.slideshow .slide-dots .dot.active {
+  background: goldenrod;
 }

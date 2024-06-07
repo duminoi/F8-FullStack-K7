@@ -42,10 +42,10 @@ menuLinkList.forEach(function (menulink) {
     //Lấy menu active của lần mở trước
     var menuItemActive = document.querySelector(".menu li.active");
     //Thêm menu active của lần mở hiện tại
+    menulink.parentElement.classList.toggle("active");
     //Xóa menu active của lần mở trước
     if (menuItemActive) {
       menuItemActive.classList.remove("active");
     }
-    menulink.parentElement.classList.toggle("active");
   });
 });
