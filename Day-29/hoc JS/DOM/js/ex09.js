@@ -40,7 +40,7 @@ menuLinkList.forEach(function (menulink) {
   menulink.addEventListener("click", function (e) {
     e.preventDefault();
     //Lấy menu active của lần mở trước
-    var menuItemActive = document.querySelectorAll(".menu li.active");
+    var menuItemActive = document.querySelector(".menu li.active");
     //Thêm menu active của lần mở hiện tại
     menulink.parentElement.classList.toggle("active");
     //Xóa menu active của lần mở trước
