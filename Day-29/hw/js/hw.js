@@ -3,7 +3,7 @@ var next = document.querySelector(".slide-nav .next");
 var item = document.querySelectorAll(".item img");
 var dots = document.querySelectorAll(".dot");
 var sliderInner = document.querySelector(".slide-inner");
-
+var sliderInnerWidth = item[0].clientWidth * item.length;
 var position = 0;
 var index = 0;
 dots[index].classList.add("active");
@@ -53,7 +53,7 @@ prev.addEventListener("click", function () {
 next.addEventListener("click", function () {
   handleClick(1);
 });
-
+//press dot to swipe
 dots.forEach(function (dot, index) {
   dot.addEventListener("click", function () {
     var css = {
@@ -70,3 +70,30 @@ dots.forEach(function (dot, index) {
     Object.assign(sliderInner.style, css);
   });
 });
+var position = 0;
+// var swipe;
+var initX = 0;
+sliderInner.addEventListener("mousedown", function (e) {
+  e.preventDefault();
+  initX = e.offsetX;
+  console.log("initX", initX);
+  sliderInner.addEventListener("mousemove", handleMove);
+  sliderInner.addEventListener("mouseup", function () {
+    sliderInner.removeEventListener("mousemove", handleMove);
+  });
+});
+
+function handleMove(e) {
+  var swipe = e.offsetX - initX;
+  position = position + swipe;
+  if (swipe) {
+    sliderInner.style.transform = `translateX(${position}px)`;
+    if (Math.abs(position) === 300) {
+      position = position + item[0].clientWidth;
+      sliderInner.style.transform = `translateX(${position}px)`;
+    }
+  }
+  // console.log("initX", initX);
+  // console.log("e.offset", e.clientX);
+  // console.log("swipe", swipe);
+}
