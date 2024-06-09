@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.progress-bar {
+  width: 80%;
+  margin: 30px auto;
+  height: 10px;
+  background: gray;
+  position: relative;
+  cursor: pointer;
+}
+
+.progress-bar:hover {
+  opacity: 0.8;
+}
+.progress-bar .progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: red;
+  width: 0;
+}
+.progress-bar .progress span {
+  position: absolute;
+  right: 0;
+  top: -1px;
+  translate: 50% 0;
+  height: 12px;
+  width: 12px;
+  background: blueviolet;
+  border-radius: 50%;
+}

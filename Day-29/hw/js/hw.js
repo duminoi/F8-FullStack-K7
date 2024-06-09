@@ -90,9 +90,11 @@ function handleMove(e) {
     sliderInner.style.transform = `translateX(${position}px)`;
     if (Math.abs(position) === 300) {
       position = position + item[0].clientWidth;
+      f;
       sliderInner.style.transform = `translateX(${position}px)`;
     }
   }
+  console.log(position);
   // console.log("initX", initX);
   // console.log("e.offset", e.clientX);
   // console.log("swipe", swipe);
