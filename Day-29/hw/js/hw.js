@@ -7,10 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var position = 0;
   var index = 0;
-  var lastPosition = 0;
-
-  var prevTranslate = 0;
-  var itemWidth = items[0].clientWidth; // Đã thêm dòng này để lấy chiều rộng của mỗi mục
+  var initX = 0;
+  var dragging = false;
+  var itemWidth = items[0].clientWidth;
 
   // Tạo các dot
   items.forEach((_, i) => {
@@ -31,24 +30,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function handleClick(direction) {
     if (direction === 1) {
-      if (Math.abs(position) < itemWidth * (items.length - 1)) {
-        position -= itemWidth;
+      // Next
+      if (index < items.length - 1) {
         index++;
       } else {
-        position = 0;
         index = 0;
       }
     } else if (direction === -1) {
-      if (position < 0) {
-        position += itemWidth;
+      // Prev
+      if (index > 0) {
         index--;
       } else {
-        position = -itemWidth * (items.length - 1);
         index = items.length - 1;
       }
     }
+    position = -itemWidth * index;
     updateSlider();
-    prevTranslate = position;
   }
 
   prev.addEventListener("click", function () {
@@ -61,55 +58,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
   dots.forEach((dot, i) => {
     dot.addEventListener("click", function () {
-      position = -itemWidth * i;
       index = i;
+      position = -itemWidth * index;
       updateSlider();
-      prevTranslate = position;
-      lastPosition = position; // Thêm dòng này để cập nhật lastPosition
     });
   });
 
-  const swipeThreshold = 50; // Ngưỡng vuốt, bạn có thể điều chỉnh
-
-  // Thêm hiệu ứng chuyển động mượt mà bằng CSS
-  sliderInner.style.transition = "transform 0.3s ease";
+  const swipeThreshold = 50;
 
   sliderInner.addEventListener("mousedown", function (e) {
     e.preventDefault();
-    initX = e.clientX; // Sử dụng clientX để theo dõi vị trí chuột toàn cầu
+    initX = e.clientX;
+    dragging = true;
+    sliderInner.style.transition = "none";
     sliderInner.addEventListener("mousemove", handleMove);
     sliderInner.addEventListener("mouseup", handleMouseUp);
-    sliderInner.addEventListener("mouseleave", handleMouseUp); // Để xử lý trường hợp khi chuột rời khỏi thanh trượt
+    sliderInner.addEventListener("mouseleave", handleMouseUp);
   });
 
   function handleMove(e) {
-    const swipe = initX - e.clientX;
-    position = lastPosition + swipe; // Điều chỉnh vị trí dựa trên khoảng cách vuốt
-    sliderInner.style.transform = `translateX(-${position}px)`;
+    if (!dragging) return;
+    const currentX = e.clientX;
+    const diff = currentX - initX;
+    position = -index * itemWidth + diff; // Tính toán vị trí tạm thời dựa trên diff
+    sliderInner.style.transform = `translateX(${position}px)`;
   }
 
   function handleMouseUp(e) {
+    if (!dragging) return;
+    dragging = false;
+    const swipeDistance = e.clientX - initX;
+
+    if (swipeDistance < -swipeThreshold) {
+      handleClick(1); // Swipe left to next slide
+    } else if (swipeDistance > swipeThreshold) {
+      handleClick(-1); // Swipe right to previous slide
+    } else {
+      updateSlider(); // Return to original position if swipe is not enough
+    }
+
     sliderInner.removeEventListener("mousemove", handleMove);
     sliderInner.removeEventListener("mouseup", handleMouseUp);
     sliderInner.removeEventListener("mouseleave", handleMouseUp);
-
-    const swipeDistance = initX - e.clientX;
-
-    // Xác định nếu vuốt đủ xa để chuyển sang phần tử tiếp theo
-    if (swipeDistance > swipeThreshold) {
-      // Nếu vuốt sang trái (phần tử tiếp theo)
-      position = Math.min(
-        lastPosition + itemWidth,
-        itemWidth * (items.length - 1)
-      );
-    } else if (swipeDistance < -swipeThreshold) {
-      // Nếu vuốt sang phải (phần tử trước đó)
-      position = Math.max(lastPosition - itemWidth, 0);
-    } else {
-      position = lastPosition; // Quay lại vị trí ban đầu nếu vuốt không đủ xa
-    }
-
-    lastPosition = position;
-    sliderInner.style.transform = `translateX(-${position}px)`;
   }
 });
