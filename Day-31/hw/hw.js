@@ -40,12 +40,14 @@ var handleTimeUpdate = function () {
   var rate = (currentTime / duration) * 100;
   progress.style.width = `${rate}%`;
 };
-//khi kéo chuột
+//Khi nhả chuột
 document.addEventListener("mouseup", function () {
   document.removeEventListener("mousemove", handleDrag);
   lastOffsetProgressBar = offsetProgressBar;
   audio.currentTime = currentTimeBar;
+  console.log(currentTimeBar);
 });
+//khi kéo chuột
 var handleDrag = function (e) {
   var clientX = e.clientX;
   offsetProgressBar = clientX - initialClientX + lastOffsetProgressBar;
@@ -60,6 +62,7 @@ var handleDrag = function (e) {
   audio.removeEventListener("timeupdate", handleTimeUpdate);
   progress.style.width = rate + "%";
   currentTimeBar = (audio.duration * rate) / 100;
+  console.log("currentTimeBar", currentTimeBar);
 };
 
 var audio = document.querySelector(".audio");
@@ -108,7 +111,7 @@ window.addEventListener("load", function (e) {
   var before = document.querySelector(".before");
   progressBar.addEventListener("mouseover", function (e) {
     progressBar.addEventListener("mousemove", function (e) {
-      backgroundWidth = e.clientX - 122;
+      backgroundWidth = e.offsetX;
       before.classList.add("show");
       before.style.left = `${backgroundWidth - 10}px`;
       var rate = (backgroundWidth / progressBarWidth) * 100;
@@ -124,6 +127,9 @@ window.addEventListener("load", function (e) {
         audio.currentTime = currentTime;
         audio.play();
       });
+    });
+    progressSpan.addEventListener("mousemove", function (e) {
+      e.stopPropagation();
     });
     progressBar.addEventListener("mouseout", function () {
       before.classList.remove("show");
