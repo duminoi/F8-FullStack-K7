@@ -4,14 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>playlist</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./css/ex10.css" />
   </head>
   <body>
-    <div class="progress-bar">
-      <div class="progress">
-        <span></span>
+    <div class="player">
+      <div class="play-btn">
+        <i class="fa-solid fa-play"></i>
+      </div>
+      <div class="play-timer">
+        <span>00:00</span>
+        <div class="progress-bar">
+          <div class="progress">
+            <span></span>
+          </div>
+        </div>
+        <span>00:00</span>
       </div>
     </div>
+    <audio
+      controls
+      class="audio"
+      src="./assset/media/7c6ab90c0b6950af06b56332537ea289.mp3"
+    ></audio>
+
     <script src="./js/ex10.js"></script>
   </body>
 </html>
