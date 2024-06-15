@@ -47,13 +47,16 @@ var handleTimeUpdate = function () {
   var rate = (currentTime / audio.duration) * 100;
   if (currentTime == audio.duration) {
     playBtn.classList.replace("fa-pause", "fa-play");
-    playBtn.addEventListener("click", function () {});
+    playBtn.addEventListener("click", function () {
+      audio.currentTime = 0;
+    });
   }
   progress.style.width = `${rate}%`;
 };
 //Khi nhả chuột
 document.addEventListener("mouseup", function () {
   document.removeEventListener("mousemove", handleDrag);
+  audio.addEventListener("timeupdate", handleTimeUpdate);
   lastOffsetProgressBar = offsetProgressBar;
   audio.currentTime = currentTimeBar;
   console.log(currentTimeBar);
