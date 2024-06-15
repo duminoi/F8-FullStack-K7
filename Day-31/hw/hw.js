@@ -136,3 +136,5 @@ window.addEventListener("load", function (e) {
     });
   });
 });
+
+var before;
