@@ -65,9 +65,10 @@
   background: blueviolet;
   border-radius: 50%;
 }
-.no-select {
+.no-select,
+.before {
   user-select: none;
 }
 audio {
-  display: none;
+  /* display: none; */
 }
