@@ -1,0 +1,21 @@
+.img-wrapper {
+  position: relative;
+}
+
+.overlay {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  offset: 0;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background-color: rgb(144, 140, 140);
+  display: none;
+  align-items: center;
+  transition: opacity 1s ease;
+}
+
+.show {
+  display: flex;
+}
