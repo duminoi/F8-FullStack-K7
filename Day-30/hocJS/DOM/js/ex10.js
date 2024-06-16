@@ -18,17 +18,17 @@ progressBar.addEventListener("mousedown", function (e) {
   var rate = (offsetX / progressBarWidth) * 100;
   //Cập nhật CSS vào progress
   progress.style.width = rate + "%";
-  lastOffsetProgressBar = offsetX;
-  offsetProgressBar = offsetX;
-  initialClientX = e.clientX;
+  lastOffsetProgressBar = offsetX; //case bấm vào pregressBar không nhả mà kéo luôn
+  offsetProgressBar = offsetX; //Bấm vào thanh progessBar nhả ra rồi mới kéo
+  initialClientX = e.clientX; //case bấm vào pregressBar không nhả mà kéo luôn
   document.addEventListener("mousemove", handleDrag);
 });
 
 //bấm chuột xuống tại chấm tím
 progressSpan.addEventListener("mousedown", function (e) {
   e.stopPropagation();
-  document.addEventListener("mousemove", handleDrag);
   initialClientX = e.clientX; //Gán vị trí của button màu tím so với body
+  document.addEventListener("mousemove", handleDrag);
 });
 //khi kéo chuột
 document.addEventListener("mouseup", function () {
@@ -58,30 +58,28 @@ var durationEl = playerTimer.lastElementChild;
 var duration = 0;
 var setDuration = function () {
   duration = audio.duration;
-};
+}; // lấy thời gian của audio
 var getTimeFormat = function (seconds) {
   var mins = Math.floor(seconds / 60);
   seconds = Math.floor(seconds - mins * 60);
   return `${mins < 10 ? "0" + mins : mins}:${
     seconds < 10 ? "0" + seconds : seconds
   }`;
-};
+}; //format lại thời gian của audio
 window.addEventListener("load", function () {
-  setDuration();
+  //khi màn hình được load
+  setDuration(); // khởi tạo thời gian audio
   console.log(getTimeFormat(duration));
   durationEl.innerHTML = getTimeFormat(duration);
   playBtn.addEventListener("click", function () {
-    // console.log(111);
     if (audio.paused) {
       //Nhạc đang dừng
       console.log("play");
-      audio.play();
-      this.classList.replace("fa-play", "fa-pause");
+      audio.play(); //Phát nhạc
     } else {
       //nhạc đang phát
       console.log("paused");
-      audio.pause();
-      this.classList.replace("fa-pause", "fa-play");
+      audio.pause(); //Dừng nhạc
     }
   });
   audio.addEventListener("play", function () {
