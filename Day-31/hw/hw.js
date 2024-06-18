@@ -80,7 +80,6 @@ var handleDrag = function (e) {
   console.log("currentTimeBar", currentTimeBar);
 };
 // ------------------------------------------------Xử lý audio
-
 var setDuration = function () {
   duration = audio.duration;
 }; // lấy thời gian của audio
