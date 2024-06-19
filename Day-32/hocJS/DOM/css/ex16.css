@@ -20,7 +20,9 @@
 .section-wrapper .section {
   height: 600px;
 }
-
+.section-wrapper .section:nth-child(3) {
+  height: 700px;
+}
 .section-wrapper {
   padding-top: 3rem;
 }

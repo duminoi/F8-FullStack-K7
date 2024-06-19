@@ -7,9 +7,9 @@
 // var section2 = document.querySelector(".section-2");
 // var section3 = document.querySelector(".section-3");
 var btns = document.querySelectorAll(".section-btn button");
-console.log(btns);
+
 var sections = document.querySelectorAll(".section");
-console.log(sections);
+
 btns.forEach(function (btn, index, arrBtn) {
   btn.addEventListener("click", function () {
     arrBtn.forEach(function (btn) {
@@ -21,4 +21,29 @@ btns.forEach(function (btn, index, arrBtn) {
       behavior: "smooth",
     });
   });
+});
+var sectionLocation = [0, 550, 1200];
+//cuộn đổi màu button
+window.addEventListener("scroll", function () {
+  var position = window.scrollY;
+  console.log("position", position);
+  if (position >= sectionLocation[0] && position < sectionLocation[1]) {
+    console.log("section1");
+    btns.forEach((item) => {
+      item.style.color = "black";
+    });
+    btns[0].style.color = "red";
+  } else if (position >= sectionLocation[1] && position < sectionLocation[2]) {
+    console.log("section2");
+    btns.forEach((item) => {
+      item.style.color = "black";
+    });
+    btns[1].style.color = "red";
+  } else {
+    console.log(`section3`);
+    btns.forEach((item) => {
+      item.style.color = "black";
+    });
+    btns[2].style.color = "red";
+  }
 });

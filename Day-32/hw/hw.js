@@ -31,9 +31,7 @@ function displayCart() {
             <td>${item.price.toLocaleString()} VND</td>
             <td><input type="number" value="${
               item.quantity
-            }" min="1" onchange="updateQuantity('${
-      item.name
-    }', this.value)"></td>
+            }" min="1" onchange="updateQuantity('${item.name}',value)"></td>
             <td>${(item.price * item.quantity).toLocaleString()} VND</td>
             <td><button onclick="removeFromCart('${
               item.name
@@ -55,6 +53,7 @@ function updateQuantity(name, quantity) {
     found.quantity = parseInt(quantity);
   }
   saveCart(cart);
+  displayCart();
 }
 
 function removeFromCart(name) {
@@ -70,7 +69,6 @@ function clearCart() {
 }
 
 function updateCart() {
-  displayCart();
   alert("Đã cập nhật thành công");
 }
 
