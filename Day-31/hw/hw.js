@@ -53,14 +53,6 @@ var handleTimeUpdate = function () {
   }
   progress.style.width = `${rate}%`;
 };
-//Khi nhả chuột
-document.addEventListener("mouseup", function () {
-  document.removeEventListener("mousemove", handleDrag);
-  audio.addEventListener("timeupdate", handleTimeUpdate);
-  lastOffsetProgressBar = offsetProgressBar;
-  audio.currentTime = currentTimeBar;
-  console.log(currentTimeBar);
-});
 //khi kéo chuột
 var handleDrag = function (e) {
   var clientX = e.clientX;
@@ -76,9 +68,23 @@ var handleDrag = function (e) {
   audio.removeEventListener("timeupdate", handleTimeUpdate);
   progress.style.width = rate + "%";
   currentTimeBar = (audio.duration * rate) / 100;
-  audio.play();
+  // audio.play();
   console.log("currentTimeBar", currentTimeBar);
 };
+// khi bấm nút play sẽ lưu lại vị trí của audio.currentTime để khi mouseUp sẽ cập nhật lại đúng vị trí trước đó của audio
+playBtn.addEventListener("mousedown", function () {
+  currentTimeBar = audio.currentTime;
+});
+function handleMouseup() {
+  document.removeEventListener("mousemove", handleDrag);
+  audio.addEventListener("timeupdate", handleTimeUpdate);
+  lastOffsetProgressBar = offsetProgressBar;
+
+  audio.currentTime = currentTimeBar;
+  console.log("currentTimebarMouseUp", currentTimeBar);
+}
+//Khi nhả chuột
+document.addEventListener("mouseup", handleMouseup);
 // ------------------------------------------------Xử lý audio
 var setDuration = function () {
   duration = audio.duration;
@@ -103,6 +109,7 @@ window.addEventListener("load", function (e) {
     } else {
       //nhạc đang phát
       console.log("paused");
+      console.log("audioCurrent", audio.currentTime);
       audio.pause(); //Dừng nhạc
     }
   });
@@ -110,36 +117,31 @@ window.addEventListener("load", function (e) {
     playBtn.classList.replace("fa-play", "fa-pause");
   });
   audio.addEventListener("pause", function () {
+    console.log(audio.currentTime);
     playBtn.classList.replace("fa-pause", "fa-play");
   });
 
   audio.addEventListener("timeupdate", handleTimeUpdate);
   //hover
   var before = document.querySelector(".before");
-  progressBar.addEventListener("mouseover", function (e) {
-    progressBar.addEventListener("mousemove", function (e) {
-      backgroundWidth = e.offsetX;
-      before.classList.add("show");
-      before.style.left = `${backgroundWidth - 10}px`;
-      var rate = (backgroundWidth / progressBarWidth) * 100;
-      var currentTime = (audio.duration * rate) / 100;
-      before.innerHTML = `${getTimeFormat(currentTime)}`;
 
-      //Nhấn chuột xuống + click
-      progressBar.addEventListener("mousedown", function () {
-        audio.currentTime = currentTime;
-        audio.play();
-      });
-      progressBar.addEventListener("click", function () {
-        audio.currentTime = currentTime;
-        audio.play();
-      });
+  progressBar.addEventListener("mousemove", function (e) {
+    backgroundWidth = e.offsetX;
+    before.classList.add("show");
+    before.style.left = `${backgroundWidth - 10}px`;
+    var rate = (backgroundWidth / progressBarWidth) * 100;
+    var currentTime = (audio.duration * rate) / 100;
+    before.innerHTML = `${getTimeFormat(currentTime)}`;
+
+    //Nhấn chuột xuống + click
+    progressBar.addEventListener("mousedown", function () {
+      currentTimeBar = currentTime;
     });
-    progressSpan.addEventListener("mousemove", function (e) {
-      e.stopPropagation();
-    });
-    progressBar.addEventListener("mouseout", function () {
-      before.classList.remove("show");
-    });
+  });
+  progressSpan.addEventListener("mousemove", function (e) {
+    e.stopPropagation();
+  });
+  progressBar.addEventListener("mouseout", function () {
+    before.classList.remove("show");
   });
 });
