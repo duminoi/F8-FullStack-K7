@@ -12,38 +12,32 @@ var sections = document.querySelectorAll(".section");
 
 btns.forEach(function (btn, index, arrBtn) {
   btn.addEventListener("click", function () {
-    arrBtn.forEach(function (btn) {
-      btn.style.color = "black";
-    }); //Kiểm tra những button màu đỏ thì chuyển về đen
-    btn.style.color = "red"; //thêm màu đỏ
+    console.log(btn.style.color);
     window.scroll({
-      top: `${sections[index].offsetTop - 50}`,
+      top: `${sections[index].offsetTop - 47}`,
       behavior: "smooth",
     });
   });
 });
-var sectionLocation = [0, 550, 1200];
-//cuộn đổi màu button
+
+var sectionLoca = [0, 500, 1200];
 window.addEventListener("scroll", function () {
-  var position = window.scrollY;
-  console.log("position", position);
-  if (position >= sectionLocation[0] && position < sectionLocation[1]) {
-    console.log("section1");
-    btns.forEach((item) => {
-      item.style.color = "black";
+  var position = this.window.scrollY;
+  console.log("Position: ", position);
+  if (position >= sectionLoca[0] && position < sectionLoca[1]) {
+    btns.forEach((btn) => {
+      btn.classList.remove("red");
     });
-    btns[0].style.color = "red";
-  } else if (position >= sectionLocation[1] && position < sectionLocation[2]) {
-    console.log("section2");
-    btns.forEach((item) => {
-      item.style.color = "black";
+    btns[0].classList.add("red");
+  } else if (position >= sectionLoca[1] && position < sectionLoca[2]) {
+    btns.forEach((btn) => {
+      btn.classList.remove("red");
     });
-    btns[1].style.color = "red";
+    btns[1].classList.add("red");
   } else {
-    console.log(`section3`);
-    btns.forEach((item) => {
-      item.style.color = "black";
+    btns.forEach((btn) => {
+      btn.classList.remove("red");
     });
-    btns[2].style.color = "red";
+    btns[2].classList.add("red");
   }
 });
