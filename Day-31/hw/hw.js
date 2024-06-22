@@ -153,6 +153,7 @@ window.addEventListener("load", function (e) {
   });
 });
 
+// Karaoke
 var lyricComponents = {
   err: 0,
   msg: "Success",
@@ -2162,10 +2163,11 @@ var lyricComponents = {
 };
 
 var lyricSentence = lyricComponents.data.sentences;
+console.log(lyricSentence);
 var buttonKara = document.querySelector(".open-karaoke button");
 var karaoke = document.querySelector(".karaoke");
 var close = karaoke.querySelector(".karaoke .close");
-
+var karaokeInner = document.querySelector(".karaoke-inner");
 buttonKara.addEventListener("mousedown", function () {
   karaoke.classList.add("show");
   currentTimeBar = audio.currentTime;
@@ -2175,3 +2177,40 @@ close.addEventListener("mousedown", function () {
   karaoke.classList.remove("show");
   currentTimeBar = audio.currentTime;
 });
+// Hàm chuyển đổi số(mất dấu ".")
+function convertNum(num) {
+  return num.toFixed(3).toString().replace(".", "");
+}
+
+function handeLyric() {
+  for (let index = 0; index < lyricSentence.length; index = index + 2) {
+    if (
+      convertNum(audio.currentTime) >=
+        lyricSentence[index].words[0].startTime &&
+      convertNum(audio.currentTime) <=
+        lyricSentence[index + 1].words[
+          lyricSentence[index + 1].words.length - 1
+        ].endTime
+    ) {
+      var words = lyricSentence
+        .filter(function (words, i) {
+          return i >= index && i <= index + 1;
+        })
+        .map(function (items) {
+          return items.words;
+        });
+      var sentences = "";
+      words.forEach(function (word) {
+        sentences += "<br>";
+        var arrWord = word.map(function (word) {
+          return (sentences += word.data + " ");
+        });
+        karaokeInner.innerHTML = arrWord[arrWord.length - 1];
+      });
+
+      console.log("vào day /i", index);
+      break;
+    }
+  }
+}
+audio.addEventListener("timeupdate", handeLyric);
