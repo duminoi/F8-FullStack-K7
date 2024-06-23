@@ -85,9 +85,11 @@ function handleMouseup() {
 function updateCurrentTimeBar() {
   currentTimeBar = audio.currentTime; // khi bấm ra bên ngoài thì lưu được vị trí cũ của audio.currentTime
 }
+
+document.addEventListener("mousedown", updateCurrentTimeBar);
 //Khi nhả chuột
 document.addEventListener("mouseup", handleMouseup);
-document.addEventListener("mousedown", updateCurrentTimeBar);
+
 // ------------------------------------------------Xử lý audio
 var setDuration = function () {
   duration = audio.duration;
@@ -140,7 +142,7 @@ window.addEventListener("load", function (e) {
     var currentTime = (audio.duration * rate) / 100;
     before.innerHTML = `${getTimeFormat(currentTime)}`;
 
-    //Nhấn chuột xuống + click
+    //Nhấn chuột xuống
     progressBar.addEventListener("mousedown", function (e) {
       e.stopPropagation();
       audio.removeEventListener("timeupdate", handleTimeUpdate);

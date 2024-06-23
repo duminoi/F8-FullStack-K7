@@ -27,12 +27,13 @@ Khi làm việc với web component ==> Giải quyết được vấn đề css 
 
 class TodoApp extends HTMLElement {
   //   static observedAttributes = ["data-count"];
+  shadowRoot = this.attachShadow({ mode: `open` });
   connectedCallback() {
     this.render();
     this.addEvent();
   }
   render() {
-    this.innerHTML = `
+    this.shadowRoot.innerHTML = `
     <div class="todo-app">
         <h1>Todo App</h1>
         <ul>
@@ -53,7 +54,7 @@ class TodoApp extends HTMLElement {
     `;
   }
   addEvent() {
-    var form = this.querySelector("form");
+    var form = this.shadowRoot.querySelector("form");
     var _this = this;
 
     form.addEventListener("submit", function (e) {
@@ -64,7 +65,7 @@ class TodoApp extends HTMLElement {
   handleAddTodo(event) {
     var nameEl = event.querySelector("input");
     var name = nameEl.value;
-    var ul = this.querySelector("ul");
+    var ul = this.shadowRoot.querySelector("ul");
     ul.innerHTML += `<li>${name}</li>`;
     nameEl.value = "";
   }
@@ -85,3 +86,9 @@ customElements.define("todo-app", TodoApp);
 //   //   todoAppEl.remove();
 //   todoAppEl.dataset.count++;
 // });
+
+/**
+ Buổi sau:
+ - template, Slot
+ - Custom Attribute
+ */
