@@ -11,19 +11,31 @@ items.forEach(function (item) {
 });
 
 function render() {
-  const allTask = Array.from(list.querySelectorAll(".list-item"));
+  const subTask = Array.from(list.querySelectorAll(".list-item:not(.active)"));
+  const topic = Array.from(list.querySelectorAll(".list-item.active"));
 
-  allTask.forEach(function (task, index) {
+  topic.forEach(function (task, index) {
+    var span = task.firstChild;
+    const textNode = document.createTextNode(`Module ${index + 1}:`);
+    task.insertBefore(textNode, span);
+  });
+  subTask.forEach(function (task, index) {
     var span = task.firstChild;
     const textNode = document.createTextNode(`Bài ${index + 1}:`);
     task.insertBefore(textNode, span);
   });
 }
-render();
+render(); //khởi chạy HTML
 function render2() {
-  const allTask = Array.from(list.querySelectorAll(".list-item"));
+  const subTask = Array.from(list.querySelectorAll(".list-item:not(.active)"));
+  const topic = Array.from(list.querySelectorAll(".list-item.active"));
 
-  allTask.forEach(function (task, index) {
+  topic.forEach(function (task, index) {
+    var span = task.firstChild;
+    const textNode = document.createTextNode(`Module ${index + 1}:`);
+    task.replaceChild(textNode, span);
+  });
+  subTask.forEach(function (task, index) {
     var span = task.firstChild;
     const textNode = document.createTextNode(`Bài ${index + 1}:`);
     task.replaceChild(textNode, span);

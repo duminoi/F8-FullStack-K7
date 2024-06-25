@@ -22,3 +22,7 @@
   background-color: orange;
   opacity: 0.4;
 }
+
+.list-item.active {
+  background-color: #ff6f00;
+}
