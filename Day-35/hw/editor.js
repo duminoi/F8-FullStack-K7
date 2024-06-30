@@ -5,7 +5,7 @@ const colorBtn = document.querySelector("#color-btn");
 let content = document.querySelector("#content");
 let characterSpan = document.querySelector("#characterSpan");
 let wordSpan = document.querySelector("#wordSpan");
-let dropdowToggle = document.querySelector(".dropdown-toggle");
+let dropdownToggle = document.querySelector(".dropdown-toggle");
 let menu = document.querySelector(".controls .menu");
 let btnType = document.querySelectorAll(".menu button:not(#new-btn)");
 let fileNameInput = document.querySelector("#filename-input");
@@ -42,6 +42,7 @@ function generatePDF() {
   html2pdf().set(opt).from(content).save();
 }
 var total = ``;
+//cập nhật số ký tự & từ
 content.addEventListener("input", function () {
   total = content.innerText;
 
@@ -59,8 +60,8 @@ content.addEventListener("input", function () {
   characterSpan.innerText = ` Số ký tự: ${character.length}`;
   wordSpan.innerText = ` Số từ: ${word.length}`;
 });
-//dropdow menu
-dropdowToggle.addEventListener("click", function () {
+//dropdown menu
+dropdownToggle.addEventListener("click", function () {
   if (menu.style.display == `none` || menu.style.display === "") {
     menu.style.display = `block`;
   } else {
@@ -85,4 +86,5 @@ newBtn.addEventListener("click", function () {
   content.innerText = "";
   characterSpan.innerText = `Số ký tự: 0`;
   wordSpan.innerText = `Số từ: 0`;
+  fileNameInput.value = `Untitled`;
 });
