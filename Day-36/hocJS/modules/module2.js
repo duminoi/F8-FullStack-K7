@@ -1,7 +1,13 @@
-export { product } from "../modules/module3.js";
-
+// export { product } from "../modules/module3.js";
+import { product } from "../modules/module3.js";
+export { product };
+// console.log("product", product);
 const a = 10;
 const b = 20;
+export function something() {
+  return "hello something";
+}
+
 export { a, b };
 export function getMessage() {
   console.log("hello");

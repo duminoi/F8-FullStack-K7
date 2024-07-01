@@ -49,17 +49,18 @@ const users = [
 //   console.log(this);
 // });
 
-// const user = {
-//   name: `Đức Minh`,
-//   email: `dmin@gmail.com`,
-//   getInfo: function () {
-//     return {
-//       age: `21`,
-//       getAge: () => {
-//         console.log(this);
-//         return this.age;
-//       },
-//     };
-//   },
-// };
-// console.log(user.getInfo().getAge());
+const user = {
+  name: `Đức Minh`,
+  email: `dmin@gmail.com`,
+  getInfo: function () {
+    // return {
+    //   age: `21`,
+    //   getAge: function () {
+    //     console.log(this);
+    //     return this.age;
+    //   },
+    // };
+    return console.log("hello");
+  },
+};
+console.log(user.getInfo());
