@@ -67,8 +67,8 @@ dropdowToggle.addEventListener("click", function () {
     menu.style.display = `none`;
   }
 });
-//Xuat file
 
+//Xuat file
 txtBtn.addEventListener("click", function () {
   const blob = new Blob([content.innerText], {
     type: txtBtn.getAttribute("data-type"),
