@@ -49,18 +49,24 @@ const users = [
 //   console.log(this);
 // });
 
-const user = {
-  name: `Đức Minh`,
-  email: `dmin@gmail.com`,
-  getInfo: function () {
-    // return {
-    //   age: `21`,
-    //   getAge: function () {
-    //     console.log(this);
-    //     return this.age;
-    //   },
-    // };
-    return console.log("hello");
-  },
-};
-console.log(user.getInfo());
+// const user = {
+//   name: `Đức Minh`,
+//   email: `dmin@gmail.com`,
+//   getInfo: function () {
+//     // return {
+//     //   age: `21`,
+//     //   getAge: function () {
+//     //     console.log(this);
+//     //     return this.age;
+//     //   },
+//     // };
+//     return console.log("hello");
+//   },
+// };
+// console.log(user.getInfo());
+
+const products = (name, price) => ({
+  name: name,
+  price: price,
+});
+console.log(products(`shirt`, 3000));
