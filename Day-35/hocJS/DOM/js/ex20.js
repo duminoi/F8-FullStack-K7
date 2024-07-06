@@ -15,6 +15,7 @@ class F8 {
       }
       resolveAttributes(elementWrapper) {
         var _this = this;
+        console.log("this", this);
         if (elementWrapper.children && elementWrapper.children.length) {
           Array.from(elementWrapper.children).forEach(function (element) {
             Array.from(element.attributes).forEach(function (attribute) {
@@ -73,27 +74,3 @@ F8.create("hello-world", function () {
             </div>
 `;
 });
-
-// F8.create("todo-app", function () {
-//   console.log("todo-app");
-//   var shadowRoot = this.attachShadow({
-//     mode: "open",
-//   });
-//   shadowRoot.innerHTML = `<div class="todo-app">
-//         <h1>Todo App</h1>
-//         <ul>
-//         <li>Todo 1</li>
-//         <li>Todo 2</li>
-//         <li>Todo 3</li>
-//         </ul>
-//         <form>
-//             <input type="text" placeholder="Name..."/>
-//             <button type="submit">Add</button>
-//         </form>
-//     </div>
-//     <style>
-//         h1 {
-//             color: red;
-//         }
-//     </style>`;
-// });
