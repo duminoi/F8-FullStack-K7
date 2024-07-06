@@ -1,23 +1,53 @@
 class F8 {
-  static component(tag, obj) {
+  static component(tag, { data, template }) {
     class Component extends HTMLElement {
+      constructor() {
+        super();
+      }
+
       connectedCallback() {
         var shadowRoot = this.attachShadow({
           mode: "open",
         });
-        shadowRoot.innerHTML = obj.template;
-        this.handleEvent(shadowRoot);
-        console.dir(shadowRoot);
+        this.handleEvent(shadowRoot, this);
       }
-      handleEvent(root) {
+      handleEvent(root, _this) {
+        //convert data
+        Object.keys(data()).forEach((key) => {
+          window[key] = data()[key];
+        });
+        //render
+        const templateEl = document.createElement("template");
+        templateEl.innerHTML = template;
+        const templateNode = templateEl.content.cloneNode(true);
+        root.append(templateNode);
+        // replace variable
+        const result = template.match(/{{.+?}}/g);
+        console.log(result);
+        result.forEach((result) => {
+          const variableResult = result.match(/{{(.+?)}}/);
+          console.log(variableResult);
+        });
+        //event
         Array.from(root.children).forEach((child) => {
           Array.from(child.attributes).forEach(function (attr) {
             if (attr.nodeName.includes("v-on:")) {
               if (attr.nodeName.includes("click")) {
                 console.log(attr.nodeName, child);
-                child.addEventListener("click", () => {
-                  console.log("click");
-                });
+                if (attr.nodeValue.includes("--")) {
+                  //   console.log("--");
+                  child.addEventListener("click", () => {
+                    count--;
+                    console.log(count);
+                  });
+                } else {
+                  if (attr.nodeValue.includes("++")) {
+                    child.addEventListener("click", () => {
+                      count++;
+                      console.log(count);
+                    });
+                  }
+                }
               }
             }
           });
@@ -40,9 +70,3 @@ F8.component("custom-app", {
     <button v-on:click="count++">+</button>
 `,
 });
-
-// `<div class="content">
-//                   <h1 @mouseover="this.style.color='red'">Hello world</h1>
-//                   <button @click="console.log(12345)">Click</button>
-//               </div>
-//   `;
