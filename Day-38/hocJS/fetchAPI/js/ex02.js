@@ -65,7 +65,6 @@ const addEventFormSubmit = () => {
     const formData = Object.fromEntries([...new FormData(form)]);
     console.log(formData);
     const status = await addUser(formData);
-
     if (status) {
       getUsers();
       form.reset();
@@ -76,3 +75,7 @@ const addEventFormSubmit = () => {
 };
 
 addEventFormSubmit();
+const inputForm = document.querySelector("form.form input");
+form.addEventListener("input", (e) => {
+  console.log(inputForm.innerText);
+});
