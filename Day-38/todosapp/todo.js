@@ -31,11 +31,11 @@ function render(tasks) {
         <div class="list-data">
           <span class="content-data">${task.name}</span>
           <div class="action">
-            <div class="deleteBtn btn" data-id="${task.id}">
-              <i class="fa-solid fa-trash-can fill-white"></i>
+            <div class="deleteBtn btn"  data-id="${task.id}" data-action="delete">
+              <i class="fa-solid fa-trash-can fill-white" data-id="${task.id}" data-action="delete"></i>
             </div>
-            <div class="btn editBtn" data-id="${task.id}">
-              <i class="fa-solid fa-pen-to-square fill-white"></i>
+            <div class="btn editBtn" data-id="${task.id}" data-action="edit">
+              <i class="fa-solid fa-pen-to-square fill-white" data-id="${task.id}" data-action="edit"></i>
             </div>
             <div class="completeBtn btn" >
               <i class="fa-solid fa-square-check fill-white"></i>
@@ -45,8 +45,6 @@ function render(tasks) {
           })
           .join("")}
     `;
-  // handleDelete();
-  // handleEdit();
 }
 
 const addTasks = async (data) => {
@@ -85,28 +83,39 @@ const addEventFormSubmit = () => {
 };
 
 const deleteTask = async (id) => {
-  const response = await fetch(apiUrl + "/tasks/" + id, {
-    method: "DELETE",
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then(async (result) => {
+    if (result.isConfirmed) {
+      const response = await fetch(apiUrl + "/tasks/" + id, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        getTasks();
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+      }
+    }
   });
-  console.log(response);
-  return response.ok;
 };
 
-const handleDelete = () => {
-  const deleteBtn = document.querySelectorAll(".list-data .action .deleteBtn");
-  console.log(deleteBtn);
-  Array.from(deleteBtn).forEach((deleteBtn) => {
-    const id = deleteBtn.getAttribute("data-id");
-    deleteBtn.addEventListener("click", async () => {
-      console.log(id);
-      const status = await deleteTask(id);
-      if (status) {
-        await getTasks();
-      } else {
-        alert("failed");
-      }
-    });
+const handleActionBtn = () => {
+  const data = document.querySelector(".data");
+  data.addEventListener("click", ({ target }) => {
+    if (target.dataset.action === "delete") {
+      deleteTask(target.dataset.id);
+    }
   });
-}; ///
+};
 getTasks();
+handleActionBtn();
 addEventFormSubmit();

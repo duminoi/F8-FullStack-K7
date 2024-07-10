@@ -26,6 +26,7 @@
         <input
           class="w-full bg-gray-50 p-4 rounded-lg border border-gray-300 text-gray-900 focus:border-blue-500 focus:ring-blue-500"
           type="text"
+          name="name"
           placeholder="Add Todos"
         />
         <hr />
@@ -49,12 +50,14 @@
         <button class="addBtn btn" type="button">Add Todos</button>
       </div>
       <div class="data"></div>
+      <!-- render trong javascript -->
       <div class="completeTask">
         Completed Todos <span class="quantity">0</span
         ><i class="fa-solid fa-circle-down"></i>
       </div>
       <!-- end completeTask -->
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./todo.js"></script>
   </body>
 </html>
