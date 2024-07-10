@@ -45,8 +45,8 @@ function render(tasks) {
           })
           .join("")}
     `;
-  handleDelete();
-  handleEdit();
+  // handleDelete();
+  // handleEdit();
 }
 
 const addTasks = async (data) => {
@@ -107,6 +107,6 @@ const handleDelete = () => {
       }
     });
   });
-};
-addEventFormSubmit();
+}; ///
 getTasks();
+addEventFormSubmit();

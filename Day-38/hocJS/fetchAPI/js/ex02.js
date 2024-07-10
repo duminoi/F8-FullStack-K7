@@ -8,8 +8,6 @@ const getUsers = async (params = {}) => {
   if (query) {
     query = "?" + query;
   }
-  console.log(query);
-  console.log(params);
   const response = await fetch(serverApiUrl + "/users" + query);
   const users = await response.json();
   render(users);
@@ -70,7 +68,6 @@ const addUser = async (data) => {
   }
 };
 const updateUser = async (id, data) => {
-  console.log(id, data);
   try {
     if (!id) {
       throw new Error("ID not exist");
@@ -151,10 +148,10 @@ form.addEventListener("input", (e) => {
 
 const addEventActionBtn = () => {
   const tbody = document.querySelector("tbody");
-  tbody.addEventListener("click", async ({ target }) => {
+  tbody.addEventListener("click", ({ target }) => {
     if (target.dataset.action === "edit") {
       //gọi hàm để xử lý cập nhật
-      await getUser(target.dataset.id);
+      getUser(target.dataset.id);
     }
     if (target.dataset.action === "delete") {
       deleteUser(target.dataset.id);
@@ -176,7 +173,6 @@ const addCancelBtn = () => {
 const fillUserFormUpdate = ({ id, name, email, status }) => {
   const form = document.querySelector("form.form");
   const addBtn = document.querySelector(".btn.add");
-  console.log(status); // kích hoạt
   form.dataset.id = id;
   form.elements.name.value = name;
   form.elements.email.value = email;
@@ -188,7 +184,7 @@ const fillUserFormUpdate = ({ id, name, email, status }) => {
   //thêm nút hủy khi ko muốn sửa form nữa
   addCancelBtn();
 };
-
+console.dir(form);
 const closeFormUpdate = () => {
   const form = document.querySelector("form.form");
   form.reset();
@@ -209,7 +205,7 @@ const addEventFilterForm = () => {
       params.status = status;
     }
     if (keyword) {
-      params.q = keyword;
+      params.q = keyword.trim();
     }
     getUsers(params);
   });
@@ -235,8 +231,8 @@ const addEventSort = () => {
 };
 
 getUsers();
-addEventFormSubmit();
-addEventActionBtn();
-addEventFilterForm();
-addEventSort();
+addEventFormSubmit(); // sự kiện khi submit form
+addEventActionBtn(); // Thực hiện hành động (xóa || sửa)
+addEventFilterForm(); //tìm kiếm lọc
+addEventSort(); // sắp xếp danh sách
 //Hiểu luồng update,delete thì check code từ hàm addEventActionBtn

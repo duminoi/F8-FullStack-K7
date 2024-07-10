@@ -37,7 +37,7 @@
         inset: 0;
         background-color: rgba(111, 108, 108, 0.586);
       }
-      button[type="submit"] {
+      button.submit {
         margin-top: 1rem;
         display: flex;
         align-items: center;
@@ -49,6 +49,12 @@
       }
       label[for="status"] {
         margin-top: 1rem;
+      }
+      button.add.btn {
+        color: aliceblue;
+        display: flex;
+        margin: 0.8rem auto;
+        margin-left: 90%;
       }
     </style>
   </head>
@@ -65,9 +71,9 @@
         <option value="active">kích hoạt</option>
         <option value="inactive">chưa kích hoạt</option>
       </select>
-      <button type="submit" class="btn bg-success">Submit</button>
+      <button type="submit" class="btn bg-success submit">Submit</button>
     </form>
-
+    <!-- end form submit -->
     <div class="container py-3">
       <h2>Danh sách người dùng</h2>
       <form action="" class="filter-form mb-3">
@@ -92,7 +98,7 @@
           </div>
         </div>
       </form>
-      <!--end tìm kiếm -->
+      <!--end form tìm kiếm -->
 
       <div class="btn-group btn-group-sm mb-3">
         <button class="btn btn-primary active sort-item" data-value="latest">
