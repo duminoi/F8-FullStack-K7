@@ -22,8 +22,10 @@
         flex-direction: column;
         width: 300px;
         position: absolute;
-        top: 8rem;
-        left: 40%;
+        top: 18rem;
+        left: 50%;
+        right: 50%;
+        transform: translate(-50%, -50%);
         border-radius: 1rem;
       }
       form.form input {
@@ -41,8 +43,9 @@
         align-items: center;
         justify-content: center;
         align-items: center;
-        width: 4rem;
+        width: 100%;
         color: #fff;
+        margin-bottom: 1rem;
       }
       label[for="status"] {
         margin-top: 1rem;
@@ -54,18 +57,52 @@
     <form class="form">
       <h2>Vui lòng nhập thông tin</h2>
       <label for="name">Tên</label>
-      <input type="text" class="form-control" name="name" />
-      <label for="email">Email</label>
-      <input type="email" class="form-control" name="email" />
+      <input type="text" class="form-control name" name="name" />
+      <label class="email" for="email">Email</label>
+      <input type="email" class="form-control email" name="email" />
       <label for="status">Trạng thái</label>
       <select name="status" class="form-select" id="">
-        <option value="kích hoạt">kích hoạt</option>
-        <option value="chưa kích hoạt">chưa kích hoạt</option>
+        <option value="active">kích hoạt</option>
+        <option value="inactive">chưa kích hoạt</option>
       </select>
       <button type="submit" class="btn bg-success">Submit</button>
     </form>
+
     <div class="container py-3">
       <h2>Danh sách người dùng</h2>
+      <form action="" class="filter-form mb-3">
+        <div class="row">
+          <div class="col-3">
+            <select class="form-select" name="status">
+              <option value="all">Tất cả trạng thái</option>
+              <option value="active">Kích hoạt</option>
+              <option value="inactive">Chưa kích hoạt</option>
+            </select>
+          </div>
+          <div class="col-7">
+            <input
+              type="search"
+              class="form-control"
+              name="keyword"
+              placeholder="Từ khóa tìm kiếm..."
+            />
+          </div>
+          <div class="col-2 d-grid">
+            <button type="submit" class="btn btn-primary">Tìm</button>
+          </div>
+        </div>
+      </form>
+      <!--end tìm kiếm -->
+
+      <div class="btn-group btn-group-sm mb-3">
+        <button class="btn btn-primary active sort-item" data-value="latest">
+          Mới Nhất
+        </button>
+        <button class="btn btn-primary sort-item" data-value="oldest">
+          Cũ Nhất
+        </button>
+      </div>
+      <!--end sắp xếp -->
       <button class="btn add bg-success" style="color: aliceblue">Thêm</button>
       <table class="table table-bordered">
         <thead>
@@ -96,6 +133,7 @@
         </tbody>
       </table>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="./js/ex02.js"></script>
   </body>
 </html>
