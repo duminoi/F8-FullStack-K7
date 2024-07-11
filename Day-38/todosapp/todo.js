@@ -4,14 +4,18 @@ const addBtn = document.querySelector(".tools .addBtn");
 const cancel = document.querySelector(".cancel");
 addBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  overlay.style.display = `block`;
-  form.style.display = "block";
+  openForm();
 });
 
-function closeForm(e) {
-  e.preventDefault();
+const openForm = () => {
+  overlay.style.display = `block`;
+  form.style.display = "block";
+};
+
+function closeForm() {
   overlay.style.display = `none`;
   form.style.display = "none";
+  addBtn.innerText = "Add Todos";
 }
 
 //Fetch API
@@ -56,28 +60,30 @@ const addTasks = async (data) => {
       },
       body: JSON.stringify(data),
     });
-    console.log(response);
     return response.ok;
   } catch {
     return false;
   }
 };
-// const inputForm = document.querySelector("form.form input");
-// form.addEventListener("input", (e) => {
-//   console.log(inputForm.innerText);
-// });
 
 const addEventFormSubmit = () => {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = Object.fromEntries([...new FormData(form)]);
-    console.log(formData);
-    const status = await addTasks(formData);
-    if (status) {
-      getTasks();
-      form.reset();
+    if (!form.dataset.id) {
+      // Nếu tồn tại data-id thì đây là form Thêm
+      const status = await addTasks(formData);
+      if (status) {
+        getTasks();
+        form.reset();
+        console.log("vào dây");
+      } else {
+        alert("Thêm thất bại");
+      }
     } else {
-      alert("Thêm thất bại");
+      // Đây là form sửa
+      const id = form.dataset.id;
+      handleUpdateTask(id, formData);
     }
   });
 };
@@ -107,12 +113,60 @@ const deleteTask = async (id) => {
     }
   });
 };
+const handleUpdateTask = async (id, data) => {
+  try {
+    if (!id) {
+      throw new Error("Id not exist");
+    }
+    const response = await fetch(`${apiUrl}/tasks/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (response.ok) {
+      closeForm();
+      getTasks();
+    } else {
+      throw new Error("Update failed");
+    }
+  } catch (e) {
+    alert(e.message);
+  }
+};
+const getTask = async (id) => {
+  try {
+    if (!id) {
+      throw new Error("Ko có ID");
+    }
+    const response = await fetch(`${apiUrl}/tasks/${id}`);
+    if (response.ok) {
+      const user = await response.json();
+      fillFormUpdate(user);
+    } else {
+      throw new Error("Không tồn tại task !!");
+    }
+  } catch (e) {
+    alert(e.message);
+  }
+};
+const fillFormUpdate = ({ name, id }) => {
+  openForm();
+  addBtn.innerText = "Update";
+  form.dataset.id = id;
+  console.log(form.dataset.id);
+  form.elements.name.value = name;
+};
 
 const handleActionBtn = () => {
   const data = document.querySelector(".data");
   data.addEventListener("click", ({ target }) => {
     if (target.dataset.action === "delete") {
       deleteTask(target.dataset.id);
+    }
+    if (target.dataset.action === "edit") {
+      getTask(target.dataset.id);
     }
   });
 };
