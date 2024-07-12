@@ -5,7 +5,6 @@ const getBlogs = async (param) => {
   query = "_" + query;
   //   console.log(query);
   const respone = await fetch(`${apiUrl}/blogs?${query}`);
-  //   console.log(respone);
   const blogs = await respone.json();
   render(blogs);
   return blogs;
@@ -78,14 +77,15 @@ const addEventScroll = () => {
     _end: `${increase}`,
   };
   getBlogs(param);
-  window.addEventListener("scroll", () => {
+  window.addEventListener("scroll", async () => {
     if (
       window.scrollY + window.innerHeight >=
       document.documentElement.scrollHeight * (98 / 100)
     ) {
-      if (increase < 50) {
+      const respone = await fetch(`${apiUrl}/blogs`);
+      const quantity = await respone.json();
+      if (increase < quantity.length) {
         increase += 3;
-        // console.log(increase);
       }
       param = {
         start: `0`,
