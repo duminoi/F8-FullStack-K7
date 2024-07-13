@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:3000";
+const apiUrl = "https://kqgsvq-8080.csb.app";
 
 const getBlogs = async (param) => {
   let query = new URLSearchParams(param).toString();
