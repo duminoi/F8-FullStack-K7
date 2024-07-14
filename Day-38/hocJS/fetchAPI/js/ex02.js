@@ -3,14 +3,27 @@ const overlay = document.querySelector(".overlay");
 const addBtn = document.querySelector(".btn.add");
 const serverApiUrl = "http://localhost:3000";
 
+const params = { _sort: "id", _order: "desc", _limit: 2, _page: 1 };
+const data = {
+  totalPages: 1,
+  totalRecords: 0,
+};
+
 const getUsers = async (params = {}) => {
   let query = new URLSearchParams(params).toString();
   if (query) {
     query = "?" + query;
   }
+  // console.log(query);
   const response = await fetch(serverApiUrl + "/users" + query);
   const users = await response.json();
+  //Tính tổng số trang = Tổng số bản ghi / Số bản ghi của 1 trang (limit)
+  data.totalRecords = response.headers.get("x-total-count");
+  data.totalPages = Math.ceil(data.totalRecords / params._limit);
+  data.recordNumber = users.length;
+
   render(users);
+  renderPagination(data.totalPages);
 };
 
 const getUser = async (id) => {
@@ -51,6 +64,45 @@ function render(users) {
     })
     .join("")}`;
 }
+
+const renderPagination = (totalPages) => {
+  console.log("totalPages", totalPages);
+  const paginationView = document.querySelector(".pagination-view");
+  paginationView.innerHTML = `
+            <ul class="pagination">
+          ${
+            params._page > 1
+              ? `<li class="page-item">
+            <a class="page-link page-prev" href="#" aria-label="Previous">
+            &laquo;
+            </a>
+          </li>`
+              : ``
+          }
+          ${Array.from(Array(totalPages).keys())
+            .map(
+              (_, index) => `
+               <li class="page-item"><a data-id="${
+                 index + 1
+               }" class="page-link page-number  ${
+                index === params._page - 1 ? "active" : ""
+              }" href="#">${index + 1}</a></li>
+            `
+            )
+            .join("")}
+          ${
+            params._page < totalPages
+              ? `<li class="page-item">
+            <a class="page-link page-next" href="#" aria-label="Next">
+             &raquo;
+            </a>
+          </li>`
+              : ``
+          }
+        </ul>
+  `;
+};
+
 const addUser = async (data) => {
   try {
     const response = await fetch(serverApiUrl + "/users", {
@@ -82,7 +134,7 @@ const updateUser = async (id, data) => {
     if (!response.ok) {
       throw new Error("Update Failed");
     }
-    getUsers(); //Cập nhật lại table
+    getUsers(params); //Cập nhật lại table
     closeFormUpdate(); //Đóng form update
   } catch (e) {
     alert(e.message);
@@ -103,7 +155,13 @@ const deleteUser = (id) => {
         method: "DELETE",
       });
       if (response.ok) {
-        getUsers();
+        console.log(data.totalPages, params._page, data.recordNumber);
+        if (data.totalPages === params._page && data.recordNumber === 1) {
+          //Trang cuối
+          console.log("ok chưa");
+          params._page--;
+        }
+        getUsers(params);
         Swal.fire({
           title: "Deleted!",
           text: "Your file has been deleted.",
@@ -127,7 +185,9 @@ const addEventFormSubmit = () => {
     if (!form.dataset.id) {
       const status = await addUser(formData);
       if (status) {
-        getUsers();
+        params._page = 1;
+        params._order = "desc";
+        getUsers(params);
         form.reset();
       } else {
         alert("Thêm thất bại");
@@ -197,15 +257,19 @@ const closeFormUpdate = () => {
 const addEventFilterForm = () => {
   const form = document.querySelector(".filter-form");
   form.addEventListener("submit", (e) => {
+    console.log("ok");
     e.preventDefault();
     const { status, keyword } = Object.fromEntries([...new FormData(form)]);
 
-    const params = {};
     if (status === "active" || status === "inactive") {
       params.status = status;
+    } else {
+      delete params.status;
     }
     if (keyword) {
       params.q = keyword.trim();
+    } else {
+      delete params.q;
     }
     getUsers(params);
   });
@@ -221,18 +285,39 @@ const addEventSort = () => {
       e.target.classList.add("active");
       const value = e.target.dataset.value;
       console.log(value);
-      const params = {
-        _sort: "id",
-        _order: value === "latest" ? "desc" : "asc",
-      };
+
+      params._order = value === "latest" ? "desc" : "asc";
       getUsers(params);
     });
   });
 };
 
-getUsers();
+const addEventPagination = () => {
+  const nav = document.querySelector("nav.pagination-view");
+  nav.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log(e.target.dataset.id);
+    if (e.target.classList.contains(`page-number`)) {
+      const pageNumber = +e.target.innerText;
+      console.log(pageNumber);
+      params._page = pageNumber;
+      getUsers(params);
+    }
+    if (e.target.classList.contains("page-prev")) {
+      params._page--;
+      getUsers(params);
+    }
+    if (e.target.classList.contains("page-next")) {
+      params._page++;
+      getUsers(params);
+    }
+  });
+};
+
+getUsers(params);
 addEventFormSubmit(); // sự kiện khi submit form
 addEventActionBtn(); // Thực hiện hành động (xóa || sửa)
 addEventFilterForm(); //tìm kiếm lọc
 addEventSort(); // sắp xếp danh sách
+addEventPagination();
 //Hiểu luồng update,delete thì check code từ hàm addEventActionBtn

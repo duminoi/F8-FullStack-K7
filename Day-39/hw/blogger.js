@@ -1,18 +1,23 @@
 const apiUrl = "https://kqgsvq-8080.csb.app";
 
-const getBlogs = async (param) => {
-  let query = new URLSearchParams(param).toString();
-  query = "_" + query;
-  //   console.log(query);
-  const respone = await fetch(`${apiUrl}/blogs?${query}`);
-  const blogs = await respone.json();
+const getBlogs = async () => {
+  const response = await fetch(`${apiUrl}/blogs?_start=0&_end=10`);
+  const blogs = await response.json();
   render(blogs);
   return blogs;
 };
 
+const getBlogScroll = async (param) => {
+  let query = new URLSearchParams(param).toString();
+  query = "_" + query;
+  const response = await fetch(`${apiUrl}/blogs?${query}`);
+  const blogs = await response.json();
+  render(blogs);
+  return blogs;
+};
 const render = (blogs) => {
   const blogWrapper = document.querySelector(".home-page .blog-wrapper");
-  console.log(blogs[0].userName.toString().toLowerCase());
+
   blogWrapper.innerHTML = `
         ${blogs
           .map((blog) => {
@@ -70,30 +75,33 @@ const render = (blogs) => {
     `;
 };
 
+let increase = 10;
 const addEventScroll = () => {
-  let increase = 10;
-  let param = {
-    start: `0`,
-    _end: `${increase}`,
-  };
-  getBlogs(param);
-  window.addEventListener("scroll", async () => {
-    if (
-      window.scrollY + window.innerHeight >=
-      document.documentElement.scrollHeight * (98 / 100)
-    ) {
-      const respone = await fetch(`${apiUrl}/blogs`);
-      const quantity = await respone.json();
-      if (increase < quantity.length) {
-        increase += 3;
-      }
+  window.addEventListener("scroll", handleScroll);
+};
+
+const handleScroll = async () => {
+  if (
+    window.scrollY + window.innerHeight >=
+    document.documentElement.scrollHeight * (98 / 100)
+  ) {
+    const response = await fetch(`${apiUrl}/blogs`);
+    const quantity = await response.json();
+    if (increase < quantity.length) {
+      increase += 3;
       param = {
         start: `0`,
         _end: `${increase}`,
       };
-      getBlogs(param);
+      getBlogScroll(param);
+    } else {
+      if (increase === quantity.length) {
+        window.removeEventListener(handleScroll);
+        return false;
+      }
     }
-  });
+  }
 };
 
 addEventScroll();
+getBlogs();
