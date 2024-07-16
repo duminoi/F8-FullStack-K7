@@ -18,8 +18,8 @@ let lastPage;
 const apiUrl = "https://kqgsvq-8080.csb.app";
 
 const params = {
-  _limit: "1",
-  _page: "1",
+  _limit: 1,
+  _page: 1,
 };
 const data = {
   totalRecords: "1",
@@ -36,7 +36,6 @@ const getQuiz = async (params) => {
   data.totalRecords = response.headers.get("x-total-count");
   data.totalPages = Math.ceil(data.totalRecords / params._limit);
   data.recordNumber = quizs.length;
-  lastPage = params._page;
   console.log(quizs);
   renderQuestion(quizs);
   clearInterval(countTimer);
@@ -77,21 +76,20 @@ const renderQuestion = (quizs) => {
 
 const increasePage = () => {};
 const checker = (quizs) => {
-  quizContainer.addEventListener("mousedown", (e) => {
+  quizContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("option-div")) {
-      //   initial();
+      initial();
       let result = e.target.innerText;
       if (result === quizs.correct) {
         e.target.classList.add("correct");
       } else {
         e.target.classList.add("incorrect");
       }
-
-      if (lastPage < data.totalPages) {
-        params._page++;
-        console.log("click", params._page);
+      console.log(params._page);
+      if (params._page < data.totalPages) {
+        params._page = params._page + 1;
       }
-      getQuiz(params);
+      //   getQuiz(params);
     }
   });
 };
@@ -100,9 +98,9 @@ const addEventRestart = () => {
   restart.addEventListener("click", () => {
     initial();
     displayContainer.classList.remove("hide");
-    params._page = 0;
-    getQuiz(params);
     restart.classList.add("hide");
+    params._page = 1;
+    getQuiz(params);
   });
 };
 
