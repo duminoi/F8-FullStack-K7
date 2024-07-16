@@ -43,6 +43,7 @@ const getUser = async (id) => {
 };
 function render(users) {
   const tbody = document.querySelector("tbody");
+  console.log(users);
   tbody.innerHTML = `${users
     ?.map(({ id, name, email, status }, index) => {
       return `<tr>

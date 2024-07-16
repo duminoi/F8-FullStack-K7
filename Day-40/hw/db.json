@@ -43,6 +43,38 @@
                 "Tất cả các ý trên"
             ],
             "correct": "Tạo một ô text để nhập dữ liệu 1 dòng"
-        }
+        }  ,{
+            "id":2,
+            "question":"Trong Javascript sự kiện Onchange thực hiện khi nào??",
+            "options":[
+                "Khi một đối tượng trong form mất focus",
+                "Khi một đối tượng trong form có focus",
+                "Xảy ra khi giá trị của một trường trong form được người dùng thay đổi",
+                "Khi click chuột vào nút lệnh"
+            ],
+            "correct": "Xảy ra khi giá trị của một trường trong form được người dùng thay đổi"
+        },
+        {
+            "id":2,
+            "question":"Trong Javascript sự kiện Onchange thực hiện khi nào??",
+            "options":[
+                "Khi một đối tượng trong form mất focus",
+                "Khi một đối tượng trong form có focus",
+                "Xảy ra khi giá trị của một trường trong form được người dùng thay đổi",
+                "Khi click chuột vào nút lệnh"
+            ],
+            "correct": "Xảy ra khi giá trị của một trường trong form được người dùng thay đổi"
+        },
+        {
+            "id":2,
+            "question":"Trong Javascript sự kiện Onchange thực hiện khi nào??",
+            "options":[
+                "Khi một đối tượng trong form mất focus",
+                "Khi một đối tượng trong form có focus",
+                "Xảy ra khi giá trị của một trường trong form được người dùng thay đổi",
+                "Khi click chuột vào nút lệnh"
+            ],
+            "correct": "Xảy ra khi giá trị của một trường trong form được người dùng thay đổi"
+        },
     ]
 }
