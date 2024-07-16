@@ -1,0 +1,48 @@
+{
+    "quizs":[
+        {
+            "id":0,
+            "question":"Trong Javascript sự kiện OnUnload thực hiện khi nào?",
+            "options":[
+                "Khi bắt đầu chương trình chạy",
+                "Khi click chuột",
+                "Khi kết thúc một chương trình",
+                "Khi di chuyển chuột qua"
+            ],
+            "correct": "Khi kết thúc một chương trình"
+        },
+        {
+            "id":1,
+            "question":"Trong Javascript sự kiện Onblur thực hiện khi nào?",
+            "options":[
+                "Khi một đối tượng trong form mất focus",
+                "Khi một đối tượng trong form có focus",
+                "Khi di chuyển con chuột qua form",
+                "Khi click chuột vào nút lệnh"
+            ],
+            "correct": "Khi một đối tượng trong form mất focus"
+        },
+        {
+            "id":2,
+            "question":"Trong Javascript sự kiện Onchange thực hiện khi nào??",
+            "options":[
+                "Khi một đối tượng trong form mất focus",
+                "Khi một đối tượng trong form có focus",
+                "Xảy ra khi giá trị của một trường trong form được người dùng thay đổi",
+                "Khi click chuột vào nút lệnh"
+            ],
+            "correct": "Xảy ra khi giá trị của một trường trong form được người dùng thay đổi"
+        },
+        {
+            "id":3,
+            "question":"Thẻ <input type='text'> dùng để làm gì?",
+            "options":[
+                "Tạo một ô text để nhập dữ liệu 1 dòng",
+                "Tạo một ô password",
+                "Tạo một  textbox cho phép nhập liệu nhiều dòng",
+                "Tất cả các ý trên"
+            ],
+            "correct": "Tạo một ô text để nhập dữ liệu 1 dòng"
+        }
+    ]
+}

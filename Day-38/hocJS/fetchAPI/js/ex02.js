@@ -319,5 +319,5 @@ addEventFormSubmit(); // sự kiện khi submit form
 addEventActionBtn(); // Thực hiện hành động (xóa || sửa)
 addEventFilterForm(); //tìm kiếm lọc
 addEventSort(); // sắp xếp danh sách
-addEventPagination();
+addEventPagination(); //Phân trang
 //Hiểu luồng update,delete thì check code từ hàm addEventActionBtn

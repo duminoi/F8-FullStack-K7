@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./quiz.css" />
+  </head>
+  <body>
+    <div class="start-screen">
+      <button id="start-button">Start</button>
+    </div>
+    <!-- end start-screen -->
+    <div id="display-container">
+      <div class="header">
+        <div class="number-of-count">
+          <span class="number-of-question">1 of 10 questions</span>
+        </div>
+        <div class="timer-div">
+          <i class="fa-solid fa-clock"></i>
+          <span class="time-left">10s</span>
+        </div>
+      </div>
+      <!-- end header -->
+      <div class="container">
+        <!-- render q&a -->
+        <div class="question">hello</div>
+        <div class="option-div">answer</div>
+        <div class="option-div">answer</div>
+        <div class="option-div">answer</div>
+        <div class="option-div">answer</div>
+      </div>
+      <button id="next-button">Next</button>
+    </div>
+    <!-- end display-container -->
+    <div class="score-container hide">
+      <div id="user-score">Demo Score</div>
+      <button id="restart">Restart</button>
+    </div>
+    <!-- end score-container -->
+    <script src="./quiz.js"></script>
+  </body>
+</html>
