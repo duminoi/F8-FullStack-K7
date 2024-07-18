@@ -1,6 +1,5 @@
 let timeLeft = document.querySelector(".time-left");
 let quizContainer = document.querySelector(".container");
-console.log(quizContainer);
 let nextBtn = document.querySelector("#next-button");
 let countOfQuestion = document.querySelector(".number-of-question");
 let displayContainer = document.querySelector("#display-container");
@@ -15,6 +14,7 @@ let scoreCount = 0;
 let countdown = 11;
 let countTimer;
 let lastPage;
+let dataQuiz;
 const apiUrl = "https://kqgsvq-8080.csb.app";
 
 const params = {
@@ -31,6 +31,7 @@ const getQuiz = async (params) => {
   if (query) {
     query = "?" + query;
   }
+  console.log(params._page);
   const response = await fetch(`${apiUrl}/quizs/${query}`);
   const quizs = await response.json();
   data.totalRecords = response.headers.get("x-total-count");
@@ -38,6 +39,12 @@ const getQuiz = async (params) => {
   data.recordNumber = quizs.length;
   console.log(quizs);
   renderQuestion(quizs);
+  if (+params._page > +data.totalPages) {
+    initial();
+    displayContainer.classList.add("hide");
+    startButton.classList.add("hide");
+    scoreContainer.classList.remove("hide");
+  }
   clearInterval(countTimer);
   countTimer = setInterval(() => {
     countdown--;
@@ -47,14 +54,9 @@ const getQuiz = async (params) => {
       getQuiz(params);
       initial();
     }
-    if (+params._page === +data.totalPages) {
-      displayContainer.classList.add("hide");
-      startButton.classList.add("hide");
-      scoreContainer.classList.remove("hide");
-      initial();
-    }
   }, 1000);
-  checker(quizs[0]);
+  dataQuiz = quizs[0];
+  checker();
 };
 
 const renderQuestion = (quizs) => {
@@ -75,30 +77,30 @@ const renderQuestion = (quizs) => {
 };
 
 const increasePage = () => {};
-const checker = (quizs) => {
-  quizContainer.addEventListener("click", (e) => {
-    if (e.target.classList.contains("option-div")) {
-      initial();
-      let result = e.target.innerText;
-      if (result === quizs.correct) {
-        e.target.classList.add("correct");
-      } else {
-        e.target.classList.add("incorrect");
-      }
-      console.log(params._page);
-      if (params._page < data.totalPages) {
-        params._page = params._page + 1;
-      }
-      //   getQuiz(params);
+const handleClickAnswer = (e) => {
+  if (e.target.classList.contains("option-div")) {
+    initial();
+    let result = e.target.innerText;
+    if (result === dataQuiz.correct) {
+      e.target.classList.add("correct");
+    } else {
+      e.target.classList.add("incorrect");
     }
-  });
+    console.log(params._page);
+    params._page = params._page + 1;
+    getQuiz(params);
+  }
+  quizContainer.removeEventListener("click", handleClickAnswer);
+};
+const checker = () => {
+  quizContainer.addEventListener("click", handleClickAnswer);
 };
 
 const addEventRestart = () => {
   restart.addEventListener("click", () => {
     initial();
     displayContainer.classList.remove("hide");
-    restart.classList.add("hide");
+    scoreContainer.classList.add("hide");
     params._page = 1;
     getQuiz(params);
   });
