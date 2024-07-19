@@ -2,6 +2,7 @@
 const apiUrl = `https://api.escuelajs.co/api/v1`;
 
 document.body.addEventListener("submit", async (e) => {
+  // Khi bấm đăng nhập
   if (e.target.classList.contains("login-form")) {
     e.preventDefault();
     const form = e.target;
@@ -24,6 +25,7 @@ document.body.addEventListener("submit", async (e) => {
     });
     console.log(Object.keys(errors));
     if (Object.keys(errors).length) {
+      // Trường hợp ko có dữ liệu ở form
       Object.keys(errors).forEach((key) => {
         const error = errors[key];
         const errorEl = form.querySelector(`.error-${key}`);
@@ -130,15 +132,14 @@ const showProfile = async () => {
     profileNameEl.innerText = user.name;
   } else {
     //Nếu access_token bị miss
-    //Call Refresh Token
+    //Call API Refresh Token
     const newToken = await sendRefreshToken();
     if (newToken) {
       localStorage.setItem(`login_token`, JSON.stringify(newToken));
       showProfile();
     } else {
       // nếu refresh_token bị miss
-      localStorage.removeItem("login_token");
-      render(); //Đăng xuất
+      handleLogout(); //Đăng xuất
     }
   }
 };
@@ -151,7 +152,7 @@ const handleLogout = () => {
 const render = () => {
   const status = localStorage.getItem(`login_token`) ? true : false; //Trạng thái đăng nhập
   if (status) {
-    document.body.innerHTML = `    <div class="container">
+    document.body.innerHTML = `<div class="container">
       <h2>Chào mừng bạn đến với F8</h2>
       <ul class="list-unstyled d-flex gap-2">
         <li>Chào mừng bạn: <span class="profile-name">...</span></li>

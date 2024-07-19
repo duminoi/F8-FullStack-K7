@@ -1,7 +1,7 @@
 # Authentication - Authorization
 
-- Authencication: Xác minh danh tính
-- Authoriaztion: Xác minh quyền
+- Authentication: Xác minh danh tính
+- Authorization: Xác minh quyền
 
 2 cách xác thực (Authentication)
 
