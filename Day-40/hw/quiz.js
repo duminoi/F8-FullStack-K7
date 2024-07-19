@@ -76,7 +76,6 @@ const renderQuestion = (quizs) => {
       `;
 };
 
-const increasePage = () => {};
 const handleClickAnswer = (e) => {
   if (e.target.classList.contains("option-div")) {
     initial();
@@ -86,8 +85,8 @@ const handleClickAnswer = (e) => {
     } else {
       e.target.classList.add("incorrect");
     }
-    console.log(params._page);
     params._page = params._page + 1;
+    console.log(params._page);
     getQuiz(params);
   }
   quizContainer.removeEventListener("click", handleClickAnswer);
