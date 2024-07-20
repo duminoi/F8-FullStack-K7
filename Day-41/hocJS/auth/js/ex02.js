@@ -27,7 +27,7 @@ document.body.addEventListener("submit", async (e) => {
     if (Object.keys(errors).length) {
       // Trường hợp ko có dữ liệu ở form
       Object.keys(errors).forEach((key) => {
-        const error = errors[key];
+        const error = errors[`${key}`];
         const errorEl = form.querySelector(`.error-${key}`);
         if (errorEl) {
           errorEl.innerText = error;
