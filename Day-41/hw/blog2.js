@@ -105,7 +105,7 @@ const handleFormSubmit = () => {
         fieldName.innerHTML = "";
       } else {
         // signIn
-        fillDataCheck(name, email, password, data, errors);
+        fillDataCheck(name, email, password, data, errors, "signIn");
       }
     }
     if (e.submitter.classList.contains("signUp")) {
@@ -157,6 +157,7 @@ const fillDataCheck = async (name, email, password, data, errors, typeBtn) => {
   } else {
     // Trường hợp có dữ liệu ở form
     if (typeBtn == "signUp") {
+      console.log(data);
       // Bấm nút signUp
       const registerData = await sendRequestRegister(data);
       console.log(registerData);
@@ -168,6 +169,7 @@ const fillDataCheck = async (name, email, password, data, errors, typeBtn) => {
       }
     } else {
       // Bấm nút signIn
+      console.log(data);
     }
   }
 };
@@ -175,11 +177,13 @@ const fillDataCheck = async (name, email, password, data, errors, typeBtn) => {
 const sendRequestRegister = async (registerData) => {
   try {
     const response = await fetch(`${f8ApiUrl}/auth/register`, {
+      method: "POST",
       body: JSON.stringify(registerData),
     });
     if (!response.ok) {
       throw new Error();
     }
+    console.log(response.json());
     return response.json();
   } catch (error) {
     return false;
