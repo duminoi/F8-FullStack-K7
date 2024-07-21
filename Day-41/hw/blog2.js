@@ -178,6 +178,9 @@ const sendRequestRegister = async (registerData) => {
   try {
     const response = await fetch(`${f8ApiUrl}/auth/register`, {
       method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
       body: JSON.stringify(registerData),
     });
     if (!response.ok) {

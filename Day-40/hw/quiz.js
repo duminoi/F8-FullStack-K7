@@ -31,9 +31,9 @@ const getQuiz = async (params) => {
   if (query) {
     query = "?" + query;
   }
-  console.log(params._page);
   const response = await fetch(`${apiUrl}/quizs/${query}`);
   const quizs = await response.json();
+  console.log(response.ok);
   data.totalRecords = response.headers.get("x-total-count");
   data.totalPages = Math.ceil(data.totalRecords / params._limit);
   data.recordNumber = quizs.length;
