@@ -69,6 +69,11 @@ const render = (blogs) => {
           })
           .join("")}
     `;
+  const headerTitle = document.createElement("h2");
+  headerTitle.classList.add("headerTitle");
+  const blogList = document.querySelector(".blog-list");
+  blogWrapper.insertBefore(headerTitle, blogList);
+  showProfile();
 };
 
 const addEventScroll = () => {
@@ -88,7 +93,31 @@ const handleScroll = async () => {
     getBlogs(param);
   }
 };
-
+const showProfile = async () => {
+  const user = await getProfile();
+  if (user) {
+    console.log(user.data.name);
+    const headerTitle = document.querySelector(".headerTitle");
+    headerTitle.innerHTML = `Xin chào ${user.data.name}`;
+  }
+};
+const getProfile = async () => {
+  try {
+    const { accessToken } = JSON.parse(localStorage.getItem("login_token"));
+    const response = await fetch(`${f8ApiUrl}/users/profile`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    if (!response) {
+      throw new Error();
+    }
+    return response.json();
+  } catch (e) {
+    return false;
+  }
+};
 const handleFormSubmit = () => {
   fieldName.innerHTML = "";
   form.addEventListener("submit", async (e) => {
@@ -159,11 +188,17 @@ const fillDataCheck = async (name, email, password, data, errors, typeBtn) => {
     // Trường hợp có dữ liệu ở form
     if (typeBtn == "signIn") {
       // Bấm nút signIn
-      console.log("vao day");
       console.log(data);
+      const loginData = await sendRequestLogin(data.email, data.password);
+      if (!loginData) {
+        alert("Đăng nhập thất bại");
+      } else {
+        const dataToken = loginData.data;
+        localStorage.setItem("login_token", JSON.stringify(dataToken));
+        getBlogs({ start: `0`, _end: `${increase}` });
+      }
     }
     if (typeBtn == "signUp") {
-      console.log(data);
       // Bấm nút signUp
       const registerData = await sendRequestRegister(data);
       console.log(registerData);
@@ -195,6 +230,23 @@ const sendRequestRegister = async (registerData) => {
   }
 };
 
+const sendRequestLogin = async (email, password) => {
+  try {
+    const response = await fetch(`${f8ApiUrl}/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+    if (!response.ok) {
+      throw new Error();
+    }
+    return response.json();
+  } catch (error) {
+    return false;
+  }
+};
+
 handleFormSubmit();
-// getBlogs({ start: `0`, _end: `${increase}` });
 // addEventScroll();

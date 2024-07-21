@@ -1,4 +1,6 @@
 //submit form ==> Lấy dữ liệu ==> Validate
+import { httpClient } from "./client.js";
+
 const apiUrl = `https://api.escuelajs.co/api/v1`;
 
 document.body.addEventListener("submit", async (e) => {
@@ -50,21 +52,26 @@ document.body.addEventListener("submit", async (e) => {
 });
 
 const sendRequestLogin = async (loginData) => {
-  try {
-    const response = await fetch(`${apiUrl}/auth/login`, {
-      method: `POST`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(loginData),
-    });
-    if (!response.ok) {
-      throw new Error();
-    }
-    return response.json();
-  } catch (e) {
+  // try {
+  //   const response = await fetch(`${apiUrl}/auth/login`, {
+  //     method: `POST`,
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(loginData),
+  //   });
+  //   if (!response.ok) {
+  //     throw new Error();
+  //   }
+  //   return response.json();
+  // } catch (e) {
+  //   return false;
+  // }
+  const { response, data } = await httpClient.post(`/auth/login`, loginData);
+  if (!response.ok) {
     return false;
   }
+  return data;
 };
 
 const getProfile = async () => {
@@ -72,15 +79,21 @@ const getProfile = async () => {
     const { access_token: accessToken } = JSON.parse(
       localStorage.getItem(`login_token`)
     );
-    const response = await fetch(`${apiUrl}/auth/profile`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+    // const response = await fetch(`${apiUrl}/auth/profile`, {
+    //   headers: {
+    //     Authorization: `Bearer ${accessToken}`,
+    //   },
+    // });
+    // if (!response.ok) {
+    //   throw new Error("Unauthorize");
+    // }
+    // return response.json();
+    httpClient.token = accessToken;
+    const { response, data } = await httpClient.get("/auth/profile");
     if (!response.ok) {
       throw new Error("Unauthorize");
     }
-    return response.json();
+    return data;
   } catch (error) {
     return false;
   }
