@@ -93,7 +93,7 @@ const handleFormSubmit = () => {
   fieldName.innerHTML = "";
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const { name, email, password } = Object.fromEntries([
+    let { name, email, password } = Object.fromEntries([
       ...new FormData(e.target),
     ]);
     const data = {};
@@ -105,6 +105,7 @@ const handleFormSubmit = () => {
         fieldName.innerHTML = "";
       } else {
         // signIn
+        name = "filled";
         fillDataCheck(name, email, password, data, errors, "signIn");
       }
     }
@@ -144,7 +145,7 @@ const fillDataCheck = async (name, email, password, data, errors, typeBtn) => {
   } else {
     data.password = password;
   }
-  console.log(data, errors);
+  console.log(Object.keys(errors).length);
   if (Object.keys(errors).length) {
     // Trường hợp ko có dữ liệu ở form
     Object.keys(errors).forEach((key) => {
@@ -156,6 +157,11 @@ const fillDataCheck = async (name, email, password, data, errors, typeBtn) => {
     });
   } else {
     // Trường hợp có dữ liệu ở form
+    if (typeBtn == "signIn") {
+      // Bấm nút signIn
+      console.log("vao day");
+      console.log(data);
+    }
     if (typeBtn == "signUp") {
       console.log(data);
       // Bấm nút signUp
@@ -167,9 +173,6 @@ const fillDataCheck = async (name, email, password, data, errors, typeBtn) => {
         // về form signIn
         fieldName.innerHTML = "";
       }
-    } else {
-      // Bấm nút signIn
-      console.log(data);
     }
   }
 };
@@ -186,7 +189,6 @@ const sendRequestRegister = async (registerData) => {
     if (!response.ok) {
       throw new Error();
     }
-    console.log(response.json());
     return response.json();
   } catch (error) {
     return false;
