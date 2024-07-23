@@ -148,3 +148,42 @@ label[for="name"] {
   color: #6eeb83;
   font-weight: 600;
 }
+
+.postBlog .content-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.postBlog label {
+  font-weight: 600;
+  color: #6eeb83;
+}
+.postBlog .content-wrapper textarea,
+.postBlog .title-wrapper input {
+  background-color: #30445b;
+  margin-bottom: 1em;
+  color: #fff;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+}
+.postBlog .title-wrapper input::placeholder,
+.postBlog .content-wrapper textarea::placeholder {
+  color: #ffffff62;
+}
+.postBlog .content-wrapper textarea {
+  height: 10em;
+}
+.postBtn.btn {
+  background-color: #6eeb83;
+  color: #272727;
+  font-weight: 500;
+}
+
+.logOut {
+  color: black;
+  background: #ff5e5b;
+  position: absolute;
+  right: 4em;
+  top: 7rem;
+}
+.logOut:hover {
+  background: #ff5e5b;
+}

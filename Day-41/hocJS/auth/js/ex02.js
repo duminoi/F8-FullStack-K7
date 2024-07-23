@@ -146,6 +146,7 @@ const showProfile = async () => {
   } else {
     //Nếu access_token bị miss
     //Call API Refresh Token
+    console.log("vào đây");
     const newToken = await sendRefreshToken();
     if (newToken) {
       localStorage.setItem(`login_token`, JSON.stringify(newToken));

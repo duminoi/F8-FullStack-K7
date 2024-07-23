@@ -1,79 +1,153 @@
-const form = document.querySelector(".blog-wrapper form");
-const fieldName = document.querySelector(".mb-3.name");
-const apiUrl = "https://kqgsvq-8080.csb.app";
 const f8ApiUrl = `https://api-auth-two.vercel.app`;
 let increase = 10;
 
 const getBlogs = async (param) => {
-  let query = new URLSearchParams(param).toString();
-  query = "_" + query;
-  const response = await fetch(`${apiUrl}/blogs?${query}`);
-  const blogs = await response.json();
-  render(blogs);
-  return blogs;
+  console.log("123123");
+  try {
+    let query = new URLSearchParams(param).toString();
+    query = "_" + query;
+    // Đoạn này không nên destruc luon vì trong localstorage không phải lúc nào cũng có token
+    const dataToken = JSON.parse(localStorage.getItem("loginBlog_token"));
+    if (dataToken) {
+      console.log("hello");
+      const response = await fetch(`${f8ApiUrl}/blogs?`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${dataToken?.accessToken}`,
+          "Content-Type": "application/json",
+        },
+      });
+      // Đoạn này kiểm tra nếu statuc code trả về là 401 thì gọi refreshToken sau đó gọi lại getBlog
+      if (!response.ok) {
+        throw new Error();
+      }
+      const blogs = await response.json();
+      console.log(blogs.data);
+      render(blogs.data.reverse());
+      return blogs;
+    } else {
+      // Redirect ve login
+      render();
+    }
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
 };
+
 const render = (blogs) => {
+  console.log(blogs);
+  const status = localStorage.getItem("loginBlog_token") ? true : false;
   const blogWrapper = document.querySelector(".home-page .blog-wrapper");
-  blogWrapper.innerHTML = `
-        ${blogs
-          .map((blog) => {
-            return `
-          <section class="blog-list">
-          <div class="datetime">
-            <span class="moment">${blog.moment}</span>
-            <div class="time-group">
-              <span class="hours">${blog.time.hours}</span>
-              <span class="mins">${blog.time.mins}</span>
-            </div>
-          </div>
-          <!-- end datetime -->
+  if (status) {
+    console.log(blogWrapper);
+    console.log("đã có token");
+    blogWrapper.innerHTML = `
+      <h2 class="headerTitle"></h2>
+        <section class="postBlog">
+        <form action="">
           <span class="link _avatar">
             <a href="" class="wrapper">
-              <span class="avatar">${blog.userName
-                .split("")
-                .filter((c, i) => {
-                  return i == 0;
-                })
-                .toString()
-                .toLowerCase()}</span>
-              <span class="name">${blog.userName}</span>
+              <span class="avatar">m</span>
+              <span class="name">Minh</span>
             </a>
           </span>
-          <!-- end link avatar -->
-          <h3 class="title">${blog.title}</h3>
-          ${
-            blog.content.toString().includes(`http`)
-              ? `<a href="${blog.content}" class="content">${blog.content}</a>`
-              : `<p class="content">${blog.content}</p>`
-          }
-          <span class="link _content">
-            <a href="" class="tag">view more ${blog.title
-              .replace(/\s+/g, "")
-              .toLowerCase()}...</a>
-          </span>
-          <!-- end linh _content -->
-          <span class="link _name">
-            <a href="" class="tag">${blog.userName
-              .replace(/\s+/g, "")
-              .toLowerCase()}</a>
-          </span>
-          <!-- end link _name -->
-          <span class="name-vertical">@${blog.userName
-            .toString()
-            .toLowerCase()
-            .replace(/\s+/g, "")}</span>
-          <span class="time-reading">Khoảng <span>1 giây</span> đọc</span>
-          <hr style="width: 100%" />
+          <div class="title-wrapper w-50">
+            <label for="title">Enter Your title</label>
+            <input
+              type="text"
+              placeholder="Please enter your title"
+              class="form-control"
+              name="title"
+            />
+          </div>
+          <div class="content-wrapper w-50">
+            <label for="content">Enter Your content</label>
+            <textarea
+              name="content"
+              id="title"
+              cols="30"
+              rows="10"
+              class="form-control"
+              placeholder="content here..."
+            ></textarea>
+          </div>
+          <button class="postBtn btn w-50">Write new</button>
+        </form>
         </section>
+        <button class="logOut btn ">Log out</button>
+        ${blogs
+          .map(({ title, content }) => {
+            return `
+            <section class="blog-list">
+              <div class="datetime">
+                <span class="moment">5 giờ trước</span>
+                <div class="time-group">
+                  <span class="hours">10h sáng</span>
+                  <span class="mins">47 phút</span>
+                </div>
+              </div>
+       
+              <span class="link _avatar">
+                <a href="" class="wrapper">
+                  <span class="avatar">m</span>
+                  <span class="name">Minh</span>
+                </a>
+              </span>
+        
+              <h3 class="title">${title}</h3>
+              <p class="content">${content}</p>
+              <span class="link _content">
+                <a href="" class="tag">view more test2...</a>
+              </span>
+  
+              <span class="link _name">
+                <a href="" class="tag">Minh</a>
+              </span>
+      
+              <span class="name-vertical">@minh</span>
+              <span class="time-reading">Khoảng <span>1 giây</span> đọc</span>
+              <hr style="width: 100%" />
+            </section> 
           `;
           })
           .join("")}
     `;
-  const headerTitle = document.createElement("h2");
-  headerTitle.classList.add("headerTitle");
-  const blogList = document.querySelector(".blog-list");
-  blogWrapper.insertBefore(headerTitle, blogList);
-  showProfile();
+    handleFormAddBlog(blogs);
+    showProfile();
+  } else {
+    blogWrapper.innerHTML = ` 
+    <form action="" class="w-50 mx-auto py-3">
+    <div class="mb-3 name"></div>
+    <div class="mb-3">
+      <label for="email">Enter your email</label>
+      <input
+        type="email"
+        name="email"
+        class="form-control"
+        placeholder="Please enter your email"
+      />
+      <span class="text-danger fst-italic error error-email"></span>
+    </div>
+    <div class="mb-3">
+      <label for="password">Enter your password</label>
+      <input
+        type="password"
+        name="password"
+        class="form-control"
+        placeholder="Please enter your password"
+      />
+      <span class="text-danger fst-italic error error-password"></span>
+    </div>
+    <div class="button-group d-flex justify-content-between mx-3">
+      <button class="button btn p-3 mx-3 w-50 signIn">Sign in</button>
+      <button class="button btn p-3 mx-3 w-50 signUp">Sign up</button>
+    </div>
+  </form>`;
+    const form = document.querySelector(".blog-wrapper form");
+    const fieldName = document.querySelector(".mb-3.name");
+    handleFormSubmit(form, fieldName);
+  }
 };
 
 const addEventScroll = () => {
@@ -93,24 +167,54 @@ const handleScroll = async () => {
     getBlogs(param);
   }
 };
+
 const showProfile = async () => {
   const user = await getProfile();
   if (user) {
-    console.log(user.data.name);
+    console.log(user);
     const headerTitle = document.querySelector(".headerTitle");
+    const avatar = document.querySelector("._avatar span.avatar");
+    const name = document.querySelector("._avatar span.name");
+    const logBtn = document.querySelector(".logOut");
     headerTitle.innerHTML = `Xin chào ${user.data.name}`;
+    avatar.innerHTML = `${user.data.name
+      .split("")
+      .filter((c, i) => {
+        return i == 0;
+      })
+      .toString()
+      .toLowerCase()}`;
+    name.innerHTML = `${user.data.name}`;
+    logBtn.addEventListener("click", handleLogout);
+    console.log("vào đây");
+  } else {
+    console.log("accessToken bị thay dổi");
+    // nếu accessToken bị miss
+    const newToken = await sendRefreshToken();
+    if (newToken) {
+      console.log("vaoday");
+      localStorage.setItem("loginBlog_token", JSON.stringify(newToken));
+      showProfile();
+    } else {
+      handleLogout();
+    }
   }
+};
+const handleLogout = () => {
+  localStorage.removeItem("loginBlog_token");
+  render();
+  console.log("đã xóa token");
 };
 const getProfile = async () => {
   try {
-    const { accessToken } = JSON.parse(localStorage.getItem("login_token"));
+    const { accessToken } = JSON.parse(localStorage.getItem("loginBlog_token"));
     const response = await fetch(`${f8ApiUrl}/users/profile`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-    if (!response) {
+    if (!response.ok) {
       throw new Error();
     }
     return response.json();
@@ -118,7 +222,38 @@ const getProfile = async () => {
     return false;
   }
 };
-const handleFormSubmit = () => {
+const addEventNewBlog = async (blogData) => {
+  try {
+    const { accessToken } = JSON.parse(localStorage.getItem("loginBlog_token"));
+    const response = await fetch(`${f8ApiUrl}/blogs`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(blogData),
+    });
+    if (!response.ok) {
+      throw new Error();
+    }
+    return response.json();
+  } catch (e) {
+    return false;
+  }
+};
+const handleFormAddBlog = () => {
+  const fomAdd = document.querySelector("section.postBlog form");
+  console.log(fomAdd);
+  fomAdd.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = Object.fromEntries([...new FormData(e.target)]);
+    const response = await addEventNewBlog(formData);
+    if (response) {
+      getBlogs();
+    }
+  });
+};
+const handleFormSubmit = (form, fieldName) => {
   fieldName.innerHTML = "";
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -194,7 +329,7 @@ const fillDataCheck = async (name, email, password, data, errors, typeBtn) => {
         alert("Đăng nhập thất bại");
       } else {
         const dataToken = loginData.data;
-        localStorage.setItem("login_token", JSON.stringify(dataToken));
+        localStorage.setItem("loginBlog_token", JSON.stringify(dataToken));
         getBlogs({ start: `0`, _end: `${increase}` });
       }
     }
@@ -248,5 +383,25 @@ const sendRequestLogin = async (email, password) => {
   }
 };
 
-handleFormSubmit();
+const sendRefreshToken = async () => {
+  try {
+    const { refreshToken } = JSON.parse(
+      localStorage.getItem("loginBlog_token")
+    );
+    const response = await fetch(`${f8ApiUrl}/refresh-token`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ refreshToken }),
+    });
+    if (!response.ok) {
+      throw new Error();
+    }
+    return response.json();
+  } catch (e) {
+    return false;
+  }
+};
+getBlogs({ start: `0`, _end: `${increase}` });
 // addEventScroll();
