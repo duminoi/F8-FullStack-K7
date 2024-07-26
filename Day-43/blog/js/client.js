@@ -25,7 +25,6 @@ export const httpClient = {
         throw new Error("Unauthorize");
       }
       const data = response.json();
-      console.log(response.ok);
       return { response, data };
     } catch (e) {
       //Gọi API để cấp lại accessToken mới (Truyền lên refreshToken)
@@ -38,11 +37,11 @@ export const httpClient = {
           this.refreshTokenPromise = this.getNewAccessToken();
         }
         const newToken = await this.refreshTokenPromise;
+        console.log(newToken);
         if (!newToken) {
           return false;
         }
         //Thành công --> Lưu vào storage
-        console.log(newToken);
         localStorage.setItem("login_token", JSON.stringify(newToken));
         this.token = newToken.access_token;
         return this.send(path, method, body, headers);
@@ -51,10 +50,11 @@ export const httpClient = {
   },
   getNewAccessToken: async function () {
     try {
-      const { refresh_token: refreshToken } = JSON.parse(
-        localStorage.getItem("login_token")
+      const { refreshToken } = JSON.parse(
+        localStorage.getItem("loginBlog_token")
       );
-      const response = await fetch(`${this.serverApi}/auth/refresh-token`, {
+      console.log(refreshToken);
+      const response = await fetch(`${this.serverApi}/refresh-token`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

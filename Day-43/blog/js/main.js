@@ -1,8 +1,7 @@
-const f8ApiUrl = `https://api-auth-two.vercel.app`;
+import { httpClient } from "./client.js";
+const f8ApiUrl = "https://api-auth-two.vercel.app";
 let increase = 10;
-
 const getBlogs = async (param) => {
-  console.log("123123");
   try {
     let query = new URLSearchParams(param).toString();
     query = "_" + query;
@@ -36,7 +35,6 @@ const getBlogs = async (param) => {
 };
 
 const render = (blogs) => {
-  console.log(blogs);
   const status = localStorage.getItem("loginBlog_token") ? true : false;
   const blogWrapper = document.querySelector(".home-page .blog-wrapper");
   if (status) {
@@ -144,7 +142,9 @@ const render = (blogs) => {
       />
       <span class="text-danger fst-italic error error-password"></span>
     </div>
-    <div class="button-group d-flex justify-content-between mx-3">
+    <div class="d-flex align-items-center loading">
+     </div>
+    <div class="button-group d-flex justify-content-between mx-3 ">
       <button class="button btn p-3 mx-3 w-50 signIn">Sign in</button>
       <button class="button btn p-3 mx-3 w-50 signUp">Sign up</button>
     </div>
@@ -155,6 +155,16 @@ const render = (blogs) => {
   }
 };
 
+const addLoading = (form) => {
+  const loading = form.querySelector(".loading");
+  loading.innerHTML = `
+      <strong>Loading...</strong>
+      <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>`;
+};
+const removeLoading = (form) => {
+  const loading = form.querySelector(".loading");
+  loading.innerHTML = ``;
+};
 const addEventScroll = () => {
   window.addEventListener("scroll", handleScroll);
 };
@@ -193,16 +203,8 @@ const showProfile = async () => {
     logBtn.addEventListener("click", handleLogout);
     console.log("vào đây");
   } else {
-    console.log("accessToken bị thay dổi");
-    // nếu accessToken bị miss
-    const newToken = await sendRefreshToken();
-    if (newToken) {
-      console.log("vaoday");
-      localStorage.setItem("loginBlog_token", JSON.stringify(newToken));
-      showProfile();
-    } else {
-      handleLogout();
-    }
+    // handleLogout();
+    console.log(user);
   }
 };
 const handleLogout = () => {
@@ -213,18 +215,15 @@ const handleLogout = () => {
 const getProfile = async () => {
   try {
     const { accessToken } = JSON.parse(localStorage.getItem("loginBlog_token"));
-    const response = await fetch(`${f8ApiUrl}/users/profile`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+    console.log(accessToken);
+    httpClient.token = accessToken;
+    const { response, data } = await httpClient.get(`/users/profile`);
     if (!response.ok) {
       throw new Error();
     }
-    return response.json();
+    return data;
   } catch (e) {
-    return false;
+    console.log("lỗi");
   }
 };
 const addEventNewBlog = async (blogData) => {
@@ -275,7 +274,16 @@ const handleFormSubmit = (form, fieldName) => {
       } else {
         // signIn
         name = "filled";
-        fillDataCheck(name, email, password, data, errors, "signIn");
+        fillDataCheck(
+          name,
+          email,
+          password,
+          data,
+          errors,
+          "signIn",
+          null,
+          form
+        );
       }
     }
     if (e.submitter.classList.contains("signUp")) {
@@ -293,12 +301,30 @@ const handleFormSubmit = (form, fieldName) => {
       `;
       } else {
         // signUp
-        fillDataCheck(name, email, password, data, errors, "signUp");
+        fillDataCheck(
+          name,
+          email,
+          password,
+          data,
+          errors,
+          "signUp",
+          fieldName,
+          form
+        );
       }
     }
   });
 };
-const fillDataCheck = async (name, email, password, data, errors, typeBtn) => {
+const fillDataCheck = async (
+  name,
+  email,
+  password,
+  data,
+  errors,
+  typeBtn,
+  fieldName,
+  form
+) => {
   if (!name) {
     errors.name = "Vui lòng nhập tên";
   } else {
@@ -329,7 +355,9 @@ const fillDataCheck = async (name, email, password, data, errors, typeBtn) => {
     if (typeBtn == "signIn") {
       // Bấm nút signIn
       console.log(data);
+      addLoading(form);
       const loginData = await sendRequestLogin(data.email, data.password);
+      removeLoading(form);
       if (!loginData) {
         alert("Đăng nhập thất bại");
       } else {
@@ -340,7 +368,9 @@ const fillDataCheck = async (name, email, password, data, errors, typeBtn) => {
     }
     if (typeBtn == "signUp") {
       // Bấm nút signUp
+      addLoading(form);
       const registerData = await sendRequestRegister(data);
+      removeLoading(form);
       console.log(registerData);
       if (!registerData) {
         alert("Chưa đăng ký được tài khoản");
@@ -354,36 +384,31 @@ const fillDataCheck = async (name, email, password, data, errors, typeBtn) => {
 
 const sendRequestRegister = async (registerData) => {
   try {
-    const response = await fetch(`${f8ApiUrl}/auth/register`, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(registerData),
-    });
+    const { response, data } = await httpClient.post(
+      `/auth/register`,
+      registerData
+    );
     if (!response.ok) {
       throw new Error();
     }
-    return response.json();
-  } catch (error) {
+    return data;
+  } catch (e) {
     return false;
   }
 };
 
 const sendRequestLogin = async (email, password) => {
   try {
-    const response = await fetch(`${f8ApiUrl}/auth/login`, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
+    const { response, data } = await httpClient.post(`/auth/login`, {
+      email,
+      password,
     });
     if (!response.ok) {
       throw new Error();
     }
-    return response.json();
-  } catch (error) {
+    return data;
+  } catch (e) {
+    console.log(e);
     return false;
   }
 };

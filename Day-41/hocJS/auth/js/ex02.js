@@ -52,21 +52,6 @@ document.body.addEventListener("submit", async (e) => {
 });
 
 const sendRequestLogin = async (loginData) => {
-  // try {
-  //   const response = await fetch(`${apiUrl}/auth/login`, {
-  //     method: `POST`,
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(loginData),
-  //   });
-  //   if (!response.ok) {
-  //     throw new Error();
-  //   }
-  //   return response.json();
-  // } catch (e) {
-  //   return false;
-  // }
   const { response, data } = await httpClient.post(`/auth/login`, loginData);
   if (!response.ok) {
     return false;
@@ -79,15 +64,6 @@ const getProfile = async () => {
     const { access_token: accessToken } = JSON.parse(
       localStorage.getItem(`login_token`)
     );
-    // const response = await fetch(`${apiUrl}/auth/profile`, {
-    //   headers: {
-    //     Authorization: `Bearer ${accessToken}`,
-    //   },
-    // });
-    // if (!response.ok) {
-    //   throw new Error("Unauthorize");
-    // }
-    // return response.json();
     httpClient.token = accessToken;
     const { response, data } = await httpClient.get("/auth/profile");
     if (!response.ok) {
@@ -144,17 +120,7 @@ const showProfile = async () => {
     const profileNameEl = document.querySelector(".profile-name");
     profileNameEl.innerText = user.name;
   } else {
-    //Nếu access_token bị miss
-    //Call API Refresh Token
-    console.log("vào đây");
-    const newToken = await sendRefreshToken();
-    if (newToken) {
-      localStorage.setItem(`login_token`, JSON.stringify(newToken));
-      showProfile();
-    } else {
-      // nếu refresh_token bị miss
-      handleLogout(); //Đăng xuất
-    }
+    handleLogout();
   }
 };
 
