@@ -195,8 +195,7 @@ const showProfile = async () => {
     logBtn.addEventListener("click", handleLogout);
     console.log("vào đây");
   } else {
-    // handleLogout();
-    console.log(user);
+    handleLogout();
   }
 };
 const handleLogout = () => {
@@ -249,11 +248,13 @@ const handleFormAddBlog = () => {
       errors.title = "Vui lòng nhập chủ đề";
     } else {
       data.title = title;
+      delete errors.title;
     }
     if (!content) {
       errors.content = "Vui lòng nhập nội dung";
     } else {
       data.content = content;
+      delete errors.content;
     }
     if (Object.keys(errors).length) {
       console.log(errors);
