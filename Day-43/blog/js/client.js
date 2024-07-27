@@ -24,7 +24,7 @@ export const httpClient = {
       if (!response.ok) {
         throw new Error("Unauthorize");
       }
-      const data = response.json();
+      const data = await response.json();
       return { response, data };
     } catch (e) {
       //Gọi API để cấp lại accessToken mới (Truyền lên refreshToken)
@@ -42,8 +42,13 @@ export const httpClient = {
           return false;
         }
         //Thành công --> Lưu vào storage
-        localStorage.setItem("login_token", JSON.stringify(newToken));
-        this.token = newToken.access_token;
+        const setToken = JSON.parse(localStorage.getItem("loginBlog_token"));
+        console.log(setToken.accessToken);
+        if (setToken) {
+          setToken.accessToken = newToken.data.token.accessToken;
+        }
+        localStorage.setItem("loginBlog_token", JSON.stringify(setToken));
+        this.token = newToken.data.token.accessToken;
         return this.send(path, method, body, headers);
       }
     }
@@ -54,18 +59,20 @@ export const httpClient = {
         localStorage.getItem("loginBlog_token")
       );
       console.log(refreshToken);
-      const response = await fetch(`${this.serverApi}/refresh-token`, {
+      const response = await fetch(`${this.serverApi}/auth/refresh-token`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ refreshToken }),
       });
+      console.log(response.ok);
       if (!response.ok) {
         throw new Error("RefreshToken không hợp lệ");
       }
       return response.json();
     } catch (e) {
+      console.log(e);
       return false;
     }
   },

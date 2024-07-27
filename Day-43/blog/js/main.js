@@ -8,20 +8,11 @@ const getBlogs = async (param) => {
     // Đoạn này không nên destruct luon vì trong localstorage không phải lúc nào cũng có token
     const dataToken = JSON.parse(localStorage.getItem("loginBlog_token"));
     if (dataToken) {
-      console.log("hello");
-      const response = await fetch(`${f8ApiUrl}/blogs?`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${dataToken?.accessToken}`,
-          "Content-Type": "application/json",
-        },
-      });
-      // Đoạn này kiểm tra nếu status code trả về là 401 thì gọi refreshToken sau đó gọi lại getBlog
+      httpClient.token = dataToken?.accessToken;
+      const { response, data: blogs } = await httpClient.get("/blogs");
       if (!response.ok) {
         throw new Error();
       }
-      const blogs = await response.json();
-      console.log(blogs);
       render(blogs.data);
       return blogs;
     } else {
@@ -29,7 +20,6 @@ const getBlogs = async (param) => {
       render();
     }
   } catch (e) {
-    console.log(e);
     return false;
   }
 };
@@ -47,7 +37,7 @@ const render = (blogs) => {
           <span class="link _avatar">
             <a href="" class="wrapper">
               <span class="avatar">m</span>
-              <span class="name">Minh</span>
+              <span class="name">undefined</span>
             </a>
           </span>
           <div class="title-wrapper w-50">
@@ -59,6 +49,7 @@ const render = (blogs) => {
               name="title"
             />
           </div>
+          <span class = "fst-italic text-danger error error-title"></span>
           <div class="content-wrapper w-50">
             <label for="content">Enter Your content</label>
             <textarea
@@ -70,6 +61,7 @@ const render = (blogs) => {
               placeholder="content here..."
             ></textarea>
           </div>
+          <div class = "fst-italic text-danger w-100 error error-content"></div>
           <button class="postBtn btn w-50">Write new</button>
         </form>
         </section>
@@ -159,7 +151,7 @@ const addLoading = (form) => {
   const loading = form.querySelector(".loading");
   loading.innerHTML = `
       <strong>Loading...</strong>
-      <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>`;
+      <div class="spinner-border text-success ms-auto" role="status" aria-hidden="true"></div>`;
 };
 const removeLoading = (form) => {
   const loading = form.querySelector(".loading");
@@ -191,7 +183,7 @@ const showProfile = async () => {
     const avatar = document.querySelector("._avatar span.avatar");
     const name = document.querySelector("._avatar span.name");
     const logBtn = document.querySelector(".logOut");
-    headerTitle.innerHTML = `Xin chào ${user.data.name}`;
+    headerTitle.innerHTML = `Chào mừng ${user.data.name}, ngày hôm nay của bạn thế nào ^^`;
     avatar.innerHTML = `${user.data.name
       .split("")
       .filter((c, i) => {
@@ -223,24 +215,22 @@ const getProfile = async () => {
     }
     return data;
   } catch (e) {
-    console.log("lỗi");
+    console.log(e);
+    return false;
   }
 };
-const addEventNewBlog = async (blogData) => {
+const addEventNewBlog = async (title, content) => {
   try {
     const { accessToken } = JSON.parse(localStorage.getItem("loginBlog_token"));
-    const response = await fetch(`${f8ApiUrl}/blogs`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(blogData),
+    httpClient.token = accessToken;
+    const { response, data } = await httpClient.post("/blogs", {
+      title,
+      content,
     });
     if (!response.ok) {
       throw new Error();
     }
-    return response.json();
+    return data;
   } catch (e) {
     return false;
   }
@@ -248,12 +238,37 @@ const addEventNewBlog = async (blogData) => {
 const handleFormAddBlog = () => {
   const fomAdd = document.querySelector("section.postBlog form");
   console.log(fomAdd);
+  const span = document.querySelector("span");
+  console.log(span);
   fomAdd.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const formData = Object.fromEntries([...new FormData(e.target)]);
-    const response = await addEventNewBlog(formData);
-    if (response) {
-      getBlogs();
+    const { title, content } = Object.fromEntries([...new FormData(e.target)]);
+    const data = {};
+    const errors = {};
+    if (!title) {
+      errors.title = "Vui lòng nhập chủ đề";
+    } else {
+      data.title = title;
+    }
+    if (!content) {
+      errors.content = "Vui lòng nhập nội dung";
+    } else {
+      data.content = content;
+    }
+    if (Object.keys(errors).length) {
+      console.log(errors);
+      Object.keys(errors).forEach((key) => {
+        console.log(key);
+        const error = errors[`${key}`];
+        console.log(error);
+        const spanEl = document.querySelector(`.error-${key}`);
+        spanEl.innerHTML = error;
+      });
+    } else {
+      const response = await addEventNewBlog(title, content);
+      if (response) {
+        getBlogs();
+      }
     }
   });
 };
@@ -413,25 +428,5 @@ const sendRequestLogin = async (email, password) => {
   }
 };
 
-const sendRefreshToken = async () => {
-  try {
-    const { refreshToken } = JSON.parse(
-      localStorage.getItem("loginBlog_token")
-    );
-    const response = await fetch(`${f8ApiUrl}/refresh-token`, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ refreshToken }),
-    });
-    if (!response.ok) {
-      throw new Error();
-    }
-    return response.json();
-  } catch (e) {
-    return false;
-  }
-};
 getBlogs({ start: `0`, _end: `${increase}` });
 // addEventScroll();
