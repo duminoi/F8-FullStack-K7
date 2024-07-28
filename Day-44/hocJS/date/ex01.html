@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        margin: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8em;
+      }
+      .container > div {
+        color: #fff;
+        gap: 0.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: blueviolet;
+        width: 50px;
+        height: 60px;
+      }
+      .container .number {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="days">
+        <span class="number">1</span>
+        <span>Ngày</span>
+      </div>
+      <div class="hours">
+        <span class="number">1</span>
+        <span>Giờ</span>
+      </div>
+      <div class="minutes">
+        <span class="number">1</span>
+        <span>Phút</span>
+      </div>
+      <div class="seconds">
+        <span class="number">1</span>
+        <span>Giây</span>
+      </div>
+    </div>
+    <script src="./js/ex01.js"></script>
+  </body>
+</html>
