@@ -48,3 +48,11 @@
 //   document.body.innerHTML = output;
 // }
 // interval = setInterval(changeColor, 500);
+const form = document.querySelector("form");
+const datePicker = document.querySelector(".datePicker");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const { date } = Object.fromEntries([...new FormData(e.target)]);
+  console.log(date);
+});

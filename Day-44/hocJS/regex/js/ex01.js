@@ -32,6 +32,7 @@ Ký hiệu viết tắt độ dài
 {0,} ==> *
 {1,} ==> +
 {0,1} ==> ?
+
  */
 const str = "ducminhnguyenducminh";
 const pattern = /[a-]/;

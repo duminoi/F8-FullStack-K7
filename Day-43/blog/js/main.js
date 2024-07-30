@@ -20,6 +20,7 @@ const getBlogs = async (param) => {
       render();
     }
   } catch (e) {
+    console.log(e);
     return false;
   }
 };
@@ -28,7 +29,6 @@ const render = (blogs) => {
   const status = localStorage.getItem("loginBlog_token") ? true : false;
   const blogWrapper = document.querySelector(".home-page .blog-wrapper");
   if (status) {
-    console.log(blogWrapper);
     console.log("đã có token");
     blogWrapper.innerHTML = `
       <h2 class="headerTitle"></h2>
@@ -62,6 +62,10 @@ const render = (blogs) => {
             ></textarea>
           </div>
           <div class = "fst-italic text-danger w-100 error error-content"></div>
+          <div class = "datePicker">
+            <input type="datetime-local" name="date" class ="form-control w-50"/>
+          </div>
+          <div class = "fst-italic text-danger w-100 error error-date"></div>
           <button class="postBtn btn w-50">Write new</button>
         </form>
         </section>
@@ -231,17 +235,18 @@ const addEventNewBlog = async (title, content) => {
     }
     return data;
   } catch (e) {
+    console.log(e);
     return false;
   }
 };
 const handleFormAddBlog = () => {
   const fomAdd = document.querySelector("section.postBlog form");
-  console.log(fomAdd);
   const span = document.querySelector("span");
-  console.log(span);
   fomAdd.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const { title, content } = Object.fromEntries([...new FormData(e.target)]);
+    const { title, content, date } = Object.fromEntries([
+      ...new FormData(e.target),
+    ]);
     const data = {};
     const errors = {};
     if (!title) {
@@ -255,6 +260,12 @@ const handleFormAddBlog = () => {
     } else {
       data.content = content;
       delete errors.content;
+    }
+    if (!date) {
+      errors.date = "Vui lòng chọn thời gian";
+    } else {
+      data.date = date;
+      delete errors.date;
     }
     if (Object.keys(errors).length) {
       console.log(errors);

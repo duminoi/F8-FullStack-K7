@@ -187,3 +187,9 @@ label[for="name"] {
 .logOut:hover {
   background: #ff5e5b;
 }
+
+.datePicker input[type="datetime-local"] {
+  background-color: #30445b;
+  color: #ffffff65;
+  margin-bottom: 2em;
+}

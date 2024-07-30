@@ -37,7 +37,7 @@ export const httpClient = {
           this.refreshTokenPromise = this.getNewAccessToken();
         }
         const newToken = await this.refreshTokenPromise;
-        console.log(newToken);
+        // console.log(newToken);
         if (!newToken) {
           return false;
         }
@@ -46,6 +46,7 @@ export const httpClient = {
         console.log(setToken.accessToken);
         if (setToken) {
           setToken.accessToken = newToken.data.token.accessToken;
+          setToken.refreshToken = newToken.data.token.refreshToken;
         }
         localStorage.setItem("loginBlog_token", JSON.stringify(setToken));
         this.token = newToken.data.token.accessToken;
@@ -58,7 +59,7 @@ export const httpClient = {
       const { refreshToken } = JSON.parse(
         localStorage.getItem("loginBlog_token")
       );
-      console.log(refreshToken);
+      console.log("refreshToken", refreshToken);
       const response = await fetch(`${this.serverApi}/auth/refresh-token`, {
         method: "POST",
         headers: {

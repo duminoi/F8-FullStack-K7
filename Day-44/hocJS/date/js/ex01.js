@@ -25,22 +25,28 @@ const dayEl = document.querySelector(".days span");
 const hourEl = document.querySelector(".hours span");
 const minuteEl = document.querySelector(".minutes span");
 const secondEl = document.querySelector(".seconds span");
+const milisecondEl = document.querySelector(".miliseconds span");
+
 const handleCountdown = () => {
   const date1 = new Date();
   const date2 = new Date(targetDate);
-  const miliTime = date2.getTime() - date1.getTime();
+  let miliTime = date2.getTime() - date1.getTime();
   let secondTime = miliTime / 1000;
   const days = Math.floor(secondTime / 86400);
-
   secondTime = secondTime - days * 86400;
   const hours = Math.floor(secondTime / 3600);
   secondTime = secondTime - hours * 3600;
   const minutes = Math.floor(secondTime / 60);
-  secondTime = Math.floor(secondTime - minutes * 60);
+  secondTime = secondTime - minutes * 60;
+  const seconds = Math.floor(secondTime);
+  const miliseconds = miliTime % 1000;
   dayEl.innerHTML = days < 10 ? "0" + days : days;
   hourEl.innerHTML = hours < 10 ? "0" + hours : hours;
   minuteEl.innerHTML = minutes < 10 ? "0" + minutes : minutes;
-  secondEl.innerHTML = secondTime < 10 ? "0" + secondTime : secondTime;
+  secondEl.innerHTML = seconds < 10 ? "0" + seconds : seconds;
+  milisecondEl.innerHTML =
+    miliseconds < 10 ? "0" + miliseconds : milmilisecondsisc;
 };
+handleCountdown();
 
 setInterval(handleCountdown, 1000);
