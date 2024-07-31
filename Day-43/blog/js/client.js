@@ -42,6 +42,7 @@ export const httpClient = {
           return false;
         }
         //Thành công --> Lưu vào storage
+        console.log("vao day");
         const setToken = JSON.parse(localStorage.getItem("loginBlog_token"));
         console.log(setToken.accessToken);
         if (setToken) {
