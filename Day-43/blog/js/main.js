@@ -1,7 +1,6 @@
 import { httpClient } from "./client.js";
-const f8ApiUrl = "https://api-auth-two.vercel.app";
 let increase = 10;
-const getBlogs = async (param) => {
+const getBlogs = async (param, message) => {
   try {
     let query = new URLSearchParams(param).toString();
     query = "_" + query;
@@ -13,7 +12,7 @@ const getBlogs = async (param) => {
       if (!response.ok) {
         throw new Error();
       }
-      render(blogs.data);
+      render(blogs.data, message);
       return blogs;
     } else {
       // Redirect ve login
@@ -25,7 +24,8 @@ const getBlogs = async (param) => {
   }
 };
 
-const render = (blogs) => {
+const render = (blogs, message) => {
+  console.log(blogs);
   const status = localStorage.getItem("loginBlog_token") ? true : false;
   const blogWrapper = document.querySelector(".home-page .blog-wrapper");
   if (status) {
@@ -63,7 +63,7 @@ const render = (blogs) => {
           </div>
           <div class = "fst-italic text-danger w-100 error error-content"></div>
           <div class = "datePicker">
-            <input type="datetime-local" name="date" class ="form-control w-50"/>
+            <input type="date" name="date" class ="form-control w-50"/>
           </div>
           <div class = "fst-italic text-danger w-100 error error-date"></div>
           <button class="postBtn btn w-50">Write new</button>
@@ -71,17 +71,22 @@ const render = (blogs) => {
         </section>
         <button class="logOut btn ">Log out</button>
         ${blogs
-          .map(({ title, content, userId }) => {
+          .map(({ title, content, createdAt, userId }) => {
             return `
             <section class="blog-list">
               <div class="datetime">
-                <span class="moment">5 giờ trước</span>
+                <span class="moment">${createdAt
+                  .split("T")
+                  .filter((c, i) => {
+                    return i == 0;
+                  })
+                  .join("")}</span>
                 <div class="time-group">
-                  <span class="hours">10h sáng</span>
-                  <span class="mins">47 phút</span>
+                  <span class="hours"></span>
+                  <span class="mins"></span>
                 </div>
               </div>
-       
+
               <span class="link _avatar">
                 <a href="" class="wrapper">
                   <span class="avatar">${userId.name
@@ -93,29 +98,32 @@ const render = (blogs) => {
                   <span class="name">${userId.name}</span>
                 </a>
               </span>
-        
+
               <h3 class="title">${title}</h3>
               <p class="content">${content}</p>
               <span class="link _content">
                 <a href="" class="tag">view more test2...</a>
               </span>
-  
+
               <span class="link _name">
                 <a href="" class="tag">Minh</a>
               </span>
-      
+
               <span class="name-vertical">@minh</span>
               <span class="time-reading">Khoảng <span>1 giây</span> đọc</span>
               <hr style="width: 100%" />
-            </section> 
+            </section>
           `;
           })
           .join("")}
     `;
     handleFormAddBlog(blogs);
     showProfile();
+    if (message) {
+      handleNoti(message);
+    }
   } else {
-    blogWrapper.innerHTML = ` 
+    blogWrapper.innerHTML = `
     <form action="" class="w-50 mx-auto py-3">
     <div class="mb-3 name"></div>
     <div class="mb-3">
@@ -197,7 +205,6 @@ const showProfile = async () => {
       .toLowerCase()}`;
     name.innerHTML = `${user.data.name}`;
     logBtn.addEventListener("click", handleLogout);
-    console.log("vào đây");
   } else {
     handleLogout();
   }
@@ -210,7 +217,6 @@ const handleLogout = () => {
 const getProfile = async () => {
   try {
     const { accessToken } = JSON.parse(localStorage.getItem("loginBlog_token"));
-    console.log(accessToken);
     httpClient.token = accessToken;
     const { response, data } = await httpClient.get(`/users/profile`);
     if (!response.ok) {
@@ -247,43 +253,64 @@ const handleFormAddBlog = () => {
     const { title, content, date } = Object.fromEntries([
       ...new FormData(e.target),
     ]);
+
     const data = {};
     const errors = {};
+    Object.keys(errors).forEach((key) => {
+      delete errors[`${key}`];
+    });
+    // ==> kiểm tra nếu đối tượng errors có chứa phần tử thì phải xóa hết đi trước khi khởi tạo lỗi mới cho errors(tránh bị ghi đè lỗi)
     if (!title) {
       errors.title = "Vui lòng nhập chủ đề";
     } else {
       data.title = title;
-      delete errors.title;
     }
     if (!content) {
       errors.content = "Vui lòng nhập nội dung";
     } else {
       data.content = content;
-      delete errors.content;
     }
     if (!date) {
       errors.date = "Vui lòng chọn thời gian";
     } else {
       data.date = date;
-      delete errors.date;
     }
     if (Object.keys(errors).length) {
       console.log(errors);
       Object.keys(errors).forEach((key) => {
-        console.log(key);
         const error = errors[`${key}`];
-        console.log(error);
         const spanEl = document.querySelector(`.error-${key}`);
         spanEl.innerHTML = error;
       });
     } else {
       const response = await addEventNewBlog(title, content);
+      console.log(response);
       if (response) {
-        getBlogs();
+        getBlogs(null, response.message);
+      } else {
+        Object.keys(errors).forEach((key) => {
+          delete errors[`${key}`];
+        });
       }
     }
   });
 };
+const handleNoti = (message) => {
+  const noti = message;
+  const blogWrapper = document.querySelector(".blog-wrapper");
+  const notiEl = document.createElement("div");
+  notiEl.classList.add("noti");
+  notiEl.innerHTML = `<span class="message">${noti}</span>`;
+  blogWrapper.append(notiEl);
+  setTimeout(() => {
+    notiEl.style.transform = "translateX(0%)";
+  }, 10); // 10ms là đủ để trình duyệt cập nhật DOM
+  setTimeout(() => {
+    notiEl.style.transform = "translateX(120%)";
+    notiEl.style.display = "none";
+  }, 3000);
+};
+
 const handleFormSubmit = (form, fieldName) => {
   fieldName.innerHTML = "";
   form.addEventListener("submit", async (e) => {

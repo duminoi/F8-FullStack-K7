@@ -37,14 +37,13 @@ export const httpClient = {
           this.refreshTokenPromise = this.getNewAccessToken();
         }
         const newToken = await this.refreshTokenPromise;
-        // console.log(newToken);
+
         if (!newToken) {
           return false;
         }
         //Thành công --> Lưu vào storage
         console.log("vao day");
         const setToken = JSON.parse(localStorage.getItem("loginBlog_token"));
-        console.log(setToken.accessToken);
         if (setToken) {
           setToken.accessToken = newToken.data.token.accessToken;
           setToken.refreshToken = newToken.data.token.refreshToken;
@@ -60,7 +59,6 @@ export const httpClient = {
       const { refreshToken } = JSON.parse(
         localStorage.getItem("loginBlog_token")
       );
-      console.log("refreshToken", refreshToken);
       const response = await fetch(`${this.serverApi}/auth/refresh-token`, {
         method: "POST",
         headers: {
@@ -68,7 +66,6 @@ export const httpClient = {
         },
         body: JSON.stringify({ refreshToken }),
       });
-      console.log(response.ok);
       if (!response.ok) {
         throw new Error("RefreshToken không hợp lệ");
       }

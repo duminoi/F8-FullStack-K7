@@ -188,8 +188,21 @@ label[for="name"] {
   background: #ff5e5b;
 }
 
-.datePicker input[type="datetime-local"] {
+.datePicker input[type="date"] {
   background-color: #30445b;
   color: #ffffff65;
   margin-bottom: 2em;
+}
+
+.noti {
+  position: absolute;
+  padding: 1em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  top: 2em;
+  right: 2em;
+  color: #272727;
+  font-weight: 600;
+  background-color: #6eeb83;
+  transform: translateX(120%);
+  transition: all 0.5s ease-in-out;
 }
