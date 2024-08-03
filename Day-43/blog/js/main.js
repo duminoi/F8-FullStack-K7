@@ -63,8 +63,8 @@ const render = (blogs, message) => {
           </div>
           <div class = "fst-italic text-danger w-100 error error-content"></div>
           <div class = "datePicker">
-            <input type="date" name="date" class ="form-control w-50"/>
-          </div>
+          <input type="date" name="date" class ="form-control w-50"/>
+          </div> 
           <div class = "fst-italic text-danger w-100 error error-date"></div>
           <button class="postBtn btn w-50">Write new</button>
         </form>
@@ -161,26 +161,36 @@ const render = (blogs, message) => {
 const regexUrl = (str) => {
   let result;
   const pattern =
-    /(^(https)*(:\/\/)*([a-zA-Z0-9]|[a-zA-Z0-9_-]+[a-zA-z0-9])\.([a-zA-Z0-9_-]+[a-zA-z0-9]\.)*[a-zA-Z]{2,}\/*(.|r.+|watch\?v=(.+)|\?id.*)*)/;
-
-  // if (str.includes("youtube")) {
-  //   result = str.replace(
-  //     pattern,
-  //     `<iframe
-  //       width="560"
-  //       height="315"
-  //       src="https://www.youtube.com/embed/$7?si"
-  //       title="YouTube video player"
-  //       frameborder="0"
-  //       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  //       referrerpolicy="strict-origin-when-cross-origin"
-  //       allowfullscreen
-  //     ></iframe>`
-  //   );
-  //   console.log(result);
-  // } else {
-  // }
-  result = str.replace(pattern, '<a href="$1">$1</a>');
+    /(^(https)*(:\/\/)*([a-zA-Z0-9]|[a-zA-Z0-9_-]+[a-zA-z0-9])\.([a-zA-Z0-9_-]+[a-zA-z0-9]\.)*[a-zA-Z]{2,}\/*(r.+|watch\?v=(.+)|\?id.*|.)*)/;
+  const phoneRegex = /((0|\+84)\d{9})/;
+  const emailRegex = /([a-zA-Z0-9_.]{2,}[a-zA-Z0-9]@[a-z]*[a-z]\.[a-zA-Z]{2,})/;
+  if (str.includes("youtube")) {
+    result = str.replace(
+      pattern,
+      `<iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/$7?si"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>`
+    );
+    console.log(str.match(pattern));
+  } else {
+    result = str.replace(
+      emailRegex,
+      '<a href="mailto:$1" target="_blank">$1</a>'
+    );
+    result = result.replace(
+      phoneRegex,
+      '<a href="tel:$1" target="_blank">$1</a>'
+    );
+    result = result.replace(pattern, '<a href="$1" target="_blank">$1</a>');
+  }
+  console.log(result);
   return result;
 };
 const addLoading = (form) => {
@@ -271,7 +281,6 @@ const addEventNewBlog = async (title, content) => {
 };
 const handleFormAddBlog = () => {
   const fomAdd = document.querySelector("section.postBlog form");
-  const span = document.querySelector("span");
   fomAdd.addEventListener("submit", async (e) => {
     e.preventDefault();
     const { title, content, date } = Object.fromEntries([
