@@ -37,7 +37,6 @@ export const httpClient = {
           this.refreshTokenPromise = this.getNewAccessToken();
         }
         const newToken = await this.refreshTokenPromise;
-
         if (!newToken) {
           return false;
         }

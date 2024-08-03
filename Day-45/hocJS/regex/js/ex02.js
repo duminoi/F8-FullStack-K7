@@ -81,17 +81,19 @@ lazy,greedy
 /*
 Thay thế
 */
-// const content =
-//   "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using , making it look like readable English. Many desktop dminhello@gmail.com packages and web page editors now use Lorem Ipsum as their default model text, and a search for  will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).";
+const content =
+  "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using , making it look like readable English. Many desktop dminhello@gmail.com packages and web page editors now use Lorem Ipsum as their default model text, and a search for  will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).";
 
-// const pattern =
-//   /(([a-zA-Z][a-zA-Z0-9-_.]+[a-zA-Z0-9])@(?:[a-zA-Z]|[a-zA-Z0-9-_]*[a-zA-Z0-9])\.(?:[a-zA-Z0-9-_]*[a-zA-Z0-9]\.)*[a-zA-Z]{2,})/;
+const pattern =
+  /(([a-zA-Z][a-zA-Z0-9-_.]+[a-zA-Z0-9])@(?:[a-zA-Z]|[a-zA-Z0-9-_]*[a-zA-Z0-9])\.(?:[a-zA-Z0-9-_]*[a-zA-Z0-9]\.)*[a-zA-Z]{2,})/;
 
-// const result = content.replace(
-//   pattern,
-//   `<a href="mailto:$1" title="Username:$1">$1</a>`
-// );
-// document.body.innerHTML = result;
+const result = content.replace(
+  pattern,
+  `<a href="mailto:$1" title="Username:$1">$1</a>`
+);
+console.log(result);
+
+document.body.innerHTML = result;
 
 /*
 Đối sánh chuỗi: Chụp lại kết quả của biểu thức để đưa vào giá trị sau khi thay thế (Dựa vào capturing group)

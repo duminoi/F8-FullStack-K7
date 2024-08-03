@@ -100,7 +100,7 @@ const render = (blogs, message) => {
               </span>
 
               <h3 class="title">${title}</h3>
-              <p class="content">${content}</p>
+              <p class="content">${regexUrl(content)}</p>
               <span class="link _content">
                 <a href="" class="tag">view more test2...</a>
               </span>
@@ -158,7 +158,31 @@ const render = (blogs, message) => {
     handleFormSubmit(form, fieldName);
   }
 };
+const regexUrl = (str) => {
+  let result;
+  const pattern =
+    /(^(https)*(:\/\/)*([a-zA-Z0-9]|[a-zA-Z0-9_-]+[a-zA-z0-9])\.([a-zA-Z0-9_-]+[a-zA-z0-9]\.)*[a-zA-Z]{2,}\/*(.|r.+|watch\?v=(.+)|\?id.*)*)/;
 
+  // if (str.includes("youtube")) {
+  //   result = str.replace(
+  //     pattern,
+  //     `<iframe
+  //       width="560"
+  //       height="315"
+  //       src="https://www.youtube.com/embed/$7?si"
+  //       title="YouTube video player"
+  //       frameborder="0"
+  //       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  //       referrerpolicy="strict-origin-when-cross-origin"
+  //       allowfullscreen
+  //     ></iframe>`
+  //   );
+  //   console.log(result);
+  // } else {
+  // }
+  result = str.replace(pattern, '<a href="$1">$1</a>');
+  return result;
+};
 const addLoading = (form) => {
   const loading = form.querySelector(".loading");
   loading.innerHTML = `
