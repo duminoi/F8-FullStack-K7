@@ -190,7 +190,7 @@ const regexUrl = (str) => {
     );
     result = result.replace(pattern, '<a href="$1" target="_blank">$1</a>');
   }
-  console.log(result);
+  // console.log(result);
   return result;
 };
 const addLoading = (form) => {
@@ -265,6 +265,7 @@ const getProfile = async () => {
 const addEventNewBlog = async (title, content) => {
   try {
     const { accessToken } = JSON.parse(localStorage.getItem("loginBlog_token"));
+    console.log(accessToken);
     httpClient.token = accessToken;
     const { response, data } = await httpClient.post("/blogs", {
       title,
