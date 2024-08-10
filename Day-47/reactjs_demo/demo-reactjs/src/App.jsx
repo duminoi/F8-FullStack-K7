@@ -6,9 +6,11 @@ import "./assest/index.css";
 import AppList from "./components/appSection/AppList";
 import SkillSection from "./components/devSection/SkillSection";
 import ProjectList from "./components/projectSection/ProjectList";
-import ResumList from "./components/resumeSection/ResumList";
+import ResumeList from "./components/resumeSection/ResumeList";
 import Footer from "./components/Footer";
 import ClientsList from "./components/clientsSection/ClientsList";
+import PopularList from "./components/popularSection/PopularList";
+import ContactList from "./components/contactSection/ContactList";
 
 export default function App() {
   return (
@@ -18,8 +20,10 @@ export default function App() {
       <AppList />
       <SkillSection />
       <ProjectList />
-      <ResumList />
+      <ResumeList />
       <ClientsList />
+      <PopularList />
+      <ContactList />
     </Fragment>
   );
 }

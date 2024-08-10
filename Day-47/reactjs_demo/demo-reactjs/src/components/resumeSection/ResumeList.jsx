@@ -2,7 +2,7 @@
 
 import ResumItem from "./ResumItem";
 import { ResumeData } from "../../data/resumeSection/ResumeData";
-export default function ResumList() {
+export default function ResumeList() {
   return (
     <section className="px-8 py-24">
       <div className="container max-w-[1320px] lg:min-w-[960px] mx-auto grid w-full grid-cols-1 items-center gap-16 lg:grid-cols-2">
