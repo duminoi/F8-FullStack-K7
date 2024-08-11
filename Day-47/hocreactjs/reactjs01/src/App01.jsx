@@ -9,9 +9,9 @@ export default function App() {
   //   const handleClick = (e) => {
   //     console.log(e.target.innerText);
   //   };
-    const handleClick2 = (title) => {
-      console.log(title);
-    };
+  const handleClick2 = (title) => {
+    console.log(title);
+  };
   //   const handleClick3 = () => {
   //     console.log("Click me");
   //   };
@@ -64,10 +64,9 @@ export default function App() {
           }}
         >Click me2</button> */}
       <User name="minh" email="dmin@gmail.com">
-      <Avatar src="https://fastly.picsum.photos/id/268/200/300.jpg?hmac=M1JKzVXjrhIffE66T4sLediL7lhGmvS2rNr8pW2JipE"></Avatar>
-      <Footer></Footer>
+        <Avatar src="https://fastly.picsum.photos/id/268/200/300.jpg?hmac=M1JKzVXjrhIffE66T4sLediL7lhGmvS2rNr8pW2JipE"></Avatar>
+        <Footer></Footer>
       </User>
-     
     </Fragment>
   );
 }
