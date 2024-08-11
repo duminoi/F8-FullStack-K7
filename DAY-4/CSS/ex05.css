@@ -1,0 +1,66 @@
+/* 
+Lớp giả (State)
+Cú pháp: selector:pseudo0class {
+}
+
+1. hover, active, focus
+Lưu ý: 
+- focus chỉ áp dụng với form
+- hover, active áp dụng với tất cả các thẻ html
+
+Ngoại lệ: Để 1 thẻ html không phải là form có focus
+
+2. :not(.class) để ngoại trừ class
+3. first-of-child 
+4. last-of-child
+5.nth-of-child
+=>>nếu chọn bất kì là of-type
+
+*/
+
+/* .btn:hover {
+  background: green;
+}
+.btn:active {
+  background: blueviolet;
+}
+.btn:focus {
+  background: blue;
+} */
+
+/* input:focus::placeholder {
+  color: red;
+}
+input:active::placeholder {
+  font-style: italic;
+}
+h1:focus {
+  color: red;
+} */
+/* .products .item:not(.active):not(.inactive) {
+  color: red;
+} */
+.btn {
+  background: green;
+  border: 0;
+}
+/* }
+.btn:disabled {
+  color: white;
+} */
+
+input[type="checkbox"]:checked ~ span {
+  text-decoration: line-through;
+}
+input[type="checkbox"]:checked:disabled ~ span {
+  color: grey;
+}
+.products h2:first-of-type {
+  color: red;
+}
+.products h2:nth-of-type(2n + 1) {
+  color: green;
+}
+.products h2:nth-of-type(2n + 2) {
+  color: red;
+}

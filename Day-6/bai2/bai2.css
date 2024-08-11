@@ -1,0 +1,108 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* base */
+body {
+  font-family: Roboto;
+  background: #ebf5fe;
+  display: flex;
+  width: 800px;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.wrapper-top,
+.wrapper-bottom {
+  display: flex;
+}
+
+section {
+  background-color: #fff;
+  padding-left: 15px;
+  padding-top: 15px;
+  height: 190px;
+  margin: 10px 10px;
+  box-shadow: 0px 0px 2px 0px;
+  border-radius: 8px;
+}
+.section-head {
+  display: flex;
+}
+/* details : icon */
+.icon-wrapper {
+  display: flex;
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+.icon-wrapper i {
+  font-size: 27px;
+}
+.section-main {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.wrapper-top section:first-of-type:hover {
+  outline: 3px solid #e3765b;
+}
+.wrapper-top section:nth-child(2):hover {
+  outline: 3px solid #71c491;
+}
+.wrapper-top section:nth-child(3):hover {
+  outline: 3px solid #f4c24a;
+}
+.wrapper-bottom section:nth-child(1):hover {
+  outline: 3px solid #7192f6;
+}
+.wrapper-bottom section:nth-child(2):hover {
+  outline: 3px solid #bb5eea;
+}
+.wrapper-bottom section:nth-child(3):hover {
+  outline: 3px solid #9bc964;
+}
+.wrapper1 {
+  box-shadow: 0px 0px 20px 0px #e8c4bb;
+  background: linear-gradient(90deg, #e4597d, #e3765b);
+}
+.wrapper2 {
+  box-shadow: 0px 0px 20px 0px #b6d5c2;
+  background: linear-gradient(90deg, #4da3a4, #71c491);
+}
+.wrapper3 {
+  box-shadow: 0px 0px 20px 0px #f4e4c1;
+  background: linear-gradient(90deg, #e18631, #f4c24a);
+}
+.wrapper4 {
+  box-shadow: 0px 0px 20px 0px #bbcaf6;
+  background: linear-gradient(90deg, #2e69cc, #7192f6);
+}
+.wrapper5 {
+  box-shadow: 0px 0px 20px 0px #d8a8f0;
+  background: linear-gradient(90deg, #6f22cb, #bb5eea);
+}
+.wrapper6 {
+  box-shadow: 0px 0px 20px 0px #b7c9a1;
+  background: linear-gradient(90deg, #68882b, #9bc964);
+}
+i {
+  color: #fff;
+}
+.section-footer {
+  color: #7192f6;
+  font-weight: 600;
+}

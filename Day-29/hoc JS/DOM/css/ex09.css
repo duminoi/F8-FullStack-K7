@@ -1,0 +1,80 @@
+/*
+.menubar {
+  background-color: #181717;
+}
+ul {
+  list-style: none;
+  text-decoration: none;
+}
+ul li {
+  position: relative;
+}
+ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+ul:first-child > li > a {
+}
+
+.fa-angle-down,
+.fa-angle-up {
+  position: absolute;
+  right: 20px;
+  top: 0;
+}
+.icon-wrapper .fa-angle-up {
+  display: none;
+}
+
+.menu li.has-children > a::after {
+  content: "";
+  float: right;
+  padding-top: 5px;
+}
+
+.menu li.active > ul {
+  display: block;
+}
+*/
+* {
+  padding: 0;
+  margin: 0;
+}
+ul {
+  list-style: none;
+}
+.menu {
+  width: 200px;
+  background: #000;
+  margin: 30px auto;
+}
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 5px 15px;
+}
+.menu ul {
+  background: green;
+  display: none;
+}
+.menu li.has-children > a::after {
+  content: "▼";
+  float: right;
+  font-size: 0.5rem;
+  padding-top: 5px;
+}
+.menu li.active > ul {
+  display: block;
+}
+.menu li.has-children.active > a::after {
+  rotate: 180deg;
+}

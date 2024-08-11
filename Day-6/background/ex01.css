@@ -1,0 +1,30 @@
+/* 
+background-color
+background-image
+background-repeat
+background-position
+background-size
+background-attachment
+thuộc tính 
+ ->background-size: cover sẽ fill đủ cái element chứa img đó
+ ->background-size : contain khi cạnh nào chạm max trước thì sẽ ko giãn chiều còn lại nữa 
+*/
+body {
+  height: 2000px;
+}
+.box {
+  /* background-color: rgba(203, 142, 29, 0.836); */
+  height: 300px;
+  /* background-image: url("https://picsum.photos/200/300");
+  background-repeat: no-repeat; */
+  /* background-position: 50% 50%; */
+  /* background-size: cover;
+  background-attachment: fixed; */
+  background: fixed rgba(203, 142, 29, 0.836)
+    url("https://picsum.photos/200/300") 0 0 / cover no-repeat;
+}
+/* thuộc tính background-size phải đằng sau position */
+
+/* .box {
+  background-color: rgba(227, 222, 214, 0.307);
+} */

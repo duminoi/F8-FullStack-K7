@@ -1,0 +1,137 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background-color: #f8f8fa;
+  background: url(../img/360_F_633813217_J43vPObXgHA5oTjWDV8zsYIgMcwcOYZW.jpg) 0
+    0 / cover no-repeat;
+}
+
+.wrapper {
+  margin: 30px auto;
+  width: 1330px;
+  height: 100vh;
+  font-family: Manrope;
+}
+/* header: nav */
+header {
+  color: rgb(20, 20, 76);
+  display: flex;
+  position: relative;
+  font-weight: 600;
+  height: 90px;
+}
+.logo {
+  font-size: 25px;
+  font-weight: 700;
+}
+header nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+header nav ul {
+  display: flex;
+  list-style-type: none;
+  height: 100%;
+}
+header nav ul li {
+  width: 100px;
+  height: 100%;
+  display: flex;
+  padding-top: 14px;
+}
+header i {
+  margin-left: 5px;
+}
+header ul li[class="blog"] {
+  padding-left: 22px;
+}
+header li:nth-child(6) {
+  width: 141px;
+}
+header ul li[class="info"] {
+  display: flex;
+  justify-content: center;
+}
+header ul li[class="info"] a {
+  width: 20%;
+}
+header li:nth-child(8) {
+  width: 20px;
+}
+nav > ul > li a {
+  color: rgb(20, 20, 76);
+
+  width: 100%;
+  height: auto;
+  text-decoration: none;
+}
+/* main:content */
+main {
+  height: 469px;
+  position: absolute;
+  background-color: #fefefe;
+  border-radius: 10px;
+  padding: 20px;
+  width: 1351px;
+  display: flex;
+  padding: 0 auto;
+  font-weight: 600;
+  text-transform: capitalize;
+  bottom: -446px;
+  right: -16px;
+  visibility: hidden;
+}
+main ul {
+  display: flex;
+  list-style-type: none;
+  flex-direction: column;
+}
+main li {
+  margin: 4px 0;
+}
+/* left */
+.container-left {
+  position: relative;
+  width: 40%;
+}
+.container-left::after {
+  top: 5px;
+  content: "";
+  position: absolute;
+  height: 414px;
+  width: 0.5px;
+  background-color: #cacacaf2;
+  right: 50px;
+}
+.elements {
+  width: 60%;
+}
+.container-list {
+  display: flex;
+  margin-top: 20px;
+}
+.useage ul:nth-child(1),
+.style ul:nth-child(1) {
+  margin-right: 183px;
+}
+.style {
+  margin-top: 30px;
+}
+
+.elements ul:nth-child(2) {
+  margin: 0 150px;
+}
+/*  hover */
+header ul li:hover a {
+  opacity: 0.7;
+  display: block;
+}
+li[class="document"]:hover main {
+  visibility: visible;
+}

@@ -1,0 +1,145 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 748px;
+  padding: 30px 50px;
+}
+
+.container {
+  position: relative;
+  max-width: 100%;
+  height: 100%;
+  margin: 10px auto;
+  background-color: #059ce4;
+  box-shadow: 0 0 5px -3px;
+  overflow: hidden;
+}
+/* Main content */
+.main-content {
+  color: #fff;
+  top: 50%;
+  position: absolute;
+  max-width: 552px;
+  right: 15%;
+  height: auto;
+}
+.main-content .title {
+  font-size: 4rem;
+  font-weight: 700;
+}
+.main-content .desc {
+  position: absolute;
+  width: 102%;
+  right: 8%;
+  font-size: 3rem;
+  font-weight: 100;
+}
+
+.main-content .desc::before {
+  top: 18%;
+  content: "inspired by";
+  position: absolute;
+  right: 99%;
+  font-size: 2rem;
+  width: 35%;
+}
+/* over lay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgb(250, 249, 249);
+  width: 100px;
+  height: 100px;
+  transition: transform 0.5s ease-in-out;
+
+  border-bottom-right-radius: 200px;
+}
+/* menu -side */
+
+.menu-side {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.menu-side .menu {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity, visibility 0.5s ease-in-out;
+}
+/* icon */
+.icon-label {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 30px;
+  color: #059ce4;
+}
+.icon-label label {
+  position: absolute;
+  top: -22px;
+  left: -22px;
+}
+.menu-side span:nth-child(2) i {
+}
+input[type="checkbox"]:checked ~ .menu-side .menu {
+  opacity: 1;
+  visibility: visible;
+}
+.fa-arrow-right {
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.3s linear;
+}
+.menu-side label:nth-child(1) {
+  transition: transform 0.3s linear;
+}
+input[type="checkbox"]:checked ~ .menu-side .fa-arrow-right {
+  opacity: 1;
+  visibility: visible;
+  transform: rotate(180deg);
+}
+input[type="checkbox"]:checked ~ .menu-side label:nth-child(1) {
+  opacity: 0;
+  visibility: hidden;
+  transform: rotate(180deg);
+}
+input[type="checkbox"]:checked ~ .menu-side span:nth-child(2) i {
+}
+input[type="checkbox"]:checked ~ .overlay {
+  transform: scale(70);
+}
+/* ul li */
+.menu-side {
+  position: absolute;
+  top: 45px;
+  left: 45px;
+}
+.menu {
+  position: absolute;
+  left: -45px;
+  top: 0px;
+}
+.menu ul {
+  margin-top: 40px;
+  left: 0;
+  list-style-type: none;
+}
+.menu ul li {
+}
+.menu ul li a {
+  display: block;
+  padding: 15px 50px;
+  padding-right: 100px;
+  font-size: 1.4rem;
+  height: 120%;
+  text-decoration: none;
+  color: #059ce4;
+}
+.menu li:hover a,
+.menu li:active a,
+.menu li:focus a {
+  background-color: #e3dfdf;
+}

@@ -1,0 +1,44 @@
+/* 
+Thành phần giả
+Cú pháp: selector::pseudo-element {
+
+
+}
+
+::before
+::after,
+::first-letter,
+::first-line,
+::selection,
+::placeholder
+ntium eum consequuntur, architecto, vero quod perferendis sunt cum, vitae fugit accusantium sapiente. Sunt excepturi voluptatibus in?
+*/
+/* h1::before {
+  content: "a";
+}
+h1::after {
+  content: "b";
+} */
+
+/* 
+.title::before {
+  content: attr(data-index);
+} */
+
+p::first-letter {
+  color: red;
+  font-weight: bold;
+  font-size: 2rem;
+}
+p::first-line {
+  color: green;
+}
+p::selection {
+  background: black;
+  color: white;
+}
+input::placeholder {
+  color: red;
+  font-weight: bold;
+  font-style: italic;
+}

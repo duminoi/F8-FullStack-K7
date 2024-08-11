@@ -1,0 +1,17 @@
+header {
+  padding: 30px 0;
+}
+
+header .container {
+  font-size: 16px;
+}
+header .container .inner {
+  background: red;
+}
+
+body {
+  background: blue;
+  color: blue;
+}
+
+/*# sourceMappingURL=ex07.css.map */

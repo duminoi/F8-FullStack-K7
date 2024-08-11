@@ -1,0 +1,99 @@
+/* 
+Flex = flexible Box Module
+- Kỹ thuật chia layout linh hoạt
+- Trục: Main và Cross
+- Thành phần: Flex Container và Flex Item
+
+1. Các thành phần trong nhóm flex container
+- display: flex --> Kích hoạt flex
+- flex-direction:
++ row -> mặc định
++ column
++ row-reverse
++ column-reverse
+- Justify-content: Căn chỉnh các item theo hướng // với trục chính
++ flex-start
++ flex-end
++ center
++ space-between
++ space-around
++ space-evenly
++ start --> Về tìm hiểu
++ end --> Về tìm hiểu
+- align-items: Căn chỉnh các item theo hướng vuông góc với trục chính
++ strech
++ flex-start
++ center
++ flex-end
++ baseline
+
+- flex-wrap: Wrap các item nếu tổng kích thước > kích thước chưa nó
++ nowrap
++ wrap
++ wrap-reverse
+
+- align-content: Căn chỉnh hàng
+(
+Về nhà:
+- align-content
+- flex-wrap
+- gap
+- row-gap
+- column-gap
+
+gap: chỉnh khoảng cách giữa các item
+- row-gap
+- column-gap
+
+
+2. Các thuộc tính trong nhóm flex item
+
+flex-grow: lấp đầy khoảng trống của  còn thừ của flex container(Mặc định= 0)
+
+flex-shrink
+
+flex-basic: Bị chặn bởi min-width, max-width
+(flex
+*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.box {
+  width: 400px;
+  height: 300px;
+  border: 1px solid red;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  /* flex-wrap: wrap; */
+  /* gap: 10px 20px; */
+  /* align-items: center; */
+}
+.item {
+  background-color: green;
+
+  color: #fff;
+  padding: 10px;
+  /* padding: 20px; */
+  border: 1px solid #fff;
+  /* flex-grow: 1; */
+  /* flex-shrink: 2; */
+  flex-basis: 65px;
+  width: 70px;
+  flex: 0 1 75px;
+}
+.item:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* align-self: stretch; */
+}
+/* .item:nth-child(3) {
+  flex-grow: 3;
+} */
+.item:nth-child(4) {
+  align-self: center;
+}

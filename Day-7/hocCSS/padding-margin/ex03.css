@@ -1,0 +1,40 @@
+/* 
+Trường hợp 1:
+- 2 giá trị dương --> Lấy giá trị lớn hơn
+- 2 gia trị âm --> Lấy giá trị nhỏ hơn
+--> Cùng dấu --> Lấy trị tuyệt đối giá trị lớn hơn
+
+- 1 giá trị âm, 1 giá trị dương --> Cộng 2 giá trị
+--> Trái dấu: Cộng lại
+
+Trường hơp 2: margin phần tử con,Không tự động đẩy phần từ cha
+- border(nhưng vẫn có khoảng cách do border)
+- display: block (sử dụng cùng với width:100%) | flex  | inline-flex 
+- position: absolute | fixed --> (sử dụng cùng với width:100%)
+- float: left | right -->(sử dụng cùng với width:100%)
+*/
+
+.title-1 {
+  margin-bottom: 30px;
+}
+.title-2 {
+  margin-top: 20px;
+}
+.box {
+  background: green;
+  color: aliceblue;
+  width: 600px;
+  padding-inline: 30px;
+  padding-block: 40px;
+  margin-inline: auto;
+  /*
+   margin/padding-inline là margin/padding left+right 
+    margin/padding-inline là margin/padding top+bottom 
+   */
+  /* display: flex; */
+  /* width: 100%; */
+  /* border: 1px solid red; */
+}
+/* .box h2 {
+  margin: 50px 0;
+} */

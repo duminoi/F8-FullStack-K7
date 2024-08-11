@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  bottom: 0;
+}
+
+.parent {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+}
+
+.parent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 0, 0, 0.392);
+  opacity: 0;
+  visibility: hidden;
+  transition-property: opacity, visibility;
+  transition: 0.4s linear;
+}
+.parent:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.child {
+  position: absolute;
+  inset: 0;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.child::before {
+  content: "";
+  position: absolute;
+  border: 1px solid black;
+  inset: -5px;
+  transition: inset 0.4s linear;
+}
+
+.child:hover::before {
+  inset: 5px;
+}

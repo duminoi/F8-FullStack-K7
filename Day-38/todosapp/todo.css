@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+* button {
+  cursor: pointer;
+}
+.wrapper {
+  margin: 5rem auto;
+  padding: 0 2rem;
+  width: 850px;
+}
+
+.wrapper .title {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity));
+  font-weight: 600;
+  font-size: 2.25rem;
+  text-align: center;
+  line-height: 2.5rem;
+  padding-bottom: 0.75rem;
+  padding-top: 0.75rem;
+}
+
+.wrapper .title .firstLetter {
+  color: transparent;
+  background-clip: text;
+  background-image: linear-gradient(to right, #60a5fa, #059669);
+}
+
+.wrapper .tools {
+  display: flex;
+  width: 100%;
+
+  align-items: center;
+}
+
+.wrapper .tools .searchTool {
+  width: 90%;
+  position: relative;
+}
+.wrapper .tools .searchTool .searchInput {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid rgb(209 213 219);
+}
+.wrapper .tools .searchTool .searchBtn {
+  color: #fff;
+  position: absolute;
+  right: 0.5rem;
+  top: 7px;
+  background-color: rgb(29 78 216 / 1);
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper .tools .addBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 7rem;
+  margin-left: 1rem;
+  background-color: rgb(4 120 87 / 1);
+  color: #fff;
+}
+
+.data .list-data {
+  display: flex;
+  padding: 1rem;
+  border: 1px solid rgb(229 231 235 / 1);
+  background-color: rgb(255 255 255 / 1);
+  border-width: 1px;
+  border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  justify-self: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 0.75rem;
+  justify-content: space-between;
+}
+
+.data .action {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.fill-white {
+  color: #fff;
+}
+
+.action .deleteBtn {
+  background-color: rgb(190 18 60 / 1);
+}
+.action .editBtn {
+  background-color: rgb(29 78 216 / 1);
+}
+.action .completeBtn {
+  background-color: rgb(156 163 175 /1);
+}
+
+.completeBtn:hover {
+  background-color: rgb(4 120 87 / 1);
+}
+
+.completeTask {
+  background-color: rgb(156 163 175 /1);
+  margin-top: 2rem;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 12.5rem;
+  color: #fff;
+}
+
+.completeTask:hover {
+  background-color: rgb(122, 126, 133);
+}
+.completeTask span {
+  margin-left: 0.2rem;
+}
+
+.completeTask i {
+  margin-left: 0.2rem;
+}
+.body {
+  position: relative;
+}
+
+.overlay {
+  position: fixed;
+  display: none;
+  background-color: rgba(55, 65, 81, 0.6);
+  inset: 0;
+  background-color: rgba(55, 65, 81, 0.6);
+  z-index: 1;
+}
+
+.form {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 99999;
+  width: 500px;
+}
+.form input {
+  width: 100%;
+}
+.form .btn-wrapper {
+  gap: 2rem;
+  display: flex;
+  padding: 1rem;
+  border-top-width: 1px;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  align-items: center;
+  justify-content: center;
+}
+.form .btn-wrapper .save,
+.form .btn-wrapper .cancel {
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+.form .btn-wrapper .save {
+  background-color: rgb(4 120 87 / 1);
+}
+.form .btn-wrapper .save:hover {
+  background-color: rgb(4, 94, 68);
+}
+.form .btn-wrapper .cancel {
+  border: 1px solid rgb(170, 166, 166);
+  background-color: rgb(255 255 255 / 1);
+  color: black;
+}
+
+.form .btn-wrapper .cancel:hover {
+  background-color: rgb(226, 224, 224);
+}

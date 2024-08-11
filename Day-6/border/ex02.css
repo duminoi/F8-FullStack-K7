@@ -1,0 +1,9 @@
+.box {
+  border-width: 50px;
+  border-style: solid;
+  border-color: transparent transparent greenyellow transparent;
+  width: 0px;
+  height: 0px;
+  border-top-width: 0;
+  border-radius: 5px;
+}

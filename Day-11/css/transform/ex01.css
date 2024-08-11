@@ -1,0 +1,51 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* 
+Thuộc tính transform: Biến đổi hình dạng html
+- Xoay
+- Phóng t0/ Thu nhỏ
+- Nghiêng
+- Di chuyển
+
+Cú pháp: transform: value
+- rotate(angle) --> xoay 2D theo trục Z
+- rotateX(angle) --> xoay theo trục X
+- rotateY(angle) --> xoay theo trục Y
+- scale(x,y) --> Phóng to / thu nhỏ theo tỷ lệ x,y ( 1 là giữ nguyên)
+- scaleX(value) --> Phóng to / thu nhỏ theo trục X
+- scaleY(value) --> Phóng to / thu nhỏ theo trục y
+- skew(x, y) --> Nghiêng theo góc x, y
+- skewX(value) --> nghiêng theo trục X
+- skewY(value) --> nghiêng theo trục Y
+- translate(x,y) --> Di chuyển theo x,y
+- TranslateX(x) --> Di chuyển theo trục X
+- TranslateY(x) --> Di chuyển theo trục Y
+Lưu ý: nếu đơn vị là % thì nó sẽ tỷ lệ với kích thước của chính nó
+
+Các thuộc tính bổ sung
+- rotate --> Tương tự transform :rotate()
+- scale --> Tương tự transform: scale()
+- translate --> Tương tự transform: translate()
+
+Thuộc tính transform-origin: x y --> xác định vị trí của trục (mặc định:50% 50%)
+*/
+.wrap {
+  border: 1px solid red;
+  padding: 30px;
+}
+.box {
+  width: 300px;
+  height: 300px;
+  background: green;
+  margin: 30px auto;
+  transition: all 0.3s ease;
+  transform-origin: top;
+}
+.wrap:hover .box {
+  /* translate: 100px 100px;
+  scale: 1 1.5; */
+  transform: rotateX(180deg);
+}

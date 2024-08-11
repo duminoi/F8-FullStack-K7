@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vikinger | Home</title>
+    <link rel="stylesheet" href="./grid.css" />
+    <link rel="stylesheet" href="demo.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="img/favicon.ico" />
+  </head>
+  <body>
+    <div class="vikinger_login_page">
+      <div class="login_page_decor"></div>
+      <div class="container">
+        <div class="row">
+          <!-- info -->
+          <input type="radio" name="tab" id="tab-login" hidden checked />
+          <input type="radio" name="tab" id="tab-register" hidden />
+          <div class="col-12 col-xxl-6">
+            <div class="page_info">
+              <!-- logo -->
+              <div class="logo">
+                <svg class="icon-logo-vikinger">
+                  <use xlink:href="#svg-logo-vikinger"></use>
+                </svg>
+              </div>
+              <!-- /logo -->
+              <!-- title -->
+              <h2 class="pre_title">welcome to</h2>
+              <h1 class="title">vikinger</h1>
+              <p class="info_text">
+                The next generation social network &amp; community! Connect with
+                your friends and play with our quests and badges gamification
+                system!
+              </p>
+              <!-- /title -->
+              <!-- btn-switch-tabs -->
+              <div class="btn_switch_tabs">
+                <label class="tab_btn btn_login" for="tab-login">Login</label>
+                <label class="tab_btn btn_register" for="tab-register">
+                  Register
+                </label>
+              </div>
+              <!-- /btn-switch-tabs -->
+            </div>
+          </div>
+          <!-- end info -->
+          <!-- form -->
+          <div class="col-12 col-xxl-6">
+            <div class="login_register_form">
+              <!-- form-box login -->
+              <div class="form_box form_login">
+                <img
+                  class="form_decor"
+                  src="../../Day-13/img/rocket.webp"
+                  alt="rocket"
+                />
+                <h2 class="form_title">Account Login</h2>
+                <!-- form -->
+                <form>
+                  <div class="container">
+                    <div class="row">
+                      <!-- form-item -->
+                      <div class="col-12">
+                        <div class="form-item">
+                          <input
+                            type="text"
+                            name="username"
+                            id="username"
+                            required
+                            placeholder=" "
+                          />
+                          <label for="username">Username or Email</label>
+                        </div>
+                      </div>
+                      <!-- /form-item -->
+                      <!-- form-item -->
+                      <div class="col-12">
+                        <div class="form-item">
+                          <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            required
+                            placeholder=" "
+                          />
+                          <label for="password">Password</label>
+                        </div>
+                      </div>
+                      <!-- /form-item -->
+                      <!-- form-item -->
+                      <div class="col-12" style="margin-top: 30px">
+                        <div
+                          class="row"
+                          style="justify-content: space-between; margin: 0"
+                        >
+                          <div class="custom-checkbox">
+                            <input
+                              type="checkbox"
+                              name="custom-cb"
+                              id="custom-cb"
+                              hidden
+                              checked
+                            />
+                            <div class="box-check">
+                              <svg class="icon-cross">
+                                <use xlink:href="#svg-cross"></use>
+                              </svg>
+                            </div>
+                            <label for="custom-cb">Remember Me</label>
+                          </div>
+
+                          <a class="forgot-pw" style="margin-top: 1px" href="">
+                            Forgot Password?
+                          </a>
+                        </div>
+                      </div>
+                      <!-- /form-item -->
+                      <!-- form-item -->
+                      <div class="col-12">
+                        <button class="login_btn">
+                          Login to your Account!
+                        </button>
+                      </div>
+                      <!-- /form-item -->
+                    </div>
+                  </div>
+                </form>
+                <!-- /form -->
+                <!-- line-text -->
+                <p class="line_text">Login with your Social Account</p>
+                <!-- /line-text -->
+                <!-- social links -->
+                <div class="social_links">
+                  <a href="#!" class="social facebook">
+                    <svg class="icon-facebook">
+                      <use xlink:href="#svg-facebook"></use>
+                    </svg>
+                  </a>
+                  <a href="#!" class="social tweeter">
+                    <svg class="icon-twitter">
+                      <use xlink:href="#svg-twitter"></use>
+                    </svg>
+                  </a>
+                  <a href="#!" class="social twitch">
+                    <svg class="icon-twitch">
+                      <use xlink:href="#svg-twitch"></use>
+                    </svg>
+                  </a>
+                  <a href="#!" class="social youtube">
+                    <svg class="icon-youtube">
+                      <use xlink:href="#svg-youtube"></use>
+                    </svg>
+                  </a>
+                </div>
+                <!-- /social links -->
+              </div>
+              <!-- /form-box login -->
+              <!-- form-box register -->
+              <div class="form_box form_register">
+                <img
+                  class="form_decor"
+                  src="img/rocket.webp"
+                  alt="rocket"
+                  style="top: -14px"
+                />
+                <h2 class="form_title">Create your Account!</h2>
+                <!-- form -->
+                <form>
+                  <div class="container">
+                    <div class="row">
+                      <!-- form-item -->
+                      <div class="col-12">
+                        <div class="form-item">
+                          <input
+                            type="text"
+                            name="email"
+                            id="email"
+                            required
+                            placeholder=" "
+                          />
+                          <label for="email">Your Email</label>
+                        </div>
+                      </div>
+                      <!-- /form-item -->
+                      <!-- form-item -->
+                      <div class="col-12">
+                        <div class="form-item">
+                          <input
+                            type="text"
+                            name="username"
+                            id="username-register"
+                            required
+                            placeholder=" "
+                          />
+                          <label for="username-register">Username</label>
+                        </div>
+                      </div>
+                      <!-- /form-item -->
+                      <!-- form-item -->
+                      <div class="col-12">
+                        <div class="form-item">
+                          <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            required
+                            placeholder=" "
+                          />
+                          <label for="password">Password</label>
+                        </div>
+                      </div>
+                      <!-- /form-item -->
+                      <!-- form-item -->
+                      <div class="col-12">
+                        <div class="form-item">
+                          <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            required
+                            placeholder=" "
+                          />
+                          <label for="password">Repeat Password</label>
+                        </div>
+                      </div>
+                      <!-- /form-item -->
+                      <!-- form-item -->
+                      <div class="col-12">
+                        <div class="row" style="margin: 0">
+                          <div class="custom-checkbox">
+                            <input
+                              type="checkbox"
+                              name="custom-cb"
+                              id="custom-cb"
+                              hidden
+                              checked
+                            />
+                            <div class="box-check">
+                              <svg class="icon-cross">
+                                <use xlink:href="#svg-cross"></use>
+                              </svg>
+                            </div>
+                            <label for="custom-cb"
+                              >Send me news and updates via email</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /form-item -->
+                      <!-- form-item -->
+                      <div class="col-12">
+                        <button class="register_btn">Register Now!</button>
+                      </div>
+                      <!-- /form-item -->
+                    </div>
+                  </div>
+                </form>
+                <p class="form_text">
+                  You'll receive a confirmation email in your inbox with a link
+                  to activate your account. If you have any problems,
+                  <a href="#">contact us</a>!
+                </p>
+              </div>
+              <!-- /form-box register -->
+            </div>
+          </div>
+          <!-- end form -->
+        </div>
+      </div>
+    </div>
+    <!-- end .vikinger_login_page -->
+    <script src="https://hoanganf8.github.io/htmlcss_project02/js/app.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+.warp {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 36px;
+  justify-content: center;
+}
+img {
+  width: 40px;
+  height: 40px;
+}
+.top {
+  display: flex;
+}
+.bottom {
+  display: flex;
+}
+hr {
+  background: #890f89c4;
+  width: 50px;
+  height: 2px;
+}
+h1 {
+  text-align: center;
+}
+section {
+  display: flex;
+}
+.comment {
+  width: 400px;
+}
+p {
+  margin-left: 35px;
+}
+blockquote {
+  margin-top: 5px;
+}

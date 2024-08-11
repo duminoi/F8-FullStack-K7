@@ -1,0 +1,36 @@
+//Biến (Variable)
+//1. Biến toàn cục (Global Variable)
+//2. Biến cục bộ (local Variable)
+
+//Cú pháp : $tenbien: giatri
+
+//Lưu ý: Nên đặt tên biến theo cú pháp camelCase
+//Đặc điểm: Từ đầu tiên viết thường, từ thứ 2 trở đi viết hoa kí tự đầu
+//Ví dụ: $primaryColor, $backgroundColor, $fontFamily
+
+//Toán tử: +, -, *, /, % (Chia lấy dư)
+//Biến trong SCSS sẽ nhận các giá trị: tên thuộc tính css, giá trị thuộc tính css, số, true, false, chuỗi, mảng (nói sau)
+$a: "container";
+$primary-color: red;
+$size: 10px;
+$width: 200;
+$propertyName: color; //color: tên thuộc tính css
+$selector: ".box"; // Chuỗi
+$type: "large"; // Chuỗi
+
+// Nối 2 chuỗi dùng dấu "+"
+header {
+  $a: "item";
+  background: $primary-color;
+  font-size: $size + 10px;
+  //   width: $width + 0px;
+  //   width: #{$width}px;
+  width: $width * 1%;
+  #{$propertyName}: red;
+  #{"." + $a} {
+    color: yellow;
+  }
+}
+#{$selector + "-" + $type} {
+  color: red;
+}

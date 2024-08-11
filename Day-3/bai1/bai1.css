@@ -1,0 +1,48 @@
+img {
+  margin-right: 10px;
+  margin-top: 11px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+.info-warp {
+  display: flex;
+}
+
+hr {
+  margin-left: 2px;
+  background: #ff9800;
+  border: 0;
+  height: 1px;
+  width: 40px;
+}
+.warp {
+  display: flex;
+  align-content: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 13px;
+}
+
+.form {
+  margin-bottom: 10px;
+  width: 496px;
+  height: 29px;
+}
+.form-area {
+  margin-bottom: 10px;
+  height: 88px;
+}
+h3 {
+  margin-bottom: 20px;
+}
+button {
+  height: 31px;
+  width: 84px;
+  background-color: #2ccfcd96;
+}
+.side-form {
+  margin-left: 93px;
+}

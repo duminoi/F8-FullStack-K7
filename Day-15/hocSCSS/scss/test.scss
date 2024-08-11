@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  > container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 33, 3333%;
+    .wrapper {
+      @extend %size;
+      &.product {
+        @extend %size;
+      }
+    }
+    .wrapper-1 {
+      @extend %size;
+    }
+  }
+  //end container
+}
+$width: 20px;
+$height: 30px;
+$propertyName: color;
+$primaryColor: red;
+%size {
+  width: $width;
+  height: $height;
+  #{$propertyName}: $primaryColor;
+}

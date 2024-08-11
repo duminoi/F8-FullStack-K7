@@ -1,0 +1,36 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  width: 200px;
+  height: 300px;
+  border: 1px solid black;
+  position: relative;
+}
+.box-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 300px;
+  border: 1px solid rgb(255, 0, 55);
+  background-color: rgb(32, 30, 31);
+  transition: transform 0.3s ease-in-out;
+  transform-origin: 0 0;
+  /* z-index: 0; */
+}
+.box-2 {
+  width: 200px;
+  height: 300px;
+  border: 1px solid rgb(255, 0, 55);
+  background-color: #fff;
+  transition: transform 0.3s ease-in-out;
+  transform-origin: 0 0;
+  z-index: 2;
+  filter: blur(1);
+}
+.box:hover .box-1 {
+  transform: rotateZ(45deg);
+}

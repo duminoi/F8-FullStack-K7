@@ -1,0 +1,17 @@
+/* 
+Selector cùng cấp thì viết liền (Cùng trong 1 thẻ html)
+selector1selector2selectorn
+==> lƯu ý: Không cần quan tâm đến thứ tự(Trừ trường hợp sử dụng tagname phải ở đầu
+
+a.link#link --> Chọn thẻ a có class = link và id = link
+
+Ứng dụng:
+-Trong các tình huống không thể sửa html
+-Đẩy độ ưu tiên lên cao hơn (nếu khai báo càng chi tiết)
+*/
+h1.title {
+  color: red;
+}
+h2.title {
+  color: green;
+}

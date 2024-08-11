@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 1</title>
+    <link rel="stylesheet" href="./bai1.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="heading">Hey there</h1>
+      <p class="para">
+        <span> We'd like to hear from you.</span>Send us your message or just
+        say hi with our contact form or directly via phone, we love to chat
+      </p>
+      <form action="" method="get">
+        <div class="wrapper">
+          <input type="text" placeholder="Your name" />
+          <div class="tooltip">Enter your name</div>
+          <i class="fa-regular fa-user"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="wrapper">
+          <input type="email" placeholder="Your mail" required />
+          <div class="tooltip">Enter your email</div>
+          <i class="fa-regular fa-envelope"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="wrapper">
+          <input type="tel" placeholder="+2455116" />
+          <div class="tooltip">Enter your phone</div>
+          <i class="fa-solid fa-phone"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="wrapper">
+          <select name="subject" id="">
+            <option value="1">subject</option>
+          </select>
+          <div class="tooltip">Enter your subject</div>
+          <i class="fa-solid fa-book"></i>
+          <i class="fa-solid fa-arrows-up-down"></i>
+        </div>
+        <div class="wrapper wrapper-textarea">
+          <textarea
+            name="message"
+            cols="30"
+            rows="10"
+            placeholder="message"
+          ></textarea>
+          <div class="tooltip">Enter your message</div>
+          <i class="fa-solid fa-book"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="action-submit">
+          <div class="input-checkbox">
+            <input type="checkbox" id="checkbox" hidden />
+            <label for="checkbox">Send me a copy of this message</label>
+          </div>
+          <button><p>SEND</p></button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

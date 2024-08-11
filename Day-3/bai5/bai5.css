@@ -1,0 +1,31 @@
+.wrapper {
+  text-align: center;
+}
+.number {
+  margin: 0 auto;
+  width: 190px;
+  height: 61px;
+  background: #7f2ecb;
+  color: white;
+  text-align: center;
+  font-size: xx-large;
+  line-height: 60px;
+}
+body {
+  align-items: center;
+}
+button {
+  background-color: rgb(59, 58, 58);
+  color: white;
+  width: 84px;
+  height: 36px;
+}
+.company p {
+  color: aquamarine;
+}
+span {
+  color: rgb(86 161 241);
+}
+.plan {
+  margin-right: 13px;
+}

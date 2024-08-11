@@ -1,0 +1,66 @@
+/* editor.css */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container .controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .controls .main-controls {
+  display: flex;
+}
+.container .controls .main-controls .dropdown {
+  position: relative;
+}
+
+#filename-input {
+  padding-left: 0.5rem;
+  margin-left: 10px;
+  border: 1px solid black;
+  height: 35px;
+}
+.menu {
+  padding-left: 1rem;
+  position: absolute;
+  display: none;
+  margin-top: 0.2rem;
+  border: 1px solid rgb(194, 191, 191);
+  border-radius: 0.5rem;
+  height: 5rem;
+  width: 8rem;
+  z-index: 2;
+  background-color: white;
+}
+.menu button:hover {
+  background-color: rgb(240, 236, 236);
+}
+
+.control-btn-container {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+#content {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  margin: 30px 0;
+  min-height: 300px;
+  outline: none;
+  padding: 20px;
+}
+/* sử lý văn bản */
+.bold {
+  font-weight: bold;
+}
+
+.underlined-text {
+  text-decoration: underline;
+}
+
+.italic-text {
+  font-style: italic;
+}

@@ -1,0 +1,25 @@
+/* 
+min-width ---------------width--------------max-width
+mặc định width của block:100%(theo thành phần cha)
+mặc định height của block: auto(theo nội dung)
+
+*/
+/* .content {
+  width: 200px;
+  height: 200px;
+  max-width: 400px;
+  min-width: 100px;
+  min-height: 50px;
+  background: green;
+} */
+.image {
+  display: inline-block;
+  width: 20%;
+  border: 1px solid red;
+  max-height: 90px;
+}
+.image img {
+  height: 100%;
+  max-width: 100%;
+  display: block;
+}

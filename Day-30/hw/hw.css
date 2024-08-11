@@ -1,0 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+.search-box {
+  margin: 0 auto;
+  max-width: 80%;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.search-box .btn {
+  background: red;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 5px 30px;
+}
+
+.search-box .result {
+  border: 1px solid green;
+  border-radius: 10px;
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+.search-box .action.success {
+  color: rgb(0, 128, 0);
+}
+.search-box .action {
+  color: red;
+  margin-top: 15px;
+  font-size: 18px;
+}
+.search-box .btn {
+  margin-top: 20px;
+}
+
+.search-box .btn:hover {
+  background-color: green;
+}

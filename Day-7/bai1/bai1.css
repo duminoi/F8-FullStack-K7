@@ -1,0 +1,67 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 900px;
+  display: flex;
+  align-items: center;
+  font-family: Asap sans-serif;
+}
+@font-face {
+  font-family: SFU;
+  src: url(../font/SFUTradeGothic-BoldCondensedTwenty.woff2);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  padding-left: 167px;
+  width: 100%;
+  height: 50%;
+  background: url(https://cdn.houseviet.vn/images/project/23042023/ha-noi-melody-residences-cover.jpg)
+    0 0 / cover no-repeat;
+}
+.wrapper {
+  display: flex;
+  position: relative;
+  background-color: #fff;
+  width: 36%;
+  height: 44%;
+  opacity: 0.85;
+  flex-direction: column;
+  padding: 30px 20px;
+}
+p:not(#price):not(#location) {
+  margin: 10px 0;
+  line-height: 25px;
+}
+.location p {
+  margin-left: 5px;
+}
+.location {
+  display: flex;
+  align-items: center;
+}
+.price {
+  background-color: #bf4240;
+  position: absolute;
+  width: 130px;
+  height: 55px;
+  color: #fff;
+  right: 30px;
+  bottom: -32px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  opacity: 1;
+}
+.price p {
+  font-family: SFU;
+}
+h1 {
+  color: #e73f3c;
+}

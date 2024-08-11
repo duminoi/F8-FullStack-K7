@@ -1,0 +1,41 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  width: 100px;
+  height: 40px;
+  border-radius: 99px;
+  border: 1px solid black;
+  transition: background-color 0.5s ease-in-out;
+  background-color: green;
+  transform-origin: left;
+  overflow: hidden;
+  position: relative;
+}
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 100%;
+  border-radius: 99px;
+  background-color: red;
+  transform-origin: left;
+  transition: right 0.3s ease;
+}
+button span {
+  position: relative;
+}
+
+button:hover::before {
+  right: 0;
+}

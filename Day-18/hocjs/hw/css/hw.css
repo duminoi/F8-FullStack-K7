@@ -1,0 +1,46 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+button {
+  width: 72px;
+  height: 30px;
+  background: #00b7d491;
+  color: #fff;
+  border: none;
+  border-radius: 23px;
+  margin-right: 20px;
+}
+button + p {
+  display: inline-block;
+}
+
+/* chess */
+#board {
+  display: flex;
+  flex-direction: column;
+}
+
+.cellContainer {
+  display: flex;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+}
+
+/* bt7 */
+.containerMulti {
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  width: fit-content;
+  padding: 10px;
+}
+.form {
+  margin-bottom: 20px;
+}

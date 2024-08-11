@@ -1,0 +1,186 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Space Grotesk", sans-serif;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+/* left-side */
+.container-left {
+  position: relative;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container-right {
+  width: 40%;
+  height: 100%;
+}
+/* section */
+section {
+  width: 50%;
+  height: 136px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+section:nth-child(1) {
+  margin-top: 60px;
+}
+section:not(:nth-child(1)) {
+  margin-top: 77px;
+}
+.timeline-about p {
+  margin: 20px 0;
+  width: fit-content;
+}
+.timeline-about {
+  width: 55%;
+  height: 87px;
+  position: relative;
+  transition: transform 0.2s ease-in-out;
+}
+
+span {
+  display: inline-block;
+}
+.timeline-about h1 {
+  position: absolute;
+  right: 0;
+  top: -24px;
+}
+.family {
+  right: 0px;
+  position: absolute;
+  color: black;
+  bottom: -55px;
+  width: 37%;
+  height: 34px;
+  background-color: #8383862d;
+  border-radius: 20px;
+  /* align-content: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timeline-time {
+  position: absolute;
+  top: 6px;
+  right: 68px;
+  width: 20px;
+  height: 20px;
+  background-color: #edf5f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.timeline-time .circle-timeline {
+  background-color: #3e8c7f;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.timeline-time:not(.timeline-4)::before {
+  content: "";
+  height: 192px;
+  position: absolute;
+  width: 1px;
+  background-color: rgb(202, 202, 202);
+  top: 100%;
+}
+
+.timeline-time::after {
+  transition: transform 0.5 ease-in-out;
+}
+.timeline-time:nth-child(1)::after {
+  content: "2012-2007";
+  position: absolute;
+  left: 163%;
+  width: 100px;
+}
+.timeline-time:nth-child(2)::after {
+  content: "2016-2012";
+  position: absolute;
+  left: 163%;
+  width: 100px;
+}
+.timeline-time:nth-child(3)::after {
+  content: "2018-2016";
+  position: absolute;
+  left: 163%;
+  width: 100px;
+}
+.timeline-time:nth-child(4)::after {
+  content: "2022-2018";
+  position: absolute;
+  left: 163%;
+  width: 100px;
+}
+/* hover */
+section:hover .timeline-about {
+  transform: translateX(300px);
+}
+section:hover .timeline-time:after {
+  transform: translateX(-142px);
+}
+section:hover .timeline-about {
+}
+section:hover .timeline-about p {
+  position: absolute;
+  left: 100px;
+}
+section:hover .timeline-about .family {
+  position: absolute;
+  bottom: -55px;
+  background-color: #a26f5a;
+  color: #fff;
+}
+/* right-side */
+.img-container {
+  position: relative;
+  left: 167px;
+  width: 300px;
+  height: 400px;
+  background: url(../img/careers-hero-398x492.jpg) 00 / cover no-repeat;
+}
+
+.img-float {
+  left: -42%;
+  width: 200px;
+  height: 300px;
+  background: url(../img/867-200x300.jpg) 00 / cover no-repeat;
+  position: absolute;
+  padding: 10px;
+  top: 41%;
+}
+.award {
+  background-color: #4259ae;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 20px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 15px;
+  padding-bottom: 20px;
+}
+.desc,
+.text {
+  color: #edf5f3;
+}
+.text {
+  font-size: 55px;
+  font-weight: 700;
+}

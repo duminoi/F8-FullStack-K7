@@ -1,0 +1,280 @@
+@use "../partials/variables";
+@use "../partials/mixin";
+header {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  height: 108.333px;
+  // position: fixed;
+  background: var(--White, #fff);
+  box-shadow: 0px 1.667px 8.333px 0px rgba(0, 0, 0, 0.15);
+  inset: 0;
+  z-index: 3;
+  .container {
+    display: flex;
+    align-items: center;
+    max-width: 1400px;
+    .icon-wrapper {
+      margin-right: auto;
+    } //end icon-wrapper
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      .bar {
+        display: none;
+      }
+      nav {
+        display: flex;
+        column-gap: 50px;
+        margin-right: 65.5px;
+
+        a {
+          font-size: 2rem;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 21.667px;
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 62px;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            // background-color: variables.$color-green;
+          }
+        }
+        a:hover {
+          color: variables.$color-green;
+          &::before {
+            background-color: variables.$color-green;
+          }
+        }
+
+        .active {
+          color: variables.$color-green;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 62px;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background-color: variables.$color-green;
+          }
+        }
+      }
+    } // end nav-wrapper
+    .action {
+      display: flex;
+      column-gap: 50px;
+      .cart-wrapper {
+        position: relative;
+        &::before {
+          content: "3";
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #fff;
+          bottom: 63%;
+          left: 68%;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          font-size: 1rem;
+          font-style: normal;
+          font-weight: 500;
+          background-color: #e05000;
+        }
+      }
+    } // end action
+  }
+}
+
+//responsive
+@include mixin.extra4Large() {
+  header .container {
+    max-width: 1320px;
+  }
+}
+
+@include mixin.extra3Large() {
+  header .container {
+    max-width: 1200px;
+  }
+}
+
+@include mixin.extra2Large() {
+  header .wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 1100px;
+    padding: 0 40px;
+  }
+  header {
+    .wrapper {
+      .nav-wrapper {
+        display: flex;
+        align-items: center;
+        nav {
+          a {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mixin.large() {
+  %icon-width {
+    width: 35px;
+  }
+  header .wrapper .action .cart-wrapper::before {
+    content: "3";
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    bottom: 69%;
+    left: 68%;
+    width: 20px;
+    height: 20px;
+    border-radius: 60%;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    background-color: #e05000;
+  }
+  header .wrapper .nav-wrapper .bar {
+    display: block;
+    order: 2;
+    font-size: 3rem;
+    margin-left: 50px;
+  }
+  header {
+    .wrapper {
+      max-width: 900px;
+      .icon-wrapper {
+        img {
+          width: 120px;
+        }
+      }
+      .nav-wrapper {
+        order: 1;
+        margin-right: 0;
+        input {
+          &:checked ~ .overlay {
+            opacity: 1;
+            visibility: visible;
+          }
+          &:checked ~ .nav {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+          }
+        }
+        .overlay {
+          opacity: 0;
+          visibility: hidden;
+          position: fixed;
+          inset: 0;
+          background-color: #cacaca67;
+          z-index: 1;
+        }
+        nav.nav {
+          //   display: none;
+          position: fixed;
+          inset: 0;
+          flex-direction: column;
+          height: 100%;
+          width: 50%;
+          z-index: 2;
+          background-color: #fff;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateX(-100%);
+          transition: all 0.3s ease-in-out;
+          box-shadow: 0px 1.667px 8.333px 0px rgba(0, 0, 0, 0.15);
+
+          .active {
+            margin-top: 5rem;
+            &::before {
+              content: "";
+              position: absolute;
+              top: 100%;
+              right: 0;
+              width: 100%;
+              bottom: 0;
+              height: 2px;
+              background-color: #46b20f;
+            }
+          }
+          a {
+            font-size: 1.8rem;
+            &:hover {
+              &::before {
+                content: "";
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                bottom: 0;
+                height: 2px;
+                background-color: #46b20f;
+              }
+            }
+            display: inline-block;
+            margin: 2rem;
+          }
+        }
+        .action {
+          .search-wrapper {
+            img {
+              @extend %icon-width;
+            }
+          }
+          .cart-wrapper {
+            img {
+              @extend %icon-width;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@include mixin.medium() {
+  header.header .warpper {
+    max-width: 700px;
+  }
+}
+@include mixin.small() {
+  header {
+    .wrapper {
+      max-width: 530px;
+      input[type="checkbox"]:checked ~ .action {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .action {
+        transform: translateX(-100%);
+        display: block;
+        position: fixed;
+        visibility: hidden;
+        opacity: 0;
+        top: 56%;
+        left: 0;
+        z-index: 2;
+        margin: 0 auto;
+        transition: all 0.2s ease-in-out;
+        margin: 20px;
+        .cart-wrapper {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

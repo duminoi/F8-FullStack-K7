@@ -1,0 +1,115 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  width: 100%;
+  background-color: aliceblue;
+  font-family: sans-serif;
+}
+
+.container {
+  position: relative;
+  max-width: 722px;
+  width: 100%;
+  height: 50%;
+}
+.navbar {
+  width: 100%;
+  background-color: #fff;
+}
+.label-wrapper {
+  margin-top: 50px;
+  display: flex;
+}
+.label-wrapper label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #eee;
+  display: inline-block;
+  padding: 3px;
+}
+.label-wrapper label div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 43px;
+  width: 170px;
+}
+.label-wrapper label[for="tab-2"] div {
+  width: 183px;
+}
+input[name="tab"] {
+  display: none;
+}
+.para-wrapper {
+  position: absolute;
+  top: 103px;
+  width: 100%;
+  min-height: 200px;
+}
+
+.para-wrapper .para {
+  position: absolute;
+  top: -1px;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #fff;
+  border: 1px solid #eee;
+  padding: 20px 10px;
+  height: 100%;
+  transform-origin: top;
+  overflow: auto;
+}
+
+label[for="tab-1"]:hover,
+label[for="tab-2"]:hover,
+label[for="tab-3"]:hover,
+label[for="tab-4"]:hover {
+  background-color: #efe8e8;
+}
+
+input[id="tab-1"]:checked ~ .label-wrapper .tab-1,
+input[id="tab-2"]:checked ~ .label-wrapper .tab-2,
+input[id="tab-3"]:checked ~ .label-wrapper .tab-3,
+input[id="tab-4"]:checked ~ .label-wrapper .tab-4 {
+  border: 1px solid #cacaca;
+  background-color: #3398da;
+  color: #fff;
+  text-decoration: none;
+}
+
+input[id="tab-1"]:checked ~ .para-wrapper .para-1,
+input[id="tab-2"]:checked ~ .para-wrapper .para-2,
+input[id="tab-3"]:checked ~ .para-wrapper .para-3,
+input[id="tab-4"]:checked ~ .para-wrapper .para-4 {
+  opacity: 1;
+  visibility: visible;
+  animation: flip 0.5s linear;
+}
+@keyframes flip {
+  from {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(-75deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+h2 {
+  margin-bottom: 20px;
+  color: #3c3c3c;
+  font-size: 35px;
+}
+h2 + p {
+  font-size: 20px;
+  font-weight: 100;
+  color: #b1a6a6;
+}
