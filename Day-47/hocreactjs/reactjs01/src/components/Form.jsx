@@ -12,7 +12,7 @@ export default function Form() {
     password: "",
   });
 
-  const handleValidate = ({ email, password }, e) => {
+  const handleValidate = ({ email, password }) => {
     const errors = {};
     const data = {};
     if (!email) {
@@ -30,6 +30,7 @@ export default function Form() {
     if (!Object.keys(errors).length) {
       //Không có lỗi
       setUsers([...users, form]);
+      console.log(users);
       setForm({ email: "", password: "" });
     }
   };
@@ -39,7 +40,7 @@ export default function Form() {
   const handleSubmitForm = (e) => {
     e.preventDefault();
     console.log("submit");
-    handleValidate(form, e);
+    handleValidate(form);
     setForm({ email: "", password: "" });
   };
   const handleChangeValue = (e) => {
