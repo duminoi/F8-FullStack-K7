@@ -1,32 +1,24 @@
-// import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import UsdVnd from "./components/ConvertMoney/UsdVnd";
+import VndUsd from "./components/ConvertMoney/VndUsd";
 
 export default function App() {
-  const [title, setTitle] = useState("");
-  const [count, setCount] = useState(0);
-  const handleChangeValue = (e) => {
-    setTitle(e.target.value);
+  const [usd, setUsd] = useState();
+  const [vnd, setVnd] = useState();
+  const handleChangeUsd = (e) => {
+    const usdValue = e.target.value;
+    // setUsd(usdValue);
+    setVnd(usdValue * 25000);
   };
-  useEffect(() => {
-    document.title = title;
-    console.log("side effect");
-  }, []);
-  console.log("Component Re-render");
-
+  const handleChangeVnd = (e) => {
+    const vndValue = e.target.value;
+    // setVnd(vndValue);
+    setUsd(vndValue / 25000);
+  };
   return (
     <div>
-      <input type="text" name="" id="" onChange={handleChangeValue} />
-      {console.log("UI Update")}
-      <button onClick={() => setCount(count + 1)}>Click me ({count})</button>
+      <UsdVnd onChange={handleChangeUsd} value={usd} />
+      <VndUsd value={vnd} onChange={handleChangeVnd} />
     </div>
   );
 }
-
-/*
-Hook useEffect(callback, dependencies?)
-- null hoặc undefined ==> Component re-render
-callback trong useEffect sẽ được gọi
-- [] ==> Callback trong useEffect chỉ gọi khi component được render lần đầu tiên
-- [bien1, bien2, ...] ==> callback trong useEffect chỉ gọi khi một trong các biến được thay đổi
-*/
