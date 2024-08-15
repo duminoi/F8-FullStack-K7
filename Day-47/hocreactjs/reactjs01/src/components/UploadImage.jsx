@@ -43,7 +43,6 @@ export default function UploadImage() {
 
     return () => {
       console.log(`clean ${img.imagePreviewUrl}`);
-
       URL.revokeObjectURL(img.imagePreviewUrl);
     };
   }, [img.imagePreviewUrl]);

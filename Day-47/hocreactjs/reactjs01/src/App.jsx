@@ -3,17 +3,17 @@ import UsdVnd from "./components/ConvertMoney/UsdVnd";
 import VndUsd from "./components/ConvertMoney/VndUsd";
 
 export default function App() {
-  const [usd, setUsd] = useState();
-  const [vnd, setVnd] = useState();
+  const [usd, setUsd] = useState("");
+  const [vnd, setVnd] = useState("");
   const handleChangeUsd = (e) => {
-    const usdValue = e.target.value;
-    // setUsd(usdValue);
-    setVnd(usdValue * 25000);
+    const usd = e.target.value;
+    setUsd(usd);
+    setVnd(usd * 25000);
   };
   const handleChangeVnd = (e) => {
-    const vndValue = e.target.value;
-    // setVnd(vndValue);
-    setUsd(vndValue / 25000);
+    const vnd = e.target.value;
+    setVnd(vnd);
+    setUsd(vnd / 25000);
   };
   return (
     <div>

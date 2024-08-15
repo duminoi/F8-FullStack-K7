@@ -1,6 +1,8 @@
 import React from "react";
 
 export default function UsdVnd({ onChange, value }) {
+  console.log(value);
+
   return (
     <div>
       <input
