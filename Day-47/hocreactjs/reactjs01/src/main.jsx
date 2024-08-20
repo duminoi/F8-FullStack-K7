@@ -4,7 +4,7 @@ import App from "./App";
 import App02 from "./App02";
 const root = document.querySelector("#root");
 ReactDom.createRoot(root).render(
-  // <React.StrictMode>
-  <App />
-  // </React.StrictMode>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
