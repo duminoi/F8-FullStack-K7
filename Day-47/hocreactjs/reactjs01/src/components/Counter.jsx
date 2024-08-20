@@ -15,7 +15,6 @@ export default function Counter() {
   };
   console.log("Re-renders");
   console.log(count);
-  f;
   return (
     <div>
       <h1>Count: {count}</h1>
