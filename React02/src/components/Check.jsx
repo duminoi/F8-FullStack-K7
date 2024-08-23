@@ -11,14 +11,15 @@ export default function Check() {
         count.push(1);
       }
     });
-    // if (e.target.checked) {
-    //   count = [];
-    // }
+    if (!e.target.checked) {
+      count = [];
+    }
   };
 
   const handleCheckItem = (e) => {
     //cách 1
-    // console.log(e.target.checked);
+
+    console.log("vào dây");
 
     if (count.length <= data.length) {
       if (e.target.checked) {
@@ -33,12 +34,6 @@ export default function Check() {
       checkAllRef.current.checked = true;
     }
     console.log(count);
-
-    //cách 2
-    // if (!e.target.checked) {
-    //   checkAllRef.current.checked = false;
-    //   return;
-    // }
   };
   const checkAllRef = useRef();
   const checkItemRef = useRef([]);
