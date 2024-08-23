@@ -2,11 +2,13 @@
 
 import Form from "./components/Form";
 import Counter from "./components/Counter";
+import Text from "./components/Text";
 export default function App() {
   return (
     <div>
       {/* <Counter /> */}
       <Form />
+      {/* <Text /> */}
     </div>
   );
 }
