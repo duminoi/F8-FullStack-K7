@@ -1,18 +1,16 @@
 // import React from "react";
-
-// import Counter from "./components/Counter";
-import Todos from "./components/Todos/Todos";
+import Login from "./components/Auth/Login";
 
 export default function App() {
   return (
     <div>
-      {/* <Counter /> */}
-      <Todos />
+      <Login />
     </div>
   );
 }
 
-//Custom Hook
-//Tách reducer và combined
-//Middleware (Xử lý async action)
-//HOC = Higher Order Component
+//Lấy dữ liệu từ form
+//Call API login ==> lấy token ==> Lưu vào localStorage
+//Dùng token để lấy thông tin profile
+//Lưu toàn bộ thông tin profile lên store
+//Dùng dữ liệu từ store để check và thay đổi hiển thị component

@@ -1,23 +1,22 @@
 // import React from 'react'
 
-import { useContext } from "react";
-import { ProviderContext } from "../../store/Provider";
+// import { useContext } from "react";
+// import { ProviderContext } from "../../store/Provider";
+import { completedTodo, removeTodo } from "../../store/action/todoAction";
+import { useDispatch, useSelector } from "../../store/hook";
 export default function TodoList() {
-  const { state, dispatch } = useContext(ProviderContext);
+  const dispatch = useDispatch();
+  const todoList = useSelector((state) => state.todoList);
   const handleCheck = (e, id) => {
-    dispatch({
-      type: "todos/check",
-      payload: { id: id, isCompleted: e.target.checked },
-    });
+    dispatch(completedTodo(id, e));
   };
   const handleRemove = (index) => {
-    console.log(index);
-    dispatch({ type: "todos/remove", payload: index });
+    dispatch(removeTodo(index));
   };
   return (
     <div>
       <ul>
-        {state.todoList.map(({ id, isCompleted, task }) => {
+        {todoList.map(({ id, isCompleted, task }) => {
           return (
             <li key={id}>
               <input

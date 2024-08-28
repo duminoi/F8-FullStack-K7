@@ -1,27 +1,26 @@
 // import React from 'react'
 
-import { useContext, useState } from "react";
-import { ProviderContext } from "../../store/Provider";
+import { useState } from "react";
+
 import { v4 as uuid } from "uuid";
+import { useDispatch } from "../../store/hook";
+import { addTodo } from "../../store/action/todoAction";
 
 export default function TodoAdd() {
-  const { state, dispatch } = useContext(ProviderContext);
+  const dispatch = useDispatch();
   const [name, setName] = useState("");
   const handleChange = (e) => {
     setName(e.target.value);
   };
-  console.log(state.todoList);
 
+  const todo = {
+    id: uuid(),
+    task: name,
+    isCompleted: false,
+  };
   const handleAdd = (e) => {
     e.preventDefault();
-    dispatch({
-      type: "todos/add",
-      payload: {
-        id: uuid(),
-        task: name,
-        isCompleted: false,
-      },
-    });
+    dispatch(addTodo(todo));
   };
   return (
     <div>

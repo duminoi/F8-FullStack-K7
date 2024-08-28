@@ -1,46 +1,53 @@
 export const initialValue = {
   count: 0,
   todoList: [],
+  postList: [],
+  auth: {
+    user: {},
+    isLoading: true,
+  },
 };
 
 export const reducer = (state, action) => {
   switch (action.type) {
     case "counter/increment":
       return { ...state, count: state.count + 1 };
+
     case "counter/decrement":
       return { ...state, count: state.count - 1 };
+
     case "todos/add":
       return {
         ...state,
         todoList: [...state.todoList, action.payload],
       };
-    case "todos/check": {
-      const id = action.payload.id;
-      const isCompleted = action.payload.isCompleted;
-      //Cách 1
-      //   const list = [...state.todoList];
-      //   list[id] = { ...list[id], isCompleted: isCompleted };
 
-      //Cách 2: có thể dưa thẳng list vào return luôn
-      const list = state.todoList.map((todo) => {
-        if (todo.id == id) {
-          todo.isCompleted = isCompleted;
-        }
-        return todo;
-      });
+    case "todos/check": {
+      const { id, isCompleted } = action.payload;
+      const updatedTodoList = state.todoList.map((todo) =>
+        todo.id === id ? { ...todo, isCompleted } : todo
+      );
       return {
         ...state,
-        todoList: list,
+        todoList: updatedTodoList,
       };
     }
+
     case "todos/remove":
-      console.log(action.payload);
       return {
         ...state,
-        todoList: state.todoList.filter((todo) => {
-          return todo.id !== action.payload;
-        }),
+        todoList: state.todoList.filter((todo) => todo.id !== action.payload),
       };
+
+    case "posts/update":
+      return { ...state, postList: action.payload };
+
+    case "auth/setUser":
+      return { ...state, auth: { ...state.auth, user: action.payload } };
+
+    case "auth/setLoading":
+      return { ...state, auth: { ...state.auth, isLoading: false } };
+
     default:
       return state;
   }
