@@ -1,27 +1,38 @@
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "../../store/hook";
+import { fetchAuth } from "../../store/middlewares/fetchAuth";
 export default function Login() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const email = formData.get("email");
-    const password = formData.get("password");
-    const data = { email: email, password: password };
+  const [form, setForm] = useState({});
+  const dispatch = useDispatch();
+  const handleChangeValue = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    dispatch(fetchAuth(form.email, form.password));
+  };
+
   return (
     <div>
-      <h1>Đăng nhập</h1>
-      <form
-        onSubmit={(e) => {
-          handleSubmit(e);
-        }}
-        action=""
-      >
+      <h1>Login</h1>
+      <form action="" onSubmit={handleSubmitForm}>
         <div>
-          <input type="email" name="email" placeholder="Nhập email" />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email..."
+            onChange={handleChangeValue}
+          />
         </div>
         <div>
-          <input type="password" name="password" placeholder="password" />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password..."
+            onChange={handleChangeValue}
+          />
         </div>
-        <button>login</button>
+        <button>Login</button>
       </form>
     </div>
   );
