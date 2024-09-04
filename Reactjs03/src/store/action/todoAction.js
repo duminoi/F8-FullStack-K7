@@ -18,3 +18,4 @@ export const completedTodo = (id, e) => {
     payload: { id: id, isCompleted: e.target.checked },
   };
 };
+// Các hàm này gọi là Action Creator

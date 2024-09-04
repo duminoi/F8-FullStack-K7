@@ -25,11 +25,17 @@ export default function TodoList() {
                   handleCheck(e, id);
                 }}
               />
-              {isCompleted ? (
-                <span style={{ textDecoration: "line-through" }}>{task}</span>
-              ) : (
-                <span>{task}</span>
-              )}
+
+              <span
+                style={
+                  isCompleted
+                    ? { textDecoration: "line-through" }
+                    : { textDecoration: "none" }
+                }
+              >
+                {task}
+              </span>
+
               <button
                 onClick={() => {
                   handleRemove(id);

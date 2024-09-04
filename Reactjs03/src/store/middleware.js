@@ -11,7 +11,7 @@ export const middleware = (store) => {
     //   store.dispatch({ type: "counter/increment" });
     // }
     if (typeof action === "function") {
-      return action(store.dispatch, store.getState);
+      return action(store.dispatch, store.getState); // khi hành động là hàm call Api
     }
   };
 };
