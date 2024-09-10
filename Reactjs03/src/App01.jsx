@@ -1,14 +1,16 @@
 // import React from "react";
 
-// import Counter from "./components/Counter";
+import Counter from "./components/Counter";
 import Todos from "./components/Todos/Todos";
 import { useSelector } from "./store/hook";
 
 export default function App() {
+  console.log("Vào app");
+
   const count = useSelector((state) => state.count);
   return (
     <div>
-      {/* <Counter /> */}
+      <Counter />
       <Todos />
       <h2>Count: {count}</h2>
     </div>

@@ -10,8 +10,9 @@ export const middleware = (store) => {
     //   console.log("Bạn vừa thêm todos", action.payload.task);
     //   store.dispatch({ type: "counter/increment" });
     // }
+    console.log(action);
     if (typeof action === "function") {
-      return action(store.dispatch, store.getState); // khi hành động là hàm call Api
+      return action(store.dispatch, store.getState); // khi kết quả của action là hàm call Api
     }
   };
 };
