@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getVariable } from "../../redux/selector";
+
 import { addNewSubject } from "../../redux/action";
 
 export default function SubjectForm() {

@@ -1,14 +1,13 @@
-import React from "react";
+// import React from "react";
 import { useSelector } from "react-redux";
-import { getVariable } from "../../redux/selector";
-
+// import getVariable from "../../redux/selector";
+import { subjects as subjectsSelector } from "../../redux/selector";
 export default function ListSubject() {
-  console.log("vào listSubject");
-
   // const count = getVariable("count");
-  const subjects = getVariable("subjects");
+  const subjects = useSelector(subjectsSelector);
+
   // console.log("subjects", subjects);
-  const search = getVariable("search");
+  // const search = getVariable("search");
   // console.log("search", search);
 
   return (
