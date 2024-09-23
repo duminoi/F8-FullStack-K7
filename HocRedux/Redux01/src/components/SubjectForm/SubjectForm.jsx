@@ -1,27 +1,37 @@
-import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getVariable } from "../../redux/selector";
+
 import { addNewSubject } from "../../redux/action";
+import {
+  addSubject,
+  setInputValue,
+  setOption,
+} from "../../redux/subjects/subject";
 
 export default function SubjectForm() {
   const dispatch = useDispatch();
-  const inputValue = getVariable("inputValue");
-  const option = getVariable("option");
+  const { inputValue } = useSelector((state) => state.subjects);
+  const { option } = useSelector((state) => state.subjects);
   const formData = {
     inputValue: inputValue,
     option: option,
   };
+
   const handleClick = () => {
-    console.log(inputValue);
+    console.log("inputValue", inputValue);
+    console.log("option", option);
+
     dispatch({ type: "count/increment" });
-    dispatch(addNewSubject(formData));
+    // dispatch(addNewSubject(formData)); sử dụng redux core
+    dispatch(addSubject(formData));
   };
   const onInput = (e) => {
-    dispatch({ type: "setInputValue", payload: e.target.value });
+    // dispatch({ type: "setInputValue", payload: e.target.value }); Cách sử dụng redux core
+    dispatch(setInputValue(e.target.value));
   };
   const handleChange = (e) => {
-    console.log(e.target.value);
-    dispatch({ type: "setOption", payload: e.target.value });
+    // dispatch({ type: "setOption", payload: e.target.value });Cách sử dụng redux core
+    dispatch(setOption(e.target.value));
   };
   return (
     <>

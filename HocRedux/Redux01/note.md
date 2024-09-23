@@ -15,6 +15,12 @@ redux core:
 - Khi cập nhạt state: phải cập nhật cả state
   exp: state = {count: 1, number: 1}
 
+toolkit
+
+- sửa dự án sang toolkit
+
+redux-thunk (di kem voi toolkit)
+
 ## Ôn tập kiến thức cũ:
 
 1 số cách chống re-render không cần thiết:
