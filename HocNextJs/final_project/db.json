@@ -1,0 +1,87 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Category 1",
+      "short_name": "c1",
+      "order_num": 1
+    },
+    {
+      "id": "2",
+      "name": "Category 2",
+      "short_name": "c2",
+      "order_num": 2
+    },
+    {
+      "id": "b2aeece1-510d-44d1-852c-0b7dda87f5c1",
+      "name": "categ",
+      "short_name": "c3",
+      "order_num": "3"
+    },
+    {
+      "id": "389ebf4a-6e4a-4cd7-834f-2164672fd232",
+      "name": "category 4",
+      "short_name": "c4",
+      "order_num": "4"
+    },
+    {
+      "id": "15ac653e-f08b-4d69-a902-986bab15cc0b",
+      "name": "category 5",
+      "short_name": "c5",
+      "order_num": "5"
+    },
+    {
+      "id": "421790f5-64c3-4d04-b548-3f5e2549466a",
+      "name": "category 6",
+      "short_name": "c6",
+      "order_num": "6"
+    },
+    {
+      "id": "3fb1882e-61bd-4e6a-b872-06025522d984",
+      "name": "helo",
+      "short_name": "ádf",
+      "order_num": "ádf"
+    },
+    {
+      "id": "d40740b6-b409-448a-9fcd-93e144cb6a3e",
+      "name": "category 4",
+      "short_name": "c4",
+      "order_num": "4"
+    },
+    {
+      "id": "d15b973f-32e0-40fe-bc43-2a4680cfe6f4"
+    },
+    {
+      "id": "c997fdda-d95b-47ae-9c46-6d4e4fb117d5",
+      "name": "Category 1",
+      "short_name": "c1",
+      "order_num": 1
+    },
+    {
+      "id": "4f3c97d0-f9e7-464a-895f-acd69c8b0c51",
+      "name": "Category 1",
+      "short_name": "c1",
+      "order_num": 1
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Product 1",
+      "category_id": 1,
+      "order_num": 1
+    },
+    {
+      "id": "2",
+      "name": "Product 2",
+      "category_id": 1,
+      "order_num": 2
+    },
+    {
+      "id": "3",
+      "name": "Product 3",
+      "category_id": 2,
+      "order_num": 1
+    }
+  ]
+}
