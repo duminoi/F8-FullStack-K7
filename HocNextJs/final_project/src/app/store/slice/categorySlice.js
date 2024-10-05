@@ -1,7 +1,7 @@
 "use client";
-import { accordionActionsClasses } from "@mui/material";
+
 import axios from "axios";
-import { act } from "react";
+import { toast } from "react-toastify";
 
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
@@ -30,17 +30,28 @@ export const addCategory = createAsyncThunk(
     return category;
   }
 );
-export const updateCategory = createAsyncThunk(
+export const editCategory = createAsyncThunk(
   "category/editCategory",
-  async (id, data) => {
+  async ({ id, values }) => {
     const response = await axios.put(
       `http://localhost:3001/categories/${id}`,
-      data
+      values
     );
     const category = await response.data;
+
+    return category;
   }
 );
-
+export const deleteCategory = createAsyncThunk(
+  "category/deleteCategory",
+  async (id) => {
+    const response = await axios.delete(
+      `http://localhost:3001/categories/${id}`
+    );
+    const category = await response.data;
+    return category;
+  }
+);
 export const categorySlice = createSlice({
   name: "category",
   initialState: initialState,
@@ -65,6 +76,32 @@ export const categorySlice = createSlice({
         state.isLoading = false;
         console.log("action", action);
         state.categories.push(action.payload);
+        toast("Đã thêm thành công ^^");
+      }),
+      builder.addCase(editCategory.pending, (state) => {
+        state.isLoading = true;
+      }),
+      builder.addCase(editCategory.fulfilled, (state, action) => {
+        state.isLoading = false;
+        console.log("action", action);
+        const id = state.categories.findIndex(
+          (item) => item.id === action.payload.id
+        );
+        state.categories[id] = action.payload;
+        toast("Đã sửa thành công ^^");
+      }),
+      builder.addCase(deleteCategory.pending, (state) => {
+        state.isLoading = true;
+      }),
+      builder.addCase(deleteCategory.fulfilled, (state, action) => {
+        state.isLoading = false;
+        console.log("action", action.payload);
+
+        const newCategories = state.categories.filter(
+          (item) => item.id !== action.payload.id
+        );
+        state.categories = newCategories;
+        toast("Xóa thành công !!!!!");
       });
   },
 });

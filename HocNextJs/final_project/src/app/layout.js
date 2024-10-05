@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -23,7 +25,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Provider store={store}>{children}</Provider>
+        <Provider store={store}>
+          <ToastContainer></ToastContainer>
+          {children}
+        </Provider>
       </body>
     </html>
   );

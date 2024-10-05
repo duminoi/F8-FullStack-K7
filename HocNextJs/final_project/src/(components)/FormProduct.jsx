@@ -3,33 +3,33 @@ import React, { useEffect, useState } from "react";
 import { Button, Form, Input, Radio } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  addCategory,
-  editCategory,
+  addProduct,
+  editProduct,
   setIsEdit,
-} from "@/app/store/slice/categorySlice";
+} from "@/app/store/slice/productSlice";
 import { v4 as uuidv4 } from "uuid";
-const FormCategory = ({ id, setCategoryId }) => {
+const Formproducts = ({ id }) => {
   const [form] = Form.useForm();
   const [formLayout, setFormLayout] = useState("horizontal");
-  const { isEdit } = useSelector((state) => state.category);
+  const { isEdit } = useSelector((state) => state.product);
   const dispatch = useDispatch();
   const onFormLayoutChange = ({ layout }) => {
     setFormLayout(layout);
   };
-  const category = useSelector((state) =>
-    state.category.categories.find((item) => item.id === id)
+  const products = useSelector((state) =>
+    state.product.products.find((item) => item.id === id)
   );
 
-  console.log("category", category);
+  console.log("products", products);
   console.log("id", id);
 
   const handleSubmit = (values) => {
     if (!isEdit) {
-      dispatch(addCategory({ ...values, id: uuidv4() }));
+      dispatch(addProduct({ ...values, id: uuidv4() }));
     } else {
       // console.log("vào đây", id);
       dispatch(
-        editCategory({
+        editProduct({
           id: id,
           values: values,
         })
@@ -39,11 +39,10 @@ const FormCategory = ({ id, setCategoryId }) => {
   const handleBack = () => {
     dispatch(setIsEdit(false));
     form.resetFields();
-    setCategoryId(null);
   };
   useEffect(() => {
-    form.setFieldsValue(category);
-  }, [category, form]);
+    form.setFieldsValue(products);
+  }, [products, form]);
   return (
     <Form
       form={form}
@@ -60,7 +59,7 @@ const FormCategory = ({ id, setCategoryId }) => {
       <Form.Item label="name" name={"name"}>
         <Input autoFocus={isEdit} placeholder="input placeholder" />
       </Form.Item>
-      <Form.Item label="short_name" name="short_name">
+      <Form.Item label="category_id" name="category_id">
         <Input autoFocus={isEdit} placeholder="input placeholder" />
       </Form.Item>
       <Form.Item label="order_num" name={"order_num"}>
@@ -73,7 +72,7 @@ const FormCategory = ({ id, setCategoryId }) => {
       <Form.Item>
         <div className="flex gap-4">
           <Button type="primary" htmlType="submit">
-            {isEdit ? "Update Category" : "Add Category"}
+            {isEdit ? "Update products" : "Add products"}
           </Button>
           {isEdit && (
             <Button onClick={handleBack} danger type="primary">
@@ -85,4 +84,4 @@ const FormCategory = ({ id, setCategoryId }) => {
     </Form>
   );
 };
-export default FormCategory;
+export default Formproducts;
