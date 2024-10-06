@@ -23,7 +23,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-
+import CommonTable from "@/(components)/CommonTable";
 export default function () {
   // function createData(name, calories, fat, carbs, protein) {
   //   return { name, calories, fat, carbs, protein };
@@ -34,8 +34,13 @@ export default function () {
   const [open, setOpen] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
   const rows = products;
-  const columns = ["id", "name", "category_id", "order_num"];
-
+  // const columns = ["id", "name", "category_id", "order_num"];
+  const columns = [
+    { value: "id", text: "Id" },
+    { value: "name", text: "Tên" },
+    { value: "category_id", text: "Id thể loại" },
+    { value: "order_num", text: "Vị trí" },
+  ];
   const handleEdit = (e) => {
     // console.log("vào đây");
     setProductId(e.currentTarget.dataset.id);
@@ -61,39 +66,12 @@ export default function () {
     <div className="flex flex-col justify-center items-center gap-3 mx-[5rem]">
       <h1 className="text-3xl">Products</h1>
       <FormProduct id={productId} setProductId={setProductId}></FormProduct>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              {columns.map((column) => (
-                <TableCell key={column}>{column}</TableCell>
-              ))}
-              <TableCell>Action</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <TableRow
-                key={row.id} // Đảm bảo mỗi hàng có một key duy nhất
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                {columns.map((column) => (
-                  <TableCell key={`${column}-${row.id}`}>
-                    {row[column]}
-                  </TableCell>
-                ))}
-                <TableCell data-id={row.id}>
-                  <div data-id={row.id} className="flex gap-4">
-                    <EditFilled onClick={handleEdit} data-id={row.id} />
-                    <DeleteFilled onClick={handleOpen} data-id={row.id} />
-                    <EyeFilled data-id={row.id} />
-                  </div>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <CommonTable
+        columns={columns}
+        rows={rows}
+        handleEdit={handleEdit}
+        handleOpen={handleOpen}
+      ></CommonTable>
       <Dialog
         open={open}
         onClose={handleClose}

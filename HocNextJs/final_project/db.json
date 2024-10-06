@@ -1,22 +1,16 @@
 {
   "categories": [
     {
-      "id": "e38a11c6-ea17-4e54-9b98-74a27e83c104",
-      "name": "dđádfasdf",
-      "short_name": "ddádf",
-      "order_num": "ddádfasd"
+      "name": "a",
+      "short_name": "a",
+      "order_num": "a",
+      "id": "e38a11c6-ea17-4e54-9b98-74a27e83c104"
     },
     {
-      "name": "ccc",
-      "short_name": "sad",
-      "order_num": "ádf",
-      "id": "f9041988-b8f9-4566-b53d-619c0405ff57"
-    },
-    {
-      "id": "8d0af930-b15a-4312-824c-18a6ddb41126",
-      "name": "ass",
-      "short_name": "ssdfas",
-      "order_num": "ádfa"
+      "id": "d2d1ff9d-e575-4d74-9cad-75baac35037c",
+      "name": "nguyễn Đức Minhsdfasd",
+      "short_name": "s",
+      "order_num": "d"
     }
   ],
   "products": [

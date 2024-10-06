@@ -8,7 +8,7 @@ import {
   setIsEdit,
 } from "@/app/store/slice/productSlice";
 import { v4 as uuidv4 } from "uuid";
-const Formproducts = ({ id }) => {
+const FormProducts = ({ id }) => {
   const [form] = Form.useForm();
   const [formLayout, setFormLayout] = useState("horizontal");
   const { isEdit } = useSelector((state) => state.product);
@@ -84,4 +84,4 @@ const Formproducts = ({ id }) => {
     </Form>
   );
 };
-export default Formproducts;
+export default FormProducts;
