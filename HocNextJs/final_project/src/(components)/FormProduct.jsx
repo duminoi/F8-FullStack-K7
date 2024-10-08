@@ -8,6 +8,7 @@ import {
   setIsEdit,
 } from "@/app/store/slice/productSlice";
 import { v4 as uuidv4 } from "uuid";
+import FormContainer from "./FormContainer";
 const FormProducts = ({ id }) => {
   const [form] = Form.useForm();
   const [formLayout, setFormLayout] = useState("horizontal");
@@ -20,6 +21,7 @@ const FormProducts = ({ id }) => {
     state.product.products.find((item) => item.id === id)
   );
 
+  console.log("isEdit", isEdit);
 
   const handleSubmit = (values) => {
     if (!isEdit) {
@@ -34,26 +36,22 @@ const FormProducts = ({ id }) => {
     }
   };
   const handleBack = () => {
-    dispatch(setIsEdit(false))
+    dispatch(setIsEdit(false));
     form.resetFields();
   };
   useEffect(() => {
-    if(isEdit){
+    if (isEdit) {
       form.setFieldsValue(products);
     }
-  }, [isEdit,products]);
+  }, [isEdit, products]);
   return (
-    <Form
-      form={form}
-      onFinish={handleSubmit}
-      layout={formLayout}
-      initialValues={{
-        layout: formLayout,
-      }}
-      onValuesChange={onFormLayoutChange}
-      style={{
-        maxWidth: formLayout === "inline" ? "none" : 600,
-      }}
+    <FormContainer
+      form={form} // Truyền instance form từ FormCategory
+      formLayout={formLayout}
+      onFormLayoutChange={onFormLayoutChange}
+      handleSubmit={handleSubmit}
+      handleBack={handleBack}
+      isEdit={isEdit}
     >
       <Form.Item label="name" name={"name"}>
         <Input autoFocus={isEdit} placeholder="input placeholder" />
@@ -68,19 +66,7 @@ const FormProducts = ({ id }) => {
           placeholder="input placeholder"
         />
       </Form.Item>
-      <Form.Item>
-        <div className="flex gap-4">
-          <Button type="primary" htmlType="submit">
-            {isEdit ? "Update products" : "Add products"}
-          </Button>
-          {isEdit && (
-            <Button onClick={handleBack} danger type="primary">
-              Back
-            </Button>
-          )}
-        </div>
-      </Form.Item>
-    </Form>
+    </FormContainer>
   );
 };
 export default FormProducts;

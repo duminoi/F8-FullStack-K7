@@ -2,8 +2,13 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Input, Radio } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { addCategory, setIsEdit,editCategory } from "@/app/store/slice/categorySlice";
+import {
+  addCategory,
+  setIsEdit,
+  editCategory,
+} from "@/app/store/slice/categorySlice";
 import { v4 as uuidv4 } from "uuid";
+import FormContainer from "./FormContainer";
 const FormCategory = ({ id }) => {
   const [form] = Form.useForm();
   const [formLayout, setFormLayout] = useState("horizontal");
@@ -31,26 +36,22 @@ const FormCategory = ({ id }) => {
     }
   };
   const handleBack = () => {
-    dispatch(setIsEdit(false))
+    dispatch(setIsEdit(false));
     form.resetFields();
   };
   useEffect(() => {
-    if(isEdit){
+    if (isEdit) {
       form.setFieldsValue(category);
     }
-  }, [isEdit,category]);
+  }, [isEdit, category]);
   return (
-    <Form
-      form={form}
-      onFinish={handleSubmit}
-      layout={formLayout}
-      initialValues={{
-        layout: formLayout,
-      }}
-      onValuesChange={onFormLayoutChange}
-      style={{
-        maxWidth: formLayout === "inline" ? "none" : 600,
-      }}
+    <FormContainer
+      form={form} // Truyền instance form từ FormCategory
+      formLayout={formLayout}
+      onFormLayoutChange={onFormLayoutChange}
+      handleSubmit={handleSubmit}
+      handleBack={handleBack}
+      isEdit={isEdit}
     >
       <Form.Item label="Tên" name={"name"}>
         <Input autoFocus={isEdit} placeholder="input placeholder" />
@@ -65,19 +66,7 @@ const FormCategory = ({ id }) => {
           placeholder="input placeholder"
         />
       </Form.Item>
-      <Form.Item>
-        <div className="flex gap-4">
-          <Button type="primary" htmlType="submit">
-            {isEdit ? "Update Category" : "Add Category"}
-          </Button>
-          {isEdit && (
-            <Button onClick={handleBack} danger type="primary">
-              Back
-            </Button>
-          )}
-        </div>
-      </Form.Item>
-    </Form>
+    </FormContainer>
   );
 };
 export default FormCategory;

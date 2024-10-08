@@ -26,7 +26,7 @@ export default function () {
     { value: "order_num", text: "Vị trí" },
   ];
   const handleEdit = (e) => {
-    // console.log("vào đây");
+    console.log("vào đây");
     setProductId(e.currentTarget.dataset.id);
     dispatch(setIsEdit(true));
   };
