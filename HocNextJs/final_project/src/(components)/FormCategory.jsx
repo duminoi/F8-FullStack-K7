@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Input, Radio } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { addCategory, setIsEdit } from "@/app/store/slice/categorySlice";
+import { addCategory, setIsEdit,editCategory } from "@/app/store/slice/categorySlice";
 import { v4 as uuidv4 } from "uuid";
 const FormCategory = ({ id }) => {
   const [form] = Form.useForm();
@@ -22,16 +22,23 @@ const FormCategory = ({ id }) => {
     if (!isEdit) {
       dispatch(addCategory({ ...values, id: uuidv4() }));
     } else {
-      console.log("");
+      dispatch(
+        editCategory({
+          id: id,
+          values: values,
+        })
+      );
     }
   };
   const handleBack = () => {
-    dispatch(setIsEdit(false));
+    dispatch(setIsEdit(false))
     form.resetFields();
   };
   useEffect(() => {
-    form.setFieldsValue(category);
-  }, [category, form]);
+    if(isEdit){
+      form.setFieldsValue(category);
+    }
+  }, [isEdit,category]);
   return (
     <Form
       form={form}

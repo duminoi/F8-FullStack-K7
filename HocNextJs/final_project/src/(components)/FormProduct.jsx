@@ -20,14 +20,11 @@ const FormProducts = ({ id }) => {
     state.product.products.find((item) => item.id === id)
   );
 
-  console.log("products", products);
-  console.log("id", id);
 
   const handleSubmit = (values) => {
     if (!isEdit) {
       dispatch(addProduct({ ...values, id: uuidv4() }));
     } else {
-      // console.log("vào đây", id);
       dispatch(
         editProduct({
           id: id,
@@ -37,12 +34,14 @@ const FormProducts = ({ id }) => {
     }
   };
   const handleBack = () => {
-    dispatch(setIsEdit(false));
+    dispatch(setIsEdit(false))
     form.resetFields();
   };
   useEffect(() => {
-    form.setFieldsValue(products);
-  }, [products, form]);
+    if(isEdit){
+      form.setFieldsValue(products);
+    }
+  }, [isEdit,products]);
   return (
     <Form
       form={form}
