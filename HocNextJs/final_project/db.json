@@ -1,22 +1,16 @@
 {
   "categories": [
     {
-      "name": "a",
-      "short_name": "a",
-      "order_num": "a",
-      "id": "e38a11c6-ea17-4e54-9b98-74a27e83c104"
-    },
-    {
       "id": "d2d1ff9d-e575-4d74-9cad-75baac35037c",
       "name": "nguyễn Đức Minhsdfasd",
       "short_name": "s",
       "order_num": "d"
     },
     {
-      "name": "á",
-      "short_name": "sdfs",
-      "order_num": "dd",
-      "id": "5fe02884-5c28-41a6-ad23-9d658469251b"
+      "id": "40f841dc-2459-4c94-bc1e-d0d9d8a88929",
+      "name": "hihi",
+      "short_name": "ádf",
+      "order_num": "ấ"
     }
   ],
   "products": [
@@ -27,16 +21,22 @@
       "order_num": 1
     },
     {
-      "id": "2",
-      "name": "Product 2",
-      "category_id": 1,
-      "order_num": 2
+      "name": "Product 23",
+      "category_id": "13",
+      "order_num": "23",
+      "id": "2"
     },
     {
-      "id": "3",
+      "id": "29bb496b-4e90-4014-94f3-c461fd37e335",
       "name": "Product 3",
-      "category_id": 2,
-      "order_num": 1
+      "category_id": "3",
+      "order_num": "3"
+    },
+    {
+      "id": "1ff2530f-1ca7-4806-a1c1-6b375cfaf123",
+      "name": "Product 3",
+      "category_id": "3",
+      "order_num": "3"
     }
   ]
 }

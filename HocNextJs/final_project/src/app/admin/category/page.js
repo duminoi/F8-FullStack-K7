@@ -8,18 +8,10 @@ import {
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
+import DialogComponent from "@/(components)/Dialog";
 import CommonTable from "@/(components)/CommonTable";
 
 export default function () {
-  // function createData(name, calories, fat, carbs, protein) {
-  //   return { name, calories, fat, carbs, protein };
-  // }
   const { isLoading } = useSelector((state) => state.category);
   console.log(isLoading);
 
@@ -29,7 +21,7 @@ export default function () {
   const [open, setOpen] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
   const rows = categories;
-  // const columns = ["id", "name", "short_name", "order_num"];
+
   const columns = [
     { value: "id", text: "Id" },
     { value: "name", text: "Tên" },
@@ -71,28 +63,11 @@ export default function () {
         handleEdit={handleEdit}
         handleOpen={handleOpen}
       ></CommonTable>
-      <Dialog
+      <DialogComponent
         open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">
-          {"Xác nhận trước khi xóa?"}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Bạn đã chắn chắn xóa dữ liệu này? nếu đã xóa sẽ không thể khôi phục
-            được
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Không</Button>
-          <Button onClick={handleDelete} autoFocus>
-            Đồng ý
-          </Button>
-        </DialogActions>
-      </Dialog>
+        handleClose={handleClose}
+        handleDelete={handleDelete}
+      />
       {isLoading && <ClimbingBoxLoader />}
     </div>
   );

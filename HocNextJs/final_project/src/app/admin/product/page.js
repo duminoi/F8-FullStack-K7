@@ -5,29 +5,13 @@ import {
   getProduct,
   setIsEdit,
 } from "@/app/store/slice/productSlice";
-import { EditFilled, DeleteFilled, EyeFilled } from "@ant-design/icons";
-import {
-  TableContainer,
-  Paper,
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-} from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
+import { ClimbingBoxLoader } from "react-spinners";
 import CommonTable from "@/(components)/CommonTable";
+import DialogComponent from "@/(components)/Dialog";
 export default function () {
-  // function createData(name, calories, fat, carbs, protein) {
-  //   return { name, calories, fat, carbs, protein };
-  // }
+  const { isLoading } = useSelector((state) => state.product);
   const [productId, setProductId] = useState(false);
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.product);
@@ -72,28 +56,13 @@ export default function () {
         handleEdit={handleEdit}
         handleOpen={handleOpen}
       ></CommonTable>
-      <Dialog
+      <DialogComponent
         open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">
-          {"Xác nhận trước khi xóa?"}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Bạn đã chắn chắn xóa dữ liệu này? nếu đã xóa sẽ không thể khôi phục
-            được
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Không</Button>
-          <Button onClick={handleDelete} autoFocus>
-            Đồng ý
-          </Button>
-        </DialogActions>
-      </Dialog>
+        handleClose={handleClose}
+        handleDelete={handleDelete}
+      />
+
+      {isLoading && <ClimbingBoxLoader />}
     </div>
   );
 }
