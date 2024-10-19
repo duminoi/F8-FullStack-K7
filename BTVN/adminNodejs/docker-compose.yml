@@ -1,0 +1,11 @@
+
+services:
+  api:
+    container_name: node-admin
+    image: node:20.18.0
+    working_dir: /app/node-admin
+    volumes:
+      - "./node-admin:/app/node-admin"
+    ports:
+      - "3000:3000"
+    command: [ "npx", "nodemon", "--legacy-watch", "index.js" ]
