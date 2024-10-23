@@ -1,0 +1,41 @@
+// của sql chung
+create table <table_name> (
+    column_name_1 type,
+    column_name_2 type,
+    column_name_3 type,
+    column_name_4 type,
+ }
+
+ // của javascript
+ create table <table_name> (
+     column_name_1 type,
+     column_name_2 type,
+     column_name_3 type,
+     column_name_4 type,
+}
+// câu lệnh insert
+insert into users (<col1>, <col2>) values (<val1>, <val2)
+// Câu lệnh update
+update <tab_name> set column_name_1 = value1,
+                      column_name_2 = value2
+where True / condition (id = 1....)
+
+// Câu lệnh delete
+delete from <tab_name> where...
+
+Trong thực tế không đưc dùng lệnh delete
+luôn có cột active trong bảng
+active = true-> record chưa bị xóa
+
+
+// Câu lệnh sắp xếp (sort)
+select * from <table_name> order by <col1> desc/asc, <col2>
+
+// Câu lệnh add column
+alter table <tab_name> add column <col1> <type> (default) <value>
+
+// Câu lệnh remove column
+alter table <tab_name> drop column <col1> <type>
+
+// câu lệnh rename(table)
+alter table <tab_name> column <old> to <new>
