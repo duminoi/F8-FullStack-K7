@@ -1,0 +1,30 @@
+
+services:
+  api:
+    container_name: nestjs01
+    image: node:20.18.0
+    working_dir: /app/nestjs
+    env_file:
+      - nestjs01/.env
+#    environment:
+#      - PORT=5000
+    volumes:
+      - "./nestjs01:/app/nestjs"
+    ports:
+      - "3000:3000"
+    command: [ "npm", "run", "start:dev", "index.js" ]
+
+  db:
+    container_name: f8-nestjs-db
+    image: postgres:17
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=default
+    ports:
+      - '4000:5432'
+    volumes:
+      - './nestjs01/db:/var/lib/postgresql/data'
+volumes:
+  db:
+    driver: local

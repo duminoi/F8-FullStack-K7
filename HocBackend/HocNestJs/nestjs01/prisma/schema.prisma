@@ -1,0 +1,121 @@
+generator client{
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Member {
+    id  BigInt  @id @default(autoincrement())
+    name String
+    mail String
+    role String
+    password String
+    createAt DateTime @default(now())
+    createBy Int
+    modifiedAt DateTime
+    modifiedBy Int
+    deletedAt DateTime
+    deletedBy Int
+    active Boolean @default(true)
+}
+
+model Class {
+    id  BigInt  @id @default(autoincrement())
+    name String
+    schedule Json
+    password String
+    createAt DateTime @default(now())
+    createBy Int
+    modifiedAt DateTime
+    modifiedBy Int
+    deletedAt DateTime
+    deletedBy Int
+    active Boolean @default(true)
+}
+
+
+model ClassMember {
+    id  BigInt  @id @default(autoincrement())
+    classId BigInt
+    memberId BigInt
+    createAt DateTime @default(now())
+    createBy Int
+    modifiedAt DateTime
+    modifiedBy Int
+    deletedAt DateTime
+    deletedBy Int
+    active Boolean @default(true)
+}
+
+model Attendance {
+    id  BigInt  @id @default(autoincrement())
+    classMemberId BigInt
+    status String
+    remark String
+    createAt DateTime @default(now())
+    createBy Int
+    modifiedAt DateTime
+    modifiedBy Int
+    deletedAt DateTime
+    deletedBy Int
+    active Boolean @default(true)
+}
+
+model Subject{
+    id  BigInt  @id @default(autoincrement())
+    name String
+    description String
+    createAt DateTime @default(now())
+    createBy Int
+    modifiedAt DateTime
+    modifiedBy Int
+    deletedAt DateTime
+    deletedBy Int
+    active Boolean @default(true)
+}
+
+model SubjectClass{
+    id  BigInt  @id @default(autoincrement())
+    classId BigInt
+    subjectId BigInt
+    schedule     Json
+    createAt DateTime @default(now())
+    createBy Int
+    modifiedAt DateTime
+    modifiedBy Int
+    deletedAt DateTime
+    deletedBy Int
+    active Boolean @default(true)
+}
+
+model Exam{
+    id  BigInt  @id @default(autoincrement())
+    classMemberId BigInt
+    subjectId BigInt
+    name BigInt
+    description String
+    createAt DateTime @default(now())
+    createBy Int
+    modifiedAt DateTime
+    modifiedBy Int
+    deletedAt DateTime
+    deletedBy Int
+    active Boolean @default(true)
+}
+
+model ExamResult{
+    id  BigInt  @id @default(autoincrement())
+    examId BigInt
+    memberId BigInt
+    score Int
+    createAt DateTime @default(now())
+    createBy Int
+    modifiedAt DateTime
+    modifiedBy Int
+    deletedAt DateTime
+    deletedBy Int
+    active Boolean @default(true)
+}
