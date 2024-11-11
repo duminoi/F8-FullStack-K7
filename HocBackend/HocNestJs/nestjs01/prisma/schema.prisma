@@ -8,114 +8,206 @@ datasource db {
 }
 
 model Member {
-    id  BigInt  @id @default(autoincrement())
+    id Int @id @default(autoincrement())
     name String
     mail String
     role String
+    class ClassMember[]
+    examResults ExamResult[]
+
     password String
     createAt DateTime @default(now())
-    createBy Int
-    modifiedAt DateTime
-    modifiedBy Int
-    deletedAt DateTime
-    deletedBy Int
+    createBy Int?
+    modifiedAt DateTime?
+    modifiedBy Int?
+    deletedAt DateTime?
+    deletedBy Int?
     active Boolean @default(true)
 }
 
 model Class {
-    id  BigInt  @id @default(autoincrement())
+    id  Int  @id @default(autoincrement())
     name String
     schedule Json
-    password String
+    exam Exam[]
+    member ClassMember[]
     createAt DateTime @default(now())
-    createBy Int
-    modifiedAt DateTime
-    modifiedBy Int
-    deletedAt DateTime
-    deletedBy Int
+    createBy Int?
+    modifiedAt DateTime?
+    modifiedBy Int?
+    deletedAt DateTime?
+    deletedBy Int?
     active Boolean @default(true)
 }
 
 
 model ClassMember {
-    id  BigInt  @id @default(autoincrement())
-    classId BigInt
-    memberId BigInt
-    createAt DateTime @default(now())
-    createBy Int
-    modifiedAt DateTime
-    modifiedBy Int
-    deletedAt DateTime
-    deletedBy Int
+    // id  Int  @id @default(autoincrement())
+    class    Class @relation(fields: [classId], references: [id])
+    classId Int
+    member Member @relation(fields: [memberId], references: [id])
+    memberId Int
+    // createAt DateTime @default(now())
+    // createBy Int?
+    // modifiedAt DateTime?
+    // modifiedBy Int?
+    // deletedAt DateTime?
+    // deletedBy Int?
     active Boolean @default(true)
+    @@id([classId,memberId])
 }
 
 model Attendance {
-    id  BigInt  @id @default(autoincrement())
-    classMemberId BigInt
+    id  Int  @id @default(autoincrement())
+    classMemberId Int
     status String
     remark String
     createAt DateTime @default(now())
-    createBy Int
-    modifiedAt DateTime
-    modifiedBy Int
-    deletedAt DateTime
-    deletedBy Int
+    createBy Int?
+    modifiedAt DateTime?
+    modifiedBy Int?
+    deletedAt DateTime?
+    deletedBy Int?
     active Boolean @default(true)
 }
 
 model Subject{
-    id  BigInt  @id @default(autoincrement())
+    id  Int  @id @default(autoincrement())
     name String
     description String
     createAt DateTime @default(now())
-    createBy Int
-    modifiedAt DateTime
-    modifiedBy Int
-    deletedAt DateTime
-    deletedBy Int
+    createBy Int?
+    modifiedAt DateTime?
+    modifiedBy Int?
+    deletedAt DateTime?
+    deletedBy Int?
     active Boolean @default(true)
 }
 
 model SubjectClass{
-    id  BigInt  @id @default(autoincrement())
-    classId BigInt
-    subjectId BigInt
+    id  Int  @id @default(autoincrement())
+    classId Int
+    subjectId Int
     schedule     Json
     createAt DateTime @default(now())
-    createBy Int
-    modifiedAt DateTime
-    modifiedBy Int
-    deletedAt DateTime
-    deletedBy Int
+    createBy Int?
+    modifiedAt DateTime?
+    modifiedBy Int?
+    deletedAt DateTime?
+    deletedBy Int?
     active Boolean @default(true)
 }
 
+// model Exam{
+//     id  Int  @id @default(autoincrement())
+//     classMemberId Int
+//     subjectId Int
+//     name Int
+//     description String
+//     createAt DateTime @default(now())
+//     createBy Int?
+//     modifiedAt DateTime?
+//     modifiedBy Int?
+//     deletedAt DateTime?
+//     deletedBy Int?
+//     active Boolean @default(true)
+// }
+
 model Exam{
-    id  BigInt  @id @default(autoincrement())
-    classMemberId BigInt
-    subjectId BigInt
-    name BigInt
-    description String
+    id  Int  @id @default(autoincrement())
+    name String
+    classId Int
+    class Class @relation(fields: [classId], references: [id])
+    examDetails ExamDetail[]
+    // description String
     createAt DateTime @default(now())
-    createBy Int
-    modifiedAt DateTime
-    modifiedBy Int
-    deletedAt DateTime
-    deletedBy Int
+    createBy Int?
+    modifiedAt DateTime?
+    modifiedBy Int?
+    deletedAt DateTime?
+    deletedBy Int?
     active Boolean @default(true)
+}
+model File{
+    id         Int       @id @default(autoincrement())
+    key String?
+    url String
+    examDetails ExamDetail[]
+    createAt   DateTime  @default(now())
+    createBy   Int?
+    modifiedAt DateTime?
+    modifiedBy Int?
+    deletedAt  DateTime?
+    deletedBy  Int?
+    active     Boolean   @default(true)
+}
+
+model ExamDetail {
+    id         Int       @id @default(autoincrement())
+    name       String
+    examId     Int
+    exam       Exam      @relation(fields: [examId], references: [id])
+    fileId     Int
+    file       File      @relation(fields: [fileId], references: [id])
+    examResult ExamResult[]
+    totalTime  Int
+    code       String
+    createAt   DateTime  @default(now())
+    createBy   Int?
+    modifiedAt DateTime?
+    modifiedBy Int?
+    deletedAt  DateTime?
+    deletedBy  Int?
+    active     Boolean   @default(true)
+}
+
+
+
+model Question{
+    id Int  @id @default(autoincrement())
+    content String
+    index Int
+    examResult ExamResult[]
+    answer String // A,B,C,D
+    createAt   DateTime  @default(now())
+    createBy   Int?
+    modifiedAt DateTime?
+    modifiedBy Int?
+    deletedAt  DateTime?
+    deletedBy  Int?
+    active     Boolean   @default(true)
 }
 
 model ExamResult{
-    id  BigInt  @id @default(autoincrement())
-    examId BigInt
-    memberId BigInt
-    score Int
-    createAt DateTime @default(now())
-    createBy Int
-    modifiedAt DateTime
-    modifiedBy Int
-    deletedAt DateTime
-    deletedBy Int
-    active Boolean @default(true)
+    id Int  @id @default(autoincrement())
+    studentId Int
+    student Member @relation(fields: [studentId],references: [id])
+    questionId Int
+    answer String // A,B,C,D
+    isCorrect Boolean
+    question Question @relation(fields: [questionId], references: [id])
+    examDetailId Int
+    examDetail ExamDetail @relation(fields: [examDetailId], references: [id])
+    createAt   DateTime  @default(now())
+    createBy   Int?
+    modifiedAt DateTime?
+    modifiedBy Int?
+    deletedAt  DateTime?
+    deletedBy  Int?
+    active     Boolean   @default(true)
 }
+
+//
+// model ExamResult{
+//     id  Int  @id @default(autoincrement())
+//     examId Int
+//     memberId Int
+//     score Int
+//     createAt DateTime @default(now())
+//     createBy Int?
+//     modifiedAt DateTime?
+//     modifiedBy Int?
+//     deletedAt DateTime?
+//     deletedBy Int?
+//     active Boolean @default(true)
+// }
