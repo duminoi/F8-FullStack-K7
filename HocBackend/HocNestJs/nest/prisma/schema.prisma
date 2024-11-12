@@ -1,0 +1,145 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Member {
+  id          Int           @id @default(autoincrement())
+  name        String
+  // fullName   Int
+  mail        String        @unique
+  role        String
+  password    String
+  classes     ClassMember[]
+  examResults ExamResult[]
+  createdAt   DateTime      @default(now())
+  createdBy   Int?
+  modifiedAt  DateTime?
+  modifiedBy  Int?
+  deletedAt   DateTime?
+  deletedBy   Int?
+  active      Boolean       @default(true)
+}
+
+model Class {
+  id         Int   @id @default(autoincrement())
+  name       String
+  schedule   Json
+  members    ClassMember[]
+  exams      Exam[]
+
+  createdAt  DateTime @default(now())
+  createdBy  Int?
+  modifiedAt DateTime?
+  modifiedBy Int?
+  deletedAt  DateTime?
+  deletedBy  Int?
+  active     Boolean  @default(true)
+}
+
+model ClassMember {
+  // id         Int   @id @default(autoincrement())
+  class      Class @relation(fields: [classId], references: [id])
+  classId    Int
+  member     Member @relation(fields: [memberId], references: [id])
+  memberId   Int
+  // createdAt  DateTime @default(now())
+  // createdBy  Int?
+  // modifiedAt DateTime?
+  // modifiedBy Int?
+  // deletedAt  DateTime?
+  // deletedBy  Int?
+  active     Boolean  @default(true)
+  @@id([classId, memberId])
+}
+
+model Exam {
+  id          Int          @id @default(autoincrement())
+  name        String
+  classId     Int
+  class       Class        @relation(fields: [classId], references: [id])
+  examDetails ExamDetail[]
+  createdAt   DateTime     @default(now())
+  createdBy   Int?
+  modifiedAt  DateTime?
+  modifiedBy  Int?
+  deletedAt   DateTime?
+  deletedBy   Int?
+  active      Boolean      @default(true)
+}
+
+model File {
+  id          Int          @id @default(autoincrement())
+  key         String?
+  url         String
+  examDetails ExamDetail[]
+  createdAt   DateTime     @default(now())
+  createdBy   Int?
+  modifiedAt  DateTime?
+  modifiedBy  Int?
+  deletedAt   DateTime?
+  deletedBy   Int?
+  active      Boolean      @default(true)
+}
+
+model ExamDetail {
+  id          Int          @id @default(autoincrement())
+  name        String
+  examId      Int
+  exam        Exam         @relation(fields: [examId], references: [id])
+  fileId      Int
+  file        File         @relation(fields: [fileId], references: [id])
+  examResults ExamResult[]
+  totalTime   Int
+  code        String
+  createdAt   DateTime     @default(now())
+  createdBy   Int?
+  modifiedAt  DateTime?
+  modifiedBy  Int?
+  deletedAt   DateTime?
+  deletedBy   Int?
+  active      Boolean      @default(true)
+}
+
+model Question {
+  id          Int          @id @default(autoincrement())
+  answer      String // A,B,C,D
+  index       Int
+  examResults ExamResult[]
+  createdAt   DateTime     @default(now())
+  createdBy   Int?
+  modifiedAt  DateTime?
+  modifiedBy  Int?
+  deletedAt   DateTime?
+  deletedBy   Int?
+  active      Boolean      @default(true)
+}
+
+model ExamResult {
+  id           Int        @id @default(autoincrement())
+  studentId    Int
+  student      Member     @relation(fields: [studentId], references: [id])
+  questionId   Int
+  question     Question   @relation(fields: [questionId], references: [id])
+  examDetailId Int
+  examDetail   ExamDetail @relation(fields: [examDetailId], references: [id])
+  answer       String // A,B,C,D
+  isCorrect    Boolean
+  createdAt    DateTime   @default(now())
+  createdBy    Int?
+  modifiedAt   DateTime?
+  modifiedBy   Int?
+  deletedAt    DateTime?
+  deletedBy    Int?
+  active       Boolean    @default(true)
+}
